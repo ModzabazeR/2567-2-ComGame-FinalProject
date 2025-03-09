@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 using FinalProject.GameObject;
 
 namespace FinalProject;
@@ -18,6 +19,11 @@ class Singleton
 	// Random
 	public Random Random { get; } = new Random();
 
+	public int ScreenWidth { get; set; } = 1080;
+	public int ScreenHeight { get; set; } = 720;
+
+	public SpriteFont Font { get; set; }
+
 	private Singleton() { }
 
 	public static Singleton Instance
@@ -32,4 +38,9 @@ class Singleton
 		}
 	}
 
+	public void UpdateKeyboardState()
+	{
+		PreviousKey = CurrentKey;
+		CurrentKey = Keyboard.GetState();
+	}
 }
