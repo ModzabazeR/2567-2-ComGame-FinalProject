@@ -38,14 +38,23 @@ public class MainScene : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
         // Create player texture
-        Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
-        Color[] playerData = new Color[32 * 32];
-        for (int i = 0; i < playerData.Length; i++)
-            playerData[i] = Color.Red;
-        playerTexture.SetData(playerData);
+        //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
+        //Color[] playerData = new Color[32 * 32];
+        //for (int i = 0; i < playerData.Length; i++)
+        //    playerData[i] = Color.Red;
+        //playerTexture.SetData(playerData);
+        Texture2D idleTexture = Content.Load<Texture2D>("_Idle"); 
+        Texture2D runTexture = Content.Load<Texture2D>("_Run"); 
+        Texture2D jumpTexture = Content.Load<Texture2D>("_Jump"); 
+
+        Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
+            { "Idle", new Animation(idleTexture, 120, 80, 10, 0.1f) },
+            { "Run", new Animation(runTexture, 120, 80, 10, 0.08f) },
+            { "Jump", new Animation(jumpTexture, 120, 80, 3, 0.15f) }
+        };
 
         // Initialize systems
-        player = new Player(playerTexture, new Vector2(100, 100));
+        player = new Player(animations, new Vector2(100, 100));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
         levelManager = new LevelManager(GraphicsDevice);
 

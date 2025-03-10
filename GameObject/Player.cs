@@ -11,17 +11,31 @@ public class Player
 	public Vector2 Velocity;
 	public Rectangle Bounds;
 	private Texture2D texture;
+
+	private AnimationManager _animationManager;
+	private Dictionary<string, Animation> _animations;
+	private string _currentAnimationKey;
+
 	private const float moveSpeed = 300f;
 	private const float gravity = 800f;
 	private const float jumpForce = -400f;
 	private bool isOnGround;
 	private bool canJump = false;
 
-	public Player(Texture2D texture, Vector2 position)
+	public Player(Dictionary<string, Animation> animations, Vector2 position)
 	{
-		this.texture = texture;
+		_animations = animations;
+		_currentAnimationKey = "Idle";
+		_animationManager = new AnimationManager(_animations[_currentAnimationKey]);
 		Position = position;
-		Bounds = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+
+		if (_animations[_currentAnimationKey]?.Texture != null)
+			Bounds = new Rectangle((int)position.X, (int)position.Y,
+								   _animations[_currentAnimationKey].FrameWidth,
+								   _animations[_currentAnimationKey].FrameHeight);
+		else
+			throw new System.Exception("Player animation texture is null");
+
 	}
 
 	public void Update(GameTime gameTime, List<Rectangle> platforms)
@@ -30,22 +44,35 @@ public class Player
 		Vector2 previousPosition = Position;
 
 		// Horizontal movement
-		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Left))
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
+		{
 			Velocity.X = -moveSpeed;
-		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Right))
+			_animationManager.Play(_animations["Run"]);
+		}
+
+		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
+		{
 			Velocity.X = moveSpeed;
+			_animationManager.Play(_animations["Run"]);
+		}
+
 		else
+		{
 			Velocity.X = 0;
+			_animationManager = new AnimationManager(_animations["Idle"]);
+		}
+
 
 		// Jump input
-		if (canJump && Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
-			Singleton.Instance.PreviousKey.IsKeyUp(Keys.Space))
+		if (canJump && Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.W))
 		{
 			Velocity.Y = jumpForce;
 			canJump = false;
 			isOnGround = false;
+			_animationManager.Play(_animations["Jump"]);
 		}
-
+		
 		// Apply gravity
 		if (!isOnGround)
 			Velocity.Y += gravity * dt;
@@ -53,8 +80,11 @@ public class Player
 		// Update position
 		Position += Velocity * dt;
 
+		// Update animation
+		_animationManager.Update(gameTime);
+
 		// Update bounds
-		Bounds = new Rectangle((int)Position.X, (int)Position.Y, texture.Width, texture.Height);
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y, _animationManager.Animation.FrameWidth, _animationManager.Animation.FrameHeight);
 
 		// Platform collision
 		isOnGround = false;
@@ -90,11 +120,12 @@ public class Player
 		}
 
 		// Update bounds after collision resolution
-		Bounds = new Rectangle((int)Position.X, (int)Position.Y, texture.Width, texture.Height);
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y, _animationManager.Animation.FrameWidth, _animationManager.Animation.FrameHeight);
 	}
 
 	public void Draw(SpriteBatch spriteBatch)
 	{
-		spriteBatch.Draw(texture, Position, Color.White);
+		bool flip = Velocity.X < 0;
+		_animationManager.Draw(spriteBatch, Position, flip);
 	}
 }
