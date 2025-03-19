@@ -14,7 +14,7 @@ public class Camera
 	{
 		_viewWidth = viewWidth;
 		_viewHeight = viewHeight;
-		_zoom = 1.25f; // Set default zoom level (greater than 1 means more zoomed in)
+		_zoom = 1.0f; // Set default zoom level (greater than 1 means more zoomed in)
 	}
 
 	public void Follow(Vector2 target, Rectangle roomBounds)

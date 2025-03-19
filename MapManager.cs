@@ -28,6 +28,22 @@ namespace FinalProject
 			return allSolidTiles;
 		}
 
+		public Rectangle GetWorldBounds()
+		{
+			if (maps.Count == 0) return Rectangle.Empty;
+
+			// Start with the first map's bounds
+			Rectangle bounds = maps[0].Bounds;
+
+			// Expand bounds to include all maps
+			foreach (var map in maps)
+			{
+				bounds = Rectangle.Union(bounds, map.Bounds);
+			}
+
+			return bounds;
+		}
+
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			foreach (var map in maps)

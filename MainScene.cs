@@ -41,9 +41,12 @@ public class MainScene : Game
 
         // Load map textures
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
+        Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
 
         // Add maps with their collision data
         mapManager.AddMap(map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.txt");
+        mapManager.AddMap(map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.txt");
+
 
         // Create player texture
         //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
@@ -84,7 +87,7 @@ public class MainScene : Game
         );
 
         // Update camera to follow player
-        camera.Follow(player.Position, new Rectangle(0, 0, 4000, 1200));
+        camera.Follow(player.Position, mapManager.GetWorldBounds());
 
         // Update player with collision tiles
         player.Update(gameTime, mapManager.GetAllSolidTiles());
