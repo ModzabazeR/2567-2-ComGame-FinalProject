@@ -13,9 +13,9 @@ namespace FinalProject
 			maps = new List<Map>();
 		}
 
-		public void AddMap(Texture2D texture, Vector2 position, string collisionMapPath)
+		public void AddMap(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		{
-			maps.Add(new Map(texture, position, collisionMapPath));
+			maps.Add(new Map(name, texture, position, collisionMapPath));
 		}
 
 		public List<Rectangle> GetAllSolidTiles()
@@ -28,11 +28,27 @@ namespace FinalProject
 			return allSolidTiles;
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public Rectangle GetWorldBounds()
+		{
+			if (maps.Count == 0) return Rectangle.Empty;
+
+			// Start with the first map's bounds
+			Rectangle bounds = maps[0].Bounds;
+
+			// Expand bounds to include all maps
+			foreach (var map in maps)
+			{
+				bounds = Rectangle.Union(bounds, map.Bounds);
+			}
+
+			return bounds;
+		}
+
+		public void Draw(SpriteBatch spriteBatch, Rectangle cameraView)
 		{
 			foreach (var map in maps)
 			{
-				map.Draw(spriteBatch);
+				map.Draw(spriteBatch, cameraView);
 			}
 		}
 	}

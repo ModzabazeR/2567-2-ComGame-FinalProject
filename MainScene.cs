@@ -44,9 +44,12 @@ public class MainScene : Game
 
         // Load map textures
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
+        Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
 
         // Add maps with their collision data
-        mapManager.AddMap(map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.txt");
+        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.txt");
+        mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.txt");
+
 
         // Create player texture
         //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
@@ -112,7 +115,7 @@ public class MainScene : Game
         }
 
         // Update camera to follow player
-        camera.Follow(player.Position, new Rectangle(0, 0, 4000, 1200));
+        camera.Follow(player.Position, mapManager.GetWorldBounds());
 
         // Update player with collision tiles
         player.Update(gameTime, mapManager.GetAllSolidTiles());
@@ -126,9 +129,6 @@ public class MainScene : Game
 
         _spriteBatch.Begin(transformMatrix: camera?.Transform);
 
-        // Draw map first (before player)
-        mapManager.Draw(_spriteBatch);
-
         // Get camera bounds for visibility checking
         Rectangle cameraBounds = new Rectangle(
             (int)camera.Position.X,
@@ -136,6 +136,9 @@ public class MainScene : Game
             Singleton.Instance.ScreenWidth,
             Singleton.Instance.ScreenHeight
         );
+
+        // Draw map first (before player)
+        mapManager.Draw(_spriteBatch, cameraBounds);
 
         // Draw player
         player.Draw(_spriteBatch);
