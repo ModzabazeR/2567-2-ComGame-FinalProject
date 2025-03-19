@@ -18,8 +18,8 @@ public class Player
 	private string _currentAnimationKey;
 
 	private const float moveSpeed = 300f;
-	private const float gravity = 800f;
-	private const float jumpForce = -400f;
+	private const float gravity = 1000f;
+	private const float jumpForce = -500f;
 	private bool isOnGround;
 	private bool canJump = false;
 
@@ -35,7 +35,7 @@ public class Player
 								   _animations[_currentAnimationKey].FrameWidth,
 								   _animations[_currentAnimationKey].FrameHeight);
 		else
-			throw new System.Exception("Player animation texture is null");
+			throw new Exception("Player animation texture is null");
 
 	}
 
@@ -78,32 +78,48 @@ public class Player
 		if (!isOnGround)
 			Velocity.Y += gravity * dt;
 
-		// Update position
-		Position += Velocity * dt;
+		// Move horizontally first
+		Position.X += Velocity.X * dt;
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y,
+							 _animationManager.Animation.FrameWidth,
+							 _animationManager.Animation.FrameHeight);
 
-		// Update animation
-		_animationManager.Update(gameTime);
-
-		// Update bounds
-		Bounds = new Rectangle((int)Position.X, (int)Position.Y, _animationManager.Animation.FrameWidth, _animationManager.Animation.FrameHeight);
-
-		// Platform collision
-		isOnGround = false;
-		Rectangle futureBottomBounds = new Rectangle(
-			Bounds.X,
-			Bounds.Y + 1, // Check slightly below current position
-			Bounds.Width,
-			Bounds.Height
-		);
-
+		// Check horizontal collisions
 		foreach (Rectangle platform in platforms)
 		{
 			if (Bounds.Intersects(platform))
 			{
-				// Vertical collision
-				if (Velocity.Y >= 0) // Moving downward or stationary
+				// Moving right
+				if (Velocity.X > 0)
 				{
-					if (previousPosition.Y + Bounds.Height <= platform.Y + 5) // Was above platform
+					Position.X = platform.Left - Bounds.Width;
+				}
+				// Moving left
+				else if (Velocity.X < 0)
+				{
+					Position.X = platform.Right;
+				}
+				Velocity.X = 0;
+				break;
+			}
+		}
+
+		// Move vertically
+		Position.Y += Velocity.Y * dt;
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y,
+							 _animationManager.Animation.FrameWidth,
+							 _animationManager.Animation.FrameHeight);
+
+		// Check vertical collisions
+		isOnGround = false;
+		foreach (Rectangle platform in platforms)
+		{
+			if (Bounds.Intersects(platform))
+			{
+				// Moving down
+				if (Velocity.Y > 0)
+				{
+					if (previousPosition.Y + Bounds.Height <= platform.Y + 5)
 					{
 						Position.Y = platform.Y - Bounds.Height;
 						Velocity.Y = 0;
@@ -111,14 +127,18 @@ public class Player
 						canJump = true;
 					}
 				}
-			}
-			// Check if we're still on the platform
-			else if (futureBottomBounds.Intersects(platform) && Velocity.Y >= 0)
-			{
-				isOnGround = true;
-				canJump = true;
+				// Moving up
+				else if (Velocity.Y < 0)
+				{
+					Position.Y = platform.Bottom;
+					Velocity.Y = 0;
+				}
+				break;
 			}
 		}
+
+		// Update animation
+		_animationManager.Update(gameTime);
 
 		// Update bounds after collision resolution
 		Bounds = new Rectangle((int)Position.X, (int)Position.Y, _animationManager.Animation.FrameWidth, _animationManager.Animation.FrameHeight);

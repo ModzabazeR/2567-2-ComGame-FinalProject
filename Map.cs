@@ -9,7 +9,7 @@ namespace FinalProject
 	{
 		public Texture2D Texture { get; private set; }
 		public Vector2 Position { get; set; }
-		public Rectangle[] Tiles { get; private set; }
+		public Rectangle Bounds { get; private set; }
 		public List<Rectangle> SolidTiles { get; private set; }
 		private bool[,] collisionData;
 
@@ -18,8 +18,14 @@ namespace FinalProject
 			Texture = texture;
 			Position = position;
 			SolidTiles = new List<Rectangle>();
+
+			// Calculate the total map size based on tiles
+			int mapWidth = Singleton.Instance.MAP_WIDTH * Singleton.Instance.TILE_WIDTH;
+			int mapHeight = Singleton.Instance.MAP_HEIGHT * Singleton.Instance.TILE_HEIGHT;
+			Bounds = new Rectangle((int)position.X, (int)position.Y, mapWidth, mapHeight);
+
 			LoadCollisionData(collisionMapPath);
-			InitializeTiles();
+			InitializeCollisionTiles();
 		}
 
 		private void LoadCollisionData(string path)
@@ -37,23 +43,8 @@ namespace FinalProject
 			}
 		}
 
-		private void InitializeTiles()
+		private void InitializeCollisionTiles()
 		{
-			Tiles = new Rectangle[Singleton.Instance.MAP_WIDTH * Singleton.Instance.MAP_HEIGHT];
-			for (int y = 0; y < Singleton.Instance.MAP_HEIGHT; y++)
-			{
-				for (int x = 0; x < Singleton.Instance.MAP_WIDTH; x++)
-				{
-					int index = y * Singleton.Instance.MAP_WIDTH + x;
-					Tiles[index] = new Rectangle(
-						(int)(Position.X + x * Singleton.Instance.TILE_WIDTH),
-						(int)(Position.Y + y * Singleton.Instance.TILE_HEIGHT),
-						Singleton.Instance.TILE_WIDTH,
-						Singleton.Instance.TILE_HEIGHT
-					);
-				}
-			}
-
 			// Add collision rectangles for solid tiles
 			for (int y = 0; y < Singleton.Instance.MAP_HEIGHT; y++)
 			{
@@ -74,42 +65,21 @@ namespace FinalProject
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (Rectangle tile in Tiles)
+			// Draw the entire map texture scaled to fit the tile-based dimensions
+			spriteBatch.Draw(Texture, Bounds, Color.White);
+
+			// Draw collision boxes in debug mode
+			if (Singleton.Instance.ShowDebugInfo)
 			{
-				spriteBatch.Draw(
-					Texture,
-					tile,
-					new Rectangle(
-						tile.X - (int)Position.X,
-						tile.Y - (int)Position.Y,
-						Singleton.Instance.TILE_WIDTH,
-						Singleton.Instance.TILE_HEIGHT
-					),
-					Color.White
-				);
-
-				if (Singleton.Instance.ShowDebugInfo)
+				foreach (Rectangle solidTile in SolidTiles)
 				{
-					foreach (Rectangle solidTile in SolidTiles)
-					{
-						if (tile == solidTile)
-						{
-							// Draw red overlay for collision tiles in debug mode
-							spriteBatch.Draw(
-								Texture,
-								tile,
-								new Rectangle(
-									tile.X - (int)Position.X,
-									tile.Y - (int)Position.Y,
-									Singleton.Instance.TILE_WIDTH,
-									Singleton.Instance.TILE_HEIGHT
-								),
-								Color.Red * 0.3f
-							);
-						}
-					}
+					spriteBatch.Draw(
+						Texture,
+						solidTile,
+						null,
+						Color.Red * 0.3f
+					);
 				}
-
 			}
 		}
 	}

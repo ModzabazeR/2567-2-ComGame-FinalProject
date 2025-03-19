@@ -43,7 +43,7 @@ public class MainScene : Game
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
 
         // Add maps with their collision data
-        mapManager.AddMap(map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.txt");
+        mapManager.AddMap(map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.txt");
 
         // Create player texture
         //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
@@ -62,7 +62,7 @@ public class MainScene : Game
         };
 
         // Initialize systems
-        player = new Player(animations, new Vector2(100, 100));
+        player = new Player(animations, new Vector2(50, 700));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
