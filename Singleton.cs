@@ -22,7 +22,18 @@ class Singleton
 	public int ScreenWidth { get; set; } = 1080;
 	public int ScreenHeight { get; set; } = 720;
 
+	// Tile size for the maps
+	public int TILE_WIDTH { get; set; } = 32;
+	public int TILE_HEIGHT { get; set; } = 32;
+
+	// Map dimensions in tiles
+	public int MAP_WIDTH { get; set; } = 39;
+	public int MAP_HEIGHT { get; set; } = 22;
+
 	public SpriteFont Font { get; set; }
+
+	// Debug settings
+	public bool ShowDebugInfo { get; set; } = true; // Set to true by default for testing
 
 	private Singleton() { }
 

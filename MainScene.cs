@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FinalProject.GameObject;
 using System.Collections.Generic;
-using FinalProject.Level;
 
 namespace FinalProject;
 
@@ -13,7 +12,7 @@ public class MainScene : Game
     private SpriteBatch _spriteBatch;
     private Player player;
     private Camera camera;
-    private LevelManager levelManager;
+    private MapManager mapManager; // Add this field
 
     public MainScene()
     {
@@ -37,15 +36,24 @@ public class MainScene : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+        // Initialize map manager
+        mapManager = new MapManager();
+
+        // Load map textures
+        Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
+
+        // Add maps with their collision data
+        mapManager.AddMap(map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.txt");
+
         // Create player texture
         //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
         //Color[] playerData = new Color[32 * 32];
         //for (int i = 0; i < playerData.Length; i++)
         //    playerData[i] = Color.Red;
         //playerTexture.SetData(playerData);
-        Texture2D idleTexture = Content.Load<Texture2D>("_Idle"); 
-        Texture2D runTexture = Content.Load<Texture2D>("_Run"); 
-        Texture2D jumpTexture = Content.Load<Texture2D>("_Jump"); 
+        Texture2D idleTexture = Content.Load<Texture2D>("_Idle");
+        Texture2D runTexture = Content.Load<Texture2D>("_Run");
+        Texture2D jumpTexture = Content.Load<Texture2D>("_Jump");
 
         Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 120, 80, 10, 0.1f) },
@@ -56,7 +64,6 @@ public class MainScene : Game
         // Initialize systems
         player = new Player(animations, new Vector2(100, 100));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
-        levelManager = new LevelManager(GraphicsDevice);
 
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
     }
@@ -76,12 +83,11 @@ public class MainScene : Game
             Singleton.Instance.ScreenHeight
         );
 
-        // Update player with visible platforms
-        var visiblePlatforms = levelManager.GetVisiblePlatforms(cameraBounds);
-        player.Update(gameTime, visiblePlatforms);
-
         // Update camera to follow player
         camera.Follow(player.Position, new Rectangle(0, 0, 4000, 1200));
+
+        // Update player with collision tiles
+        player.Update(gameTime, mapManager.GetAllSolidTiles());
 
         base.Update(gameTime);
     }
@@ -90,6 +96,11 @@ public class MainScene : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
+        _spriteBatch.Begin(transformMatrix: camera?.Transform);
+
+        // Draw map first (before player)
+        mapManager.Draw(_spriteBatch);
+
         // Get camera bounds for visibility checking
         Rectangle cameraBounds = new Rectangle(
             (int)camera.Position.X,
@@ -97,11 +108,6 @@ public class MainScene : Game
             Singleton.Instance.ScreenWidth,
             Singleton.Instance.ScreenHeight
         );
-
-        _spriteBatch.Begin(transformMatrix: camera.Transform);
-
-        // Draw visible rooms
-        levelManager.Draw(_spriteBatch, cameraBounds);
 
         // Draw player
         player.Draw(_spriteBatch);

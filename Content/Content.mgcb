@@ -37,7 +37,7 @@
 /processorParam:TextureFormat=Color
 /build:_Jump.png
 
-#begin ../../../../../../../Downloads/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Run.png
+#begin _Run.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,7 +47,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../../../../../../../Downloads/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Run.png;_Run.png
+/build:_Run.png
 
 #begin GameFont.spritefont
 /importer:FontDescriptionImporter
@@ -56,3 +56,32 @@
 /processorParam:TextureFormat=Compressed
 /build:GameFont.spritefont
 
+#begin Textures/level1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/level1.png
+
+#begin Textures/level2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/level2.png
+
+#begin Maps/level1_collision.txt
+/copy:Maps/level1_collision.txt
+
+#begin Maps/level2_collision.txt
+/copy:Maps/level2_collision.txt

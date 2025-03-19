@@ -55,3 +55,10 @@ C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalPr
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\_Idle.xnb
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\_Jump.xnb
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\_Run.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\_Idle.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\_Jump.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\_Run.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\level1.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\level2.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.txt
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.txt

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -72,7 +73,7 @@ public class Player
 			isOnGround = false;
 			_animationManager.Play(_animations["Jump"]);
 		}
-		
+
 		// Apply gravity
 		if (!isOnGround)
 			Velocity.Y += gravity * dt;
@@ -127,5 +128,34 @@ public class Player
 	{
 		bool flip = Velocity.X < 0;
 		_animationManager.Draw(spriteBatch, Position, flip);
+
+		// Draw bounding box for debugging
+		DrawBoundingBox(spriteBatch);
+	}
+
+	private void DrawBoundingBox(SpriteBatch spriteBatch)
+	{
+		// Only draw debug visuals if debug mode is enabled
+		if (!Singleton.Instance.ShowDebugInfo)
+			return;
+
+		// Create a 1x1 white texture that we can resize to draw the bounding box
+		if (texture == null)
+		{
+			texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+			texture.SetData(new[] { Color.White });
+		}
+
+		// Draw the outline of the bounding box
+		Color boundingBoxColor = Color.Red * 0.7f; // Semi-transparent red
+
+		// Top line
+		spriteBatch.Draw(texture, new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, 1), boundingBoxColor);
+		// Bottom line
+		spriteBatch.Draw(texture, new Rectangle(Bounds.X, Bounds.Y + Bounds.Height, Bounds.Width, 1), boundingBoxColor);
+		// Left line
+		spriteBatch.Draw(texture, new Rectangle(Bounds.X, Bounds.Y, 1, Bounds.Height), boundingBoxColor);
+		// Right line
+		spriteBatch.Draw(texture, new Rectangle(Bounds.X + Bounds.Width, Bounds.Y, 1, Bounds.Height), boundingBoxColor);
 	}
 }
