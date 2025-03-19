@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FinalProject.GameObject;
 using System.Collections.Generic;
+using System;
 
 namespace FinalProject;
 
@@ -13,6 +14,8 @@ public class MainScene : Game
     private Player player;
     private Camera camera;
     private MapManager mapManager; // Add this field
+
+    private List<Enemy> enemies; // รายการศัตรู
 
     public MainScene()
     {
@@ -66,6 +69,20 @@ public class MainScene : Game
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
+        
+        // โหลดเท็กซ์เจอร์ของศัตรู
+        Texture2D enemyTexture = Content.Load<Texture2D>("_Jump");
+
+        // สุ่มสร้างศัตรู
+        enemies = new List<Enemy>();
+        for (int i = 0; i < 1; i++) // สร้าง 5 ตัว
+        {
+            Vector2 spawnPosition = new Vector2(
+                Singleton.Instance.Random.Next(100, 800), // X แบบสุ่ม
+                600 // Y ให้อยู่บนพื้น
+            );
+            enemies.Add(new Enemy(enemyTexture, spawnPosition));
+        }
     }
 
     protected override void Update(GameTime gameTime)
@@ -82,6 +99,17 @@ public class MainScene : Game
             Singleton.Instance.ScreenWidth,
             Singleton.Instance.ScreenHeight
         );
+
+        // อัปเดตศัตรู
+        foreach (var enemy in enemies)
+        {
+            enemy.Update(gameTime, mapManager.GetAllSolidTiles());
+            // เช็คการชนระหว่าง Player กับ Enemy
+            if (player.Bounds.Intersects(enemy.Bounds))
+            {
+                Console.WriteLine("hit"); // แสดงข้อความเมื่อชนกัน
+            }
+        }
 
         // Update camera to follow player
         camera.Follow(player.Position, new Rectangle(0, 0, 4000, 1200));
@@ -112,6 +140,12 @@ public class MainScene : Game
         // Draw player
         player.Draw(_spriteBatch);
 
+        // วาดศัตรู
+        foreach (var enemy in enemies)
+        {
+            enemy.Draw(_spriteBatch);
+        }
+        
         _spriteBatch.End();
 
         base.Draw(gameTime);
