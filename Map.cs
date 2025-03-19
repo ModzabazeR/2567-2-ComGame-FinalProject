@@ -15,10 +15,12 @@ namespace FinalProject
 		private bool[,] collisionData;
 		private int mapHeight;
 		private int mapWidth;
+		private string name;
 
 
-		public Map(Texture2D texture, Vector2 position, string collisionMapPath)
+		public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		{
+			this.name = name;
 			Texture = texture;
 			Position = position;
 			SolidTiles = new List<Rectangle>();
@@ -35,8 +37,9 @@ namespace FinalProject
 			InitializeCollisionTiles();
 		}
 
-		public Map(Texture2D texture, Vector2 position, string collisionMapPath, int mapWidth, int mapHeight)
+		public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath, int mapWidth, int mapHeight)
 		{
+			this.name = name;
 			Texture = texture;
 			Position = position;
 			SolidTiles = new List<Rectangle>();
@@ -95,8 +98,21 @@ namespace FinalProject
 			}
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
+		public bool IsVisible(Rectangle cameraView)
 		{
+			return Bounds.Intersects(cameraView);
+		}
+
+		public void Draw(SpriteBatch spriteBatch, Rectangle cameraView)
+		{
+			if (!IsVisible(cameraView))
+				return;
+
+			// if (Singleton.Instance.ShowDebugInfo)
+			// {
+			// 	Console.WriteLine($"Drawing {name}");
+			// }
+
 			// Draw the entire map texture scaled to fit the tile-based dimensions
 			spriteBatch.Draw(Texture, Bounds, Color.White);
 
@@ -105,12 +121,15 @@ namespace FinalProject
 			{
 				foreach (Rectangle solidTile in SolidTiles)
 				{
-					spriteBatch.Draw(
-						Texture,
-						solidTile,
-						null,
-						Color.Red * 0.3f
-					);
+					if (cameraView.Intersects(solidTile))
+					{
+						spriteBatch.Draw(
+							Texture,
+							solidTile,
+							null,
+							Color.Red * 0.3f
+						);
+					}
 				}
 			}
 		}
