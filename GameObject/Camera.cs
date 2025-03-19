@@ -11,12 +11,14 @@ public class Camera
 	private readonly float _zoom; // Add zoom field
 	private Vector2 _desiredPosition;
 	private float _followSpeed = 15f; // Adjust this value to change smoothing speed
+	private const float DEBUG_ZOOM = 1f;
+	private const float REAL_ZOOM = 1.25f;
 
 	public Camera(float viewWidth, float viewHeight)
 	{
 		_viewWidth = viewWidth;
 		_viewHeight = viewHeight;
-		_zoom = 1.25f; // Set default zoom level (greater than 1 means more zoomed in)
+		_zoom = DEBUG_ZOOM;
 	}
 
 	public void Follow(Vector2 target, Rectangle roomBounds)
