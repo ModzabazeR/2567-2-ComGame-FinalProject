@@ -21,6 +21,8 @@ public class MainScene : Game
 
     private List<Enemy> enemies; // รายการศัตรู
 
+    private SplashScreenSequence _currentSequence;
+
     public MainScene()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -37,11 +39,19 @@ public class MainScene : Game
         // TODO: Add your initialization logic here
 
         base.Initialize();
+
+        StartIntroSequence();
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        // Load the font first since splash screens need it
+        Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
+
+        // Start the intro sequence
+        StartIntroSequence();
 
         // Initialize map manager
         mapManager = new MapManager();
@@ -75,8 +85,6 @@ public class MainScene : Game
         player = new Player(animations, new Vector2(50, 700));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
-
         // Spawn an enemy
         enemies = new List<Enemy>();
         enemies.Add(new SimpleEnemy(animations, new Vector2(200, 700)));
@@ -84,67 +92,170 @@ public class MainScene : Game
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
-
         Singleton.Instance.UpdateKeyboardState();
 
-        // Get camera bounds for visibility checking
-        Rectangle cameraBounds = new Rectangle(
-            (int)camera.Position.X,
-            (int)camera.Position.Y,
-            Singleton.Instance.ScreenWidth,
-            Singleton.Instance.ScreenHeight
-        );
-
-        // อัปเดตศัตรู
-        foreach (var enemy in enemies)
+        // Handle splash screen and cutscene states
+        if (Singleton.Instance.CurrentGameState == GameState.Splash ||
+            Singleton.Instance.CurrentGameState == GameState.Cutscene)
         {
-            enemy.Update(gameTime, mapManager.GetAllSolidTiles());
-            // เช็คการชนระหว่าง Player กับ Enemy
-            if (player.Bounds.Intersects(enemy.Bounds))
+            // Add this check for Escape key to skip intro
+            if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Escape) &&
+                Singleton.Instance.PreviousKey.IsKeyUp(Keys.Escape))
             {
-                Console.WriteLine("hit"); // แสดงข้อความเมื่อชนกัน
+                _currentSequence?.Skip();
+                return;
+            }
+
+            if (_currentSequence != null)
+            {
+                _currentSequence.Update(gameTime);
+                if (_currentSequence.IsComplete)
+                {
+                    _currentSequence = null;
+                    Singleton.Instance.CurrentGameState = GameState.Playing;
+                }
+                return;
             }
         }
 
-        // Update camera to follow player
-        camera.Follow(player.Position, mapManager.GetWorldBounds());
+        // Only update game logic if in Playing state
+        if (Singleton.Instance.CurrentGameState == GameState.Playing)
+        {
+            // Get camera bounds for visibility checking
+            Rectangle cameraBounds = new Rectangle(
+                (int)camera.Position.X,
+                (int)camera.Position.Y,
+                Singleton.Instance.ScreenWidth,
+                Singleton.Instance.ScreenHeight
+            );
 
-        // Update player with collision tiles
-        player.Update(gameTime, mapManager.GetAllSolidTiles());
+            // อัปเดตศัตรู
+            foreach (var enemy in enemies)
+            {
+                enemy.Update(gameTime, mapManager.GetAllSolidTiles());
+                // เช็คการชนระหว่าง Player กับ Enemy
+                if (player.Bounds.Intersects(enemy.Bounds))
+                {
+                    Console.WriteLine("hit"); // แสดงข้อความเมื่อชนกัน
+                }
+            }
+
+            // Update camera to follow player
+            camera.Follow(player.Position, mapManager.GetWorldBounds());
+
+            // Update player with collision tiles
+            player.Update(gameTime, mapManager.GetAllSolidTiles());
+        }
 
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.Black);
 
-        _spriteBatch.Begin(transformMatrix: camera?.Transform);
-
-        // Get camera bounds for visibility checking
-        Rectangle cameraBounds = new Rectangle(
-            (int)camera.Position.X,
-            (int)camera.Position.Y,
-            Singleton.Instance.ScreenWidth,
-            Singleton.Instance.ScreenHeight
-        );
-
-        // Draw map first (before player)
-        mapManager.Draw(_spriteBatch, cameraBounds);
-
-        // Draw player
-        player.Draw(_spriteBatch);
-
-        // วาดศัตรู
-        foreach (var enemy in enemies)
+        if (Singleton.Instance.CurrentGameState == GameState.Splash ||
+            Singleton.Instance.CurrentGameState == GameState.Cutscene)
         {
-            enemy.Draw(_spriteBatch);
+            _spriteBatch.Begin();
+            _currentSequence?.Draw(_spriteBatch, Singleton.Instance.Font);
+            _spriteBatch.End();
+        }
+        else if (Singleton.Instance.CurrentGameState == GameState.Playing)
+        {
+            _spriteBatch.Begin(transformMatrix: camera?.Transform);
+
+            // Get camera bounds for visibility checking
+            Rectangle cameraBounds = new Rectangle(
+                (int)camera.Position.X,
+                (int)camera.Position.Y,
+                Singleton.Instance.ScreenWidth,
+                Singleton.Instance.ScreenHeight
+            );
+
+            // Draw map first (before player)
+            mapManager.Draw(_spriteBatch, cameraBounds);
+
+            // Draw player
+            player.Draw(_spriteBatch);
+
+            // วาดศัตรู
+            foreach (var enemy in enemies)
+            {
+                enemy.Draw(_spriteBatch);
+            }
+
+            _spriteBatch.End();
         }
 
-        _spriteBatch.End();
-
         base.Draw(gameTime);
+    }
+
+    private void StartIntroSequence()
+    {
+        var introScreens = new List<SplashScreenData>
+        {
+            // The legend
+            new SplashScreenData(
+                new string[] {
+                    "The Queue",
+                    "",
+                    "Some gods want fancy temples.",
+                    "Others rule through fear.",
+                    "",
+                    "But The Queue is different.",
+                    "It controls people by making them wait... forever."
+                }, fadeSpeed: 0.3f, displayTime: 6f),
+
+            // The protagonist
+            new SplashScreenData(
+                new string[] {
+                    "I never liked standing still.",
+                    "",
+                    "While others waited in endless lines,",
+                    "I chose to keep moving, to stay active,",
+                    "To live life the way I wanted.",
+                    "",
+                    "That's why they came after me."
+                }, fadeSpeed: 0.4f, displayTime: 6f),
+
+            // The capture
+            new SplashScreenData(
+                new string[] {
+                    "They dragged me to their temple,",
+                    "Said I was the perfect sacrifice",
+                    "Because I refused to stand in line.",
+                    "",
+                    "But during their ceremony,",
+                    "Something went terribly wrong.",
+                    "The whole temple fell into darkness."
+                }, fadeSpeed: 0.4f, displayTime: 7f),
+
+            // The stakes
+            new SplashScreenData(
+                new string[] {
+                    "Now we're trapped in The Queue's world,",
+                    "Where everyone stands frozen in lines.",
+                    "",
+                    "Its power is growing stronger,",
+                    "Spreading across our world.",
+                    "",
+                    "I have to escape. I have to run."
+                }, fadeSpeed: 0.5f, displayTime: 6f)
+        };
+
+        _currentSequence = new SplashScreenSequence(introScreens);
+        Singleton.Instance.CurrentGameState = GameState.Splash;
+    }
+
+    public void ShowCutscene(params SplashScreenData[] screens)
+    {
+        _currentSequence = new SplashScreenSequence(screens);
+        Singleton.Instance.CurrentGameState = GameState.Cutscene;
+    }
+
+    public void ShowSimpleCutscene(string[] text, float fadeSpeed = 1f, float displayTime = 2f)
+    {
+        ShowCutscene(new SplashScreenData(text, fadeSpeed, displayTime));
     }
 }
