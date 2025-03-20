@@ -1,7 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 using FinalProject.GameObject;
+using FinalProject.GameObject.Entity;
+using FinalProject.GameObject.Entity.Enemy;
+
 using System.Collections.Generic;
 using System;
 
@@ -72,20 +76,10 @@ public class MainScene : Game
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
-        
-        // โหลดเท็กซ์เจอร์ของศัตรู
-        Texture2D enemyTexture = Content.Load<Texture2D>("_Jump");
 
-        // สุ่มสร้างศัตรู
+        // Spawn an enemy
         enemies = new List<Enemy>();
-        for (int i = 0; i < 1; i++) // สร้าง 5 ตัว
-        {
-            Vector2 spawnPosition = new Vector2(
-                Singleton.Instance.Random.Next(100, 800), // X แบบสุ่ม
-                600 // Y ให้อยู่บนพื้น
-            );
-            enemies.Add(new Enemy(enemyTexture, spawnPosition));
-        }
+        enemies.Add(new SimpleEnemy(animations, new Vector2(200, 700)));
     }
 
     protected override void Update(GameTime gameTime)
@@ -148,7 +142,7 @@ public class MainScene : Game
         {
             enemy.Draw(_spriteBatch);
         }
-        
+
         _spriteBatch.End();
 
         base.Draw(gameTime);
