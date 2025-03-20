@@ -33,7 +33,7 @@ public class Map
 		int realMapHeight = mapHeight * Singleton.Instance.TILE_HEIGHT;
 		Bounds = new Rectangle((int)position.X, (int)position.Y, realMapWidth, realMapHeight);
 
-		LoadCollisionData(collisionMapPath);
+		LoadLCM(collisionMapPath);
 		InitializeCollisionTiles();
 	}
 
@@ -52,7 +52,7 @@ public class Map
 		int realMapHeight = this.mapHeight * Singleton.Instance.TILE_HEIGHT;
 		Bounds = new Rectangle((int)position.X, (int)position.Y, realMapWidth, realMapHeight);
 
-		LoadCollisionData(collisionMapPath);
+		LoadLCM(collisionMapPath);
 		InitializeCollisionTiles();
 	}
 

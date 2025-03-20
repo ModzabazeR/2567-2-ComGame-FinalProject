@@ -96,3 +96,5 @@ C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\n
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.pdb
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.genruntimeconfig.cache
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\ref\FinalProject.dll
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.lcm
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.lcm

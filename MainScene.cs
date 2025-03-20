@@ -64,8 +64,8 @@ public class MainScene : Game
         Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
 
         // Add maps with their collision data
-        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.txt");
-        mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.txt");
+        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.lcm");
+        mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.lcm");
 
 
         // Create player texture
