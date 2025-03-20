@@ -216,10 +216,10 @@ Camera follows player with configurable:
 1. Entity Creation
 - Inherit from appropriate base class
 - Initialize in constructor
-- Override Update for behavior
+- Override `Update` for behavior
 
 2. Collisions
-- Use HandleMovement for physics
+- Use `HandleMovement` for physics
 - Check platform collisions
 - Update bounds after movement
 
@@ -229,6 +229,6 @@ Camera follows player with configurable:
 - Update animation state in Update
 
 4. Performance
-- Use object pooling for multiple entities
+- Use **object pooling** for multiple entities
 - Only update visible objects
 - Batch similar draw calls
