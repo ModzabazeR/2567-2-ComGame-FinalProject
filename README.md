@@ -18,7 +18,7 @@ FinalProject/
 └── Singleton.cs          # Global state
 ```
 
-## Class Hierarchy (Maybe outdated)
+## Class Hierarchy
 
 ```mermaid
 classDiagram
@@ -27,15 +27,7 @@ classDiagram
     Movable <|-- Enemy
     Enemy <|-- SimpleEnemy
     Entity <|-- DroppedItem
-    
-    class GameObject {
-        +Vector2 Position
-        +float Rotation
-        +Vector2 Scale
-        +Update(GameTime)
-        +Draw(SpriteBatch)
-    }
-    
+
     class Entity {
         +Vector2 Position
         +Vector2 Velocity
@@ -52,6 +44,16 @@ classDiagram
         #bool isOnGround
         #Update(GameTime, List~Rectangle~)
         #Draw(SpriteBatch)
+    }
+    
+    class Player {
+        -float moveSpeed
+        -float gravity
+        -float jumpForce
+        -bool canJump
+        -HandleInput()
+        -ApplyGravity(float)
+        -HandleMovement(float, List~Rectangle~)
     }
     
     class Enemy {
