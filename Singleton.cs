@@ -33,7 +33,7 @@ class Singleton
 	public SpriteFont Font { get; set; }
 
 	// Debug settings
-	public bool ShowDebugInfo { get; set; } = true; // Set to true by default for testing
+	public bool ShowDebugInfo { get; set; } = false; // Set to true by default for testing
 
 	private Singleton() { }
 
