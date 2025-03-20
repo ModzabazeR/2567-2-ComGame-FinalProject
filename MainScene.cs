@@ -6,6 +6,9 @@ using FinalProject.GameObject;
 using FinalProject.GameObject.Entity;
 using FinalProject.GameObject.Entity.Enemy;
 
+using FinalProject.Utils.MapManager;
+using FinalProject.Utils.SplashScreen;
+
 using System.Collections.Generic;
 using System;
 

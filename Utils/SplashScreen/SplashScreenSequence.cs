@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FinalProject.GameObject;
+namespace FinalProject.Utils.SplashScreen;
 
 public class SplashScreenSequence
 {
