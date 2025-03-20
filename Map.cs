@@ -78,6 +78,48 @@ namespace FinalProject
 			}
 		}
 
+		// TODO: 
+		private void LoadLCM(string path)
+		{
+			using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+			{
+				// Read dimensions
+				int fileWidth = reader.ReadByte();
+				int fileHeight = reader.ReadByte();
+
+				// Verify dimensions match
+				if (fileWidth != mapWidth || fileHeight != mapHeight)
+				{
+					throw new Exception($"Error on {path}: Map dimensions don't match. Expected {mapWidth}x{mapHeight}, got {fileWidth}x{fileHeight}");
+				}
+
+				collisionData = new bool[mapHeight, mapWidth];
+
+				// Read the collision data
+				for (int y = 0; y < mapHeight; y++)
+				{
+					int bitsToRead = mapWidth;
+					int currentByte = 0;
+					int bitPosition = 0;
+
+					while (bitsToRead > 0)
+					{
+						if (bitPosition == 0)
+						{
+							currentByte = reader.ReadByte();
+						}
+
+						// Extract bit and store in collision data
+						bool bitValue = ((currentByte >> bitPosition) & 1) == 1;
+						collisionData[y, mapWidth - bitsToRead] = bitValue;
+
+						bitPosition = (bitPosition + 1) % 8;
+						bitsToRead--;
+					}
+				}
+			}
+		}
+
 		private void InitializeCollisionTiles()
 		{
 			// Add collision rectangles for solid tiles
