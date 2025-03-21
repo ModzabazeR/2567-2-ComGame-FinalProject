@@ -10,6 +10,8 @@ public abstract class Movable : Entity
 	protected Dictionary<string, Animation> _animations;
 	protected string _currentAnimationKey;
 	protected bool isOnGround;
+	protected bool isFacingRight = true;
+	protected float lastNonZeroVelocityX = 0;
 
 	public Movable(Dictionary<string, Animation> animations, Vector2 position)
 		: base(position)
@@ -34,9 +36,17 @@ public abstract class Movable : Entity
 
 	public override void Draw(SpriteBatch spriteBatch)
 	{
-		bool flip = Velocity.X < 0;
-		_animationManager.Draw(spriteBatch, Position, flip);
+		_animationManager.Draw(spriteBatch, Position, !isFacingRight);
 		base.Draw(spriteBatch);
+	}
+
+	protected void UpdateFacingDirection(float velocityX)
+	{
+		if (velocityX != 0)
+		{
+			lastNonZeroVelocityX = velocityX;
+		}
+		isFacingRight = lastNonZeroVelocityX >= 0;
 	}
 
 	protected override void UpdateBounds()

@@ -16,6 +16,7 @@ public abstract class Enemy : Movable
 	{
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 		ApplyGravity(dt);
+		UpdateFacingDirection(Velocity.X);
 		base.Update(gameTime, platforms);
 	}
 

@@ -46,6 +46,8 @@ public class Player : Movable
 			_animationManager = new AnimationManager(_animations["Idle"]);
 		}
 
+		UpdateFacingDirection(Velocity.X);
+
 		if (canJump && Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.W))
 		{
