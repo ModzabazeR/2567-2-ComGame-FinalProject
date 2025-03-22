@@ -11,10 +11,10 @@ namespace FinalProject
         private Vector2 position;
         private Vector2 velocity;
         private Rectangle bounds;
-        private int direction; // -1 = ซ้าย, 1 = ขวา
+        private int direction; // -1 = ����, 1 = ���
         private float speed;
         private float gravity = 0.5f;
-        private float maxFallSpeed = 10f; // จำกัดความเร็วตก
+        private float maxFallSpeed = 10f; // �ӡѴ�������ǵ�
         private float moveTime;
         private float timer;
         private bool isOnGround;
@@ -38,7 +38,7 @@ namespace FinalProject
 
             bounds = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
 
-            // สร้าง Debug Texture ถ้ายังไม่มี
+            // ���ҧ Debug Texture ����ѧ�����
             if (!debugTextureInitialized)
             {
                 debugTexture = new Texture2D(texture.GraphicsDevice, 1, 1);
@@ -51,7 +51,7 @@ namespace FinalProject
         {
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            // เปลี่ยนทิศทางแบบสุ่ม
+            // ����¹��ȷҧẺ����
             if (timer >= moveTime)
             {
                 direction *= -1;
@@ -59,44 +59,44 @@ namespace FinalProject
                 moveTime = Singleton.Instance.Random.Next(2, 5);
             }
 
-            // อัปเดตความเร็วแกน Y (แรงโน้มถ่วง)
+            // �ѻവ��������᡹ Y (�ç�����ǧ)
             velocity.Y += gravity;
             if (velocity.Y > maxFallSpeed)
-                velocity.Y = maxFallSpeed; // จำกัดความเร็วตก
+                velocity.Y = maxFallSpeed; // �ӡѴ�������ǵ�
 
-            // อัปเดตตำแหน่ง
+            // �ѻവ���˹�
             position.X += speed * direction;
             position.Y += velocity.Y;
 
-            // ตรวจสอบการชนกับพื้น
+            // ��Ǩ�ͺ��ê��Ѻ���
             isOnGround = false;
             foreach (var tile in solidTiles)
             {
                 if (bounds.Intersects(tile))
                 {
-                    if (velocity.Y > 0) // ตกลงมาแล้วชนพื้น
+                    if (velocity.Y > 0) // ��ŧ�����Ǫ����
                     {
-                        position.Y = tile.Top - bounds.Height; // วางศัตรูบนพื้น
-                        velocity.Y = 0; // ทำให้หยุดตกทันที
+                        position.Y = tile.Top - bounds.Height; // �ҧ�ѵ�ٺ����
+                        velocity.Y = 0; // �������ش���ѹ��
                         isOnGround = true;
                     }
                 }
             }
 
-            // ถ้าศัตรูอยู่บนพื้นให้เดินซ้าย-ขวาได้
+            // ����ѵ�����躹�������Թ����-�����
             if (isOnGround)
             {
                 position.X += speed * direction;
             }
 
-            // ตรวจสอบว่ากำลังจะเดินออกจากพื้นไหม
+            // ��Ǩ�ͺ��ҡ��ѧ���Թ�͡�ҡ������
             bool hasGround = false;
             foreach (var tile in solidTiles)
             {
                 Rectangle groundCheck = new Rectangle(
-                    (int)(position.X + (direction * speed)), // ตำแหน่งด้านหน้าศัตรู
-                    (int)(position.Y + bounds.Height + 5),   // ตำแหน่งเช็คพื้น (ต่ำกว่าตัวเล็กน้อย)
-                    bounds.Width, 5 // ความกว้างและความสูงของ hitbox ตรวจสอบพื้น
+                    (int)(position.X + (direction * speed)), // ���˹觴�ҹ˹���ѵ��
+                    (int)(position.Y + bounds.Height + 5),   // ���˹��社�� (��ӡ��ҵ����硹���)
+                    bounds.Width, 5 // �������ҧ��Ф����٧�ͧ hitbox ��Ǩ�ͺ���
                 );
 
                 if (tile.Intersects(groundCheck))
@@ -106,13 +106,13 @@ namespace FinalProject
                 }
             }
 
-            // ถ้ากำลังจะเดินออกจากพื้น ให้เปลี่ยนทิศทาง
+            // ��ҡ��ѧ���Թ�͡�ҡ��� �������¹��ȷҧ
             if (!hasGround)
             {
                 direction *= -1;
             }
 
-            // อัปเดต hitbox
+            // �ѻവ hitbox
             bounds.X = (int)position.X;
             bounds.Y = (int)position.Y;
         }
@@ -121,13 +121,13 @@ namespace FinalProject
         {
             spriteBatch.Draw(texture, position, Color.White);
 
-            // วาด Hitbox Debug ถ้าเปิดโหมด Debug
+            // �Ҵ Hitbox Debug ����Դ���� Debug
             if (Singleton.Instance.ShowDebugInfo)
             {
-                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X, bounds.Y, bounds.Width, 2), Color.Red); // ขอบบน
-                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X, bounds.Y + bounds.Height, bounds.Width, 2), Color.Red); // ขอบล่าง
-                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X, bounds.Y, 2, bounds.Height), Color.Red); // ขอบซ้าย
-                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X + bounds.Width, bounds.Y, 2, bounds.Height), Color.Red); // ขอบขวา
+                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X, bounds.Y, bounds.Width, 2), Color.Red); // �ͺ��
+                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X, bounds.Y + bounds.Height, bounds.Width, 2), Color.Red); // �ͺ��ҧ
+                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X, bounds.Y, 2, bounds.Height), Color.Red); // �ͺ����
+                spriteBatch.Draw(debugTexture, new Rectangle(bounds.X + bounds.Width, bounds.Y, 2, bounds.Height), Color.Red); // �ͺ���
             }
         }
     }
