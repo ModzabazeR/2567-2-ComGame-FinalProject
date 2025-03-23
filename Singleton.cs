@@ -24,6 +24,9 @@ class Singleton
 	public KeyboardState PreviousKey;
 	public KeyboardState CurrentKey;
 
+	// Graphics
+	public GraphicsDevice GraphicsDevice { get; set; }
+
 	// Random
 	public Random Random { get; } = new Random();
 

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
+using FinalProject.GameObject.Weapon;
 
 namespace FinalProject.GameObject.Entity;
 
@@ -10,6 +12,9 @@ public class Player : Movable
 	private const float gravity = 1000f;
 	private const float jumpForce = -500f;
 	private bool canJump = false;
+	private Weapon.Weapon _primaryWeapon;
+	private Weapon.Weapon _secondaryWeapon;
+	private Weapon.Weapon _currentWeapon;
 
 	public Player(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
@@ -55,6 +60,13 @@ public class Player : Movable
 			canJump = false;
 			isOnGround = false;
 			_animationManager.Play(_animations["Jump"]);
+		}
+
+		// Handle weapon input
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.Space))
+		{
+			// TODO
 		}
 	}
 
@@ -110,5 +122,10 @@ public class Player : Movable
 				break;
 			}
 		}
+	}
+
+	public override void Draw(SpriteBatch spriteBatch)
+	{
+		base.Draw(spriteBatch);
 	}
 }
