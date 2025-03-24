@@ -96,17 +96,12 @@ C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\n
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.pdb
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.genruntimeconfig.cache
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\ref\FinalProject.dll
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.lcm
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.lcm
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.lcm
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.txt
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.lcm
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.txt
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Player_tex.xnb
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level1.xnb
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level2.xnb
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones\Dragon_ske.json
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones\Dragon_tex.json
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones\Dragon_tex.xnb
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones_resource\Dragon_ske.json
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones_resource\Dragon_tex.json
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones_resource\Dragon_tex.xnb
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones_resource\Player_ske.json
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones_resource\Player_tex.json
-C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\DragonBones_resource\Player_tex.xnb

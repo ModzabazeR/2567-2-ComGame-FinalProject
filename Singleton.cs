@@ -8,6 +8,14 @@ using FinalProject.GameObject;
 namespace FinalProject;
 
 // Base code from KMITL Comgame Class (Tetris Exercise)
+public enum GameState
+{
+	Splash,
+	Playing,
+	Paused,
+	Cutscene
+}
+
 class Singleton
 {
 	private static Singleton instance;
@@ -15,6 +23,9 @@ class Singleton
 	// Input
 	public KeyboardState PreviousKey;
 	public KeyboardState CurrentKey;
+
+	// Graphics
+	public GraphicsDevice GraphicsDevice { get; set; }
 
 	// Random
 	public Random Random { get; } = new Random();
@@ -34,6 +45,9 @@ class Singleton
 
 	// Debug settings
 	public bool ShowDebugInfo { get; set; } = true; // Set to true by default for testing
+
+	// Add this property after other properties
+	public GameState CurrentGameState { get; set; } = GameState.Splash;
 
 	private Singleton() { }
 

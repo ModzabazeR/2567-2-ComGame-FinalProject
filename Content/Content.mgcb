@@ -49,24 +49,6 @@
 /processorParam:TextureFormat=Color
 /build:_Run.png
 
-#begin DragonBones_resource/Player_ske.json
-/copy:DragonBones_resource/Player_ske.json
-
-#begin DragonBones_resource/Player_tex.json
-/copy:DragonBones_resource/Player_tex.json
-
-#begin DragonBones_resource/Player_tex.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:DragonBones_resource/Player_tex.png
-
 #begin GameFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -74,8 +56,14 @@
 /processorParam:TextureFormat=Compressed
 /build:GameFont.spritefont
 
+#begin Maps/level1_collision.lcm
+/copy:Maps/level1_collision.lcm
+
 #begin Maps/level1_collision.txt
 /copy:Maps/level1_collision.txt
+
+#begin Maps/level2_collision.lcm
+/copy:Maps/level2_collision.lcm
 
 #begin Maps/level2_collision.txt
 /copy:Maps/level2_collision.txt

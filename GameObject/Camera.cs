@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using System;
 
 namespace FinalProject.GameObject;
 
@@ -25,35 +24,16 @@ public class Camera
 	public void Follow(Vector2 target, Rectangle roomBounds)
 	{
 		// Calculate desired camera position with target at center
-		_desiredPosition = new Vector2(
-			target.X - (_viewWidth / (2 * _zoom)),
-			target.Y - (_viewHeight / (2 * _zoom))
-		);
-		
-		// Log to verify camera is actually following player
-		Console.WriteLine($"Camera following - Target: {target}, Desired: {_desiredPosition}");
-		
-		// Clamp position to room bounds to prevent seeing outside the level
-		_desiredPosition.X = MathHelper.Clamp(_desiredPosition.X, 
-											Math.Max(0, roomBounds.Left), 
-											Math.Max(roomBounds.Right - _viewWidth / _zoom, roomBounds.Left));
-		_desiredPosition.Y = MathHelper.Clamp(_desiredPosition.Y, 
-											Math.Max(0, roomBounds.Top), 
-											Math.Max(roomBounds.Bottom - _viewHeight / _zoom, roomBounds.Top));
-		
+		_desiredPosition = target - new Vector2(_viewWidth / (2 * _zoom), (_viewHeight / (2 * _zoom)) + 100);
+
+		// Clamp desired position to room bounds
+		_desiredPosition.X = MathHelper.Clamp(_desiredPosition.X, roomBounds.Left, roomBounds.Right - _viewWidth / _zoom);
+		_desiredPosition.Y = MathHelper.Clamp(_desiredPosition.Y, roomBounds.Top, roomBounds.Bottom - _viewHeight / _zoom);
+
 		// Smoothly move current position toward desired position
 		Position = Vector2.Lerp(Position, _desiredPosition, _followSpeed * (1f / 60f));
-		
-		// Create transform matrix with zoom
-		Transform = Matrix.CreateTranslation(new Vector3(-Position, 0)) *
-				   Matrix.CreateScale(_zoom) *
-				   Matrix.CreateTranslation(new Vector3(Vector2.Zero, 0));
-	}
 
-	public void SetPosition(Vector2 position)
-	{
-		Position = position;
-		// Update the transform too
+		// Create transform matrix with zoom
 		Transform = Matrix.CreateTranslation(new Vector3(-Position, 0)) *
 				   Matrix.CreateScale(_zoom) *
 				   Matrix.CreateTranslation(new Vector3(Vector2.Zero, 0));
