@@ -25,9 +25,6 @@ class Singleton
 	public KeyboardState PreviousKey;
 	public KeyboardState CurrentKey;
 
-	// Graphics
-	public GraphicsDevice GraphicsDevice { get; set; }
-
 	// Random
 	public Random Random { get; } = new Random();
 
@@ -49,7 +46,7 @@ class Singleton
 
 	// Add this property after other properties
 	public GameState CurrentGameState { get; set; } = GameState.Splash;
-	public Dictionary<string, Dictionary<string, Animation>> EntityAnimations { get; set; } = [];
+	public Dictionary<string, Dictionary<string, Animation>> Animations { get; set; } = [];
 
 	private Singleton() { }
 

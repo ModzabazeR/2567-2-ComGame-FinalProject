@@ -23,6 +23,7 @@ public class MainScene : Game
     private MapManager mapManager; // Add this field
 
     private SplashScreenSequence _currentSequence;
+    private bool _isMap2ClearedCutscene = false;
 
     public MainScene()
     {
@@ -58,7 +59,7 @@ public class MainScene : Game
         Texture2D runTexture = Content.Load<Texture2D>("_Run");
         Texture2D jumpTexture = Content.Load<Texture2D>("_Jump");
 
-        Singleton.Instance.EntityAnimations["Player"] = new Dictionary<string, Animation> {
+        Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 120, 80, 10, 0.1f) },
             { "Run", new Animation(runTexture, 120, 80, 10, 0.08f) },
             { "Jump", new Animation(jumpTexture, 120, 80, 3, 0.15f) }
@@ -82,7 +83,7 @@ public class MainScene : Game
         map2.OnMapCleared += () => ShowMap2ClearedCutscene();
 
         // Initialize systems
-        player = new Player(Singleton.Instance.EntityAnimations["Player"], new Vector2(50, 700));
+        player = new Player(Singleton.Instance.Animations["Player"], new Vector2(50, 700));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
     }
 
@@ -109,6 +110,14 @@ public class MainScene : Game
                 {
                     _currentSequence = null;
                     Singleton.Instance.CurrentGameState = GameState.Playing;
+
+                    // If this was the Map 2 cleared cutscene, move player to Map 3
+                    if (_isMap2ClearedCutscene)
+                    {
+                        var map3 = mapManager.GetMap("Map 3");
+                        player.Position = new Vector2(100, map3.Position.Y + 300);
+                        _isMap2ClearedCutscene = false;
+                    }
                 }
                 return;
             }
@@ -265,15 +274,21 @@ public class MainScene : Game
 
     private void ShowMap2ClearedCutscene()
     {
+        _isMap2ClearedCutscene = true;
         ShowCutscene(new SplashScreenData(
             [
-                "The Queue's power weakens...",
+                "*Crack...*",
                 "",
-                "As I defeat these guardians,",
-                "I can feel its influence fading.",
+                "The ground beneath my feet begins to tremble.",
+                "The air grows thick with an ancient power.",
                 "",
-                "But there's still one more challenge ahead.",
-                "The final guardian awaits."
+                "*BOOM!*",
+                "",
+                "The floor gives way, and I'm falling...",
+                "",
+                "The Queue's influence grows stronger here.",
+                "I can feel its weight pressing down on me.",
+                "I must escape before it's too late."
             ], fadeSpeed: 0.4f, displayTime: 5f));
     }
 }

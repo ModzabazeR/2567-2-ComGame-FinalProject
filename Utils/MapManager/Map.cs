@@ -52,16 +52,16 @@ public class Map
 
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(6, 6))];
+			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(6, 6))];
 		}
 		else if (name == "Map 2")
 		{
-			enemies = new List<Enemy>
-			{
-				new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(21, 6)),
-				new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(3, 6))
-			};
+			enemies =
+			[
+				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(21, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(18, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(3, 6))
+			];
 		}
 	}
 
@@ -191,6 +191,15 @@ public class Map
 		CheckPlayerEntry(playerPosition);
 		SpawnEnemies();
 		CheckMapCleared();
+
+		// debug for map 2, remove this if you want to manually clear the map
+		if (name == "Map 2" && GetTimeSinceEntry()?.TotalSeconds >= 10)
+		{
+			foreach (var enemy in enemies)
+			{
+				enemy.Defeat();
+			}
+		}
 	}
 
 	public bool HasPlayerEntered()
@@ -234,11 +243,6 @@ public class Map
 				OnMapCleared?.Invoke();
 			}
 		}
-	}
-
-	public bool IsMapCleared()
-	{
-		return isMapCleared;
 	}
 
 	public void SpawnEnemies()
