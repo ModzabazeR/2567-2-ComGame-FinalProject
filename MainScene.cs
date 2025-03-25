@@ -77,6 +77,10 @@ public class MainScene : Game
         mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.lcm");
         mapManager.AddMap("Map 3", map3Texture, new Vector2(0, 2000), "Content/Maps/level3_collision.lcm");
 
+        // Subscribe to Map 2's cleared event
+        var map2 = mapManager.GetMap("Map 2");
+        map2.OnMapCleared += () => ShowMap2ClearedCutscene();
+
         // Initialize systems
         player = new Player(Singleton.Instance.EntityAnimations["Player"], new Vector2(50, 700));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
@@ -257,5 +261,19 @@ public class MainScene : Game
     public void ShowSimpleCutscene(string[] text, float fadeSpeed = 1f, float displayTime = 2f)
     {
         ShowCutscene(new SplashScreenData(text, fadeSpeed, displayTime));
+    }
+
+    private void ShowMap2ClearedCutscene()
+    {
+        ShowCutscene(new SplashScreenData(
+            [
+                "The Queue's power weakens...",
+                "",
+                "As I defeat these guardians,",
+                "I can feel its influence fading.",
+                "",
+                "But there's still one more challenge ahead.",
+                "The final guardian awaits."
+            ], fadeSpeed: 0.4f, displayTime: 5f));
     }
 }

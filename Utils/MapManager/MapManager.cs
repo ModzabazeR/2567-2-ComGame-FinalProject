@@ -55,5 +55,10 @@ public class MapManager
 	{
 		return maps;
 	}
+
+	public Map GetMap(string name)
+	{
+		return maps.Find(m => m.Name == name);
+	}
 }
 

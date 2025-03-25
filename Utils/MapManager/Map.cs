@@ -17,11 +17,15 @@ public class Map
 	private int mapHeight;
 	private int mapWidth;
 	private string name;
+	public string Name => name;
 	private List<Enemy> enemies;
 	private bool hasPlayerEntered;
 	private TimeSpan? firstEntryTime;
 	private TimeSpan currentGameTime;
+	private bool isMapCleared;
+	private bool allEnemiesSpawned;
 
+	public event Action OnMapCleared;
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		: this(name, texture, position, collisionMapPath, Singleton.Instance.MAP_WIDTH, Singleton.Instance.MAP_HEIGHT)
@@ -48,7 +52,16 @@ public class Map
 
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], new Vector2(200, 700))];
+			enemies = [new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(6, 6))];
+		}
+		else if (name == "Map 2")
+		{
+			enemies = new List<Enemy>
+			{
+				new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(21, 6)),
+				new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(18, 6)),
+				new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], TileToWorldPosition(3, 6))
+			};
 		}
 	}
 
@@ -177,6 +190,7 @@ public class Map
 		currentGameTime = gameTime.TotalGameTime;
 		CheckPlayerEntry(playerPosition);
 		SpawnEnemies();
+		CheckMapCleared();
 	}
 
 	public bool HasPlayerEntered()
@@ -200,6 +214,33 @@ public class Map
 		}
 	}
 
+	private void CheckMapCleared()
+	{
+		if (name == "Map 2" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
+		{
+			bool allEnemiesDefeated = true;
+			foreach (var enemy in enemies)
+			{
+				if (enemy.IsSpawned && !enemy.IsDefeated)
+				{
+					allEnemiesDefeated = false;
+					break;
+				}
+			}
+
+			if (allEnemiesDefeated)
+			{
+				isMapCleared = true;
+				OnMapCleared?.Invoke();
+			}
+		}
+	}
+
+	public bool IsMapCleared()
+	{
+		return isMapCleared;
+	}
+
 	public void SpawnEnemies()
 	{
 		if (name == "Map 1")
@@ -219,9 +260,17 @@ public class Map
 		else if (name == "Map 2")
 		{
 			// Map 2 spawn logic - spawn enemies after 5 seconds of entering
-			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5)
+			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5 && !allEnemiesSpawned)
 			{
-				// Add your Map 2 specific spawn logic here
+				// Spawn all enemies
+				foreach (var enemy in enemies)
+				{
+					if (!enemy.IsSpawned)
+					{
+						enemy.Spawn();
+					}
+				}
+				allEnemiesSpawned = true;
 			}
 		}
 		else if (name == "Map 3")
@@ -237,5 +286,18 @@ public class Map
 	public List<Enemy> GetEnemies()
 	{
 		return enemies ?? [];
+	}
+
+	private Vector2 TileToWorldPosition(int tileX, int tileY)
+	{
+		if (tileX < 0 || tileX >= mapWidth || tileY < 0 || tileY >= mapHeight)
+		{
+			throw new ArgumentException($"Tile coordinates ({tileX}, {tileY}) are outside map bounds ({mapWidth}x{mapHeight})");
+		}
+
+		return new Vector2(
+			Position.X + tileX * Singleton.Instance.TILE_WIDTH,
+			Position.Y + tileY * Singleton.Instance.TILE_HEIGHT
+		);
 	}
 }

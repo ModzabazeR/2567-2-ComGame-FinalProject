@@ -9,6 +9,8 @@ public abstract class Enemy : Movable
 	protected const float gravity = 1000f;
 	private bool _isSpawned = false;
 	public bool IsSpawned => _isSpawned;
+	private bool _isDefeated = false;
+	public bool IsDefeated => _isDefeated;
 
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
@@ -73,5 +75,11 @@ public abstract class Enemy : Movable
 	{
 		_isSpawned = false;
 		Velocity = Vector2.Zero;
+	}
+
+	public virtual void Defeat()
+	{
+		_isDefeated = true;
+		Despawn();
 	}
 }
