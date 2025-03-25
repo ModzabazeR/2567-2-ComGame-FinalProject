@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using System.Collections.Generic;
+using FinalProject.GameObject.Entity.Enemy;
 
 namespace FinalProject.Utils.MapManager;
 
@@ -16,25 +17,12 @@ public class Map
 	private int mapHeight;
 	private int mapWidth;
 	private string name;
+	private List<Enemy> enemies;
 
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
+		: this(name, texture, position, collisionMapPath, Singleton.Instance.MAP_WIDTH, Singleton.Instance.MAP_HEIGHT)
 	{
-		this.name = name;
-		Texture = texture;
-		Position = position;
-		SolidTiles = new List<Rectangle>();
-
-		mapWidth = Singleton.Instance.MAP_WIDTH;
-		mapHeight = Singleton.Instance.MAP_HEIGHT;
-
-		// Calculate the total map size based on tiles
-		int realMapWidth = mapWidth * Singleton.Instance.TILE_WIDTH;
-		int realMapHeight = mapHeight * Singleton.Instance.TILE_HEIGHT;
-		Bounds = new Rectangle((int)position.X, (int)position.Y, realMapWidth, realMapHeight);
-
-		LoadLCM(collisionMapPath);
-		InitializeCollisionTiles();
 	}
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath, int mapWidth, int mapHeight)
@@ -42,7 +30,7 @@ public class Map
 		this.name = name;
 		Texture = texture;
 		Position = position;
-		SolidTiles = new List<Rectangle>();
+		SolidTiles = [];
 
 		this.mapWidth = mapWidth;
 		this.mapHeight = mapHeight;
@@ -54,6 +42,11 @@ public class Map
 
 		LoadLCM(collisionMapPath);
 		InitializeCollisionTiles();
+
+		if (name == "Map 1")
+		{
+			enemies = [new SimpleEnemy(Singleton.Instance.EntityAnimations["Player"], new Vector2(200, 700))];
+		}
 	}
 
 	private void LoadCollisionData(string path)
@@ -174,5 +167,37 @@ public class Map
 				}
 			}
 		}
+	}
+
+	public void SpawnEnemies(GameTime gameTime)
+	{
+		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+		if (name == "Map 1")
+		{
+			// Map 1 spawn logic
+			foreach (var enemy in enemies)
+			{
+				if (!enemy.IsSpawned)
+				{
+					enemy.Spawn();
+				}
+			}
+		}
+		else if (name == "Map 2")
+		{
+			// Map 2 spawn logic
+			// Add your Map 2 specific spawn logic here
+		}
+		else if (name == "Map 3")
+		{
+			// Map 3 spawn logic
+			// Add your Map 3 specific spawn logic here
+		}
+	}
+
+	public List<Enemy> GetEnemies()
+	{
+		return enemies ?? [];
 	}
 }

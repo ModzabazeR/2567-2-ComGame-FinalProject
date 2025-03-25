@@ -11,7 +11,6 @@ public class SimpleEnemy : Enemy
 	public SimpleEnemy(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
 	{
-		Velocity.X = moveSpeed;
 	}
 
 	public override void Update(GameTime gameTime, List<Rectangle> platforms)
@@ -63,5 +62,12 @@ public class SimpleEnemy : Enemy
 			_animationManager.Play(_animations["Run"]);
 		else
 			_animationManager.Play(_animations["Idle"]);
+	}
+
+	public override void Spawn()
+	{
+		base.Spawn();
+		movingRight = true;
+		Velocity.X = moveSpeed;
 	}
 }

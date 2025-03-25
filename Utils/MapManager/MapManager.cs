@@ -50,5 +50,10 @@ public class MapManager
 			map.Draw(spriteBatch, cameraView);
 		}
 	}
+
+	public List<Map> GetMaps()
+	{
+		return maps;
+	}
 }
 

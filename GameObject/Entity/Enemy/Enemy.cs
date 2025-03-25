@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject.GameObject.Entity.Enemy;
 
 public abstract class Enemy : Movable
 {
 	protected const float gravity = 1000f;
+	private bool _isSpawned = false;
+	public bool IsSpawned => _isSpawned;
 
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
@@ -14,10 +17,21 @@ public abstract class Enemy : Movable
 
 	public override void Update(GameTime gameTime, List<Rectangle> platforms)
 	{
+		if (!_isSpawned)
+			return;
+
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 		ApplyGravity(dt);
 		UpdateFacingDirection(Velocity.X);
 		base.Update(gameTime, platforms);
+	}
+
+	public override void Draw(SpriteBatch spriteBatch)
+	{
+		if (!_isSpawned)
+			return;
+
+		base.Draw(spriteBatch);
 	}
 
 	protected void ApplyGravity(float dt)
@@ -47,5 +61,17 @@ public abstract class Enemy : Movable
 				break;
 			}
 		}
+	}
+
+	public virtual void Spawn()
+	{
+		Velocity = Vector2.Zero;
+		_isSpawned = true;
+	}
+
+	public virtual void Despawn()
+	{
+		_isSpawned = false;
+		Velocity = Vector2.Zero;
 	}
 }

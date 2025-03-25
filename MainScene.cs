@@ -22,8 +22,6 @@ public class MainScene : Game
     private Camera camera;
     private MapManager mapManager; // Add this field
 
-    private List<Enemy> enemies; // รายการศัตรู
-
     private SplashScreenSequence _currentSequence;
 
     public MainScene()
@@ -56,6 +54,16 @@ public class MainScene : Game
         // Start the intro sequence
         StartIntroSequence();
 
+        Texture2D idleTexture = Content.Load<Texture2D>("_Idle");
+        Texture2D runTexture = Content.Load<Texture2D>("_Run");
+        Texture2D jumpTexture = Content.Load<Texture2D>("_Jump");
+
+        Singleton.Instance.EntityAnimations["Player"] = new Dictionary<string, Animation> {
+            { "Idle", new Animation(idleTexture, 120, 80, 10, 0.1f) },
+            { "Run", new Animation(runTexture, 120, 80, 10, 0.08f) },
+            { "Jump", new Animation(jumpTexture, 120, 80, 3, 0.15f) }
+        };
+
         // Initialize map manager
         mapManager = new MapManager();
 
@@ -64,37 +72,14 @@ public class MainScene : Game
         Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
         Texture2D map3Texture = Content.Load<Texture2D>("Textures/level3");
 
-
-
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.lcm");
         mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.lcm");
         mapManager.AddMap("Map 3", map3Texture, new Vector2(0, 2000), "Content/Maps/level3_collision.lcm");
 
-
-        // Create player texture
-        //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
-        //Color[] playerData = new Color[32 * 32];
-        //for (int i = 0; i < playerData.Length; i++)
-        //    playerData[i] = Color.Red;
-        //playerTexture.SetData(playerData);
-        Texture2D idleTexture = Content.Load<Texture2D>("_Idle");
-        Texture2D runTexture = Content.Load<Texture2D>("_Run");
-        Texture2D jumpTexture = Content.Load<Texture2D>("_Jump");
-
-        Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
-            { "Idle", new Animation(idleTexture, 120, 80, 10, 0.1f) },
-            { "Run", new Animation(runTexture, 120, 80, 10, 0.08f) },
-            { "Jump", new Animation(jumpTexture, 120, 80, 3, 0.15f) }
-        };
-
         // Initialize systems
-        player = new Player(animations, new Vector2(50, 700));
+        player = new Player(Singleton.Instance.EntityAnimations["Player"], new Vector2(50, 700));
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
-
-        // Spawn an enemy
-        enemies = new List<Enemy>();
-        enemies.Add(new SimpleEnemy(animations, new Vector2(200, 700)));
     }
 
     protected override void Update(GameTime gameTime)
@@ -136,15 +121,10 @@ public class MainScene : Game
                 Singleton.Instance.ScreenHeight
             );
 
-            // อัปเดตศัตรู
-            foreach (var enemy in enemies)
+            // Spawn enemies for each map
+            foreach (var map in mapManager.GetMaps())
             {
-                enemy.Update(gameTime, mapManager.GetAllSolidTiles());
-                // เช็คการชนระหว่าง Player กับ Enemy
-                if (player.Bounds.Intersects(enemy.Bounds))
-                {
-                    Console.WriteLine("hit"); // แสดงข้อความเมื่อชนกัน
-                }
+                map.SpawnEnemies(gameTime);
             }
 
             // Update camera to follow player
@@ -152,6 +132,18 @@ public class MainScene : Game
 
             // Update player with collision tiles
             player.Update(gameTime, mapManager.GetAllSolidTiles());
+
+            foreach (var map in mapManager.GetMaps())
+            {
+                if (map.IsVisible(cameraBounds))
+                {
+                    foreach (var enemy in map.GetEnemies())
+                    {
+                        enemy.Update(gameTime, mapManager.GetAllSolidTiles());
+                    }
+                }
+            }
+
         }
 
         base.Update(gameTime);
@@ -183,14 +175,20 @@ public class MainScene : Game
             // Draw map first (before player)
             mapManager.Draw(_spriteBatch, cameraBounds);
 
+            // Draw enemies from each map
+            foreach (var map in mapManager.GetMaps())
+            {
+                if (map.IsVisible(cameraBounds))
+                {
+                    foreach (var enemy in map.GetEnemies())
+                    {
+                        enemy.Draw(_spriteBatch);
+                    }
+                }
+            }
+
             // Draw player
             player.Draw(_spriteBatch);
-
-            // วาดศัตรู
-            foreach (var enemy in enemies)
-            {
-                enemy.Draw(_spriteBatch);
-            }
 
             _spriteBatch.End();
         }
@@ -204,7 +202,7 @@ public class MainScene : Game
         {
             // The legend
             new SplashScreenData(
-                new string[] {
+                [
                     "The Queue",
                     "",
                     "Some gods want fancy temples.",
@@ -212,11 +210,11 @@ public class MainScene : Game
                     "",
                     "But The Queue is different.",
                     "It controls people by making them wait... forever."
-                }, fadeSpeed: 0.3f, displayTime: 6f),
+                ], fadeSpeed: 0.3f, displayTime: 6f),
 
             // The protagonist
             new SplashScreenData(
-                new string[] {
+                [
                     "I never liked standing still.",
                     "",
                     "While others waited in endless lines,",
@@ -224,11 +222,11 @@ public class MainScene : Game
                     "To live life the way I wanted.",
                     "",
                     "That's why they came after me."
-                }, fadeSpeed: 0.4f, displayTime: 6f),
+                ], fadeSpeed: 0.4f, displayTime: 6f),
 
             // The capture
             new SplashScreenData(
-                new string[] {
+                [
                     "They dragged me to their temple,",
                     "Said I was the perfect sacrifice",
                     "Because I refused to stand in line.",
@@ -236,11 +234,11 @@ public class MainScene : Game
                     "But during their ceremony,",
                     "Something went terribly wrong.",
                     "The whole temple fell into darkness."
-                }, fadeSpeed: 0.4f, displayTime: 7f),
+                ], fadeSpeed: 0.4f, displayTime: 7f),
 
             // The stakes
             new SplashScreenData(
-                new string[] {
+                [
                     "Now we're trapped in The Queue's world,",
                     "Where everyone stands frozen in lines.",
                     "",
@@ -248,7 +246,7 @@ public class MainScene : Game
                     "Spreading across our world.",
                     "",
                     "I have to escape. I have to run."
-                }, fadeSpeed: 0.5f, displayTime: 6f)
+                ], fadeSpeed: 0.5f, displayTime: 6f)
         };
 
         _currentSequence = new SplashScreenSequence(introScreens);

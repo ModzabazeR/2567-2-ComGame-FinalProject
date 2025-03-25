@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using FinalProject.GameObject;
+using System.Collections.Generic;
 
 namespace FinalProject;
 
@@ -48,6 +49,7 @@ class Singleton
 
 	// Add this property after other properties
 	public GameState CurrentGameState { get; set; } = GameState.Splash;
+	public Dictionary<string, Dictionary<string, Animation>> EntityAnimations { get; set; } = [];
 
 	private Singleton() { }
 
