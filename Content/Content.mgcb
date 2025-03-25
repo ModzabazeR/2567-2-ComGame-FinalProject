@@ -80,14 +80,32 @@
 /processorParam:TextureFormat=Color
 /build:Textures/level2.png
 
+#begin Textures/level3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/level3.png
+
 #begin Maps/level1_collision.txt
 /copy:Maps/level1_collision.txt
 
 #begin Maps/level2_collision.txt
 /copy:Maps/level2_collision.txt
 
+#begin Maps/level3_collision.txt
+/copy:Maps/level3_collision.txt
+
 #begin Maps/level1_collision.lcm
 /copy:Maps/level1_collision.lcm
 
 #begin Maps/level2_collision.lcm
 /copy:Maps/level2_collision.lcm
+
+#begin Maps/level3_collision.lcm
+/copy:Maps/level3_collision.lcm

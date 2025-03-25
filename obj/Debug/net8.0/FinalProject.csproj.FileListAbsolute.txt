@@ -98,3 +98,6 @@ C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\n
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\obj\Debug\net8.0\ref\FinalProject.dll
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.lcm
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.lcm
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.lcm
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.txt
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\level3.xnb

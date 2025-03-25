@@ -62,10 +62,14 @@ public class MainScene : Game
         // Load map textures
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
         Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
+        Texture2D map3Texture = Content.Load<Texture2D>("Textures/level3");
+
+
 
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.lcm");
         mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.lcm");
+        mapManager.AddMap("Map 3", map3Texture, new Vector2(0, 2000), "Content/Maps/level3_collision.lcm");
 
 
         // Create player texture
@@ -155,17 +159,17 @@ public class MainScene : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.Black);
-
         if (Singleton.Instance.CurrentGameState == GameState.Splash ||
             Singleton.Instance.CurrentGameState == GameState.Cutscene)
         {
+            GraphicsDevice.Clear(Color.Black);
             _spriteBatch.Begin();
             _currentSequence?.Draw(_spriteBatch, Singleton.Instance.Font);
             _spriteBatch.End();
         }
         else if (Singleton.Instance.CurrentGameState == GameState.Playing)
         {
+            GraphicsDevice.Clear(Color.White);
             _spriteBatch.Begin(transformMatrix: camera?.Transform);
 
             // Get camera bounds for visibility checking
