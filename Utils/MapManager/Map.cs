@@ -18,6 +18,9 @@ public class Map
 	private int mapWidth;
 	private string name;
 	private List<Enemy> enemies;
+	private bool hasPlayerEntered;
+	private TimeSpan? firstEntryTime;
+	private TimeSpan currentGameTime;
 
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
@@ -169,30 +172,65 @@ public class Map
 		}
 	}
 
-	public void SpawnEnemies(GameTime gameTime)
+	public void Update(GameTime gameTime, Vector2 playerPosition)
 	{
-		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+		currentGameTime = gameTime.TotalGameTime;
+		CheckPlayerEntry(playerPosition);
+		SpawnEnemies();
+	}
 
+	public bool HasPlayerEntered()
+	{
+		return hasPlayerEntered;
+	}
+
+	public TimeSpan? GetTimeSinceEntry()
+	{
+		if (!hasPlayerEntered || !firstEntryTime.HasValue)
+			return null;
+		return currentGameTime - firstEntryTime.Value;
+	}
+
+	public void CheckPlayerEntry(Vector2 playerPosition)
+	{
+		if (!hasPlayerEntered && Bounds.Contains(playerPosition))
+		{
+			hasPlayerEntered = true;
+			firstEntryTime = currentGameTime;
+		}
+	}
+
+	public void SpawnEnemies()
+	{
 		if (name == "Map 1")
 		{
 			// Map 1 spawn logic
 			foreach (var enemy in enemies)
 			{
-				if (!enemy.IsSpawned)
+				if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 2)
 				{
-					enemy.Spawn();
+					if (!enemy.IsSpawned)
+					{
+						enemy.Spawn();
+					}
 				}
 			}
 		}
 		else if (name == "Map 2")
 		{
-			// Map 2 spawn logic
-			// Add your Map 2 specific spawn logic here
+			// Map 2 spawn logic - spawn enemies after 5 seconds of entering
+			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5)
+			{
+				// Add your Map 2 specific spawn logic here
+			}
 		}
 		else if (name == "Map 3")
 		{
-			// Map 3 spawn logic
-			// Add your Map 3 specific spawn logic here
+			// Map 3 spawn logic - spawn enemies after 3 seconds of entering
+			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3)
+			{
+				// Add your Map 3 specific spawn logic here
+			}
 		}
 	}
 

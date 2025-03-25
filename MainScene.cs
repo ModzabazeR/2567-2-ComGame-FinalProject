@@ -121,12 +121,6 @@ public class MainScene : Game
                 Singleton.Instance.ScreenHeight
             );
 
-            // Spawn enemies for each map
-            foreach (var map in mapManager.GetMaps())
-            {
-                map.SpawnEnemies(gameTime);
-            }
-
             // Update camera to follow player
             camera.Follow(player.Position, mapManager.GetWorldBounds());
 
@@ -135,6 +129,7 @@ public class MainScene : Game
 
             foreach (var map in mapManager.GetMaps())
             {
+                map.Update(gameTime, player.Position);
                 if (map.IsVisible(cameraBounds))
                 {
                     foreach (var enemy in map.GetEnemies())
