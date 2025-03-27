@@ -55,15 +55,26 @@ public class MainScene : Game
         // Start the intro sequence
         StartIntroSequence();
 
-        Texture2D idleTexture = Content.Load<Texture2D>("_Idle");
-        Texture2D runTexture = Content.Load<Texture2D>("_Run");
-        Texture2D jumpTexture = Content.Load<Texture2D>("_Jump");
+        // Create player texture
+        //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
+        //Color[] playerData = new Color[32 * 32];
+        //for (int i = 0; i < playerData.Length; i++)
+        //    playerData[i] = Color.Red;
+        //playerTexture.SetData(playerData);
+        Texture2D idleTexture = Content.Load<Texture2D>("Textures/Player_Idle");
+        Texture2D walkTexture = Content.Load<Texture2D>("Textures/Player_Walk");
+        Texture2D sprintTexture = Content.Load<Texture2D>("Textures/Player_Sprint");
+
 
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
-            { "Idle", new Animation(idleTexture, 120, 80, 10, 0.1f) },
-            { "Run", new Animation(runTexture, 120, 80, 10, 0.08f) },
-            { "Jump", new Animation(jumpTexture, 120, 80, 3, 0.15f) }
+            { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
+            { "Walk", new Animation(walkTexture, 48, 75, 8, 0.125f) },
+            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) }
         };
+
+        // Initialize systems
+        player = new Player(Singleton.Instance.Animations["Player"], new Vector2(50, 700));
+        camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
         // Initialize map manager
         mapManager = new MapManager();
@@ -81,10 +92,6 @@ public class MainScene : Game
         // Subscribe to Map 2's cleared event
         var map2 = mapManager.GetMap("Map 2");
         map2.OnMapCleared += () => ShowMap2ClearedCutscene();
-
-        // Initialize systems
-        player = new Player(Singleton.Instance.Animations["Player"], new Vector2(50, 700));
-        camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
     }
 
     protected override void Update(GameTime gameTime)

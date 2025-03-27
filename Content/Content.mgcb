@@ -13,48 +13,24 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin _Idle.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:_Idle.png
-
-#begin _Jump.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:_Jump.png
-
-#begin _Run.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:_Run.png
-
 #begin GameFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:GameFont.spritefont
+
+#begin Maps/level1_collision.lcm
+/copy:Maps/level1_collision.lcm
+
+#begin Maps/level1_collision.txt
+/copy:Maps/level1_collision.txt
+
+#begin Maps/level2_collision.lcm
+/copy:Maps/level2_collision.lcm
+
+#begin Maps/level2_collision.txt
+/copy:Maps/level2_collision.txt
 
 #begin Textures/level1.png
 /importer:TextureImporter
@@ -91,6 +67,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/level3.png
+
+#begin Textures/Player_Idle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Player_Idle.png
+
+#begin Textures/Player_Sprint.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Player_Sprint.png
+
+#begin Textures/Player_Walk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/Player_Walk.png
 
 #begin Maps/level1_collision.txt
 /copy:Maps/level1_collision.txt

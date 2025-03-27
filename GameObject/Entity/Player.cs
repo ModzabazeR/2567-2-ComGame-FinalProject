@@ -38,12 +38,12 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
 		{
 			Velocity.X = -moveSpeed;
-			_animationManager.Play(_animations["Run"]);
+			_animationManager.Play(_animations["Sprint"]);
 		}
 		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 		{
 			Velocity.X = moveSpeed;
-			_animationManager.Play(_animations["Run"]);
+			_animationManager.Play(_animations["Sprint"]);
 		}
 		else
 		{
@@ -59,7 +59,7 @@ public class Player : Movable
 			Velocity.Y = jumpForce;
 			canJump = false;
 			isOnGround = false;
-			_animationManager.Play(_animations["Jump"]);
+			_animationManager.Play(_animations["Walk"]);
 		}
 
 		// Handle weapon input
