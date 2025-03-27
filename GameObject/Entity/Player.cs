@@ -8,7 +8,7 @@ namespace FinalProject.GameObject.Entity;
 
 public class Player : Movable
 {
-	private const float moveSpeed = 200f;
+	private const float moveSpeed = 300f;
 	private const float gravity = 1000f;
 	private const float jumpForce = -500f;
 	private bool canJump = false;
@@ -38,12 +38,12 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
 		{
 			Velocity.X = -moveSpeed;
-			_animationManager.Play(_animations["Walk"]);
+			_animationManager.Play(_animations["Sprint"]);
 		}
 		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 		{
 			Velocity.X = moveSpeed;
-			_animationManager.Play(_animations["Walk"]);
+			_animationManager.Play(_animations["Sprint"]);
 		}
 		else
 		{
