@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using FinalProject.GameObject.Weapon;
+using System;
 
 namespace FinalProject.GameObject.Entity;
 
@@ -122,6 +123,32 @@ public class Player : Movable
 				break;
 			}
 		}
+	}
+	public void PickupWeapon(Weapon.Weapon weapon)
+	{
+		if (_currentWeapon == null)
+		{
+			_currentWeapon = weapon;
+			Console.WriteLine(weapon);
+		}
+		else if (_primaryWeapon == null)
+		{
+			_primaryWeapon = weapon;
+			Console.WriteLine(weapon);
+		}
+		else if (_secondaryWeapon == null)
+		{
+			_secondaryWeapon = weapon;
+			Console.WriteLine(weapon);
+		}
+		else
+		{
+			// ถ้ามีครบ 3 อันแล้ว ยังไม่กำหนดว่าทำไง อาจจะ drop หรือไม่เก็บ
+			return;
+		}
+
+		// ตำแหน่งอาวุธจะติดตาม Player ทันที (หรือซ่อนไว้ถ้ายังไม่ใช้งาน)
+		weapon.Position = this.Position;
 	}
 
 	public override void Draw(SpriteBatch spriteBatch)

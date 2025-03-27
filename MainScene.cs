@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using FinalProject.GameObject;
 using FinalProject.GameObject.Entity;
 using FinalProject.GameObject.Entity.Enemy;
+using FinalProject.GameObject.Weapon;
 
 using FinalProject.Utils.MapManager;
 using FinalProject.Utils.SplashScreen;
@@ -24,6 +25,9 @@ public class MainScene : Game
 
     private SplashScreenSequence _currentSequence;
     private bool _isMap2ClearedCutscene = false;
+
+    // เพิ่มฟิลด์นี้ใน class MainScene
+    private List<Weapon> worldWeapons = new();
 
     public MainScene()
     {
@@ -84,6 +88,11 @@ public class MainScene : Game
 
         // Initialize systems
         player = new Player(Singleton.Instance.Animations["Player"], new Vector2(50, 700));
+
+        var weaponSpawnPosition = new Vector2(300, 900); // จุดวางอาวุธบนพื้น Map 1
+        Weapon randomWeapon = new Crowbar(weaponSpawnPosition); // อนาคตจะสุ่มจากหลายชนิด
+        worldWeapons.Add(randomWeapon);
+
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
     }
 
@@ -152,6 +161,19 @@ public class MainScene : Game
                 }
             }
 
+            for (int i = worldWeapons.Count - 1; i >= 0; i--)
+            {
+                var weapon = worldWeapons[i];
+                weapon.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                // ถ้า player เดินชนอาวุธ
+                if (player.Bounds.Intersects(weapon.Bounds))
+                {
+                    player.PickupWeapon(weapon);
+                    worldWeapons.RemoveAt(i);
+                }
+            }
+
         }
 
         base.Update(gameTime);
@@ -193,6 +215,11 @@ public class MainScene : Game
                         enemy.Draw(_spriteBatch);
                     }
                 }
+            }
+
+            foreach (var weapon in worldWeapons)
+            {
+                weapon.Draw(_spriteBatch);
             }
 
             // Draw player

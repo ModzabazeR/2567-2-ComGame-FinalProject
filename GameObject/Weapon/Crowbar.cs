@@ -24,6 +24,12 @@ public class Crowbar : MeleeWeapon
 
 	public override void Draw(SpriteBatch spriteBatch)
 	{
+		if (texture == null)
+		{
+			texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+			texture.SetData(new[] { Color.OrangeRed }); // สีแดงอ่อน
+		}
 
+		spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y, 40, 40), Color.White);
 	}
 }
