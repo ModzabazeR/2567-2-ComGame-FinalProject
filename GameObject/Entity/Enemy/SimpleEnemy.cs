@@ -60,7 +60,7 @@ public class SimpleEnemy : Enemy
 	private void UpdateAnimation()
 	{
 		if (Velocity.X != 0)
-			_animationManager.Play(_animations["Run"]);
+			_animationManager.Play(_animations["Walk"]);
 		else
 			_animationManager.Play(_animations["Idle"]);
 	}
