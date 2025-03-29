@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -81,5 +82,6 @@ public abstract class Enemy : Movable
 	{
 		_isDefeated = true;
 		Despawn();
+		Console.WriteLine("enemy Defeat ");
 	}
 }

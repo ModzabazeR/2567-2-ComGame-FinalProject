@@ -162,7 +162,15 @@ public class MainScene : Game
 
                         if (enemy.Bounds.Intersects(player.Bounds))
                         {
-                            player.TakeDamage(1);
+                            Vector2 knockback = Vector2.Normalize(player.Position - enemy.Position);
+                            player.TakeDamage(1, knockback);
+                        }
+
+                        // ตรวจสอบการโจมตี
+                        if (player.IsAttacking && enemy.IsSpawned && !enemy.IsDefeated &&
+                            enemy.Bounds.Intersects(player.GetAttackHitbox()))
+                        {
+                            enemy.Defeat();
                         }
                     }
 
@@ -227,6 +235,19 @@ public class MainScene : Game
             }
             // Draw player
             player.Draw(_spriteBatch);
+            if (player.IsAttacking)
+            {
+                var attackBox = player.GetAttackHitbox();
+
+                Texture2D redTexture = new Texture2D(GraphicsDevice, 1, 1);
+                redTexture.SetData(new[] { Color.Red });
+
+                _spriteBatch.Draw(
+                    redTexture,
+                    attackBox,
+                    Color.Red * 0.5f // โปร่งใสหน่อย
+                );
+            }
 
             _spriteBatch.End();
 
@@ -242,7 +263,6 @@ public class MainScene : Game
 
             _spriteBatch.Draw(hpTexture, hpBack, Color.DarkGray);
             _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
-
             _spriteBatch.End(); // ===== End UI rendering =====
         }
 

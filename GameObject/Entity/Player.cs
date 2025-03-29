@@ -24,6 +24,16 @@ public class Player : Movable
 	public int MaxHP => maxHP;
 	public bool IsAlive => currentHP > 0;
 
+	private float invincibilityTime = 1.0f; // ระยะเวลาอมตะหลังโดนตี (วินาที)
+	private float invincibilityTimer = 0f;
+	private bool isInvincible => invincibilityTimer > 0;
+
+	//โจมตี
+	private bool isAttacking = false;
+	private float attackDuration = 0.3f; // ความยาวการโจมตี
+	private float attackTimer = 0f;
+	public bool IsAttacking => isAttacking;
+
 	public Player(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
 	{
@@ -39,6 +49,19 @@ public class Player : Movable
 		HandleMovement(dt, platforms, previousPosition);
 
 		base.Update(gameTime, platforms);
+
+		if (invincibilityTimer > 0)
+		{
+			invincibilityTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+		}
+
+		// โจมตี
+		if (isAttacking)
+		{
+			attackTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+			if (attackTimer <= 0)
+				isAttacking = false;
+		}
 	}
 
 	private void HandleInput()
@@ -71,10 +94,11 @@ public class Player : Movable
 		}
 
 		// Handle weapon input
-		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
-			Singleton.Instance.PreviousKey.IsKeyUp(Keys.Space))
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.C) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.C))
 		{
-			// TODO
+			isAttacking = true;
+			attackTimer = attackDuration;
 		}
 	}
 
@@ -158,14 +182,33 @@ public class Player : Movable
 		weapon.Position = this.Position;
 	}
 
-	public void TakeDamage(int amount)
+	public void TakeDamage(int amount, Vector2 knockbackDirection)
 	{
-		if (currentHP > 0) 
-		{
-			currentHP -= amount;
-			if (currentHP < 0) currentHP = 0;
-			Console.WriteLine($"Player HP: {currentHP}/{maxHP}");
-		}
+		if (isInvincible || !IsAlive)
+			return;
+
+		currentHP -= amount;
+		if (currentHP < 0) currentHP = 0;
+
+		// เริ่มนับเวลาอมตะ
+		invincibilityTimer = invincibilityTime;
+
+		// กระเด้งออกจากศัตรู
+		Velocity = knockbackDirection * 300f;
+		Console.WriteLine($"Player HP: {currentHP}/{maxHP}");
+	}
+
+	public Rectangle GetAttackHitbox()
+	{
+		int width = 40;
+		int height = 80;
+		int offsetX = isFacingRight ? Bounds.Width : -width;
+		return new Rectangle(
+			(int)(Position.X + offsetX),
+			(int)(Position.Y),
+			width,
+			height
+		);
 	}
 
 	public override void Draw(SpriteBatch spriteBatch)
