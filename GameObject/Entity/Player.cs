@@ -17,6 +17,13 @@ public class Player : Movable
 	private Weapon.Weapon _secondaryWeapon;
 	private Weapon.Weapon _currentWeapon;
 
+	private int maxHP = 10;
+	private int currentHP = 10;
+
+	public int CurrentHP => currentHP;
+	public int MaxHP => maxHP;
+	public bool IsAlive => currentHP > 0;
+
 	public Player(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
 	{
@@ -149,6 +156,16 @@ public class Player : Movable
 
 		// ตำแหน่งอาวุธจะติดตาม Player ทันที (หรือซ่อนไว้ถ้ายังไม่ใช้งาน)
 		weapon.Position = this.Position;
+	}
+
+	public void TakeDamage(int amount)
+	{
+		if (currentHP > 0) 
+		{
+			currentHP -= amount;
+			if (currentHP < 0) currentHP = 0;
+			Console.WriteLine($"Player HP: {currentHP}/{maxHP}");
+		}
 	}
 
 	public override void Draw(SpriteBatch spriteBatch)
