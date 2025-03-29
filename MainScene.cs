@@ -26,8 +26,8 @@ public class MainScene : Game
     private SplashScreenSequence _currentSequence;
     private bool _isMap2ClearedCutscene = false;
 
-    // เพิ่มฟิลด์นี้ใน class MainScene
-    private List<Weapon> worldWeapons = new();
+    private Texture2D hpTexture;
+
 
     public MainScene()
     {
@@ -159,23 +159,27 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         enemy.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                        if (enemy.Bounds.Intersects(player.Bounds))
+                        {
+                            player.TakeDamage(1);
+                        }
+                    }
+
+                    // เพิ่ม:
+                    for (int i = map.GetWeapons().Count - 1; i >= 0; i--)
+                    {
+                        var weapon = map.GetWeapons()[i];
+                        weapon.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                        if (player.Bounds.Intersects(weapon.Bounds))
+                        {
+                            player.PickupWeapon(weapon);
+                            map.GetWeapons().RemoveAt(i);
+                        }
                     }
                 }
             }
-
-            for (int i = worldWeapons.Count - 1; i >= 0; i--)
-            {
-                var weapon = worldWeapons[i];
-                weapon.Update(gameTime, mapManager.GetAllSolidTiles());
-
-                // ถ้า player เดินชนอาวุธ
-                if (player.Bounds.Intersects(weapon.Bounds))
-                {
-                    player.PickupWeapon(weapon);
-                    worldWeapons.RemoveAt(i);
-                }
-            }
-
         }
 
         base.Update(gameTime);
@@ -216,18 +220,30 @@ public class MainScene : Game
                     {
                         enemy.Draw(_spriteBatch);
                     }
+                    foreach (var weapon in map.GetWeapons()){
+                        weapon.Draw(_spriteBatch);  
+                    }                
                 }
             }
-
-            foreach (var weapon in worldWeapons)
-            {
-                weapon.Draw(_spriteBatch);
-            }
-
             // Draw player
             player.Draw(_spriteBatch);
 
             _spriteBatch.End();
+
+            // ====== Draw UI (HP Bar) ======
+            _spriteBatch.Begin(); // No transform for screen-space UI
+
+            int barWidth = 200;
+            int barHeight = 20;
+            float hpRatio = (float)player.CurrentHP / player.MaxHP;
+
+            Rectangle hpBack = new Rectangle(10, 10, barWidth, barHeight);
+            Rectangle hpFront = new Rectangle(10, 10, (int)(barWidth * hpRatio), barHeight);
+
+            _spriteBatch.Draw(hpTexture, hpBack, Color.DarkGray);
+            _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
+
+            _spriteBatch.End(); // ===== End UI rendering =====
         }
 
         base.Draw(gameTime);

@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using FinalProject.GameObject.Entity.Enemy;
+using FinalProject.GameObject.Weapon;
 
 namespace FinalProject.Utils.MapManager;
 
@@ -26,6 +27,8 @@ public class Map
 	private bool allEnemiesSpawned;
 
 	public event Action OnMapCleared;
+
+	private List<Weapon> mapWeapons;
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		: this(name, texture, position, collisionMapPath, Singleton.Instance.MAP_WIDTH, Singleton.Instance.MAP_HEIGHT)
@@ -50,9 +53,14 @@ public class Map
 		LoadLCM(collisionMapPath);
 		InitializeCollisionTiles();
 
+		// สุ่มอาวุท
+		mapWeapons = new List<Weapon>();
+
 		if (name == "Map 1")
 		{
 			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(6, 6))];
+			var crowbar = new Crowbar(TileToWorldPosition(10, 15)); // spawn ที่ tile (5,10)
+			mapWeapons.Add(crowbar);
 		}
 		else if (name == "Map 2")
 		{
@@ -290,6 +298,11 @@ public class Map
 	public List<Enemy> GetEnemies()
 	{
 		return enemies ?? [];
+	}
+
+	public List<Weapon> GetWeapons()
+	{
+		return mapWeapons ?? [];
 	}
 
 	private Vector2 TileToWorldPosition(int tileX, int tileY)
