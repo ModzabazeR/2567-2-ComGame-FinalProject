@@ -35,31 +35,36 @@ public class Player : Movable
 
 	private void HandleInput()
 	{
+		// Horizontal movement and animation
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
 		{
 			Velocity.X = -moveSpeed;
-			_animationManager.Play(_animations["Sprint"]);
+			if (isOnGround)
+				_animationManager.Play(_animations["Sprint"]);
 		}
 		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 		{
 			Velocity.X = moveSpeed;
-			_animationManager.Play(_animations["Sprint"]);
+			if (isOnGround)
+				_animationManager.Play(_animations["Sprint"]);
 		}
 		else
 		{
 			Velocity.X = 0;
-			_animationManager = new AnimationManager(_animations["Idle"]);
+			if (isOnGround)
+				_animationManager.Play(_animations["Idle"]);
 		}
 
 		UpdateFacingDirection(Velocity.X);
 
+		// Jump handling
 		if (canJump && Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.W))
 		{
 			Velocity.Y = jumpForce;
 			canJump = false;
 			isOnGround = false;
-			_animationManager.Play(_animations["Walk"]);
+			_animationManager.Play(_animations["Jump"]);
 		}
 
 		// Handle weapon input

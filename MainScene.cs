@@ -77,12 +77,14 @@ public class MainScene : Game
         Texture2D idleTexture = Content.Load<Texture2D>("Textures/Player_Idle");
         Texture2D runTexture = Content.Load<Texture2D>("Textures/Player_Walk");
         Texture2D sprintTexture = Content.Load<Texture2D>("Textures/Player_Sprint");
+        Texture2D jumpTexture = Content.Load<Texture2D>("Textures/Player_Jump");
 
 
         Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
             { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
-            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) }
+            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) },
+            { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) }
         };
 
         // Initialize systems
