@@ -13,8 +13,8 @@ public class Player : Movable
 	private const float jumpForce = -500f;
 	private bool canJump = false;
 	private bool isAttacking = false;
-	private float attackCooldown = 0f;
-	private const float attackDuration = 1f; // 4 frames * 0.25f duration
+	private float attackCooldown = 0.5f;
+	private const float attackDuration = 0.5f; // 4 frames * 0.125f duration
 	private Weapon.Weapon _primaryWeapon;
 	private Weapon.Weapon _secondaryWeapon;
 	private Weapon.Weapon _currentWeapon;
@@ -37,7 +37,7 @@ public class Player : Movable
 			{
 				isAttacking = false;
 				// Return to idle after attack
-				if (isOnGround) _animationManager.Play(_animations["Crowbar_Idle"]);
+				if (isOnGround) _animationManager.Play(_animations["Pistol_Idle"]);
 			}
 		}
 
@@ -57,7 +57,7 @@ public class Player : Movable
 		{
 			isAttacking = true;
 			attackCooldown = attackDuration;
-			_animationManager.Play(_animations["Crowbar_Attack"]);
+			_animationManager.Play(_animations["Pistol_Shoot"]);
 			Velocity.X = 0; // Optional: Stop movement during attack
 		}
 
@@ -68,17 +68,17 @@ public class Player : Movable
 			if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
 			{
 				Velocity.X = -moveSpeed;
-				if (isOnGround) _animationManager.Play(_animations["Sprint"]);
+				if (isOnGround) _animationManager.Play(_animations["Pistol_Walk"]);
 			}
 			else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 			{
 				Velocity.X = moveSpeed;
-				if (isOnGround) _animationManager.Play(_animations["Sprint"]);
+				if (isOnGround) _animationManager.Play(_animations["Pistol_Walk"]);
 			}
 			else
 			{
 				Velocity.X = 0;
-				if (isOnGround) _animationManager.Play(_animations["Crowbar_Idle"]);
+				if (isOnGround) _animationManager.Play(_animations["Pistol_Idle"]);
 			}
 
 			UpdateFacingDirection(Velocity.X);
