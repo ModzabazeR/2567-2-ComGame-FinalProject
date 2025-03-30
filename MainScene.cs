@@ -79,12 +79,16 @@ public class MainScene : Game
         Texture2D sprintTexture = Content.Load<Texture2D>("Textures/Player_Sprint");
         Texture2D jumpTexture = Content.Load<Texture2D>("Textures/Player_Jump");
 
+        Texture2D crowbarIdle = Content.Load<Texture2D>("Textures/Crowbar_Idle");
+        Texture2D crowbarAtk = Content.Load<Texture2D>("Textures/Crowbar_Attack");
 
         Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
-            { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
+            { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },   
             { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
             { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) },
-            { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) }
+            { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) },
+            { "Crowbar_Idle", new Animation(crowbarIdle, 38, 75, 3, 0.33f) },
+            { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.25f) }
         };
 
         // Initialize systems
