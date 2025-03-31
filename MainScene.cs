@@ -11,6 +11,7 @@ using FinalProject.Utils.SplashScreen;
 
 using System.Collections.Generic;
 using System;
+using FinalProject.Utils.BGMManager;
 
 namespace FinalProject;
 
@@ -42,12 +43,26 @@ public class MainScene : Game
 
         base.Initialize();
 
+        BGMManager.Instance.Initialize(Content);
+
         StartIntroSequence();
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        // Load background music after BGMManager is initialized
+        try
+        {
+            BGMManager.Instance.LoadSong("Textures/boss death sfx");
+            BGMManager.Instance.PlaySong("Textures/boss death sfx", true);
+            BGMManager.Instance.SetVolume(0.5f);
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error loading BGM: {ex.Message}");
+        }
 
         // Load the font first since splash screens need it
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");

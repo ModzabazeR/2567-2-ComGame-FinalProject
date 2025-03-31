@@ -117,3 +117,47 @@ C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalPr
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.lcm
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.txt
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level3.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.lcm
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.txt
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.lcm
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.txt
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.lcm
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.txt
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Player_Sprint.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\_Idle.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\_Jump.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\_Run.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\gamefont.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level1.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level2.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level3.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Idle.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Sprint.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Walk.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\FinalProject.exe
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\FinalProject.deps.json
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\FinalProject.runtimeconfig.json
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\FinalProject.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\FinalProject.pdb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\MonoGame.Framework.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\NVorbis.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\linux-x64\native\libopenal.so.1
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\osx\native\libopenal.1.dylib
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\win-x64\native\soft_oal.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\win-x86\native\soft_oal.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\osx\native\libSDL2.dylib
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\runtimes\win-x64\native\SDL2.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.csproj.AssemblyReference.cache
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.AssemblyInfoInputs.cache
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.AssemblyInfo.cs
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.csproj.CoreCompileInputs.cache
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.sourcelink.json
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.csproj.CopyComplete
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\refint\FinalProject.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.pdb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\FinalProject.genruntimeconfig.cache
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\obj\Debug\net8.0\ref\FinalProject.dll
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\boss death sfx.wav

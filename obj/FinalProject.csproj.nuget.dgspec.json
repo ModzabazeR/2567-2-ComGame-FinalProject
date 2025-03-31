@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj": {}
+    "C:\\Users\\Nattaphat.S\\2567-2-ComGame-FinalProject\\FinalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj": {
+    "C:\\Users\\Nattaphat.S\\2567-2-ComGame-FinalProject\\FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\Nattaphat.S\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
         "projectName": "FinalProject",
-        "projectPath": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\obj\\",
+        "projectPath": "C:\\Users\\Nattaphat.S\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
+        "packagesPath": "C:\\Users\\Nattaphat.S\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nattaphat.S\\2567-2-ComGame-FinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Nattaphat.S\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -64,30 +58,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

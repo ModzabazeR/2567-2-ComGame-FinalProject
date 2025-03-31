@@ -13,6 +13,9 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin boss death sfx.wav
+/copy:boss death sfx.wav
+
 #begin GameFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -31,6 +34,12 @@
 
 #begin Maps/level2_collision.txt
 /copy:Maps/level2_collision.txt
+
+#begin Maps/level3_collision.lcm
+/copy:Maps/level3_collision.lcm
+
+#begin Maps/level3_collision.txt
+/copy:Maps/level3_collision.txt
 
 #begin Textures/level1.png
 /importer:TextureImporter
@@ -104,20 +113,3 @@
 /processorParam:TextureFormat=Color
 /build:Textures/Player_Walk.png
 
-#begin Maps/level1_collision.txt
-/copy:Maps/level1_collision.txt
-
-#begin Maps/level2_collision.txt
-/copy:Maps/level2_collision.txt
-
-#begin Maps/level3_collision.txt
-/copy:Maps/level3_collision.txt
-
-#begin Maps/level1_collision.lcm
-/copy:Maps/level1_collision.lcm
-
-#begin Maps/level2_collision.lcm
-/copy:Maps/level2_collision.lcm
-
-#begin Maps/level3_collision.lcm
-/copy:Maps/level3_collision.lcm
