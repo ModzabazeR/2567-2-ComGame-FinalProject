@@ -57,7 +57,7 @@ public class Player : Movable
 		{
 			isAttacking = true;
 			attackCooldown = attackDuration;
-			_animationManager.Play(_animations["Pistol_Shoot"]);
+			_animationManager.Play(_animations["Crowbar_Attack"]);
 			Velocity.X = 0; // Optional: Stop movement during attack
 		}
 
@@ -68,17 +68,17 @@ public class Player : Movable
 			if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
 			{
 				Velocity.X = -moveSpeed;
-				if (isOnGround) _animationManager.Play(_animations["Pistol_Walk"]);
+				if (isOnGround) _animationManager.Play(_animations["Crowbar_Walk"]);
 			}
 			else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 			{
 				Velocity.X = moveSpeed;
-				if (isOnGround) _animationManager.Play(_animations["Pistol_Walk"]);
+				if (isOnGround) _animationManager.Play(_animations["Crowbar_Walk"]);
 			}
 			else
 			{
 				Velocity.X = 0;
-				if (isOnGround) _animationManager.Play(_animations["Pistol_Idle"]);
+				if (isOnGround) _animationManager.Play(_animations["Crowbar_Idle"]);
 			}
 
 			UpdateFacingDirection(Velocity.X);

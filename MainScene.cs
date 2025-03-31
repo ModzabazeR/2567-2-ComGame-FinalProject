@@ -80,6 +80,7 @@ public class MainScene : Game
         Texture2D jumpTexture = Content.Load<Texture2D>("Textures/Player_Jump");
 
         Texture2D crowbarIdle = Content.Load<Texture2D>("Textures/Crowbar_Idle");
+        Texture2D crowbarWalk = Content.Load<Texture2D>("Textures/Crowbar_Walk");
         Texture2D crowbarAtk = Content.Load<Texture2D>("Textures/Crowbar_Attack");
 
         Texture2D pistolIdle = Content.Load<Texture2D>("Textures/Pistol_Idle");
@@ -92,6 +93,7 @@ public class MainScene : Game
             { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) },
             { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) },
             { "Crowbar_Idle", new Animation(crowbarIdle, 38, 75, 3, 0.33f) },
+            {"Crowbar_Walk", new Animation(crowbarWalk, 48, 75, 8, 0.125f) },
             { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.125f) },
             { "Pistol_Idle", new Animation(pistolIdle, 32, 75, 3, 0.33f) },
             { "Pistol_Walk", new Animation(pistolWalk, 44, 75, 8, 0.125f) },
