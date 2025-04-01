@@ -54,7 +54,7 @@ public class Map
 		{
 			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(6, 6))];
 		}
-		else if (name == "Map 2")
+		else if (name == "Map 3")
 		{
 			enemies =
 			[
@@ -148,6 +148,7 @@ public class Map
 			}
 		}
 	}
+	// vertical map 22x30
 
 	public bool IsVisible(Rectangle cameraView)
 	{
@@ -192,8 +193,8 @@ public class Map
 		SpawnEnemies();
 		CheckMapCleared();
 
-		// debug for map 2, remove this if you want to manually clear the map
-		if (name == "Map 2" && GetTimeSinceEntry()?.TotalSeconds >= 10)
+		// debug for map 3, remove this if you want to manually clear the map
+		if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
 		{
 			foreach (var enemy in enemies)
 			{
@@ -225,7 +226,7 @@ public class Map
 
 	private void CheckMapCleared()
 	{
-		if (name == "Map 2" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
+		if (name == "Map 3" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
 		{
 			bool allEnemiesDefeated = true;
 			foreach (var enemy in enemies)
@@ -261,9 +262,9 @@ public class Map
 				}
 			}
 		}
-		else if (name == "Map 2")
+		else if (name == "Map 3")
 		{
-			// Map 2 spawn logic - spawn enemies after 5 seconds of entering
+			// Map 3 spawn logic - spawn enemies after 5 seconds of entering
 			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5 && !allEnemiesSpawned)
 			{
 				// Spawn all enemies
@@ -277,12 +278,12 @@ public class Map
 				allEnemiesSpawned = true;
 			}
 		}
-		else if (name == "Map 3")
+		else if (name == "Map 4")
 		{
-			// Map 3 spawn logic - spawn enemies after 3 seconds of entering
+			// Map 4 spawn logic - spawn enemies after 3 seconds of entering
 			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3)
 			{
-				// Add your Map 3 specific spawn logic here
+				// Add your Map 4 specific spawn logic here
 			}
 		}
 	}
