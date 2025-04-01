@@ -85,6 +85,8 @@ public class MainScene : Game
 
         Texture2D pistolIdle = Content.Load<Texture2D>("Textures/Pistol_Idle");
         Texture2D pistolWalk = Content.Load<Texture2D>("Textures/Pistol_Walk");
+        Texture2D pistolEmpty = Content.Load<Texture2D>("Textures/Pistol_Empty");
+        Texture2D pistolReload = Content.Load<Texture2D>("Textures/Pistol_Reload");
         Texture2D pistolShoot = Content.Load<Texture2D>("Textures/Pistol_Shoot");
 
         Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
@@ -97,6 +99,8 @@ public class MainScene : Game
             { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.125f) },
             { "Pistol_Idle", new Animation(pistolIdle, 32, 75, 3, 0.33f) },
             { "Pistol_Walk", new Animation(pistolWalk, 44, 75, 8, 0.125f) },
+            { "Pistol_Empty", new Animation(pistolEmpty, 48, 75, 10, 0.1f) },
+            { "Pistol_Reload", new Animation(pistolReload, 48, 75, 10, 0.1f) },
             { "Pistol_Shoot", new Animation(pistolShoot, 48, 75, 10, 0.1f) }
 
         };
