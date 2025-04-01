@@ -123,3 +123,4 @@ C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\Final
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level4_collision.lcm
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Maps\level4_collision.txt
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\level4.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\level2.xnb

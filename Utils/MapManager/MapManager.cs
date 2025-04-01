@@ -17,6 +17,11 @@ public class MapManager
 		maps.Add(new Map(name, texture, position, collisionMapPath));
 	}
 
+	public void AddMap(string name, Texture2D texture, Vector2 position, string collisionMapPath, int mapWidth, int mapHeight)
+	{
+		maps.Add(new Map(name, texture, position, collisionMapPath, mapWidth, mapHeight));
+	}
+
 	public List<Rectangle> GetAllSolidTiles()
 	{
 		List<Rectangle> allSolidTiles = new List<Rectangle>();

@@ -81,13 +81,15 @@ public class MainScene : Game
 
         // Load map textures
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
-        Texture2D map2Texture = Content.Load<Texture2D>("Textures/level3");
-        Texture2D map3Texture = Content.Load<Texture2D>("Textures/level4");
+        Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
+        Texture2D map3Texture = Content.Load<Texture2D>("Textures/level3");
+        Texture2D map4Texture = Content.Load<Texture2D>("Textures/level4");
 
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.lcm");
-        mapManager.AddMap("Map 3", map2Texture, new Vector2(0, 1200), "Content/Maps/level3_collision.lcm");
-        mapManager.AddMap("Map 4", map3Texture, new Vector2(0, 2000), "Content/Maps/level4_collision.lcm");
+        mapManager.AddMap("Map 2", map2Texture, new Vector2(1250, 820), "Content/Maps/level2_collision.lcm", 28, 50);
+        mapManager.AddMap("Map 3", map3Texture, new Vector2(0, 1200), "Content/Maps/level3_collision.lcm");
+        mapManager.AddMap("Map 4", map4Texture, new Vector2(0, 2000), "Content/Maps/level4_collision.lcm");
 
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");
@@ -121,7 +123,7 @@ public class MainScene : Game
                     // If this was the Map 3 cleared cutscene, move player to Map 3
                     if (_isMap3ClearedCutscene)
                     {
-                        var map3 = mapManager.GetMap("Map 3");
+                        var map3 = mapManager.GetMap("Map 4");
                         player.Position = new Vector2(100, map3.Position.Y + 300);
                         _isMap3ClearedCutscene = false;
                     }
