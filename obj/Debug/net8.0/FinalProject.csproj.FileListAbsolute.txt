@@ -117,3 +117,12 @@ C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalPr
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.lcm
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.txt
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level3.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level1_collision.lcm
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level2_collision.lcm
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.lcm
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level3_collision.txt
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Player_Sprint.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level3.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Idle.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Sprint.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Walk.xnb

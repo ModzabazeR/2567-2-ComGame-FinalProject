@@ -25,9 +25,9 @@ public class MainScene : Game
 
     private SplashScreenSequence _currentSequence;
     private bool _isMap2ClearedCutscene = false;
-
     private Texture2D hpTexture;
 
+    private List<Bullet> bullets = new();
 
     public MainScene()
     {
@@ -95,6 +95,11 @@ public class MainScene : Game
 
         // Subscribe to Map 2's cleared event
         var map2 = mapManager.GetMap("Map 2");
+
+        // สร้าง texture สีแดง 1x1 ใช้สำหรับวาด HP bar
+        hpTexture = new Texture2D(GraphicsDevice, 1, 1);
+        hpTexture.SetData(new[] { Color.Red });
+
         map2.OnMapCleared += () => ShowMap2ClearedCutscene();
     }
 
@@ -150,6 +155,40 @@ public class MainScene : Game
 
             // Update player with collision tiles
             player.Update(gameTime, mapManager.GetAllSolidTiles());
+            // ดึงกระสุนที่ Player ยิงมาจาก Player
+            bullets.AddRange(player.CollectBullets());
+
+            // กระสุน
+            for (int i = bullets.Count - 1; i >= 0; i--)
+            {
+                var bullet = bullets[i];
+                bullet.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                bool hitEnemy = false;
+
+                foreach (var map in mapManager.GetMaps())
+                {
+                    if (!map.IsVisible(cameraBounds)) continue; // ✅ แก้ตรงนี้
+
+                    foreach (var enemy in map.GetEnemies())
+                    {
+                        if (!enemy.IsSpawned || enemy.IsDefeated) continue;
+
+                        if (bullet.Bounds.Intersects(enemy.Bounds))
+                        {
+                            enemy.Defeat();
+                            hitEnemy = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!bullet.IsActive() || hitEnemy)
+                {
+                    bullets.RemoveAt(i); // ลบกระสุนเมื่อชนกำแพงหรือศัตรู
+                }
+            }
+
 
             foreach (var map in mapManager.GetMaps())
             {
@@ -232,6 +271,10 @@ public class MainScene : Game
                         weapon.Draw(_spriteBatch);  
                     }                
                 }
+            }
+            foreach (var bullet in bullets)
+            {
+                bullet.Draw(_spriteBatch);
             }
             // Draw player
             player.Draw(_spriteBatch);
@@ -325,6 +368,7 @@ public class MainScene : Game
         _currentSequence = new SplashScreenSequence(introScreens);
         Singleton.Instance.CurrentGameState = GameState.Splash;
     }
+
 
     public void ShowCutscene(params SplashScreenData[] screens)
     {

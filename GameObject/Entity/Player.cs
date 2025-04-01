@@ -28,11 +28,14 @@ public class Player : Movable
 	private float invincibilityTimer = 0f;
 	private bool isInvincible => invincibilityTimer > 0;
 
+	//กระสุน
+	private List<Bullet> bullets = new(); // เก็บกระสุนที่ยิงออกไป
 	//โจมตี
 	private bool isAttacking = false;
 	private float attackDuration = 0.3f; // ความยาวการโจมตี
 	private float attackTimer = 0f;
 	public bool IsAttacking => isAttacking;
+	
 
 	public Player(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
@@ -100,6 +103,19 @@ public class Player : Movable
 			isAttacking = true;
 			attackTimer = attackDuration;
 		}
+
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.K) &&
+    	Singleton.Instance.PreviousKey.IsKeyUp(Keys.K))
+		{
+			Console.WriteLine("bullet shoot");
+			Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
+			Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
+			Vector2 spawnPos = Position + spawnOffset;
+
+			var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f);
+			bullets.Add(bullet);
+		}
+
 	}
 
 	private void ApplyGravity(float dt)
@@ -210,6 +226,13 @@ public class Player : Movable
 			height
 		);
 	}
+
+	public List<Bullet> CollectBullets()
+    {
+        List<Bullet> output = new List<Bullet>(bullets);
+        bullets.Clear();
+        return output;
+    }
 
 	public override void Draw(SpriteBatch spriteBatch)
 	{
