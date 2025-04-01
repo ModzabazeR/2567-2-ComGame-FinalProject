@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Player_Sprint.png</SourceFile>
-  <SourceTime>2025-03-27T22:50:12.4773203+07:00</SourceTime>
-  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/Player_Sprint.xnb</DestFile>
-  <DestTime>2025-04-01T23:34:33.032307+07:00</DestTime>
+  <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Shotgun_Reload.png</SourceFile>
+  <SourceTime>2025-04-01T22:59:54.503478+07:00</SourceTime>
+  <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/Shotgun_Reload.xnb</DestFile>
+  <DestTime>2025-04-01T23:35:07.8343301+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
