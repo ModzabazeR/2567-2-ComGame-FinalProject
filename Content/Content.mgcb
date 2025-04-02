@@ -32,7 +32,7 @@
 #begin Maps/level2_collision.txt
 /copy:Maps/level2_collision.txt
 
-#begin Textures/Crowbar_Attack.png
+#begin Textures/maps/level1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -42,9 +42,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Crowbar_Attack.png
+/build:Textures/maps/level1.png
 
-#begin Textures/Crowbar_Idle.png
+#begin Textures/maps/level2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -54,9 +54,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Crowbar_Idle.png
+/build:Textures/maps/level2.png
 
-#begin Textures/Crowbar_Walk.png
+#begin Textures/normal_movements/Player_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -66,9 +66,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Crowbar_Walk.png
+/build:Textures/normal_movements/Player_Idle.png
 
-#begin Textures/Grenade_Idle.png
+#begin Textures/normal_movements/Player_Jump.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -78,9 +78,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Grenade_Idle.png
+/build:Textures/normal_movements/Player_Jump.png
 
-#begin Textures/Grenade_Throw.png
+#begin Textures/normal_movements/Player_Sprint.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -90,9 +90,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Grenade_Throw.png
+/build:Textures/normal_movements/Player_Sprint.png
 
-#begin Textures/Grenade_Walk.png
+#begin Textures/normal_movements/Player_Walk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -102,9 +102,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Grenade_Walk.png
+/build:Textures/normal_movements/Player_Walk.png
 
-#begin Textures/level1.png
+#begin Textures/weapons/crowbar/Crowbar_Attack.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -114,9 +114,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/level1.png
+/build:Textures/weapons/crowbar/Crowbar_Attack.png
 
-#begin Textures/level2.png
+#begin Textures/weapons/crowbar/Crowbar_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -126,9 +126,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/level2.png
+/build:Textures/weapons/crowbar/Crowbar_Idle.png
 
-#begin Textures/Pistol_Empty.png
+#begin Textures/weapons/crowbar/Crowbar_Walk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -138,9 +138,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Pistol_Empty.png
+/build:Textures/weapons/crowbar/Crowbar_Walk.png
 
-#begin Textures/Pistol_Idle.png
+#begin Textures/weapons/grenade/Grenade_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -150,9 +150,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Pistol_Idle.png
+/build:Textures/weapons/grenade/Grenade_Idle.png
 
-#begin Textures/Pistol_Reload.png
+#begin Textures/weapons/grenade/Grenade_Throw.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -162,9 +162,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Pistol_Reload.png
+/build:Textures/weapons/grenade/Grenade_Throw.png
 
-#begin Textures/Pistol_Shoot.png
+#begin Textures/weapons/grenade/Grenade_Walk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -174,9 +174,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Pistol_Shoot.png
+/build:Textures/weapons/grenade/Grenade_Walk.png
 
-#begin Textures/Pistol_Walk.png
+#begin Textures/weapons/grenade/Grenade-2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -186,9 +186,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Pistol_Walk.png
+/build:Textures/weapons/grenade/Grenade-2.png
 
-#begin Textures/Player_Idle.png
+#begin Textures/weapons/pistol/Pistol_Empty.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -198,9 +198,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Player_Idle.png
+/build:Textures/weapons/pistol/Pistol_Empty.png
 
-#begin Textures/Player_Jump.png
+#begin Textures/weapons/pistol/Pistol_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -210,9 +210,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Player_Jump.png
+/build:Textures/weapons/pistol/Pistol_Idle.png
 
-#begin Textures/Player_Sprint.png
+#begin Textures/weapons/pistol/Pistol_Reload.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -222,9 +222,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Player_Sprint.png
+/build:Textures/weapons/pistol/Pistol_Reload.png
 
-#begin Textures/Player_Walk.png
+#begin Textures/weapons/pistol/Pistol_Shoot.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -234,9 +234,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Player_Walk.png
+/build:Textures/weapons/pistol/Pistol_Shoot.png
 
-#begin Textures/Shotgun_Idle.png
+#begin Textures/weapons/pistol/Pistol_Walk.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -246,9 +246,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Shotgun_Idle.png
+/build:Textures/weapons/pistol/Pistol_Walk.png
 
-#begin Textures/Shotgun_Reload.png
+#begin Textures/weapons/shotgun/Shotgun_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -258,9 +258,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Shotgun_Reload.png
+/build:Textures/weapons/shotgun/Shotgun_Idle.png
 
-#begin Textures/Shotgun_Shoot.png
+#begin Textures/weapons/shotgun/Shotgun_Reload.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -270,9 +270,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Shotgun_Shoot.png
+/build:Textures/weapons/shotgun/Shotgun_Reload.png
 
-#begin Textures/Shotgun_Walk.png
+#begin Textures/weapons/shotgun/Shotgun_Shoot.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -282,5 +282,17 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Textures/Shotgun_Walk.png
+/build:Textures/weapons/shotgun/Shotgun_Shoot.png
+
+#begin Textures/weapons/shotgun/Shotgun_Walk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/weapons/shotgun/Shotgun_Walk.png
 
