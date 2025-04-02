@@ -12,6 +12,9 @@ public class Player : Movable
 	private const float gravity = 1000f;
 	private const float jumpForce = -500f;
 	private bool canJump = false;
+	private bool isAttacking = false;
+	private float attackCooldown = 0.5f;
+	private const float attackDuration = 2f; // 8 frames * 0.25f duration (currently for Grenade_Throw)
 	private Weapon.Weapon _primaryWeapon;
 	private Weapon.Weapon _secondaryWeapon;
 	private Weapon.Weapon _currentWeapon;
@@ -26,6 +29,18 @@ public class Player : Movable
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 		Vector2 previousPosition = Position;
 
+		// Update attack state
+		if (isAttacking)
+		{
+			attackCooldown -= dt;
+			if (attackCooldown <= 0)
+			{
+				isAttacking = false;
+				// Return to idle after attack
+				if (isOnGround) _animationManager.Play(_animations["Grenade_Idle"]);
+			}
+		}
+
 		HandleInput();
 		ApplyGravity(dt);
 		HandleMovement(dt, platforms, previousPosition);
@@ -35,38 +50,49 @@ public class Player : Movable
 
 	private void HandleInput()
 	{
-		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
-		{
-			Velocity.X = -moveSpeed;
-			_animationManager.Play(_animations["Sprint"]);
-		}
-		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
-		{
-			Velocity.X = moveSpeed;
-			_animationManager.Play(_animations["Sprint"]);
-		}
-		else
-		{
-			Velocity.X = 0;
-			_animationManager = new AnimationManager(_animations["Idle"]);
-		}
-
-		UpdateFacingDirection(Velocity.X);
-
-		if (canJump && Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
-			Singleton.Instance.PreviousKey.IsKeyUp(Keys.W))
-		{
-			Velocity.Y = jumpForce;
-			canJump = false;
-			isOnGround = false;
-			_animationManager.Play(_animations["Walk"]);
-		}
-
-		// Handle weapon input
-		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
+		// Attack handling (highest priority)
+		if (!isAttacking &&
+			Singleton.Instance.CurrentKey.IsKeyDown(Keys.Space) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.Space))
 		{
-			// TODO
+			isAttacking = true;
+			attackCooldown = attackDuration;
+			_animationManager.Play(_animations["Grenade_Throw"]);	
+			Velocity.X = 0; // Optional: Stop movement during attack
+		}
+
+		// Only handle other inputs if not attacking
+		if (!isAttacking)
+		{
+			// Horizontal movement
+			if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.A))
+			{
+				Velocity.X = -moveSpeed;
+				if (isOnGround) _animationManager.Play(_animations["Grenade_Walk"]);
+			}
+			else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
+			{
+				Velocity.X = moveSpeed;
+				if (isOnGround) _animationManager.Play(_animations["Grenade_Walk"]);
+			}
+			else
+			{
+				Velocity.X = 0;
+				if (isOnGround) _animationManager.Play(_animations["Grenade_Idle"]);
+			}
+
+			UpdateFacingDirection(Velocity.X);
+
+			// Jump handling
+			if (canJump &&
+				Singleton.Instance.CurrentKey.IsKeyDown(Keys.W) &&
+				Singleton.Instance.PreviousKey.IsKeyUp(Keys.W))
+			{
+				Velocity.Y = jumpForce;
+				canJump = false;
+				isOnGround = false;
+				_animationManager.Play(_animations["Jump"]);
+			}
 		}
 	}
 

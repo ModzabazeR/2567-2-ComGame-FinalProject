@@ -21,9 +21,7 @@ public abstract class Movable : Entity
 		_animationManager = new AnimationManager(_animations[_currentAnimationKey]);
 
 		if (_animations[_currentAnimationKey]?.Texture != null)
-			Bounds = new Rectangle((int)position.X, (int)position.Y,
-								 _animations[_currentAnimationKey].FrameWidth,
-								 _animations[_currentAnimationKey].FrameHeight);
+			Bounds = new Rectangle((int)position.X, (int)position.Y, 40, 75);
 		else
 			throw new System.Exception("Movable animation texture is null");
 	}
@@ -51,8 +49,6 @@ public abstract class Movable : Entity
 
 	protected override void UpdateBounds()
 	{
-		Bounds = new Rectangle((int)Position.X, (int)Position.Y,
-							 _animationManager.Animation.FrameWidth,
-							 _animationManager.Animation.FrameHeight);
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y, 30, 75);
 	}
 }

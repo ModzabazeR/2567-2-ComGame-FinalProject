@@ -55,25 +55,73 @@ public class MainScene : Game
         // Start the intro sequence
         StartIntroSequence();
 
+        // Initialize map manager
+        mapManager = new MapManager();
+
         // Create player texture
-        Texture2D idleTexture = Content.Load<Texture2D>("Textures/Player_Idle");
-        Texture2D walkTexture = Content.Load<Texture2D>("Textures/Player_Walk");
-        Texture2D sprintTexture = Content.Load<Texture2D>("Textures/Player_Sprint");
+        //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
+        //Color[] playerData = new Color[32 * 32];
+        //for (int i = 0; i < playerData.Length; i++)
+        //    playerData[i] = Color.Red;
+        //playerTexture.SetData(playerData);
+        Texture2D idleTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Idle");
+        Texture2D runTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Walk");
+        Texture2D sprintTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Sprint");
+        Texture2D jumpTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Jump");
+
+        Texture2D crowbarIdle = Content.Load<Texture2D>("Textures/weapons/crowbar/Crowbar_Idle");
+        Texture2D crowbarWalk = Content.Load<Texture2D>("Textures/weapons/crowbar/Crowbar_Walk");
+        Texture2D crowbarAtk = Content.Load<Texture2D>("Textures/weapons/crowbar/Crowbar_Attack");
+
+        Texture2D pistolIdle = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Idle");
+        Texture2D pistolWalk = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Walk");
+        Texture2D pistolEmpty = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Empty");
+        Texture2D pistolReload = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Reload");
+        Texture2D pistolShoot = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Shoot");
+
+        Texture2D shotgunIdle = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Idle");
+        Texture2D shotgunWalk = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Walk");
+        Texture2D shotgunReload = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Reload");
+        Texture2D shotgunShoot = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Shoot");
+
+        Texture2D grenadeIdle = Content.Load<Texture2D>("Textures/weapons/grenade/Grenade_Idle");
+        Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/weapons/grenade/Grenade_Walk");
+        Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/weapons/grenade/Grenade_Throw");
 
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
-            { "Walk", new Animation(walkTexture, 48, 75, 8, 0.125f) },
-            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) }
+            { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
+            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) },
+            { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) },
+
+            { "Crowbar_Idle", new Animation(crowbarIdle, 38, 75, 3, 0.33f) },
+            {"Crowbar_Walk", new Animation(crowbarWalk, 48, 75, 8, 0.125f) },
+            { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.125f) },
+
+            { "Pistol_Idle", new Animation(pistolIdle, 32, 75, 3, 0.33f) },
+            { "Pistol_Walk", new Animation(pistolWalk, 44, 75, 8, 0.125f) },
+            { "Pistol_Empty", new Animation(pistolEmpty, 48, 75, 10, 0.1f) },
+            { "Pistol_Reload", new Animation(pistolReload, 48, 75, 10, 0.1f) },
+            { "Pistol_Shoot", new Animation(pistolShoot, 48, 75, 10, 0.1f) },
+
+            { "Shotgun_Idle", new Animation(shotgunIdle, 48, 75, 3, 0.33f) },
+            { "Shotgun_Walk", new Animation(shotgunWalk, 60, 75, 8, 0.125f) },
+            { "Shotgun_Reload", new Animation(shotgunReload, 60, 75, 10, 0.1f) },
+            { "Shotgun_Shoot", new Animation(shotgunShoot, 60, 75, 10, 0.1f) },
+
+            { "Grenade_Idle", new Animation(grenadeIdle, 30, 75, 3, 0.33f) },
+            { "Grenade_Walk", new Animation(grenadeWalk, 48, 75, 8, 0.125f) },
+            { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.25f) }
         };
 
         // Initialize systems
         mapManager = new MapManager();
 
         // Load map textures
-        Texture2D map1Texture = Content.Load<Texture2D>("Textures/level1");
-        Texture2D map2Texture = Content.Load<Texture2D>("Textures/level2");
-        Texture2D map3Texture = Content.Load<Texture2D>("Textures/level3");
-        Texture2D map4Texture = Content.Load<Texture2D>("Textures/level4");
+        Texture2D map1Texture = Content.Load<Texture2D>("Textures/maps/level1");
+        Texture2D map2Texture = Content.Load<Texture2D>("Textures/maps/level2");
+        Texture2D map3Texture = Content.Load<Texture2D>("Textures/maps/level3");
+        Texture2D map4Texture = Content.Load<Texture2D>("Textures/maps/level4");
 
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.lcm");
