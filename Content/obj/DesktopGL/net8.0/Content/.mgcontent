@@ -6,6 +6,7 @@
   <SourceFiles>
     <File>C:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/BGM/boss death sfx.wav</File>
     <File>C:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
+    <File>C:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
     <File>C:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/Frightmare - Jimena Contreras.mp3</File>
     <File>C:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/GameFont.spritefont</File>
     <File>C:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/Textures/level1.png</File>
@@ -18,6 +19,7 @@
   <DestFiles>
     <File>boss death sfx.wav</File>
     <File>main theme1.wav</File>
+    <File>boss theme - Deep Space Sector 9 - Ezra Lipp.mp3</File>
     <File>main theme 2 - Frightmare - Jimena Contreras.mp3</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />

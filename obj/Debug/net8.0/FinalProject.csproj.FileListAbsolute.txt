@@ -167,3 +167,5 @@ C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main t
 C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme1.xnb
 C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme 2 - Frightmare - Jimena Contreras.ogg
 C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme 2 - Frightmare - Jimena Contreras.xnb
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\boss theme - Deep Space Sector 9 - Ezra Lipp.ogg
+C:\Users\Nattaphat.S\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\boss theme - Deep Space Sector 9 - Ezra Lipp.xnb
