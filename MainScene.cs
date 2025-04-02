@@ -94,6 +94,10 @@ public class MainScene : Game
         Texture2D shotgunReload = Content.Load<Texture2D>("Textures/Shotgun_Reload");
         Texture2D shotgunShoot = Content.Load<Texture2D>("Textures/Shotgun_Shoot");
 
+        Texture2D grenadeIdle = Content.Load<Texture2D>("Textures/Grenade_Idle");
+        Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/Grenade_Walk");
+        Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/Grenade_Throw");
+
         Dictionary<string, Animation> animations = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },   
             { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
@@ -110,7 +114,10 @@ public class MainScene : Game
             { "Shotgun_Idle", new Animation(shotgunIdle, 48, 75, 3, 0.33f) },
             { "Shotgun_Walk", new Animation(shotgunWalk, 60, 75, 8, 0.125f) },
             { "Shotgun_Reload", new Animation(shotgunReload, 60, 75, 10, 0.1f) },
-            { "Shotgun_Shoot", new Animation(shotgunShoot, 60, 75, 10, 0.1f) }
+            { "Shotgun_Shoot", new Animation(shotgunShoot, 60, 75, 10, 0.1f) },
+            { "Grenade_Idle", new Animation(grenadeIdle, 30, 75, 3, 0.33f) },
+            { "Grenade_Walk", new Animation(grenadeWalk, 48, 75, 8, 0.125f) },
+            { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.25f) }
 
         };
 
