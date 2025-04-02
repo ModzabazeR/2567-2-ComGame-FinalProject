@@ -56,15 +56,9 @@ public class MainScene : Game
         StartIntroSequence();
 
         // Create player texture
-        //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
-        //Color[] playerData = new Color[32 * 32];
-        //for (int i = 0; i < playerData.Length; i++)
-        //    playerData[i] = Color.Red;
-        //playerTexture.SetData(playerData);
         Texture2D idleTexture = Content.Load<Texture2D>("Textures/Player_Idle");
         Texture2D walkTexture = Content.Load<Texture2D>("Textures/Player_Walk");
         Texture2D sprintTexture = Content.Load<Texture2D>("Textures/Player_Sprint");
-
 
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
@@ -73,10 +67,6 @@ public class MainScene : Game
         };
 
         // Initialize systems
-        player = new Player(Singleton.Instance.Animations["Player"], new Vector2(50, 700));
-        camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
-
-        // Initialize map manager
         mapManager = new MapManager();
 
         // Load map textures
@@ -86,10 +76,30 @@ public class MainScene : Game
         Texture2D map4Texture = Content.Load<Texture2D>("Textures/level4");
 
         // Add maps with their collision data
-        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.lcm");
-        mapManager.AddMap("Map 2", map2Texture, new Vector2(1250, 820), "Content/Maps/level2_collision.lcm", 28, 50);
-        mapManager.AddMap("Map 3", map3Texture, new Vector2(0, 1200), "Content/Maps/level3_collision.lcm");
-        mapManager.AddMap("Map 4", map4Texture, new Vector2(0, 2000), "Content/Maps/level4_collision.lcm");
+        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.lcm");
+        mapManager.AddMap("Map 2", map2Texture, new Vector2(2000, 0), "Content/Maps/level2_collision.lcm", 28, 50);
+        mapManager.AddMap("Map 3", map3Texture, new Vector2(5000, 0), "Content/Maps/level3_collision.lcm");
+        mapManager.AddMap("Map 4", map4Texture, new Vector2(8000, 0), "Content/Maps/level4_collision.lcm");
+
+        // Set spawn points for each map (relative to map position)
+        mapManager.SetMapSpawnPoint("Map 1", 5, 10);  // Spawn near the right side of Map 1
+        mapManager.SetMapSpawnPoint("Map 2", 5, 15);  // Spawn near the left side of Map 2
+        mapManager.SetMapSpawnPoint("Map 3", 5, 15);  // Spawn near the left side of Map 3
+        mapManager.SetMapSpawnPoint("Map 4", 2, 8);  // Spawn near the left side of Map 4
+
+        // Initialize camera
+        camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
+
+        // Initialize player at Map 1's spawn point
+        var map1 = mapManager.GetMap("Map 1");
+        player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint);
+        mapManager.SetPlayer(player);
+
+        // Add doors between maps (coordinates are relative to each map's position)
+        mapManager.AddMapDoor("Map 1", 38, 17, "Map 2", 2, 3);
+        mapManager.AddMapDoor("Map 2", 0, 7, "Map 1", 35, 15);
+
+        mapManager.AddMapDoor("Map 2", 0, 29, "Map 3", 35, 15);
 
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");
@@ -120,11 +130,11 @@ public class MainScene : Game
                     _currentSequence = null;
                     Singleton.Instance.CurrentGameState = GameState.Playing;
 
-                    // If this was the Map 3 cleared cutscene, move player to Map 3
+                    // If this was the Map 3 cleared cutscene, move player to Map 4
                     if (_isMap3ClearedCutscene)
                     {
-                        var map3 = mapManager.GetMap("Map 4");
-                        player.Position = new Vector2(100, map3.Position.Y + 300);
+                        var map4 = mapManager.GetMap("Map 4");
+                        player.Position = map4.SpawnPoint;
                         _isMap3ClearedCutscene = false;
                     }
                 }
@@ -149,6 +159,12 @@ public class MainScene : Game
             // Update player with collision tiles
             player.Update(gameTime, mapManager.GetAllSolidTiles());
 
+            // Check for map transitions
+            mapManager.CheckMapTransitions(gameTime);
+
+            // Update current map tracking
+            mapManager.UpdateCurrentMap();
+
             foreach (var map in mapManager.GetMaps())
             {
                 map.Update(gameTime, player.Position);
@@ -160,7 +176,6 @@ public class MainScene : Game
                     }
                 }
             }
-
         }
 
         base.Update(gameTime);

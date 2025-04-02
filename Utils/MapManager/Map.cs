@@ -7,12 +7,29 @@ using FinalProject.GameObject.Entity.Enemy;
 
 namespace FinalProject.Utils.MapManager;
 
+public class DoorTile
+{
+	public Vector2 Position { get; private set; }
+	public string TargetMapName { get; private set; }
+	public int TargetSpawnX { get; private set; }
+	public int TargetSpawnY { get; private set; }
+	public DoorTile(Vector2 position, string targetMapName, int targetSpawnX, int targetSpawnY)
+	{
+		Position = position;
+		TargetMapName = targetMapName;
+		TargetSpawnX = targetSpawnX;
+		TargetSpawnY = targetSpawnY;
+	}
+}
+
 public class Map
 {
 	public Texture2D Texture { get; private set; }
 	public Vector2 Position { get; set; }
 	public Rectangle Bounds { get; private set; }
 	public List<Rectangle> SolidTiles { get; private set; }
+	public List<DoorTile> DoorTiles { get; private set; }
+	public Vector2 SpawnPoint { get; private set; }
 	private bool[,] collisionData;
 	private int mapHeight;
 	private int mapWidth;
@@ -38,6 +55,7 @@ public class Map
 		Texture = texture;
 		Position = position;
 		SolidTiles = [];
+		DoorTiles = [];
 
 		this.mapWidth = mapWidth;
 		this.mapHeight = mapHeight;
@@ -49,6 +67,12 @@ public class Map
 
 		LoadLCM(collisionMapPath);
 		InitializeCollisionTiles();
+
+		// Set default spawn point to the center of the map
+		SpawnPoint = new Vector2(
+			Position.X + (realMapWidth / 2),
+			Position.Y + (realMapHeight / 2)
+		);
 
 		if (name == "Map 1")
 		{
@@ -183,6 +207,29 @@ public class Map
 					);
 				}
 			}
+
+			foreach (var door in DoorTiles)
+			{
+				if (cameraView.Intersects(new Rectangle(
+					(int)door.Position.X,
+					(int)door.Position.Y,
+					Singleton.Instance.TILE_WIDTH,
+					Singleton.Instance.TILE_HEIGHT
+				)))
+				{
+					spriteBatch.Draw(
+						Texture,
+						new Rectangle(
+							(int)door.Position.X,
+							(int)door.Position.Y,
+							Singleton.Instance.TILE_WIDTH,
+							Singleton.Instance.TILE_HEIGHT
+						),
+						null,
+						Color.Blue * 0.3f
+					);
+				}
+			}
 		}
 	}
 
@@ -293,7 +340,7 @@ public class Map
 		return enemies ?? [];
 	}
 
-	private Vector2 TileToWorldPosition(int tileX, int tileY)
+	public Vector2 TileToWorldPosition(int tileX, int tileY)
 	{
 		if (tileX < 0 || tileX >= mapWidth || tileY < 0 || tileY >= mapHeight)
 		{
@@ -304,5 +351,57 @@ public class Map
 			Position.X + tileX * Singleton.Instance.TILE_WIDTH,
 			Position.Y + tileY * Singleton.Instance.TILE_HEIGHT
 		);
+	}
+
+	public void SetSpawnPoint(int tileX, int tileY)
+	{
+		SpawnPoint = TileToWorldPosition(tileX, tileY);
+	}
+
+	public void AddDoor(int tileX, int tileY, string targetMapName, int targetSpawnX, int targetSpawnY)
+	{
+		Vector2 doorPosition = TileToWorldPosition(tileX, tileY);
+		// Note: The target spawn point will be calculated by the MapManager when the door is used
+		DoorTiles.Add(new DoorTile(doorPosition, targetMapName, targetSpawnX, targetSpawnY));
+	}
+
+	public DoorTile GetDoorAtPosition(Vector2 position)
+	{
+		foreach (var door in DoorTiles)
+		{
+			Rectangle doorRect = new Rectangle(
+				(int)door.Position.X,
+				(int)door.Position.Y,
+				Singleton.Instance.TILE_WIDTH,
+				Singleton.Instance.TILE_HEIGHT
+			);
+
+			Rectangle playerRect = new Rectangle(
+				(int)position.X,
+				(int)position.Y,
+				Singleton.Instance.TILE_WIDTH,
+				Singleton.Instance.TILE_HEIGHT
+			);
+			if (doorRect.Intersects(playerRect))
+			{
+				return door;
+			}
+		}
+		return null;
+	}
+
+	public List<Rectangle> GetDoorCollisionTiles()
+	{
+		List<Rectangle> doorCollisionTiles = new List<Rectangle>();
+		foreach (var door in DoorTiles)
+		{
+			doorCollisionTiles.Add(new Rectangle(
+				(int)door.Position.X,
+				(int)door.Position.Y,
+				Singleton.Instance.TILE_WIDTH,
+				Singleton.Instance.TILE_HEIGHT
+			));
+		}
+		return doorCollisionTiles;
 	}
 }
