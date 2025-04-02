@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using System;
 using System.Collections.Generic;
 
 namespace FinalProject.Utils.BGMManager
@@ -34,6 +35,7 @@ namespace FinalProject.Utils.BGMManager
         {
             if (!songs.ContainsKey(songName))
             {
+                Console.WriteLine($"Loading song: {songName}");
                 songs[songName] = content.Load<Song>(songName);
             }
         }
@@ -45,7 +47,34 @@ namespace FinalProject.Utils.BGMManager
                 MediaPlayer.IsRepeating = isRepeating;
                 MediaPlayer.Play(songs[songName]);
             }
+            else 
+            {
+                Console.WriteLine($"Song not found: {songName}");
+            }
         }
+
+        public void PlayMainTheme1(){
+            LoadSong("main theme1");
+            PlaySong("main theme1", true);
+            //Lake Jupiter - John Patitucci
+            SetVolume(1.2f);
+        }
+
+        public void PlayMainTheme2(){
+            LoadSong("main theme 2 - Frightmare - Jimena Contreras");
+            PlaySong("main theme 2 - Frightmare - Jimena Contreras", true);
+            SetVolume(0.5f);
+            
+        }
+
+        public void PlayBossTheme(){
+            LoadSong("boss theme - Deep Space Sector 9 - Ezra Lipp");
+            PlaySong("boss theme - Deep Space Sector 9 - Ezra Lipp", true);
+            SetVolume(0.5f);
+
+        }
+
+        // public void PlayWinningTheme
 
         public void StopSong()
         {
@@ -55,6 +84,11 @@ namespace FinalProject.Utils.BGMManager
         public void SetVolume(float volume)
         {
             MediaPlayer.Volume = volume;
+        }
+
+        public void test()
+        {
+            Console.WriteLine("BGMManager test method called.");
         }
     }
 }

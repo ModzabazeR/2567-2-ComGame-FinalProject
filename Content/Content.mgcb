@@ -13,8 +13,29 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin boss death sfx.wav
-/copy:boss death sfx.wav
+#begin BGM/boss death sfx.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BGM/boss death sfx.wav;boss death sfx.wav
+
+#begin BGM/main theme1.wav
+/importer:WavImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:BGM/main theme1.wav;main theme1.wav
+
+#begin Deep Space Sector 9 - Ezra Lipp.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Deep Space Sector 9 - Ezra Lipp.mp3;boss theme - Deep Space Sector 9 - Ezra Lipp.mp3
+
+#begin Frightmare - Jimena Contreras.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Frightmare - Jimena Contreras.mp3;main theme 2 - Frightmare - Jimena Contreras.mp3
 
 #begin GameFont.spritefont
 /importer:FontDescriptionImporter

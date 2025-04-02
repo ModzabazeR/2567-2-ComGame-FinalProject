@@ -25,6 +25,7 @@ public class MainScene : Game
 
     private SplashScreenSequence _currentSequence;
     private bool _isMap2ClearedCutscene = false;
+    private bool _isSongPlayRequested = false; // Flag to check if song is requested
 
     public MainScene()
     {
@@ -46,23 +47,12 @@ public class MainScene : Game
         BGMManager.Instance.Initialize(Content);
 
         StartIntroSequence();
+        _isSongPlayRequested = true; // Request to play the song
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-        // Load background music after BGMManager is initialized
-        try
-        {
-            BGMManager.Instance.LoadSong("Textures/boss death sfx");
-            BGMManager.Instance.PlaySong("Textures/boss death sfx", true);
-            BGMManager.Instance.SetVolume(0.5f);
-        }
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine($"Error loading BGM: {ex.Message}");
-        }
 
         // Load the font first since splash screens need it
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
@@ -112,6 +102,13 @@ public class MainScene : Game
     protected override void Update(GameTime gameTime)
     {
         Singleton.Instance.UpdateKeyboardState();
+
+        if (_isSongPlayRequested == true && BGMManager.Instance != null)
+        {
+            // Load background music after BGMManager is initialized
+                BGMManager.Instance.PlayMainTheme1();
+                _isSongPlayRequested = false; 
+        }
 
         // Handle splash screen and cutscene states
         if (Singleton.Instance.CurrentGameState == GameState.Splash ||
