@@ -9,6 +9,11 @@
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level3.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level4.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level5.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level6.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level7.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2_cleared.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level8.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/normal_movements/Player_Idle.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/normal_movements/Player_Jump.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/normal_movements/Player_Sprint.png</File>
@@ -31,6 +36,11 @@
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/weapons/shotgun/Shotgun_Walk.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

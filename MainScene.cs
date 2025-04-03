@@ -122,18 +122,32 @@ public class MainScene : Game
         Texture2D map2Texture = Content.Load<Texture2D>("Textures/maps/level2");
         Texture2D map3Texture = Content.Load<Texture2D>("Textures/maps/level3");
         Texture2D map4Texture = Content.Load<Texture2D>("Textures/maps/level4");
+        Texture2D map5Texture = Content.Load<Texture2D>("Textures/maps/level5");
+        Texture2D map6Texture = Content.Load<Texture2D>("Textures/maps/level6");
+        Texture2D map7Texture = Content.Load<Texture2D>("Textures/maps/level7");
+        Texture2D map2ClearedTexture = Content.Load<Texture2D>("Textures/maps/level2_cleared");
+        Texture2D map8Texture = Content.Load<Texture2D>("Textures/maps/level8");
 
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.lcm");
         mapManager.AddMap("Map 2", map2Texture, new Vector2(2000, 0), "Content/Maps/level2_collision.lcm", 28, 50);
         mapManager.AddMap("Map 3", map3Texture, new Vector2(5000, 0), "Content/Maps/level3_collision.lcm");
         mapManager.AddMap("Map 4", map4Texture, new Vector2(8000, 0), "Content/Maps/level4_collision.lcm");
+        mapManager.AddMap("Map 5", map5Texture, new Vector2(11000, 0), "Content/Maps/level5_collision.lcm");
+        mapManager.AddMap("Map 6", map6Texture, new Vector2(14000, 0), "Content/Maps/level6_collision.lcm");
+        mapManager.AddMap("Map 7", map7Texture, new Vector2(17000, 0), "Content/Maps/level7_collision.lcm");
+        mapManager.AddMap("Map 2 Cleared", map2ClearedTexture, new Vector2(20000, 0), "Content/Maps/level2_cleared_collision.lcm", 28, 50);
+        mapManager.AddMap("Boss", map8Texture, new Vector2(23000, 0), "Content/Maps/level8_collision.lcm");
 
         // Set spawn points for each map (relative to map position)
-        mapManager.SetMapSpawnPoint("Map 1", 5, 10);  // Spawn near the right side of Map 1
-        mapManager.SetMapSpawnPoint("Map 2", 5, 15);  // Spawn near the left side of Map 2
-        mapManager.SetMapSpawnPoint("Map 3", 5, 15);  // Spawn near the left side of Map 3
-        mapManager.SetMapSpawnPoint("Map 4", 2, 8);  // Spawn near the left side of Map 4
+        mapManager.SetMapSpawnPoint("Map 1", 5, 10);
+        mapManager.SetMapSpawnPoint("Map 2", 2, 3);
+        mapManager.SetMapSpawnPoint("Map 3", 35, 15);
+        mapManager.SetMapSpawnPoint("Map 4", 2, 8);
+        mapManager.SetMapSpawnPoint("Map 5", 2, 15);
+        mapManager.SetMapSpawnPoint("Map 6", 2, 15);
+        mapManager.SetMapSpawnPoint("Map 7", 2, 15);
+        mapManager.SetMapSpawnPoint("Map 2 Cleared", 25, 30);
 
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
@@ -148,6 +162,22 @@ public class MainScene : Game
         mapManager.AddMapDoor("Map 2", 0, 7, "Map 1", 35, 15);
 
         mapManager.AddMapDoor("Map 2", 0, 29, "Map 3", 35, 15);
+        mapManager.AddMapDoor("Map 3", 38, 17, "Map 2", 2, 28);
+
+        mapManager.AddMapDoor("Map 4", 38, 17, "Map 5", 2, 15);
+        mapManager.AddMapDoor("Map 5", 0, 17, "Map 4", 35, 15);
+
+        mapManager.AddMapDoor("Map 5", 38, 17, "Map 6", 2, 15);
+        mapManager.AddMapDoor("Map 6", 0, 17, "Map 5", 35, 15);
+
+        mapManager.AddMapDoor("Map 6", 0, 10, "Map 7", 2, 15);
+        mapManager.AddMapDoor("Map 7", 0, 17, "Map 6", 2, 7);
+
+        mapManager.AddMapDoor("Map 7", 0, 6, "Map 2 Cleared", 25, 32);
+        mapManager.AddMapDoor("Map 2 Cleared", 27, 33, "Map 7", 2, 5);
+
+        mapManager.AddMapDoor("Map 2 Cleared", 0, 7, "Map 1", 35, 15);
+        mapManager.AddMapDoor("Map 2 Cleared", 0, 29, "Map 3", 35, 15);
 
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");

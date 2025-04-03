@@ -344,7 +344,7 @@ public class Map
 	{
 		if (tileX < 0 || tileX >= mapWidth || tileY < 0 || tileY >= mapHeight)
 		{
-			throw new ArgumentException($"Tile coordinates ({tileX}, {tileY}) are outside map bounds ({mapWidth}x{mapHeight})");
+			throw new ArgumentException($"{name}: Tile coordinates ({tileX}, {tileY}) are outside map bounds ({mapWidth}x{mapHeight})");
 		}
 
 		return new Vector2(
