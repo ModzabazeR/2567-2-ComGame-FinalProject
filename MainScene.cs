@@ -64,30 +64,34 @@ public class MainScene : Game
         //for (int i = 0; i < playerData.Length; i++)
         //    playerData[i] = Color.Red;
         //playerTexture.SetData(playerData);
-        Texture2D idleTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Idle");
-        Texture2D runTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Walk");
-        Texture2D sprintTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Sprint");
-        Texture2D jumpTexture = Content.Load<Texture2D>("Textures/normal_movements/Player_Jump");
+        Texture2D idleTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Idle");
+        Texture2D runTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Walk");
+        Texture2D sprintTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Sprint");
+        Texture2D jumpTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Jump");
 
-        Texture2D crowbarIdle = Content.Load<Texture2D>("Textures/weapons/crowbar/Crowbar_Idle");
-        Texture2D crowbarWalk = Content.Load<Texture2D>("Textures/weapons/crowbar/Crowbar_Walk");
-        Texture2D crowbarAtk = Content.Load<Texture2D>("Textures/weapons/crowbar/Crowbar_Attack");
+        Texture2D crowbarIdle = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar_Idle");
+        Texture2D crowbarWalk = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar_Walk");
+        Texture2D crowbarAtk = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar_Attack");
 
-        Texture2D pistolIdle = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Idle");
-        Texture2D pistolWalk = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Walk");
-        Texture2D pistolEmpty = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Empty");
-        Texture2D pistolReload = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Reload");
-        Texture2D pistolShoot = Content.Load<Texture2D>("Textures/weapons/pistol/Pistol_Shoot");
+        Texture2D pistolIdle = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Idle");
+        Texture2D pistolWalk = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Walk");
+        Texture2D pistolEmpty = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Empty");
+        Texture2D pistolReload = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Reload");
+        Texture2D pistolShoot = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Shoot");
 
-        Texture2D shotgunIdle = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Idle");
-        Texture2D shotgunWalk = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Walk");
-        Texture2D shotgunReload = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Reload");
-        Texture2D shotgunShoot = Content.Load<Texture2D>("Textures/weapons/shotgun/Shotgun_Shoot");
+        Texture2D shotgunIdle = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Idle");
+        Texture2D shotgunWalk = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Walk");
+        Texture2D shotgunReload = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Reload");
+        Texture2D shotgunShoot = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Shoot");
 
-        Texture2D grenadeIdle = Content.Load<Texture2D>("Textures/weapons/grenade/Grenade_Idle");
-        Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/weapons/grenade/Grenade_Walk");
-        Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/weapons/grenade/Grenade_Throw");
+        Texture2D grenadeIdle = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Idle");
+        Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Walk");
+        Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Throw");
 
+        Texture2D zombieIdle = Content.Load<Texture2D>("Textures/zombie/Zombie_Idle");
+        Texture2D zombieWalk = Content.Load<Texture2D>("Textures/zombie/Zombie_Walk");
+        Texture2D zombieAttack = Content.Load<Texture2D>("Textures/zombie/Zombie_Attack");
+        Texture2D zombieDeath = Content.Load<Texture2D>("Textures/zombie/Zombie_Death");
 
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },   
@@ -113,6 +117,14 @@ public class MainScene : Game
             { "Grenade_Idle", new Animation(grenadeIdle, 30, 75, 3, 0.33f) },
             { "Grenade_Walk", new Animation(grenadeWalk, 48, 75, 8, 0.125f) },
             { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.25f) }
+        };
+
+        Singleton.Instance.Animations["Zombie"] = new Dictionary<string, Animation>
+        {
+            { "Idle", new Animation(zombieIdle, 30, 75, 3, 0.33f) },
+            { "Walk", new Animation(zombieWalk, 52, 75, 8, 0.125f) },
+            { "Attack", new Animation(zombieAttack, 48, 75, 4, 0.25f) },
+            { "Death", new Animation(zombieDeath, 96, 75, 5, 0.2f) }
         };
 
         // Initialize systems
