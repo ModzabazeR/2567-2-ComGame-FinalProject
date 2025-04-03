@@ -126,3 +126,7 @@ C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\n
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Idle.xnb
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Sprint.xnb
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Player_Walk.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Player_Sprint.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\Player_Idle.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\Player_Sprint.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\Player_Walk.xnb

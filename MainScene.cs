@@ -199,7 +199,7 @@ public class MainScene : Game
                     {
                         enemy.Update(gameTime, mapManager.GetAllSolidTiles());
 
-                        if (enemy.Bounds.Intersects(player.Bounds))
+                        if (enemy.Bounds.Intersects(player.Bounds) && enemy.IsSpawned && !enemy.IsDefeated)
                         {
                             Vector2 knockback = Vector2.Normalize(player.Position - enemy.Position);
                             player.TakeDamage(1, knockback);
@@ -267,9 +267,10 @@ public class MainScene : Game
                     {
                         enemy.Draw(_spriteBatch);
                     }
-                    foreach (var weapon in map.GetWeapons()){
-                        weapon.Draw(_spriteBatch);  
-                    }                
+                    foreach (var weapon in map.GetWeapons())
+                    {
+                        weapon.Draw(_spriteBatch);
+                    }
                 }
             }
             foreach (var bullet in bullets)
