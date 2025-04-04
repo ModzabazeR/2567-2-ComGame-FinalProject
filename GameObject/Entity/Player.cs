@@ -57,7 +57,7 @@ public class Player : Movable
 		{
 			isAttacking = true;
 			attackCooldown = attackDuration;
-			_animationManager.Play(_animations["Grenade_Throw"]);	
+			_animationManager.Play(_animations["Grenade_Throw"]);
 			Velocity.X = 0; // Optional: Stop movement during attack
 		}
 

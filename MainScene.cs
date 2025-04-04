@@ -23,7 +23,7 @@ public class MainScene : Game
     private MapManager mapManager; // Add this field
 
     private SplashScreenSequence _currentSequence;
-    private bool _isMap2ClearedCutscene = false;
+    private bool _isMap3ClearedCutscene = false;
 
     public MainScene()
     {
@@ -94,11 +94,11 @@ public class MainScene : Game
         Texture2D zombieDeath = Content.Load<Texture2D>("Textures/zombie/Zombie_Death");
 
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
-            { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },   
+            { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
             { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
             { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) },
             { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) },
-            
+
             { "Crowbar_Idle", new Animation(crowbarIdle, 38, 75, 3, 0.33f) },
             {"Crowbar_Walk", new Animation(crowbarWalk, 48, 75, 8, 0.125f) },
             { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.125f) },
@@ -128,25 +128,73 @@ public class MainScene : Game
         };
 
         // Initialize systems
-        player = new Player(Singleton.Instance.Animations["Player"], new Vector2(50, 700));
-        camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
-
-        // Initialize map manager
         mapManager = new MapManager();
 
         // Load map textures
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/maps/level1");
         Texture2D map2Texture = Content.Load<Texture2D>("Textures/maps/level2");
         Texture2D map3Texture = Content.Load<Texture2D>("Textures/maps/level3");
+        Texture2D map4Texture = Content.Load<Texture2D>("Textures/maps/level4");
+        Texture2D map5Texture = Content.Load<Texture2D>("Textures/maps/level5");
+        Texture2D map6Texture = Content.Load<Texture2D>("Textures/maps/level6");
+        Texture2D map7Texture = Content.Load<Texture2D>("Textures/maps/level7");
+        Texture2D map2ClearedTexture = Content.Load<Texture2D>("Textures/maps/level2_cleared");
+        Texture2D map8Texture = Content.Load<Texture2D>("Textures/maps/level8");
 
         // Add maps with their collision data
-        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 500), "Content/Maps/level1_collision.lcm");
-        mapManager.AddMap("Map 2", map2Texture, new Vector2(0, 1200), "Content/Maps/level2_collision.lcm");
-        mapManager.AddMap("Map 3", map3Texture, new Vector2(0, 2000), "Content/Maps/level3_collision.lcm");
+        mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.lcm");
+        mapManager.AddMap("Map 2", map2Texture, new Vector2(2000, 0), "Content/Maps/level2_collision.lcm", 28, 50);
+        mapManager.AddMap("Map 3", map3Texture, new Vector2(5000, 0), "Content/Maps/level3_collision.lcm");
+        mapManager.AddMap("Map 4", map4Texture, new Vector2(8000, 0), "Content/Maps/level4_collision.lcm");
+        mapManager.AddMap("Map 5", map5Texture, new Vector2(11000, 0), "Content/Maps/level5_collision.lcm");
+        mapManager.AddMap("Map 6", map6Texture, new Vector2(14000, 0), "Content/Maps/level6_collision.lcm");
+        mapManager.AddMap("Map 7", map7Texture, new Vector2(17000, 0), "Content/Maps/level7_collision.lcm");
+        mapManager.AddMap("Map 2 Cleared", map2ClearedTexture, new Vector2(20000, 0), "Content/Maps/level2_cleared_collision.lcm", 28, 50);
+        mapManager.AddMap("Boss", map8Texture, new Vector2(23000, 0), "Content/Maps/level8_collision.lcm");
 
-        // Subscribe to Map 2's cleared event
-        var map2 = mapManager.GetMap("Map 2");
-        map2.OnMapCleared += () => ShowMap2ClearedCutscene();
+        // Set spawn points for each map (relative to map position)
+        mapManager.SetMapSpawnPoint("Map 1", 5, 10);
+        mapManager.SetMapSpawnPoint("Map 2", 2, 3);
+        mapManager.SetMapSpawnPoint("Map 3", 35, 15);
+        mapManager.SetMapSpawnPoint("Map 4", 2, 8);
+        mapManager.SetMapSpawnPoint("Map 5", 2, 15);
+        mapManager.SetMapSpawnPoint("Map 6", 2, 15);
+        mapManager.SetMapSpawnPoint("Map 7", 2, 15);
+        mapManager.SetMapSpawnPoint("Map 2 Cleared", 25, 30);
+
+        // Initialize camera
+        camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
+
+        // Initialize player at Map 1's spawn point
+        var map1 = mapManager.GetMap("Map 1");
+        player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint);
+        mapManager.SetPlayer(player);
+
+        // Add doors between maps (coordinates are relative to each map's position)
+        mapManager.AddMapDoor("Map 1", 38, 17, "Map 2", 2, 3);
+        mapManager.AddMapDoor("Map 2", 0, 7, "Map 1", 35, 15);
+
+        mapManager.AddMapDoor("Map 2", 0, 29, "Map 3", 35, 15);
+        mapManager.AddMapDoor("Map 3", 38, 17, "Map 2", 2, 28);
+
+        mapManager.AddMapDoor("Map 4", 38, 17, "Map 5", 2, 15);
+        mapManager.AddMapDoor("Map 5", 0, 17, "Map 4", 35, 15);
+
+        mapManager.AddMapDoor("Map 5", 38, 17, "Map 6", 2, 15);
+        mapManager.AddMapDoor("Map 6", 0, 17, "Map 5", 35, 15);
+
+        mapManager.AddMapDoor("Map 6", 0, 10, "Map 7", 2, 15);
+        mapManager.AddMapDoor("Map 7", 0, 17, "Map 6", 2, 7);
+
+        mapManager.AddMapDoor("Map 7", 0, 6, "Map 2 Cleared", 25, 32);
+        mapManager.AddMapDoor("Map 2 Cleared", 27, 33, "Map 7", 2, 5);
+
+        mapManager.AddMapDoor("Map 2 Cleared", 0, 7, "Map 1", 35, 15);
+        mapManager.AddMapDoor("Map 2 Cleared", 0, 29, "Map 3", 35, 15);
+
+        // Subscribe to Map 3's cleared event
+        var map3 = mapManager.GetMap("Map 3");
+        map3.OnMapCleared += () => ShowMap3ClearedCutscene();
     }
 
     protected override void Update(GameTime gameTime)
@@ -173,12 +221,12 @@ public class MainScene : Game
                     _currentSequence = null;
                     Singleton.Instance.CurrentGameState = GameState.Playing;
 
-                    // If this was the Map 2 cleared cutscene, move player to Map 3
-                    if (_isMap2ClearedCutscene)
+                    // If this was the Map 3 cleared cutscene, move player to Map 4
+                    if (_isMap3ClearedCutscene)
                     {
-                        var map3 = mapManager.GetMap("Map 3");
-                        player.Position = new Vector2(100, map3.Position.Y + 300);
-                        _isMap2ClearedCutscene = false;
+                        var map4 = mapManager.GetMap("Map 4");
+                        player.Position = map4.SpawnPoint;
+                        _isMap3ClearedCutscene = false;
                     }
                 }
                 return;
@@ -202,6 +250,12 @@ public class MainScene : Game
             // Update player with collision tiles
             player.Update(gameTime, mapManager.GetAllSolidTiles());
 
+            // Check for map transitions
+            mapManager.CheckMapTransitions(gameTime);
+
+            // Update current map tracking
+            mapManager.UpdateCurrentMap();
+
             foreach (var map in mapManager.GetMaps())
             {
                 map.Update(gameTime, player.Position);
@@ -213,7 +267,6 @@ public class MainScene : Game
                     }
                 }
             }
-
         }
 
         base.Update(gameTime);
@@ -334,9 +387,9 @@ public class MainScene : Game
         ShowCutscene(new SplashScreenData(text, fadeSpeed, displayTime));
     }
 
-    private void ShowMap2ClearedCutscene()
+    private void ShowMap3ClearedCutscene()
     {
-        _isMap2ClearedCutscene = true;
+        _isMap3ClearedCutscene = true;
         ShowCutscene(new SplashScreenData(
             [
                 "*Crack...*",

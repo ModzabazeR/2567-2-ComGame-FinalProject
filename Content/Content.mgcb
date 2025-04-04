@@ -38,6 +38,39 @@
 #begin Maps/level3_collision.txt
 /copy:Maps/level3_collision.txt
 
+#begin Maps/level4_collision.lcm
+/copy:Maps/level4_collision.lcm
+
+#begin Maps/level4_collision.txt
+/copy:Maps/level4_collision.txt
+
+#begin Maps/level5_collision.lcm
+/copy:Maps/level5_collision.lcm
+
+#begin Maps/level5_collision.txt
+/copy:Maps/level5_collision.txt
+
+#begin Maps/level6_collision.lcm
+/copy:Maps/level6_collision.lcm
+
+#begin Maps/level6_collision.txt
+/copy:Maps/level6_collision.txt
+
+#begin Maps/level7_collision.lcm
+/copy:Maps/level7_collision.lcm
+
+#begin Maps/level7_collision.txt
+/copy:Maps/level7_collision.txt
+
+#begin Maps/level2_cleared_collision.lcm
+/copy:Maps/level2_cleared_collision.lcm
+
+#begin Maps/level2_cleared_collision.txt
+/copy:Maps/level2_cleared_collision.txt
+
+#begin Maps/level8_collision.lcm
+/copy:Maps/level8_collision.lcm
+
 #begin Textures/maps/level1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -74,7 +107,79 @@
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level3.png
 
-#begin Textures/player_movements/Player_Idle.png
+#begin Textures/maps/level4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level4.png
+
+#begin Textures/maps/level5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level5.png
+
+#begin Textures/maps/level6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level6.png
+
+#begin Textures/maps/level7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level7.png
+
+#begin Textures/maps/level2_cleared.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level2_cleared.png
+
+#begin Textures/maps/level8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level8.png
+
+#begin Textures/normal_movements/Player_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
