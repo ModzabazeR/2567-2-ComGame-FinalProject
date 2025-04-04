@@ -76,15 +76,15 @@ public class Map
 
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(6, 6))];
+			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(6, 6))];
 		}
 		else if (name == "Map 3")
 		{
 			enemies =
 			[
-				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(21, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(3, 6))
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(21, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(18, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
 			];
 		}
 	}
