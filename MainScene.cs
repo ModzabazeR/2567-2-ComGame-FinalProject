@@ -29,6 +29,10 @@ public class MainScene : Game
 
     private List<Bullet> bullets = new();
 
+    private Rectangle restartButtonRect;
+    private MouseState previousMouseState;
+
+
     public MainScene()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -155,6 +159,18 @@ public class MainScene : Game
 
             // Update player with collision tiles
             player.Update(gameTime, mapManager.GetAllSolidTiles());
+
+            if (!player.IsAlive)
+            {
+                Singleton.Instance.CurrentGameState = GameState.GameOver;
+
+                // ตั้งตำแหน่งปุ่ม
+                restartButtonRect = new Rectangle(
+                    Singleton.Instance.ScreenWidth / 2 - 100,
+                    Singleton.Instance.ScreenHeight / 2,
+                    200, 60
+                );
+            }
             // ดึงกระสุนที่ Player ยิงมาจาก Player
             bullets.AddRange(player.CollectBullets());
 
@@ -228,6 +244,22 @@ public class MainScene : Game
                 }
             }
         }
+
+        if (Singleton.Instance.CurrentGameState == GameState.GameOver)
+        {
+            MouseState mouse = Mouse.GetState();
+
+            if (mouse.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
+            {
+                if (restartButtonRect.Contains(mouse.Position))
+                {
+                    RestartGame(); // ⬅ เราจะเพิ่มฟังก์ชันนี้ด้านล่าง
+                }
+            }
+
+            previousMouseState = mouse;
+        }
+
 
         base.Update(gameTime);
     }
@@ -310,6 +342,37 @@ public class MainScene : Game
             _spriteBatch.End(); // ===== End UI rendering =====
         }
 
+        else if (Singleton.Instance.CurrentGameState == GameState.GameOver)
+        {
+            GraphicsDevice.Clear(Color.Black);
+            _spriteBatch.Begin();
+
+            // ข้อความ Game Over
+            string message = "Game Over";
+            Vector2 textSize = Singleton.Instance.Font.MeasureString(message);
+            _spriteBatch.DrawString(
+                Singleton.Instance.Font,
+                message,
+                new Vector2(Singleton.Instance.ScreenWidth / 2 - textSize.X / 2, 200),
+                Color.White
+            );
+
+            // ปุ่ม restart
+            Texture2D buttonTex = new Texture2D(GraphicsDevice, 1, 1);
+            buttonTex.SetData(new[] { Color.Gray });
+
+            _spriteBatch.Draw(buttonTex, restartButtonRect, Color.White);
+            _spriteBatch.DrawString(
+                Singleton.Instance.Font,
+                "Restart",
+                new Vector2(restartButtonRect.X + 50, restartButtonRect.Y + 15),
+                Color.Black
+            );
+
+            _spriteBatch.End();
+        }
+
+
         base.Draw(gameTime);
     }
 
@@ -381,6 +444,15 @@ public class MainScene : Game
     {
         ShowCutscene(new SplashScreenData(text, fadeSpeed, displayTime));
     }
+
+    private void RestartGame()
+    {
+        Exit(); // ปิดเกม instance นี้
+
+        // เรียกตัวเองใหม่
+        System.Diagnostics.Process.Start(Environment.ProcessPath);
+    }
+
 
     private void ShowMap2ClearedCutscene()
     {
