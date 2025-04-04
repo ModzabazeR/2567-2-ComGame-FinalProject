@@ -33,6 +33,9 @@ public class Bullet : Entity
 		// Update position based on direction and speed
 		Position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+		// ✅ ตั้งขนาดกระสุนโดยไม่พึ่ง texture
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y, 12, 6);
+
 		// Update lifetime
 		currentLifetime += (float)gameTime.ElapsedGameTime.TotalSeconds;
 		if (currentLifetime >= lifetime)
@@ -49,6 +52,16 @@ public class Bullet : Entity
 				break;
 			}
 		}
+	}
+	public override void Draw(SpriteBatch spriteBatch)
+	{
+		if (texture == null)
+		{
+			texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+			texture.SetData(new[] { Color.Red });
+		}
+
+		spriteBatch.Draw(texture, Bounds, Color.White);
 	}
 
 	public float GetDamage()

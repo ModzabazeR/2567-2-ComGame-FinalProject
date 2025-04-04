@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using FinalProject.GameObject;
 using FinalProject.GameObject.Entity;
 using FinalProject.GameObject.Entity.Enemy;
+using FinalProject.GameObject.Weapon;
 
 using FinalProject.Utils.MapManager;
 using FinalProject.Utils.SplashScreen;
@@ -24,6 +25,9 @@ public class MainScene : Game
 
     private SplashScreenSequence _currentSequence;
     private bool _isMap3ClearedCutscene = false;
+    private Texture2D hpTexture;
+
+    private List<Bullet> bullets = new();
 
     public MainScene()
     {
@@ -195,6 +199,10 @@ public class MainScene : Game
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");
         map3.OnMapCleared += () => ShowMap3ClearedCutscene();
+
+        // สร้าง texture สีแดง 1x1 ใช้สำหรับวาด HP bar
+        hpTexture = new Texture2D(GraphicsDevice, 1, 1);
+        hpTexture.SetData(new[] { Color.Red });
     }
 
     protected override void Update(GameTime gameTime)
@@ -249,6 +257,40 @@ public class MainScene : Game
 
             // Update player with collision tiles
             player.Update(gameTime, mapManager.GetAllSolidTiles());
+            // ดึงกระสุนที่ Player ยิงมาจาก Player
+            bullets.AddRange(player.CollectBullets());
+
+            // กระสุน
+            for (int i = bullets.Count - 1; i >= 0; i--)
+            {
+                var bullet = bullets[i];
+                bullet.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                bool hitEnemy = false;
+
+                foreach (var map in mapManager.GetMaps())
+                {
+                    if (!map.IsVisible(cameraBounds)) continue; // ✅ แก้ตรงนี้
+
+                    foreach (var enemy in map.GetEnemies())
+                    {
+                        if (!enemy.IsSpawned || enemy.IsDefeated) continue;
+
+                        if (bullet.Bounds.Intersects(enemy.Bounds))
+                        {
+                            enemy.Defeat();
+                            hitEnemy = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!bullet.IsActive() || hitEnemy)
+                {
+                    bullets.RemoveAt(i); // ลบกระสุนเมื่อชนกำแพงหรือศัตรู
+                }
+            }
+
 
             // Check for map transitions
             mapManager.CheckMapTransitions(gameTime);
@@ -264,6 +306,32 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         enemy.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                        if (enemy.Bounds.Intersects(player.Bounds) && enemy.IsSpawned && !enemy.IsDefeated)
+                        {
+                            Vector2 knockback = Vector2.Normalize(player.Position - enemy.Position);
+                            player.TakeDamage(1, knockback);
+                        }
+
+                        // ตรวจสอบการโจมตี
+                        if (player.IsAttacking && enemy.IsSpawned && !enemy.IsDefeated &&
+                            enemy.Bounds.Intersects(player.GetAttackHitbox()))
+                        {
+                            enemy.Defeat();
+                        }
+                    }
+
+                    // เพิ่ม:
+                    for (int i = map.GetWeapons().Count - 1; i >= 0; i--)
+                    {
+                        var weapon = map.GetWeapons()[i];
+                        weapon.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                        if (player.Bounds.Intersects(weapon.Bounds))
+                        {
+                            player.PickupWeapon(weapon);
+                            map.GetWeapons().RemoveAt(i);
+                        }
                     }
                 }
             }
@@ -307,13 +375,47 @@ public class MainScene : Game
                     {
                         enemy.Draw(_spriteBatch);
                     }
+                    foreach (var weapon in map.GetWeapons())
+                    {
+                        weapon.Draw(_spriteBatch);
+                    }
                 }
             }
-
+            foreach (var bullet in bullets)
+            {
+                bullet.Draw(_spriteBatch);
+            }
             // Draw player
             player.Draw(_spriteBatch);
+            if (player.IsAttacking)
+            {
+                var attackBox = player.GetAttackHitbox();
+
+                Texture2D redTexture = new Texture2D(GraphicsDevice, 1, 1);
+                redTexture.SetData(new[] { Color.Red });
+
+                _spriteBatch.Draw(
+                    redTexture,
+                    attackBox,
+                    Color.Red * 0.5f // โปร่งใสหน่อย
+                );
+            }
 
             _spriteBatch.End();
+
+            // ====== Draw UI (HP Bar) ======
+            _spriteBatch.Begin(); // No transform for screen-space UI
+
+            int barWidth = 200;
+            int barHeight = 20;
+            float hpRatio = (float)player.CurrentHP / player.MaxHP;
+
+            Rectangle hpBack = new Rectangle(10, 10, barWidth, barHeight);
+            Rectangle hpFront = new Rectangle(10, 10, (int)(barWidth * hpRatio), barHeight);
+
+            _spriteBatch.Draw(hpTexture, hpBack, Color.DarkGray);
+            _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
+            _spriteBatch.End(); // ===== End UI rendering =====
         }
 
         base.Draw(gameTime);
@@ -375,6 +477,7 @@ public class MainScene : Game
         _currentSequence = new SplashScreenSequence(introScreens);
         Singleton.Instance.CurrentGameState = GameState.Splash;
     }
+
 
     public void ShowCutscene(params SplashScreenData[] screens)
     {
