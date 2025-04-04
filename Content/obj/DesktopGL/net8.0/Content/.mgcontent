@@ -4,6 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/boss death sfx.wav</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/main theme1.wav</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Frightmare - Jimena Contreras.mp3</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/GameFont.spritefont</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level1.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2.png</File>
@@ -43,6 +47,10 @@
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
   </SourceFiles>
   <DestFiles>
+    <File>boss death sfx.wav</File>
+    <File>main theme1.wav</File>
+    <File>boss theme - Deep Space Sector 9 - Ezra Lipp.mp3</File>
+    <File>main theme 2 - Frightmare - Jimena Contreras.mp3</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

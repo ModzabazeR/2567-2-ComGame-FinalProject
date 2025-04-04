@@ -12,6 +12,7 @@ using FinalProject.Utils.SplashScreen;
 
 using System.Collections.Generic;
 using System;
+using FinalProject.Utils.BGMManager;
 
 namespace FinalProject;
 
@@ -28,6 +29,7 @@ public class MainScene : Game
     private Texture2D hpTexture;
 
     private List<Bullet> bullets = new();
+    private bool _isSongPlayRequested = false; // Flag to check if song is requested
 
     public MainScene()
     {
@@ -46,7 +48,10 @@ public class MainScene : Game
 
         base.Initialize();
 
+        BGMManager.Instance.Initialize(Content);
+
         StartIntroSequence();
+        _isSongPlayRequested = true; // Request to play the song
     }
 
     protected override void LoadContent()
@@ -208,6 +213,13 @@ public class MainScene : Game
     protected override void Update(GameTime gameTime)
     {
         Singleton.Instance.UpdateKeyboardState();
+
+        if (_isSongPlayRequested == true && BGMManager.Instance != null)
+        {
+            // Load background music after BGMManager is initialized
+            BGMManager.Instance.PlayMainTheme1();
+            _isSongPlayRequested = false;
+        }
 
         // Handle splash screen and cutscene states
         if (Singleton.Instance.CurrentGameState == GameState.Splash ||
