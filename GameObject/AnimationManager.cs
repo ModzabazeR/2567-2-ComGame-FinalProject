@@ -39,17 +39,15 @@ public class AnimationManager
     {
         _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        if (_timer >= _animation.FrameSpeed)
+        // Smooth frame advancement
+        while (_timer >= _animation.FrameSpeed)
         {
-            _timer = 0f;
+            _timer -= _animation.FrameSpeed;
             _currentFrame++;
 
             if (_currentFrame >= _animation.FrameCount)
             {
-                if (_animation.IsLooping)
-                    _currentFrame = 0;
-                else
-                    _currentFrame = _animation.FrameCount - 1;
+                _currentFrame = _animation.IsLooping ? 0 : _animation.FrameCount - 1;
             }
         }
     }

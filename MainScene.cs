@@ -34,6 +34,14 @@ public class MainScene : Game
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
 
+    // Add with other texture fields at the top
+    private Texture2D _inventorySlotEmpty;
+    private Texture2D _inventorySlotSelected;
+    private Texture2D _crowbarIcon;
+    private Texture2D _pistolIcon;
+    private Texture2D _shotgunIcon;
+    private Texture2D _grenadeIcon;
+
 
     public MainScene()
     {
@@ -116,30 +124,38 @@ public class MainScene : Game
         Texture2D bossThrowGrenade = Content.Load<Texture2D>("Textures/boss/Boss_ThrowGrenade");
         Texture2D bossDeath = Content.Load<Texture2D>("Textures/boss/Boss_Death");
 
+        _inventorySlotEmpty = Content.Load<Texture2D>("Textures/inventory/Inventory_Slot_Empty");
+        _inventorySlotSelected = Content.Load<Texture2D>("Textures/inventory/Inventory_Slot_Selected");
+        _crowbarIcon = Content.Load<Texture2D>("Textures/inventory/Crowbar_Icon");
+        _pistolIcon = Content.Load<Texture2D>("Textures/inventory/Pistol_Icon");
+        _shotgunIcon = Content.Load<Texture2D>("Textures/inventory/Shotgun_Icon");
+        _grenadeIcon = Content.Load<Texture2D>("Textures/inventory/Grenade_Icon");
+
+
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
             { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
-            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.11f) },
+            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.111f) },
             { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) },
 
             { "Crowbar_Idle", new Animation(crowbarIdle, 38, 75, 3, 0.33f) },
             {"Crowbar_Walk", new Animation(crowbarWalk, 48, 75, 8, 0.125f) },
-            { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.125f) },
+            { "Crowbar_Attack", new Animation(crowbarAtk, 48, 75, 4, 0.25f) },
 
             { "Pistol_Idle", new Animation(pistolIdle, 32, 75, 3, 0.33f) },
             { "Pistol_Walk", new Animation(pistolWalk, 44, 75, 8, 0.125f) },
             { "Pistol_Empty", new Animation(pistolEmpty, 48, 75, 10, 0.1f) },
             { "Pistol_Reload", new Animation(pistolReload, 48, 75, 10, 0.1f) },
-            { "Pistol_Shoot", new Animation(pistolShoot, 48, 75, 10, 0.1f) },
+            { "Pistol_Shoot", new Animation(pistolShoot, 48, 75, 10, 0.1f) }, // Quicker shot
 
             { "Shotgun_Idle", new Animation(shotgunIdle, 48, 75, 3, 0.33f) },
             { "Shotgun_Walk", new Animation(shotgunWalk, 60, 75, 8, 0.125f) },
             { "Shotgun_Reload", new Animation(shotgunReload, 60, 75, 10, 0.1f) },
-            { "Shotgun_Shoot", new Animation(shotgunShoot, 60, 75, 10, 0.1f) },
+            { "Shotgun_Shoot", new Animation(shotgunShoot, 60, 75, 10, 0.1f) }, // Faster shot
 
             { "Grenade_Idle", new Animation(grenadeIdle, 30, 75, 3, 0.33f) },
             { "Grenade_Walk", new Animation(grenadeWalk, 48, 75, 8, 0.125f) },
-            { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.25f) }
+            { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.125f) }
         };
 
         Singleton.Instance.Animations["Zombie"] = new Dictionary<string, Animation>
@@ -158,9 +174,6 @@ public class MainScene : Game
             { "ThrowGrenade", new Animation(bossThrowGrenade, 288, 270, 4, 0.25f) },
             { "Death", new Animation(bossDeath, 288, 270, 6, 0.168f) }
         };
-
-        // Initialize systems
-        mapManager = new MapManager();
 
         // Load map textures
         Texture2D map1Texture = Content.Load<Texture2D>("Textures/maps/level1");
@@ -199,7 +212,15 @@ public class MainScene : Game
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
-        player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint);
+        player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint, mapManager);
+        map1.AddWeapon(new FragGrenade(new Vector2(500, 550))); // Position where grenade spawns
+        map1.AddWeapon(new Crowbar(new Vector2(220, 550 - 40)));    // Subtract crowbar height
+        map1.AddWeapon(new Shotgun(new Vector2(300, 550 - 20)));    // Subtract shotgun height
+        map1.AddWeapon(new Pistol(new Vector2(400, 550 - 20)));     // Subtract pistol height
+
+        Singleton.Instance.Player = player;
+        Singleton.Instance.MapManager = mapManager;
+
         mapManager.SetPlayer(player);
 
         // Add doors between maps (coordinates are relative to each map's position)
@@ -227,6 +248,7 @@ public class MainScene : Game
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");
         map3.OnMapCleared += () => ShowMap3ClearedCutscene();
+
 
         // สร้าง texture สีแดง 1x1 ใช้สำหรับวาด HP bar
         hpTexture = new Texture2D(GraphicsDevice, 1, 1);
@@ -345,6 +367,7 @@ public class MainScene : Game
             // Update current map tracking
             mapManager.UpdateCurrentMap();
 
+
             foreach (var map in mapManager.GetMaps())
             {
                 map.Update(gameTime, player.Position);
@@ -376,8 +399,23 @@ public class MainScene : Game
 
                         if (player.Bounds.Intersects(weapon.Bounds))
                         {
-                            player.PickupWeapon(weapon);
-                            map.GetWeapons().RemoveAt(i);
+                            bool wasPickedUp = false;
+
+                            if (weapon is Grenade)
+                            {
+                                player.PickupGrenade();
+                                wasPickedUp = true;
+                            }
+                            else
+                            {
+                                wasPickedUp = player.PickupWeapon(weapon);
+                            }
+
+                            // Only remove if successfully picked up
+                            if (wasPickedUp)
+                            {
+                                map.GetWeapons().RemoveAt(i);
+                            }
                         }
                     }
                 }
@@ -401,6 +439,66 @@ public class MainScene : Game
 
 
         base.Update(gameTime);
+    }
+
+    private void DrawInventory(SpriteBatch spriteBatch)
+    {
+        const int slotSize = 64;
+        const int padding = 10;
+        Vector2 basePosition = new Vector2(padding, Singleton.Instance.ScreenHeight - slotSize - padding);
+
+        // Draw weapon slots
+        for (int i = 0; i < 2; i++)
+        {
+            Rectangle slotRect = new Rectangle(
+                (int)basePosition.X + (slotSize + padding) * i,
+                (int)basePosition.Y,
+                slotSize,
+                slotSize
+            );
+
+            // Draw slot background
+            spriteBatch.Draw(_inventorySlotEmpty, slotRect, Color.White);
+
+            // Draw active slot highlight
+            if (player.CurrentWeapon == i)
+            {
+                spriteBatch.Draw(_inventorySlotSelected, slotRect, Color.White * 0.5f);
+            }
+
+            // Draw weapon icon
+            Texture2D icon = null;
+            if (i == 0 && player.PrimaryWeapon != null)
+                icon = GetWeaponIcon(player.PrimaryWeapon);
+            else if (i == 1 && player.SecondaryWeapon != null)
+                icon = GetWeaponIcon(player.SecondaryWeapon);
+
+            if (icon != null)
+                spriteBatch.Draw(icon, slotRect, Color.White);
+        }
+
+        // Grenade slot
+        Rectangle grenadeRect = new Rectangle(
+            (int)basePosition.X + (slotSize + padding) * 2 + 30,
+            (int)basePosition.Y,
+            slotSize,
+            slotSize
+        );
+        spriteBatch.Draw(_inventorySlotEmpty, grenadeRect, Color.White);
+        if (player.GrenadeCount > 0)
+            spriteBatch.Draw(_grenadeIcon, grenadeRect, Color.White);
+    }
+
+    private Texture2D GetWeaponIcon(Weapon weapon)
+    {
+        // Use type checking with full namespace paths
+        if (weapon is FinalProject.GameObject.Weapon.Crowbar)
+            return _crowbarIcon;
+        if (weapon is FinalProject.GameObject.Weapon.Pistol)
+            return _pistolIcon;
+        if (weapon is FinalProject.GameObject.Weapon.Shotgun)
+            return _shotgunIcon;
+        return null;
     }
 
     protected override void Draw(GameTime gameTime)
@@ -478,8 +576,11 @@ public class MainScene : Game
 
             _spriteBatch.Draw(hpTexture, hpBack, Color.DarkGray);
             _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
+
+            DrawInventory(_spriteBatch); // Draw inventory slots
             _spriteBatch.End(); // ===== End UI rendering =====
         }
+
 
         else if (Singleton.Instance.CurrentGameState == GameState.GameOver)
         {

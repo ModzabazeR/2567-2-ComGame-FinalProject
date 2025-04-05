@@ -13,10 +13,12 @@ public abstract class Enemy : Movable
 	private bool _isDefeated = false;
 	public bool IsDefeated => _isDefeated;
 
-	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
+	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)	
 		: base(animations, position)
 	{
 	}
+
+	public abstract void TakeDamage(int amount);
 
 	public override void Update(GameTime gameTime, List<Rectangle> platforms)
 	{

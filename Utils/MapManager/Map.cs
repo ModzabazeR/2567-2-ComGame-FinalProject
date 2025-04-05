@@ -82,8 +82,6 @@ public class Map
 		if (name == "Map 1")
 		{
 			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(6, 6))];
-			var crowbar = new Crowbar(TileToWorldPosition(10, 15)); // spawn ที่ tile (5,10)
-			mapWeapons.Add(crowbar);
 		}
 		else if (name == "Map 3")
 		{
@@ -345,6 +343,11 @@ public class Map
 	public List<Enemy> GetEnemies()
 	{
 		return enemies ?? [];
+	}
+
+	public void AddWeapon(Weapon weapon)
+	{
+		mapWeapons.Add(weapon);
 	}
 
 	public List<Weapon> GetWeapons()

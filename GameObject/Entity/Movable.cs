@@ -49,6 +49,6 @@ public abstract class Movable : Entity
 
 	protected override void UpdateBounds()
 	{
-		Bounds = new Rectangle((int)Position.X, (int)Position.Y, 30, 75);
+		Bounds = new Rectangle((int)Position.X, (int)Position.Y, 30, 75); // Player hitbox
 	}
 }

@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using FinalProject.GameObject;
 using System.Collections.Generic;
+using FinalProject.GameObject.Entity;
+using FinalProject.Utils.MapManager;
 
 namespace FinalProject;
 
@@ -17,7 +19,7 @@ public enum GameState
 	Cutscene,
 	GameOver
 
-	
+
 }
 
 class Singleton
@@ -51,6 +53,8 @@ class Singleton
 	public GameState CurrentGameState { get; set; } = GameState.Splash;
 	public Dictionary<string, Dictionary<string, Animation>> Animations { get; set; } = [];
 
+	public List<Bullet> Bullets { get; } = new List<Bullet>();
+
 	private Singleton() { }
 
 	public static Singleton Instance
@@ -64,6 +68,9 @@ class Singleton
 			return instance;
 		}
 	}
+
+	public Player Player { get; set; }
+	public MapManager MapManager { get; set; }
 
 	public void UpdateKeyboardState()
 	{

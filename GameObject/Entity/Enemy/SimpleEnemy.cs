@@ -6,6 +6,7 @@ namespace FinalProject.GameObject.Entity.Enemy;
 public class SimpleEnemy : Enemy
 {
 	private const float moveSpeed = 150f;
+	private int _health = 10; // Add health field
 	private bool movingRight = true;
 
 	public SimpleEnemy(Dictionary<string, Animation> animations, Vector2 position)
@@ -69,5 +70,14 @@ public class SimpleEnemy : Enemy
 		base.Spawn();
 		movingRight = true;
 		Velocity.X = moveSpeed;
+	}
+
+	public override void TakeDamage(int amount)
+	{
+		_health -= amount;
+		if (_health <= 0)
+		{
+			Defeat();
+		}
 	}
 }

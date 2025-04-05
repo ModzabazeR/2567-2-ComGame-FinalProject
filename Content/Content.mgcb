@@ -50,6 +50,12 @@
 #begin Maps/level1_collision.txt
 /copy:Maps/level1_collision.txt
 
+#begin Maps/level2_cleared_collision.lcm
+/copy:Maps/level2_cleared_collision.lcm
+
+#begin Maps/level2_cleared_collision.txt
+/copy:Maps/level2_cleared_collision.txt
+
 #begin Maps/level2_collision.lcm
 /copy:Maps/level2_collision.lcm
 
@@ -61,6 +67,33 @@
 
 #begin Maps/level3_collision.txt
 /copy:Maps/level3_collision.txt
+
+#begin Maps/level4_collision.lcm
+/copy:Maps/level4_collision.lcm
+
+#begin Maps/level4_collision.txt
+/copy:Maps/level4_collision.txt
+
+#begin Maps/level5_collision.lcm
+/copy:Maps/level5_collision.lcm
+
+#begin Maps/level5_collision.txt
+/copy:Maps/level5_collision.txt
+
+#begin Maps/level6_collision.lcm
+/copy:Maps/level6_collision.lcm
+
+#begin Maps/level6_collision.txt
+/copy:Maps/level6_collision.txt
+
+#begin Maps/level7_collision.lcm
+/copy:Maps/level7_collision.lcm
+
+#begin Maps/level7_collision.txt
+/copy:Maps/level7_collision.txt
+
+#begin Maps/level8_collision.lcm
+/copy:Maps/level8_collision.lcm
 
 #begin Textures/boss/Boss_Death.png
 /importer:TextureImporter
@@ -134,38 +167,77 @@
 /processorParam:TextureFormat=Color
 /build:Textures/boss/Boss_ThrowGrenade.png
 
-#begin Maps/level4_collision.lcm
-/copy:Maps/level4_collision.lcm
+#begin Textures/inventory/Crowbar_Icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/inventory/Crowbar_Icon.png
 
-#begin Maps/level4_collision.txt
-/copy:Maps/level4_collision.txt
+#begin Textures/inventory/Grenade_Icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/inventory/Grenade_Icon.png
 
-#begin Maps/level5_collision.lcm
-/copy:Maps/level5_collision.lcm
+#begin Textures/inventory/Inventory_Slot_EMPTY.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/inventory/Inventory_Slot_EMPTY.png
 
-#begin Maps/level5_collision.txt
-/copy:Maps/level5_collision.txt
+#begin Textures/inventory/Inventory_Slot_SELECTED.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/inventory/Inventory_Slot_SELECTED.png
 
-#begin Maps/level6_collision.lcm
-/copy:Maps/level6_collision.lcm
+#begin Textures/inventory/Pistol_Icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/inventory/Pistol_Icon.png
 
-#begin Maps/level6_collision.txt
-/copy:Maps/level6_collision.txt
-
-#begin Maps/level7_collision.lcm
-/copy:Maps/level7_collision.lcm
-
-#begin Maps/level7_collision.txt
-/copy:Maps/level7_collision.txt
-
-#begin Maps/level2_cleared_collision.lcm
-/copy:Maps/level2_cleared_collision.lcm
-
-#begin Maps/level2_cleared_collision.txt
-/copy:Maps/level2_cleared_collision.txt
-
-#begin Maps/level8_collision.lcm
-/copy:Maps/level8_collision.lcm
+#begin Textures/inventory/Shotgun_Icon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/inventory/Shotgun_Icon.png
 
 #begin Textures/maps/level1.png
 /importer:TextureImporter
@@ -178,6 +250,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level1.png
+
+#begin Textures/maps/level2_cleared.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level2_cleared.png
 
 #begin Textures/maps/level2.png
 /importer:TextureImporter
@@ -251,18 +335,6 @@
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level7.png
 
-#begin Textures/maps/level2_cleared.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Textures/maps/level2_cleared.png
-
 #begin Textures/maps/level8.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -275,7 +347,7 @@
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level8.png
 
-#begin Textures/normal_movements/Player_Idle.png
+#begin Textures/player_movements/Player_Idle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255

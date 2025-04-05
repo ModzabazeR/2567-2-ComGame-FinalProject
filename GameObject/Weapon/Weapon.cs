@@ -10,6 +10,8 @@ public abstract class Weapon : Entity.Entity
 	protected float currentCooldown;
 	protected bool isAttacking;
 
+	public virtual Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 30, 20);
+
 	public Weapon(Vector2 position) : base(position)
 	{
 		currentCooldown = 0;
