@@ -4,8 +4,24 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using FinalProject.GameObject.Entity.Enemy;
+using FinalProject.GameObject.Weapon;
 
 namespace FinalProject.Utils.MapManager;
+
+public class DoorTile
+{
+	public Vector2 Position { get; private set; }
+	public string TargetMapName { get; private set; }
+	public int TargetSpawnX { get; private set; }
+	public int TargetSpawnY { get; private set; }
+	public DoorTile(Vector2 position, string targetMapName, int targetSpawnX, int targetSpawnY)
+	{
+		Position = position;
+		TargetMapName = targetMapName;
+		TargetSpawnX = targetSpawnX;
+		TargetSpawnY = targetSpawnY;
+	}
+}
 
 public class Map
 {
@@ -13,6 +29,8 @@ public class Map
 	public Vector2 Position { get; set; }
 	public Rectangle Bounds { get; private set; }
 	public List<Rectangle> SolidTiles { get; private set; }
+	public List<DoorTile> DoorTiles { get; private set; }
+	public Vector2 SpawnPoint { get; private set; }
 	private bool[,] collisionData;
 	private int mapHeight;
 	private int mapWidth;
@@ -27,6 +45,8 @@ public class Map
 
 	public event Action OnMapCleared;
 
+	private List<Weapon> mapWeapons;
+
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		: this(name, texture, position, collisionMapPath, Singleton.Instance.MAP_WIDTH, Singleton.Instance.MAP_HEIGHT)
 	{
@@ -38,6 +58,7 @@ public class Map
 		Texture = texture;
 		Position = position;
 		SolidTiles = [];
+		DoorTiles = [];
 
 		this.mapWidth = mapWidth;
 		this.mapHeight = mapHeight;
@@ -50,17 +71,27 @@ public class Map
 		LoadLCM(collisionMapPath);
 		InitializeCollisionTiles();
 
+		// Set default spawn point to the center of the map
+		SpawnPoint = new Vector2(
+			Position.X + (realMapWidth / 2),
+			Position.Y + (realMapHeight / 2)
+		);
+
+		mapWeapons = new List<Weapon>();
+
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(6, 6))];
+			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(6, 6))];
+			var crowbar = new Crowbar(TileToWorldPosition(10, 15)); // spawn ที่ tile (5,10)
+			mapWeapons.Add(crowbar);
 		}
-		else if (name == "Map 2")
+		else if (name == "Map 3")
 		{
 			enemies =
 			[
-				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(21, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Player"], TileToWorldPosition(3, 6))
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(21, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(18, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
 			];
 		}
 	}
@@ -148,6 +179,7 @@ public class Map
 			}
 		}
 	}
+	// vertical map 22x30
 
 	public bool IsVisible(Rectangle cameraView)
 	{
@@ -182,6 +214,29 @@ public class Map
 					);
 				}
 			}
+
+			foreach (var door in DoorTiles)
+			{
+				if (cameraView.Intersects(new Rectangle(
+					(int)door.Position.X,
+					(int)door.Position.Y,
+					Singleton.Instance.TILE_WIDTH,
+					Singleton.Instance.TILE_HEIGHT
+				)))
+				{
+					spriteBatch.Draw(
+						Texture,
+						new Rectangle(
+							(int)door.Position.X,
+							(int)door.Position.Y,
+							Singleton.Instance.TILE_WIDTH,
+							Singleton.Instance.TILE_HEIGHT
+						),
+						null,
+						Color.Blue * 0.3f
+					);
+				}
+			}
 		}
 	}
 
@@ -192,8 +247,8 @@ public class Map
 		SpawnEnemies();
 		CheckMapCleared();
 
-		// debug for map 2, remove this if you want to manually clear the map
-		if (name == "Map 2" && GetTimeSinceEntry()?.TotalSeconds >= 10)
+		// debug for map 3, remove this if you want to manually clear the map
+		if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
 		{
 			foreach (var enemy in enemies)
 			{
@@ -225,7 +280,7 @@ public class Map
 
 	private void CheckMapCleared()
 	{
-		if (name == "Map 2" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
+		if (name == "Map 3" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
 		{
 			bool allEnemiesDefeated = true;
 			foreach (var enemy in enemies)
@@ -261,9 +316,9 @@ public class Map
 				}
 			}
 		}
-		else if (name == "Map 2")
+		else if (name == "Map 3")
 		{
-			// Map 2 spawn logic - spawn enemies after 5 seconds of entering
+			// Map 3 spawn logic - spawn enemies after 5 seconds of entering
 			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5 && !allEnemiesSpawned)
 			{
 				// Spawn all enemies
@@ -277,12 +332,12 @@ public class Map
 				allEnemiesSpawned = true;
 			}
 		}
-		else if (name == "Map 3")
+		else if (name == "Map 4")
 		{
-			// Map 3 spawn logic - spawn enemies after 3 seconds of entering
+			// Map 4 spawn logic - spawn enemies after 3 seconds of entering
 			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3)
 			{
-				// Add your Map 3 specific spawn logic here
+				// Add your Map 4 specific spawn logic here
 			}
 		}
 	}
@@ -292,16 +347,73 @@ public class Map
 		return enemies ?? [];
 	}
 
-	private Vector2 TileToWorldPosition(int tileX, int tileY)
+	public List<Weapon> GetWeapons()
+	{
+		return mapWeapons ?? [];
+	}
+
+	public Vector2 TileToWorldPosition(int tileX, int tileY)
 	{
 		if (tileX < 0 || tileX >= mapWidth || tileY < 0 || tileY >= mapHeight)
 		{
-			throw new ArgumentException($"Tile coordinates ({tileX}, {tileY}) are outside map bounds ({mapWidth}x{mapHeight})");
+			throw new ArgumentException($"{name}: Tile coordinates ({tileX}, {tileY}) are outside map bounds ({mapWidth}x{mapHeight})");
 		}
 
 		return new Vector2(
 			Position.X + tileX * Singleton.Instance.TILE_WIDTH,
 			Position.Y + tileY * Singleton.Instance.TILE_HEIGHT
 		);
+	}
+
+	public void SetSpawnPoint(int tileX, int tileY)
+	{
+		SpawnPoint = TileToWorldPosition(tileX, tileY);
+	}
+
+	public void AddDoor(int tileX, int tileY, string targetMapName, int targetSpawnX, int targetSpawnY)
+	{
+		Vector2 doorPosition = TileToWorldPosition(tileX, tileY);
+		// Note: The target spawn point will be calculated by the MapManager when the door is used
+		DoorTiles.Add(new DoorTile(doorPosition, targetMapName, targetSpawnX, targetSpawnY));
+	}
+
+	public DoorTile GetDoorAtPosition(Vector2 position)
+	{
+		foreach (var door in DoorTiles)
+		{
+			Rectangle doorRect = new Rectangle(
+				(int)door.Position.X,
+				(int)door.Position.Y,
+				Singleton.Instance.TILE_WIDTH,
+				Singleton.Instance.TILE_HEIGHT
+			);
+
+			Rectangle playerRect = new Rectangle(
+				(int)position.X,
+				(int)position.Y,
+				Singleton.Instance.TILE_WIDTH,
+				Singleton.Instance.TILE_HEIGHT
+			);
+			if (doorRect.Intersects(playerRect))
+			{
+				return door;
+			}
+		}
+		return null;
+	}
+
+	public List<Rectangle> GetDoorCollisionTiles()
+	{
+		List<Rectangle> doorCollisionTiles = new List<Rectangle>();
+		foreach (var door in DoorTiles)
+		{
+			doorCollisionTiles.Add(new Rectangle(
+				(int)door.Position.X,
+				(int)door.Position.Y,
+				Singleton.Instance.TILE_WIDTH,
+				Singleton.Instance.TILE_HEIGHT
+			));
+		}
+		return doorCollisionTiles;
 	}
 }

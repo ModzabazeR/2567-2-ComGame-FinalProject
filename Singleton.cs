@@ -14,7 +14,10 @@ public enum GameState
 	Splash,
 	Playing,
 	Paused,
-	Cutscene
+	Cutscene,
+	GameOver
+
+	
 }
 
 class Singleton

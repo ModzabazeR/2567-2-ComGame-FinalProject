@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,6 +23,9 @@ public abstract class Enemy : Movable
 		if (!_isSpawned)
 			return;
 
+		if (_isDefeated)
+			return;
+
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 		ApplyGravity(dt);
 		UpdateFacingDirection(Velocity.X);
@@ -31,6 +35,9 @@ public abstract class Enemy : Movable
 	public override void Draw(SpriteBatch spriteBatch)
 	{
 		if (!_isSpawned)
+			return;
+
+		if (_isDefeated)
 			return;
 
 		base.Draw(spriteBatch);

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
+<<<<<<< HEAD:Content/obj/DesktopGL/net8.0/Content/Textures/level3.mgcontent
+  <SourceFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/level3.png</SourceFile>
+  <SourceTime>2025-03-20T10:30:48.0031896+07:00</SourceTime>
+  <DestFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/level3.xnb</DestFile>
+  <DestTime>2025-04-02T00:38:28.0043096+07:00</DestTime>
+=======
   <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/level3.png</SourceFile>
   <SourceTime>2025-03-27T22:49:50.9563302+07:00</SourceTime>
   <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/level3.xnb</DestFile>
   <DestTime>2025-03-29T23:31:03.4481243+07:00</DestTime>
+>>>>>>> main:Content/obj/DesktopGL/Textures/level3.mgcontent
+=======
+  <SourceFile>c:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/Textures/level3.png</SourceFile>
+  <SourceTime>2025-03-31T21:56:29.6015466+07:00</SourceTime>
+  <DestFile>c:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/level3.xnb</DestFile>
+  <DestTime>2025-04-01T15:52:21.766553+07:00</DestTime>
+>>>>>>> origin/po_bgm
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
