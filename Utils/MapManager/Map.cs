@@ -46,6 +46,7 @@ public class Map
 	public event Action OnMapCleared;
 
 	private List<Weapon> mapWeapons;
+	private Texture2D mapOverlay;
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		: this(name, texture, position, collisionMapPath, Singleton.Instance.MAP_WIDTH, Singleton.Instance.MAP_HEIGHT)
@@ -94,6 +95,11 @@ public class Map
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
 			];
 		}
+	}
+
+	public void AddOverlay(Texture2D overlayTexture)
+	{
+		mapOverlay = overlayTexture;
 	}
 
 	private void LoadCollisionData(string path)
@@ -237,6 +243,14 @@ public class Map
 					);
 				}
 			}
+		}
+	}
+
+	public void DrawOverlay(SpriteBatch spriteBatch, Rectangle cameraView)
+	{
+		if (mapOverlay != null && IsVisible(cameraView))
+		{
+			spriteBatch.Draw(mapOverlay, Bounds, Color.White);
 		}
 	}
 

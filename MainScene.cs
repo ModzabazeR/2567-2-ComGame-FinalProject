@@ -154,6 +154,11 @@ public class MainScene : Game
         Texture2D map2ClearedTexture = Content.Load<Texture2D>("Textures/maps/level2_cleared");
         Texture2D map8Texture = Content.Load<Texture2D>("Textures/maps/level8");
 
+        Texture2D map1Overlay = Content.Load<Texture2D>("Textures/maps/level1_overlay");
+        Texture2D map3Overlay = Content.Load<Texture2D>("Textures/maps/level3_overlay");
+        Texture2D map4Overlay = Content.Load<Texture2D>("Textures/maps/level4_overlay");
+        Texture2D map6Overlay = Content.Load<Texture2D>("Textures/maps/level6_overlay");
+
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.lcm");
         mapManager.AddMap("Map 2", map2Texture, new Vector2(2000, 0), "Content/Maps/level2_collision.lcm", 28, 50);
@@ -164,6 +169,12 @@ public class MainScene : Game
         mapManager.AddMap("Map 7", map7Texture, new Vector2(17000, 0), "Content/Maps/level7_collision.lcm");
         mapManager.AddMap("Map 2 Cleared", map2ClearedTexture, new Vector2(20000, 0), "Content/Maps/level2_cleared_collision.lcm", 28, 50);
         mapManager.AddMap("Boss", map8Texture, new Vector2(23000, 0), "Content/Maps/level8_collision.lcm");
+
+        // Add overlays for specific maps
+        mapManager.AddOverlay("Map 1", map1Overlay);
+        mapManager.AddOverlay("Map 3", map3Overlay);
+        mapManager.AddOverlay("Map 4", map4Overlay);
+        mapManager.AddOverlay("Map 6", map6Overlay);
 
         // Set spawn points for each map (relative to map position)
         mapManager.SetMapSpawnPoint("Map 1", 5, 10);
@@ -444,6 +455,9 @@ public class MainScene : Game
                     Color.Red * 0.5f // โปร่งใสหน่อย
                 );
             }
+
+            // Draw map overlays (if any)
+            mapManager.DrawOverlays(_spriteBatch, cameraBounds);
 
             _spriteBatch.End();
 

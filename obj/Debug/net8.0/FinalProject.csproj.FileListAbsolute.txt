@@ -254,3 +254,7 @@ C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\Final
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\main theme 2 - Frightmare - Jimena Contreras.xnb
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\main theme1.ogg
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\main theme1.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\maps\level1_overlay.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\maps\level3_overlay.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\maps\level4_overlay.xnb
+C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\maps\level6_overlay.xnb

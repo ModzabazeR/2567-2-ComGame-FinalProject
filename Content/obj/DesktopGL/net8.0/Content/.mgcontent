@@ -9,14 +9,18 @@
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Frightmare - Jimena Contreras.mp3</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/GameFont.spritefont</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level1_overlay.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level1.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2_cleared.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level3_overlay.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level3.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level4_overlay.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level4.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level5.png</File>
+    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level6_overlay.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level6.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level7.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2_cleared.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level8.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
     <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
@@ -51,6 +55,10 @@
     <File>main theme1.wav</File>
     <File>boss theme - Deep Space Sector 9 - Ezra Lipp.mp3</File>
     <File>main theme 2 - Frightmare - Jimena Contreras.mp3</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

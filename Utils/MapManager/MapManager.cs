@@ -134,6 +134,14 @@ public class MapManager
 		}
 	}
 
+	public void DrawOverlays(SpriteBatch spriteBatch, Rectangle cameraView)
+	{
+		foreach (var map in maps)
+		{
+			map.DrawOverlay(spriteBatch, cameraView);
+		}
+	}
+
 	public List<Map> GetMaps()
 	{
 		return maps;
@@ -142,6 +150,12 @@ public class MapManager
 	public Map GetMap(string name)
 	{
 		return maps.Find(m => m.Name == name);
+	}
+
+	public void AddOverlay(string mapName, Texture2D overlayTexture)
+	{
+		var map = GetMap(mapName);
+		map?.AddOverlay(overlayTexture);
 	}
 }
 

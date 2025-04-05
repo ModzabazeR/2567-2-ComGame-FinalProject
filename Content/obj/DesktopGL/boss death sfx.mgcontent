@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/BGM/boss death sfx.wav</SourceFile>
-  <SourceTime>2025-03-31T22:43:04.9956984+07:00</SourceTime>
-  <DestFile>c:/Users/Nattaphat.S/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/boss death sfx.xnb</DestFile>
-  <DestTime>2025-04-01T17:12:03.9227034+07:00</DestTime>
+  <SourceFile>c:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/boss death sfx.wav</SourceFile>
+  <SourceTime>2025-04-04T19:57:44.1289201+07:00</SourceTime>
+  <DestFile>c:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/boss death sfx.xnb</DestFile>
+  <DestTime>2025-04-06T00:46:09.7326239+07:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
