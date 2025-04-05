@@ -110,8 +110,8 @@ public class MainScene : Game
         Texture2D zombieDeath = Content.Load<Texture2D>("Textures/zombie/Zombie_Death");
 
         Texture2D bossIdle = Content.Load<Texture2D>("Textures/boss/Boss_Idle");
-        Texture2D bossSwordAtk = Content.Load<Texture2D>("Textures/boss/Boss_SwordAttack");
-        Texture2D bossGunAtk = Content.Load<Texture2D>("Textures/boss/Boss_GunAttack");
+        Texture2D bossSwordAtk = Content.Load<Texture2D>("Textures/boss/Boss_SwordATK");
+        Texture2D bossGunAtk = Content.Load<Texture2D>("Textures/boss/Boss_GunATK");
         Texture2D bossPickupGrenade = Content.Load<Texture2D>("Textures/boss/Boss_PickupGrenade");
         Texture2D bossThrowGrenade = Content.Load<Texture2D>("Textures/boss/Boss_ThrowGrenade");
         Texture2D bossDeath = Content.Load<Texture2D>("Textures/boss/Boss_Death");
