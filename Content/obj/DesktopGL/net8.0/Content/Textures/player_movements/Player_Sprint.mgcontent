@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Sprint.png</SourceFile>
   <SourceTime>2025-04-03T17:26:49.5185527+07:00</SourceTime>
   <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/player_movements/Player_Sprint.xnb</DestFile>
-  <DestTime>2025-04-04T19:30:53.5547991+07:00</DestTime>
-=======
-  <SourceFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_movements/Player_Sprint.png</SourceFile>
-  <SourceTime>2025-04-04T19:57:44.8880394+07:00</SourceTime>
-  <DestFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/player_movements/Player_Sprint.xnb</DestFile>
-  <DestTime>2025-04-04T20:05:02.0131974+07:00</DestTime>
->>>>>>> adb06f4c1d62c59c415969f58354091dcaed8b4d
+  <DestTime>2025-04-05T20:12:39.2301059+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
