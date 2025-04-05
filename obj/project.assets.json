@@ -238,33 +238,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\modda\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\modda\\OneDrive\\Documents\\KMITL\\ปี 3\\Computer Game Programming\\FinalProject\\FinalProject.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
       "projectName": "FinalProject",
-      "projectPath": "C:\\Users\\modda\\OneDrive\\Documents\\KMITL\\ปี 3\\Computer Game Programming\\FinalProject\\FinalProject.csproj",
-      "packagesPath": "C:\\Users\\modda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\modda\\OneDrive\\Documents\\KMITL\\ปี 3\\Computer Game Programming\\FinalProject\\obj\\",
+      "projectPath": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\modda\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.bepinex.dev/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -308,6 +300,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.11, 8.0.11]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

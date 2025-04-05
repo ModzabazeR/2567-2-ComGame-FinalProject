@@ -88,10 +88,20 @@ public class MainScene : Game
         Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Walk");
         Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Throw");
 
+        Texture2D pistolAmmo = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Ammo");
+        Texture2D shotgunAmmo = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Ammo");
+
         Texture2D zombieIdle = Content.Load<Texture2D>("Textures/zombie/Zombie_Idle");
         Texture2D zombieWalk = Content.Load<Texture2D>("Textures/zombie/Zombie_Walk");
         Texture2D zombieAttack = Content.Load<Texture2D>("Textures/zombie/Zombie_Attack");
         Texture2D zombieDeath = Content.Load<Texture2D>("Textures/zombie/Zombie_Death");
+
+        Texture2D bossIdle = Content.Load<Texture2D>("Textures/boss/Boss_Idle");
+        Texture2D bossSwordAtk = Content.Load<Texture2D>("Textures/boss/Boss_SwordAttack");
+        Texture2D bossGunAtk = Content.Load<Texture2D>("Textures/boss/Boss_GunAttack");
+        Texture2D bossPickupGrenade = Content.Load<Texture2D>("Textures/boss/Boss_PickupGrenade");
+        Texture2D bossThrowGrenade = Content.Load<Texture2D>("Textures/boss/Boss_ThrowGrenade");
+        Texture2D bossDeath = Content.Load<Texture2D>("Textures/boss/Boss_Death");
 
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },   
@@ -125,6 +135,15 @@ public class MainScene : Game
             { "Walk", new Animation(zombieWalk, 52, 75, 8, 0.125f) },
             { "Attack", new Animation(zombieAttack, 48, 75, 4, 0.25f) },
             { "Death", new Animation(zombieDeath, 96, 75, 5, 0.2f) }
+        };
+
+        Singleton.Instance.Animations["Boss"] = new Dictionary<string, Animation> {
+            { "Idle", new Animation(zombieIdle, 276, 270, 3, 0.33f) },
+            { "SwordAttack", new Animation(bossSwordAtk, 288, 270, 6, 0.168f) },
+            { "GunAttack", new Animation(bossGunAtk, 288, 270, 6, 0.168f) },
+            { "PickupGrenade", new Animation(bossPickupGrenade, 288, 270, 6, 0.168f) },
+            { "ThrowGrenade", new Animation(bossThrowGrenade, 288, 270, 4, 0.25f) },
+            { "Death", new Animation(bossDeath, 288, 270, 6, 0.168f) }
         };
 
         // Initialize systems

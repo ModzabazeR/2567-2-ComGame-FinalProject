@@ -155,3 +155,30 @@ C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\Final
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\weapons\shotgun\Shotgun_Reload.xnb
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\weapons\shotgun\Shotgun_Shoot.xnb
 C:\Users\modda\OneDrive\Documents\KMITL\ปี 3\Computer Game Programming\FinalProject\bin\Debug\net8.0\Content\Textures\weapons\shotgun\Shotgun_Walk.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_movements\Player_Idle.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_movements\Player_Jump.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_movements\Player_Sprint.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_movements\Player_Walk.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\crowbar\Crowbar.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\crowbar\Crowbar_Attack.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\crowbar\Crowbar_Idle.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\crowbar\Crowbar_Walk.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\grenade\Grenade-2.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\grenade\Grenade_Idle.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\grenade\Grenade_Throw.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\grenade\Grenade_Walk.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\pistol\Glock - P80 [64x48].xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\pistol\Pistol_Empty.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\pistol\Pistol_Idle.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\pistol\Pistol_Reload.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\pistol\Pistol_Shoot.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\pistol\Pistol_Walk.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\shotgun\Shotgun.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\shotgun\Shotgun_Idle.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\shotgun\Shotgun_Reload.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\shotgun\Shotgun_Shoot.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\player_weapons\shotgun\Shotgun_Walk.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\zombie\Zombie_Attack.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\zombie\Zombie_Death.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\zombie\Zombie_Idle.xnb
+C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\zombie\Zombie_Walk.xnb
