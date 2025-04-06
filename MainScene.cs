@@ -32,6 +32,10 @@ public class MainScene : Game
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
 
+    private float timeRemaining = 60f; // 60 วินาที
+    private SpriteFont timerFont;
+
+
 
     public MainScene()
     {
@@ -105,6 +109,9 @@ public class MainScene : Game
         hpTexture.SetData(new[] { Color.Red });
 
         map2.OnMapCleared += () => ShowMap2ClearedCutscene();
+
+        timerFont = Singleton.Instance.Font; // ใช้ font เดียวกัน
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -146,6 +153,18 @@ public class MainScene : Game
         // Only update game logic if in Playing state
         if (Singleton.Instance.CurrentGameState == GameState.Playing)
         {
+            timeRemaining -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (timeRemaining <= 0f)
+            {
+                Singleton.Instance.CurrentGameState = GameState.GameOver;
+
+                // ตั้งปุ่ม Restart
+                restartButtonRect = new Rectangle(
+                    Singleton.Instance.ScreenWidth / 2 - 100,
+                    Singleton.Instance.ScreenHeight / 2,
+                    200, 60
+                );
+            }
             // Get camera bounds for visibility checking
             Rectangle cameraBounds = new Rectangle(
                 (int)camera.Position.X,
@@ -325,6 +344,7 @@ public class MainScene : Game
                 );
             }
 
+
             _spriteBatch.End();
 
             // ====== Draw UI (HP Bar) ======
@@ -339,7 +359,24 @@ public class MainScene : Game
 
             _spriteBatch.Draw(hpTexture, hpBack, Color.DarkGray);
             _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
+                        
+                        
+            // Draw timer
+            string timeText = $"Time: {Math.Ceiling(timeRemaining)}";
+            Console.WriteLine(timeText);
+            Vector2 timeSize = timerFont.MeasureString(timeText);
+
+            _spriteBatch.DrawString(
+                timerFont,
+                timeText,
+                new Vector2(Singleton.Instance.ScreenWidth - timeSize.X - 20, 10),
+                Color.Red
+            );
+
+
             _spriteBatch.End(); // ===== End UI rendering =====
+
+            
         }
 
         else if (Singleton.Instance.CurrentGameState == GameState.GameOver)
