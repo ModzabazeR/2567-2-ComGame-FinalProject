@@ -322,7 +322,7 @@ public class Map
 
 	private void CheckMapCleared()
 	{
-		if (name == "Map 3" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
+		if ((name == "Map 3" || name == "Boss") && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
 		{
 			bool allEnemiesDefeated = true;
 			foreach (var enemy in enemies)

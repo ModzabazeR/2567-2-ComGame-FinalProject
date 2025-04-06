@@ -15,9 +15,8 @@ public enum GameState
 	Playing,
 	Paused,
 	Cutscene,
-	GameOver
-
-	
+	GameOver,
+	GameWon,
 }
 
 class Singleton
