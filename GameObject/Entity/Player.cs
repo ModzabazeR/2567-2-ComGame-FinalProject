@@ -100,8 +100,29 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.C) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.C))
 		{
-			isAttacking = true;
-			attackTimer = attackDuration;
+			if (_currentWeapon != null && _currentWeapon is Crowbar)
+			{
+				isAttacking = true;
+				attackTimer = attackDuration;
+			}
+			else
+			{
+				Console.WriteLine("You don't have a weapon to attack!");
+			}
+		}
+
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.V) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.V))
+		{
+			if (_currentWeapon != null && _currentWeapon is Shotgun)
+			{
+				isAttacking = true;
+				attackTimer = attackDuration;
+			}
+			else
+			{
+				Console.WriteLine("You don't have a weapon to attack!");
+			}
 		}
 
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.K) &&

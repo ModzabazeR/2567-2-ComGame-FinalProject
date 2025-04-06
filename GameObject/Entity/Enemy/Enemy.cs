@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using FinalProject.Utils.MapManager;
+using FinalProject.GameObject.Weapon;
 
 namespace FinalProject.GameObject.Entity.Enemy;
 
@@ -12,6 +14,10 @@ public abstract class Enemy : Movable
 	public bool IsSpawned => _isSpawned;
 	private bool _isDefeated = false;
 	public bool IsDefeated => _isDefeated;
+
+	public int enemyHP = 5;
+
+	private Map parentMap;
 
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
@@ -89,5 +95,33 @@ public abstract class Enemy : Movable
 		_isDefeated = true;
 		Despawn();
 		Console.WriteLine("enemy Defeat ");
+			// ✅ Drop item
+		if (parentMap != null)
+		{
+			Random rng = new Random();
+			int dropType = rng.Next(2); // 0 = pistol, 1 = shotgun
+			Console.WriteLine(dropType);
+
+			Weapon.Weapon drop;
+			if (dropType == 0)
+				drop = new PistolBulletItem(Position);
+			else
+				drop = new ShotgunBulletItem(Position);
+
+			parentMap.GetWeapons().Add(drop);
+		}
+	}
+
+	public virtual void hit(int i)
+	{
+		enemyHP = enemyHP - i;
+		if (enemyHP <= 0){
+			Defeat();
+		}
+	}
+
+	public void SetParentMap(Map map)
+	{
+		this.parentMap = map;
 	}
 }
