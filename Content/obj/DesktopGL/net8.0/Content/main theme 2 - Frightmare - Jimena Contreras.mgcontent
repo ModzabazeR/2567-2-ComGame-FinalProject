@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Frightmare - Jimena Contreras.mp3</SourceFile>
   <SourceTime>2025-04-06T11:45:06.130098+07:00</SourceTime>
   <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/main theme 2 - Frightmare - Jimena Contreras.xnb</DestFile>
   <DestTime>2025-04-06T14:31:53.2247654+07:00</DestTime>
+=======
+  <SourceFile>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Frightmare - Jimena Contreras.mp3</SourceFile>
+  <SourceTime>2025-04-04T20:08:26.2702058+07:00</SourceTime>
+  <DestFile>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/main theme 2 - Frightmare - Jimena Contreras.xnb</DestFile>
+  <DestTime>2025-04-04T20:09:32.5625761+07:00</DestTime>
+>>>>>>> origin/po_sfxbgm
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +22,10 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
+<<<<<<< HEAD
     <string>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/main theme 2 - Frightmare - Jimena Contreras.ogg</string>
+=======
+    <string>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/main theme 2 - Frightmare - Jimena Contreras.ogg</string>
+>>>>>>> origin/po_sfxbgm
   </BuildOutput>
 </PipelineBuildEvent>

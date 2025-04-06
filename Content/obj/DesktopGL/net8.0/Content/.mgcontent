@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/boss death sfx.wav</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
@@ -59,10 +60,82 @@
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
+=======
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/../../../Downloads/playeroof.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/BGM/boss death sfx.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/bomb.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Frightmare - Jimena Contreras.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/GameFont.spritefont</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/556 Single MP3.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/762x39 Spray MP3.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/AR Reload Full MP3.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Car_door_shutting.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/dedi dedi amkaming ohhh.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Door_handle_jiggle_checking if locked.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Door_squeeky_2.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Footsteps_walking.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/how good is my new arm.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/I am the queue's closest servant.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/I need more bulletx2.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/itaiahh.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Keys_pick up.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/mama help me.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level2_cleared.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level2.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level3.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level4.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level5.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level6.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level7.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level8.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/my boy is gonna blow.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/oh mommy queue i'm hurt.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Piano_stinger_dissonent.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Sprint.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Walk.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Attack.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Walk.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Idle.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Throw.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Walk.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade-2.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Glock - P80 [64x48].png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Empty.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Idle.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Reload.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Shoot.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Walk.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Idle.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Reload.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Shoot.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Walk.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/take my nut.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Why are you gay, player.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Why can't yout talk to me.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/yametekudasai.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/You are gay, player.mp3</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Zombie_6.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Zombie_8.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Zombie.wav</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Attack.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
+    <File>C:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
+>>>>>>> origin/po_sfxbgm
   </SourceFiles>
   <DestFiles>
+    <File>Textures/playeroof.mp3</File>
     <File>boss death sfx.wav</File>
     <File>main theme1.wav</File>
+    <File xsi:nil="true" />
     <File>boss theme - Deep Space Sector 9 - Ezra Lipp.mp3</File>
     <File>main theme 2 - Frightmare - Jimena Contreras.mp3</File>
     <File xsi:nil="true" />
@@ -116,5 +189,19 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+<<<<<<< HEAD
+=======
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+>>>>>>> origin/po_sfxbgm
   </DestFiles>
 </SourceFileCollection>

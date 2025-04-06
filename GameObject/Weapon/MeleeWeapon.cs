@@ -1,3 +1,4 @@
+using FinalProject.Utils.SFXManager;
 using Microsoft.Xna.Framework;
 
 namespace FinalProject.GameObject.Weapon;
@@ -17,6 +18,7 @@ public abstract class MeleeWeapon : Weapon
 	{
 		// Melee weapons will implement their specific attack logic here
 		// This could include creating hitboxes, playing animations, etc.
+		SFXManager.Instance.PlaySound("Car_door_shutting");
 	}
 
 	public float GetAttackRange()

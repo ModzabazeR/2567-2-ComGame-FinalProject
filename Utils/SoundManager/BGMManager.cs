@@ -44,6 +44,7 @@ namespace FinalProject.Utils.BGMManager
         {
             if (songs.ContainsKey(songName))
             {
+                MediaPlayer.Stop();
                 MediaPlayer.IsRepeating = isRepeating;
                 MediaPlayer.Play(songs[songName]);
             }
@@ -54,13 +55,15 @@ namespace FinalProject.Utils.BGMManager
         }
 
         public void PlayMainTheme1(){
+            StopSong();
             LoadSong("main theme1");
             PlaySong("main theme1", true);
             //Lake Jupiter - John Patitucci
-            SetVolume(1.2f);
+            SetVolume(0.8f);
         }
 
         public void PlayMainTheme2(){
+            StopSong();
             LoadSong("main theme 2 - Frightmare - Jimena Contreras");
             PlaySong("main theme 2 - Frightmare - Jimena Contreras", true);
             SetVolume(0.5f);
@@ -74,7 +77,17 @@ namespace FinalProject.Utils.BGMManager
 
         }
 
-        // public void PlayWinningTheme
+        public void PlayWinningTheme(){
+            LoadSong("[winning theme]Cosmic nightmare and praise");
+            PlaySong("[winning theme]Cosmic nightmare and praise", true);
+            SetVolume(0.5f);
+        }
+//         I am the queue's chosen servant. I am not gay. Why are you gae, player? You are gae, Player. Why can't you talk to me?
+// I need more bullets! I need more bullet!
+// Take my nut!
+// How good is my new arm?
+// Oh mommy queue, I'm hurt! Mama help me!
+// Dedi? Dedi am koming uhhhhh
 
         public void StopSong()
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FinalProject.Utils.SFXManager;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using FinalProject.Utils.MapManager;
@@ -19,6 +20,13 @@ public abstract class Enemy : Movable
 
 	private Map parentMap;
 
+	private float screamTimer = 0f;
+
+	private const float FOOTSTEP_INTERVAL = 5f; // seconds
+	
+
+
+
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
 	{
@@ -34,6 +42,16 @@ public abstract class Enemy : Movable
 		if (_isDefeated)
 			return;
 
+		// play sound effect when enemy is spawned repeatedly around 5 seconds
+		if (screamTimer <= 0f)
+		{
+			SFXManager.Instance.RandomPlayZombieScream();
+			screamTimer = FOOTSTEP_INTERVAL;
+		}
+		else
+		{
+			screamTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+		}
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 		ApplyGravity(dt);
 		UpdateFacingDirection(Velocity.X);

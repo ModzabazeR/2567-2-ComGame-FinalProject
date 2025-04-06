@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>c:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/Car_door_shutting.wav</SourceFile>
+  <SourceTime>2025-04-05T00:35:20.0826711+07:00</SourceTime>
+  <DestFile>c:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/Car_door_shutting.xnb</DestFile>
+  <DestTime>2025-04-06T10:50:23.4489636+07:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2024-08-17T00:05:56+07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

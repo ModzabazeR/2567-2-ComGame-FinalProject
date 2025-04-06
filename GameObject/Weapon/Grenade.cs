@@ -1,3 +1,4 @@
+using FinalProject.Utils.SFXManager;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
@@ -45,6 +46,8 @@ public abstract class Grenade : Weapon
 
 	protected virtual void Explode()
 	{
+
+		SFXManager.Instance.PlaySound("bomb");
 		hasExploded = true;
 		// Implement explosion logic here
 	}

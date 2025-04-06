@@ -13,6 +13,7 @@ using FinalProject.Utils.SplashScreen;
 using System.Collections.Generic;
 using System;
 using FinalProject.Utils.BGMManager;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject;
 
@@ -29,7 +30,7 @@ public class MainScene : Game
     private Texture2D hpTexture;
 
     private List<Bullet> bullets = new();
-    private bool _isSongPlayRequested = false; // Flag to check if song is requested
+    private bool _isIntroSongPlay = false; // Flag to check if song is requested
 
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
@@ -65,9 +66,10 @@ public class MainScene : Game
         base.Initialize();
 
         BGMManager.Instance.Initialize(Content);
+        SFXManager.Instance.Initialize(Content);
 
         StartIntroSequence();
-        _isSongPlayRequested = true; // Request to play the song
+        _isIntroSongPlay = true; // Request to play the song
     }
 
     protected override void LoadContent()
@@ -260,8 +262,6 @@ public class MainScene : Game
         hpTexture = new Texture2D(GraphicsDevice, 1, 1);
         hpTexture.SetData(new[] { Color.Red });
 
-        map2.OnMapCleared += () => ShowMap2ClearedCutscene();
-
         timerFont = Singleton.Instance.Font; // ใช้ font เดียวกัน
 
     }
@@ -270,11 +270,11 @@ public class MainScene : Game
     {
         Singleton.Instance.UpdateKeyboardState();
 
-        if (_isSongPlayRequested == true && BGMManager.Instance != null)
+        if (_isIntroSongPlay == true && BGMManager.Instance != null)
         {
             // Load background music after BGMManager is initialized
             BGMManager.Instance.PlayMainTheme1();
-            _isSongPlayRequested = false;
+            _isIntroSongPlay = false;
         }
 
         // Handle splash screen and cutscene states
@@ -285,6 +285,8 @@ public class MainScene : Game
             if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Escape) &&
                 Singleton.Instance.PreviousKey.IsKeyUp(Keys.Escape))
             {
+                
+                BGMManager.Instance.PlayMainTheme2();
                 _currentSequence?.Skip();
                 return;
             }
@@ -717,6 +719,7 @@ public class MainScene : Game
 
     public void ShowCutscene(params SplashScreenData[] screens)
     {
+        BGMManager.Instance.PlayMainTheme1();
         _currentSequence = new SplashScreenSequence(screens);
         Singleton.Instance.CurrentGameState = GameState.Cutscene;
     }

@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "hFZBBsbrPKk=",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\Desktop\\CS classes\\ThirdYear\\Term2\\ComGame\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
@@ -14,6 +15,18 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.11\\microsoft.windowsdesktop.app.ref.8.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.11\\microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.11\\microsoft.netcore.app.host.win-x64.8.0.11.nupkg.sha512"
+=======
+  "dgSpecHash": "5OhgjmUTPt+VBCNV18A3XSXzvUqCXpEGCwAUnDHObUM7nW5GyBaZqCIJaIlAAVrwqK2uhq3n5lRS6UCd/fYTwA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nattaphat.S\\Desktop\\2567-2-ComGame-FinalProject\\FinalProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nattaphat.S\\.nuget\\packages\\monogame.content.builder.task\\3.8.2.1105\\monogame.content.builder.task.3.8.2.1105.nupkg.sha512",
+    "C:\\Users\\Nattaphat.S\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.2.1105\\monogame.framework.desktopgl.3.8.2.1105.nupkg.sha512",
+    "C:\\Users\\Nattaphat.S\\.nuget\\packages\\monogame.library.sdl\\2.26.5.5\\monogame.library.sdl.2.26.5.5.nupkg.sha512",
+    "C:\\Users\\Nattaphat.S\\.nuget\\packages\\nvorbis\\0.10.4\\nvorbis.0.10.4.nupkg.sha512",
+    "C:\\Users\\Nattaphat.S\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Nattaphat.S\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+>>>>>>> origin/po_sfxbgm
   ],
   "logs": []
 }
