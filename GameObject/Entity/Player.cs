@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using FinalProject.GameObject.Weapon;
 using System;
 using FinalProject.Utils.MapManager;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject.GameObject.Entity;
 
@@ -13,8 +14,8 @@ public class Player : Movable
 	private const float moveSpeed = 300f;
 	private const float gravity = 1000f;
 	private const float jumpForce = -600f;
+	private float attackDuration = 0.3f;
 	private bool canJump = false;
-	private float attackDuration = 0.5f;
 	public bool IsFacingRight => isFacingRight;
 
 	private MapManager _mapManager;
@@ -47,6 +48,10 @@ public class Player : Movable
 	private bool isAttackLocked = false;
 	public bool IsAttacking => isAttacking;
 	private float _animationTransitionTime = 0.1f; // Transition time in seconds
+
+	public bool isMovingOnGround => isOnGround && (Velocity.X != 0);
+	private float footstepTimer = 0f;
+    private const float FOOTSTEP_INTERVAL = 5f;
 
 	public Player(Dictionary<string, Animation> animations, Vector2 position, MapManager mapManager)
 	: base(animations, position)
@@ -117,6 +122,22 @@ public class Player : Movable
 			}
 			return; // Lock other updates during attack
 		}
+
+		Console.WriteLine(isMovingOnGround);
+		if (isMovingOnGround) 
+        {
+            footstepTimer += dt;
+			Console.WriteLine(footstepTimer);
+            if (footstepTimer >= FOOTSTEP_INTERVAL)
+            {
+                SFXManager.Instance.PlaySound("footsteps_walking");
+                footstepTimer = 0f; // Reset timer
+            } 
+        }
+        else
+        {
+            footstepTimer = 0f; // Reset timer when not moving
+        }
 
 		HandleInput();
 		ApplyGravity(dt);
@@ -359,6 +380,7 @@ public class Player : Movable
 			return;
 
 		currentHP -= amount;
+		SFXManager.Instance.PlaySound("playeroof");
 		if (currentHP < 0) currentHP = 0;
 
 		invincibilityTimer = invincibilityTime;
