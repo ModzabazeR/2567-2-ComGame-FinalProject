@@ -15,15 +15,11 @@ public abstract class Enemy : Movable
 	private bool _isDefeated = false;
 	public bool IsDefeated => _isDefeated;
 
-<<<<<<< HEAD
-	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)	
-=======
 	public int enemyHP = 5;
 
 	private Map parentMap;
 
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
->>>>>>> chan
 		: base(animations, position)
 	{
 	}
@@ -100,8 +96,6 @@ public abstract class Enemy : Movable
 	{
 		_isDefeated = true;
 		Despawn();
-<<<<<<< HEAD
-=======
 		Console.WriteLine("enemy Defeat ");
 			// ✅ Drop item
 		if (parentMap != null)
@@ -131,6 +125,5 @@ public abstract class Enemy : Movable
 	public void SetParentMap(Map map)
 	{
 		this.parentMap = map;
->>>>>>> chan
 	}
 }
