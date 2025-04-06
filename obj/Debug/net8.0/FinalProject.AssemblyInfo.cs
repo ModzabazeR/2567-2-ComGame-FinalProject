@@ -13,15 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinalProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb1404f7a3e8d65f5737c1b0e83ad5c62126e30c")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b88e11e58a4c1c51398d48766f799928878c94d5")]
->>>>>>> origin/chan
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
->>>>>>> origin/po_sfxbgm
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2e92748cecca0fc75b78d5ce90ab7873be30b21")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinalProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinalProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
