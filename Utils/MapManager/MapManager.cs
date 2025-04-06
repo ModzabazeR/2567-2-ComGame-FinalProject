@@ -162,5 +162,13 @@ public class MapManager
 			map.AddOverlay(overlayTexture);
 		}
 	}
+
+	public void AddMapDeadZone(string mapName, int startTileX, int startTileY, int width, int height)
+	{
+		if (maps.TryGetValue(mapName, out var map))
+		{
+			map.AddDeadZone(startTileX, startTileY, width, height);
+		}
+	}
 }
 

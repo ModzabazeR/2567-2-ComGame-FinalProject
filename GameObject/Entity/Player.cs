@@ -11,7 +11,7 @@ public class Player : Movable
 {
 	private const float moveSpeed = 300f;
 	private const float gravity = 1000f;
-	private const float jumpForce = -500f;
+	private const float jumpForce = -700f;
 	private bool canJump = false;
 	private float attackCooldown = 0.5f;
 	private Weapon.Weapon _primaryWeapon;

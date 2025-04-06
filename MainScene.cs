@@ -34,6 +34,7 @@ public class MainScene : Game
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
     private bool isEnteredMap2Cleared;
+    Texture2D buttonTex;
 
 
     public MainScene()
@@ -216,6 +217,14 @@ public class MainScene : Game
 
         mapManager.AddMapDoor("Map 2 Cleared", 0, 7, "Map 1", 35, 15);
         mapManager.AddMapDoor("Map 2 Cleared", 0, 29, "Map 3", 35, 15);
+
+        mapManager.AddMapDeadZone("Map 2", 1, 38, 26, 11);
+        mapManager.AddMapDeadZone("Map 2 Cleared", 1, 38, 26, 11);
+        mapManager.AddMapDeadZone("Map 5", 14, 21, 3, 1);
+        mapManager.AddMapDeadZone("Map 5", 25, 21, 3, 1);
+        mapManager.AddMapDeadZone("Map 6", 29, 21, 9, 1);
+        mapManager.AddMapDeadZone("Map 7", 9, 21, 5, 1);
+        mapManager.AddMapDeadZone("Map 7", 32, 21, 6, 1);
 
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");
