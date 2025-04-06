@@ -198,7 +198,7 @@ public class MainScene : Game
         mapManager.AddMap("Boss", map8Texture, new Vector2(23000, 0), "Content/Maps/level8_collision.lcm");
 
         // Set spawn points for each map (relative to map position)
-        mapManager.SetMapSpawnPoint("Map 1", 5, 10);
+        mapManager.SetMapSpawnPoint("Map 1", 3, 10);
         mapManager.SetMapSpawnPoint("Map 2", 2, 3);
         mapManager.SetMapSpawnPoint("Map 3", 35, 15);
         mapManager.SetMapSpawnPoint("Map 4", 2, 8);
@@ -212,7 +212,7 @@ public class MainScene : Game
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
         // Initialize player at Map 1's spawn point
-        var map1 = mapManager.GetMap("Map 2 Cleared");
+        var map1 = mapManager.GetMap("Map 1");
         player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint, mapManager);
         map1.AddWeapon(new FragGrenade(new Vector2(500, 550))); // Position where grenade spawns
         map1.AddWeapon(new Crowbar(new Vector2(220, 550 - 40)));    // Subtract crowbar height
