@@ -391,6 +391,15 @@ public class Map
 		DoorTiles.Add(new DoorTile(doorPosition, targetMapName, targetSpawnX, targetSpawnY));
 	}
 
+	public void ReplaceDoor(int doorIndex, string newTargetMapName)
+	{
+		if (doorIndex >= 0 && doorIndex < DoorTiles.Count)
+		{
+			var door = DoorTiles[doorIndex];
+			DoorTiles[doorIndex] = new DoorTile(door.Position, newTargetMapName, door.TargetSpawnX, door.TargetSpawnY);
+		}
+	}
+
 	public DoorTile GetDoorAtPosition(Vector2 position)
 	{
 		foreach (var door in DoorTiles)

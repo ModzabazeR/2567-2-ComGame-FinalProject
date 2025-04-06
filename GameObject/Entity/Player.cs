@@ -56,7 +56,7 @@ public class Player : Movable
 			{
 				isAttacking = false;
 				// Return to idle after attack
-				if (isOnGround) _animationManager.Play(_animations["Grenade_Idle"]);
+				if (isOnGround) _animationManager.Play(_animations["Idle"]);
 			}
 		}
 
@@ -95,7 +95,7 @@ public class Player : Movable
 		else
 		{
 			Velocity.X = 0;
-			_animationManager = new AnimationManager(_animations["Idle"]);
+			_animationManager.Play(_animations["Idle"]);
 		}
 
 		UpdateFacingDirection(Velocity.X);
@@ -106,7 +106,7 @@ public class Player : Movable
 			Velocity.Y = jumpForce;
 			canJump = false;
 			isOnGround = false;
-			_animationManager.Play(_animations["Walk"]);
+			_animationManager.Play(_animations["Jump"]);
 		}
 
 		// Handle weapon input
@@ -128,7 +128,6 @@ public class Player : Movable
 			var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f);
 			bullets.Add(bullet);
 		}
-
 	}
 
 	private void ApplyGravity(float dt)

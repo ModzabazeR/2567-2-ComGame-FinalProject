@@ -33,6 +33,7 @@ public class MainScene : Game
 
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
+    private bool isEnteredMap2Cleared;
 
 
     public MainScene()
@@ -307,7 +308,7 @@ public class MainScene : Game
 
                 bool hitEnemy = false;
 
-                foreach (var map in mapManager.GetMaps())
+                foreach (var map in mapManager.GetMaps().Values)
                 {
                     if (!map.IsVisible(cameraBounds)) continue; // ✅ แก้ตรงนี้
 
@@ -337,7 +338,14 @@ public class MainScene : Game
             // Update current map tracking
             mapManager.UpdateCurrentMap();
 
-            foreach (var map in mapManager.GetMaps())
+            if (!isEnteredMap2Cleared && mapManager.CurrentMap == "Map 2 Cleared")
+            {
+                isEnteredMap2Cleared = true;
+                mapManager.ReplaceMapDoor("Map 1", 0, "Map 2 Cleared");
+                mapManager.ReplaceMapDoor("Map 3", 0, "Map 2 Cleared");
+            }
+
+            foreach (var map in mapManager.GetMaps().Values)
             {
                 map.Update(gameTime, player.Position);
                 if (map.IsVisible(cameraBounds))
@@ -422,7 +430,7 @@ public class MainScene : Game
             mapManager.Draw(_spriteBatch, cameraBounds);
 
             // Draw enemies from each map
-            foreach (var map in mapManager.GetMaps())
+            foreach (var map in mapManager.GetMaps().Values)
             {
                 if (map.IsVisible(cameraBounds))
                 {

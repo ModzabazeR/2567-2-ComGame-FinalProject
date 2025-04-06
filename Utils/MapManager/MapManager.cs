@@ -15,7 +15,7 @@ public class MapManager
 	private Map currentMap;
 
 	public bool IsDoorCooldownActive => currentCooldown > 0;
-	public Map CurrentMap => currentMap;
+	public string CurrentMap => currentMap.Name;
 
 	public MapManager()
 	{
@@ -71,6 +71,14 @@ public class MapManager
 		if (maps.TryGetValue(sourceMapName, out var sourceMap))
 		{
 			sourceMap.AddDoor(sourceTileX, sourceTileY, targetMapName, targetSpawnX, targetSpawnY);
+		}
+	}
+
+	public void ReplaceMapDoor(string mapName, int doorIndex, string newTargetMapName)
+	{
+		if (maps.TryGetValue(mapName, out var map))
+		{
+			map.ReplaceDoor(doorIndex, newTargetMapName);
 		}
 	}
 
@@ -137,9 +145,9 @@ public class MapManager
 		}
 	}
 
-	public List<Map> GetMaps()
+	public Dictionary<string, Map> GetMaps()
 	{
-		return maps.Values.ToList();
+		return maps;
 	}
 
 	public Map GetMap(string name)
