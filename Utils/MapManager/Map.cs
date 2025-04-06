@@ -92,6 +92,11 @@ public class Map
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
 			];
 		}
+		enemies ??= new List<Enemy>();
+		foreach (var enemy in enemies)
+		{
+			enemy.SetParentMap(this);
+		}
 	}
 
 	private void LoadCollisionData(string path)

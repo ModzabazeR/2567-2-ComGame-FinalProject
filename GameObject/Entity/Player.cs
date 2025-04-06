@@ -194,16 +194,28 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.C) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.C) && !isAttackLocked)
 		{
-			if (_currentWeapon != null)
+			if (_currentWeapon != null && _currentWeapon is Crowbar)
 			{
-				// Get animation duration from actual animation data
-				var attackAnim = GetAttackAnimationName();
-				var animation = _animations[attackAnim];
-				attackTimer = animation.FrameCount * animation.FrameSpeed;
+				isAttacking = true;
+				attackTimer = attackDuration;
+			}
+			else
+			{
+				Console.WriteLine("You don't have a weapon to attack!");
+			}
+		}
 
-				isAttackLocked = true;
-				_animationManager.Play(animation);
-				_currentWeapon.Attack();
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.V) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.V))
+		{
+			if (_currentWeapon != null && _currentWeapon is Shotgun)
+			{
+				isAttacking = true;
+				attackTimer = attackDuration;
+			}
+			else
+			{
+				Console.WriteLine("You don't have a weapon to attack!");
 			}
 		}
 

@@ -346,10 +346,10 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         if (!enemy.IsSpawned || enemy.IsDefeated) continue;
-
+                        
                         if (bullet.Bounds.Intersects(enemy.Bounds))
                         {
-                            enemy.Defeat();
+                            enemy.hit(2);
                             hitEnemy = true;
                             break;
                         }
@@ -389,7 +389,7 @@ public class MainScene : Game
                         if (player.IsAttacking && enemy.IsSpawned && !enemy.IsDefeated &&
                             enemy.Bounds.Intersects(player.GetAttackHitbox()))
                         {
-                            enemy.Defeat();
+                            enemy.hit(1);
                         }
                     }
 
