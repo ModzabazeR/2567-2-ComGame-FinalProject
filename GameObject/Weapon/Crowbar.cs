@@ -8,7 +8,6 @@ namespace FinalProject.GameObject.Weapon;
 
 public class Crowbar : MeleeWeapon
 {
-	public override Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
 
 	public Crowbar(Vector2 position) : base(position)
 	{

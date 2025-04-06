@@ -7,7 +7,6 @@ namespace FinalProject.GameObject.Weapon
 {
     public class FragGrenade : Grenade
     {
-        public override Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 20, 20);
 
         public FragGrenade(Vector2 position) : base(position)
         {

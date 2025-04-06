@@ -14,7 +14,7 @@ public class Player : Movable
 	private const float gravity = 1000f;
 	private const float jumpForce = -600f;
 	private bool canJump = false;
-
+	private float attackDuration = 0.5f;
 	public bool IsFacingRight => isFacingRight;
 
 	private MapManager _mapManager;
