@@ -82,7 +82,7 @@ public class Map
 
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(6, 6))];
+			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10))];
 			var crowbar = new Crowbar(TileToWorldPosition(10, 15)); // spawn ที่ tile (5,10)
 			mapWeapons.Add(crowbar);
 		}
@@ -92,7 +92,7 @@ public class Map
 			[
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(21, 6)),
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10))
 			];
 		}
 	}
@@ -262,13 +262,13 @@ public class Map
 		CheckMapCleared();
 
 		// debug for map 3, remove this if you want to manually clear the map
-		if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
-		{
-			foreach (var enemy in enemies)
-			{
-				enemy.Defeat();
-			}
-		}
+		// if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
+		// {
+		// 	foreach (var enemy in enemies)
+		// 	{
+		// 		enemy.Defeat();
+		// 	}
+		// }
 	}
 
 	public bool HasPlayerEntered()
