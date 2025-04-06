@@ -17,6 +17,11 @@ public abstract class Enemy : Movable
 
 	public int enemyHP = 5;
 
+	public float invincibilityTime = 1.0f;
+
+	public float invincibilityTimer = 0f;
+	public bool isInvincible => invincibilityTimer > 0;
+
 	private Map parentMap;
 
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
@@ -34,6 +39,11 @@ public abstract class Enemy : Movable
 		if (_isDefeated)
 			return;
 
+		if (invincibilityTimer > 0)
+		{
+			invincibilityTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+		}
+
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 		ApplyGravity(dt);
 		UpdateFacingDirection(Velocity.X);
@@ -47,7 +57,24 @@ public abstract class Enemy : Movable
 
 		if (_isDefeated)
 			return;
+		
+		// if (this is Boss)
+		// {
+		// 	Texture2D hitboxTex = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+		// 	hitboxTex.SetData(new[] { Color.Red });
 
+		// 	// วาด hitbox ที่ปรับให้ตรง sprite จริง
+		// 	var boss = this as Boss;
+
+		// 	Rectangle hitbox = new Rectangle(
+		// 		(int)(Position.X + 100), // offset X เข้ากลาง
+		// 		(int)(Position.Y), // offset Y ลงมาให้ถึงขา
+		// 		400,                     // กว้าง
+		// 		500                      // สูง
+		// 	);
+
+		// 	spriteBatch.Draw(hitboxTex, hitbox, Color.Red * 0.4f);
+		// }
 		base.Draw(spriteBatch);
 	}
 
@@ -117,9 +144,11 @@ public abstract class Enemy : Movable
 	public virtual void hit(int i)
 	{
 		enemyHP = enemyHP - i;
+		Console.WriteLine("this is enemyHP : " + enemyHP);
 		if (enemyHP <= 0){
 			Defeat();
 		}
+		invincibilityTimer = invincibilityTime;
 	}
 
 	public void SetParentMap(Map map)
