@@ -23,11 +23,11 @@ namespace FinalProject.GameObject.Weapon
                 // Get direction from player facing
                 bool isFacingRight = Singleton.Instance.Player.IsFacingRight;
                 Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
-                
+
                 // Create bullet with offset from player center
-                Vector2 spawnPos = Singleton.Instance.Player.Position + 
+                Vector2 spawnPos = Singleton.Instance.Player.Position +
                                  new Vector2(isFacingRight ? 40 : -20, 20);
-                
+
                 var bullet = new Bullet(spawnPos, direction, 800f, damage, 2.0f);
                 Singleton.Instance.Bullets.Add(bullet);
                 currentAmmo--;
@@ -36,15 +36,17 @@ namespace FinalProject.GameObject.Weapon
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (_texture == null)
+            if (EntityTexture != null)
             {
-                _texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-                _texture.SetData(new[] { Color.Silver });
-                texture = _texture;
+                spriteBatch.Draw(EntityTexture,
+                    new Rectangle((int)Position.X, (int)Position.Y, EntityTexture.Width, EntityTexture.Height),
+                    Color.White);
             }
-            spriteBatch.Draw(_texture, 
-                new Rectangle((int)Position.X, (int)Position.Y, 30, 20), 
-                Color.White);
+            else
+            {
+                // Fallback code
+                base.Draw(spriteBatch);
+            }
         }
     }
 }

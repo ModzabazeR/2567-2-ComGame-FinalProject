@@ -45,7 +45,7 @@ public class MainScene : Game
     private Texture2D _shotgunIcon;
     private Texture2D _grenadeIcon;
 
-    private float timeRemaining = 60f; // 60 วินาที
+    private float timeRemaining = 60f * 5f; // 60 วินาที * 5 นาที
     private SpriteFont timerFont;
 
     public MainScene()
@@ -114,6 +114,10 @@ public class MainScene : Game
         Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Walk");
         Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Throw");
 
+        Texture2D crowbarTexture = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar");
+        Texture2D pistolTexture = Content.Load<Texture2D>("Textures/player_weapons/pistol/Glock - P80 [64x48]");
+        Texture2D grenadeTexture = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade-2");
+        Texture2D shotgunTexture = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun");
         Texture2D pistolAmmo = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Ammo");
         Texture2D shotgunAmmo = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Ammo");
 
@@ -161,6 +165,9 @@ public class MainScene : Game
             { "Grenade_Walk", new Animation(grenadeWalk, 48, 75, 8, 0.125f) },
             { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.125f) }
         };
+
+        Singleton.Instance.PistolAmmoTexture = pistolAmmo;
+        Singleton.Instance.ShotgunAmmoTexture = shotgunAmmo;
 
         Singleton.Instance.Animations["Zombie"] = new Dictionary<string, Animation>
         {
@@ -229,10 +236,10 @@ public class MainScene : Game
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
         player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint, mapManager);
-        map1.AddWeapon(new FragGrenade(new Vector2(500, 550))); // Position where grenade spawns
-        map1.AddWeapon(new Crowbar(new Vector2(220, 550 - 40)));    // Subtract crowbar height
-        map1.AddWeapon(new Shotgun(new Vector2(300, 550 - 20)));    // Subtract shotgun height
-        map1.AddWeapon(new Pistol(new Vector2(400, 550 - 20)));     // Subtract pistol height
+        map1.AddWeapon(new FragGrenade(new Vector2(500, 550)) { EntityTexture = grenadeTexture });
+        map1.AddWeapon(new Crowbar(new Vector2(220, 550 - 40)) { EntityTexture = crowbarTexture });
+        map1.AddWeapon(new Shotgun(new Vector2(300, 550 - 20)) { EntityTexture = shotgunTexture });
+        map1.AddWeapon(new Pistol(new Vector2(400, 550 - 20)) { EntityTexture = pistolTexture });
 
         Singleton.Instance.Player = player;
         Singleton.Instance.MapManager = mapManager;
@@ -304,7 +311,7 @@ public class MainScene : Game
             if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Escape) &&
                 Singleton.Instance.PreviousKey.IsKeyUp(Keys.Escape))
             {
-                
+
                 BGMManager.Instance.PlayMainTheme2();
                 _currentSequence?.Skip();
                 return;
@@ -388,7 +395,7 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         if (!enemy.IsSpawned || enemy.IsDefeated) continue;
-                        
+
                         if (bullet.Bounds.Intersects(enemy.Bounds))
                         {
                             enemy.hit(2);
@@ -632,8 +639,8 @@ public class MainScene : Game
             _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
 
             DrawInventory(_spriteBatch); // Draw inventory slots
-                        
-                        
+
+
             // Draw timer
             string timeText = $"Time: {Math.Ceiling(timeRemaining)}";
             Console.WriteLine(timeText);
@@ -649,7 +656,7 @@ public class MainScene : Game
 
             _spriteBatch.End(); // ===== End UI rendering =====
 
-            
+
         }
 
 

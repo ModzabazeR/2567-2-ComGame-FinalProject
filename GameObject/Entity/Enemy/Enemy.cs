@@ -124,9 +124,9 @@ public abstract class Enemy : Movable
 
 			Weapon.Weapon drop;
 			if (dropType == 0)
-				drop = new PistolBulletItem(Position);
+				drop = new PistolBulletItem(Position) {EntityTexture = Singleton.Instance.PistolAmmoTexture};
 			else
-				drop = new ShotgunBulletItem(Position);
+				drop = new ShotgunBulletItem(Position) {EntityTexture = Singleton.Instance.ShotgunAmmoTexture};
 
 			parentMap.GetWeapons().Add(drop);
 		}

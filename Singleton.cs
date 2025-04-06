@@ -54,6 +54,9 @@ class Singleton
 
 	public List<Bullet> Bullets { get; } = new List<Bullet>();
 
+	public Texture2D PistolAmmoTexture;
+	public Texture2D ShotgunAmmoTexture;
+
 	private Singleton() { }
 
 	public static Singleton Instance

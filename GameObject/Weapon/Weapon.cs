@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FinalProject.GameObject.Weapon;
 
@@ -23,6 +24,20 @@ public abstract class Weapon : Entity.Entity
 		if (currentCooldown > 0)
 		{
 			currentCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+		}
+	}
+
+	public override void Draw(SpriteBatch spriteBatch)
+	{
+		if (EntityTexture != null)
+		{
+			spriteBatch.Draw(EntityTexture, new Rectangle((int)Position.X, (int)Position.Y, 40, 40), Color.White);
+			DrawBoundingBox(spriteBatch);
+		}
+		else
+		{
+			// Fallback to solid color if texture isn't set
+			base.Draw(spriteBatch);
 		}
 	}
 

@@ -22,13 +22,17 @@ namespace FinalProject.GameObject.Weapon
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            // Add drawing logic
-            if (texture == null)
+            if (EntityTexture != null)
             {
-                texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-                texture.SetData(new[] { Color.DarkGreen });
+                spriteBatch.Draw(EntityTexture,
+                    new Rectangle((int)Position.X, (int)Position.Y, EntityTexture.Width, EntityTexture.Height),
+                    Color.White);
             }
-            spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y, 20, 20), Color.White);
+            else
+            {
+                // Fallback code
+                base.Draw(spriteBatch);
+            }
         }
     }
 }

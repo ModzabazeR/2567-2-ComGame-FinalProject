@@ -55,13 +55,13 @@ public class Bullet : Entity
 	}
 	public override void Draw(SpriteBatch spriteBatch)
 	{
-		if (texture == null)
+		if (EntityTexture == null)
 		{
-			texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-			texture.SetData(new[] { Color.Red });
+			EntityTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+			EntityTexture.SetData(new[] { Color.Red });
 		}
 
-		spriteBatch.Draw(texture, Bounds, Color.White);
+		spriteBatch.Draw(EntityTexture, Bounds, Color.White);
 	}
 
 	public float GetDamage()

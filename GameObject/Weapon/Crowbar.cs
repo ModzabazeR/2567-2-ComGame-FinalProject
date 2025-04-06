@@ -53,11 +53,11 @@ public class Crowbar : MeleeWeapon
 	public override void Draw(SpriteBatch spriteBatch)
 	{
 		// Only draw if not being held by player
-		if (texture == null)
+		if (EntityTexture == null)
 		{
-			texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-			texture.SetData(new[] { Color.OrangeRed });
+			EntityTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+			EntityTexture.SetData(new[] { Color.OrangeRed });
 		}
-		spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y, 40, 40), Color.White);
+		spriteBatch.Draw(EntityTexture, new Rectangle((int)Position.X, (int)Position.Y, EntityTexture.Width, EntityTexture.Height), Color.White);
 	}
 }

@@ -9,7 +9,7 @@ public abstract class Entity
 	public Vector2 Position;
 	public Vector2 Velocity;
 	public Rectangle Bounds;
-	protected Texture2D texture;
+	public Texture2D EntityTexture { get; set; }
 
 	public Entity(Vector2 position)
 	{
@@ -29,8 +29,8 @@ public abstract class Entity
 
 	protected virtual void UpdateBounds()
 	{
-		if (texture != null)
-			Bounds = new Rectangle((int)Position.X, (int)Position.Y, texture.Width, texture.Height);
+		if (EntityTexture != null)
+			Bounds = new Rectangle((int)Position.X, (int)Position.Y, EntityTexture.Width, EntityTexture.Height);
 	}
 
 	protected virtual void DrawBoundingBox(SpriteBatch spriteBatch)
@@ -38,17 +38,17 @@ public abstract class Entity
 		if (!Singleton.Instance.ShowDebugInfo)
 			return;
 
-		if (texture == null)
+		if (EntityTexture == null)
 		{
-			texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-			texture.SetData(new[] { Color.White });
+			EntityTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+			EntityTexture.SetData(new[] { Color.White });
 		}
 
 		Color boundingBoxColor = Color.Red * 0.7f;
 
-		spriteBatch.Draw(texture, new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, 1), boundingBoxColor);
-		spriteBatch.Draw(texture, new Rectangle(Bounds.X, Bounds.Y + Bounds.Height, Bounds.Width, 1), boundingBoxColor);
-		spriteBatch.Draw(texture, new Rectangle(Bounds.X, Bounds.Y, 1, Bounds.Height), boundingBoxColor);
-		spriteBatch.Draw(texture, new Rectangle(Bounds.X + Bounds.Width, Bounds.Y, 1, Bounds.Height), boundingBoxColor);
+		spriteBatch.Draw(EntityTexture, new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, 1), boundingBoxColor);
+		spriteBatch.Draw(EntityTexture, new Rectangle(Bounds.X, Bounds.Y + Bounds.Height, Bounds.Width, 1), boundingBoxColor);
+		spriteBatch.Draw(EntityTexture, new Rectangle(Bounds.X, Bounds.Y, 1, Bounds.Height), boundingBoxColor);
+		spriteBatch.Draw(EntityTexture, new Rectangle(Bounds.X + Bounds.Width, Bounds.Y, 1, Bounds.Height), boundingBoxColor);
 	}
 }

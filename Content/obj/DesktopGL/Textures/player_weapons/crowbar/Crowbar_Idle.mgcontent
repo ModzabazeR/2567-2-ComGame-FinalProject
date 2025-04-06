@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</SourceFile>
   <SourceTime>2025-04-06T20:04:37.4284822+07:00</SourceTime>
   <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/player_weapons/crowbar/Crowbar_Idle.xnb</DestFile>
-  <DestTime>2025-04-06T21:45:15.0266416+07:00</DestTime>
-=======
-  <SourceFile>c:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</SourceFile>
-  <SourceTime>2025-04-04T19:57:44.8940487+07:00</SourceTime>
-  <DestFile>c:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Textures/player_weapons/crowbar/Crowbar_Idle.xnb</DestFile>
-  <DestTime>2025-04-06T00:46:24.7347156+07:00</DestTime>
->>>>>>> origin/moddaeng
+  <DestTime>2025-04-06T23:57:47.9602519+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

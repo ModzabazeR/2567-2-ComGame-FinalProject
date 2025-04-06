@@ -56,6 +56,12 @@
 #begin Maps/level1_collision.txt
 /copy:Maps/level1_collision.txt
 
+#begin Maps/level2_cleared_collision.lcm
+/copy:Maps/level2_cleared_collision.lcm
+
+#begin Maps/level2_cleared_collision.txt
+/copy:Maps/level2_cleared_collision.txt
+
 #begin Maps/level2_collision.lcm
 /copy:Maps/level2_collision.lcm
 
