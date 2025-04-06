@@ -146,6 +146,20 @@ public class Player : Movable
 		{
 			if (Bounds.Intersects(platform))
 			{
+				if (!isOnGround)
+				{
+					float playerFootY = Position.Y + Bounds.Height;
+					float platformMiddleY = platform.Y + platform.Height / 2;
+					if (playerFootY < platformMiddleY)
+					{
+						// Player is above the platform
+						Position.Y = platform.Y - Bounds.Height;
+						Velocity.Y = 0;
+						isOnGround = true;
+						canJump = true;
+					}
+				}
+
 				if (Velocity.X > 0)
 					Position.X = platform.Left - Bounds.Width;
 				else if (Velocity.X < 0)
