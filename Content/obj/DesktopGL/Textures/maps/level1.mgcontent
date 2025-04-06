@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD:Content/obj/DesktopGL/net8.0/Content/Textures/Player_Idle.mgcontent
-  <SourceFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Player_Idle.png</SourceFile>
-  <SourceTime>2025-04-02T00:18:06.5198104+07:00</SourceTime>
-  <DestFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/Player_Idle.xnb</DestFile>
-  <DestTime>2025-04-02T00:18:23.8933281+07:00</DestTime>
-=======
-  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</SourceFile>
-  <SourceTime>2025-04-02T20:32:19.4453353+07:00</SourceTime>
-  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/maps/level1.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2025-04-03T17:28:32.6244124+07:00</DestTime>
-=======
-  <DestTime>2025-04-02T20:43:00.0087043+07:00</DestTime>
->>>>>>> main:Content/obj/DesktopGL/Textures/maps/level1.mgcontent
->>>>>>> moddaeng
+  <SourceFile>c:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</SourceFile>
+  <SourceTime>2025-04-04T20:08:26.3001688+07:00</SourceTime>
+  <DestFile>c:/Users/Nattaphat.S/Desktop/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/maps/level1.xnb</DestFile>
+  <DestTime>2025-04-06T10:50:27.0401626+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

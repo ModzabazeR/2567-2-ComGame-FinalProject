@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using FinalProject.GameObject.Weapon;
 using System;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject.GameObject.Entity;
 
@@ -37,6 +38,10 @@ public class Player : Movable
 	private float attackTimer = 0f;
 	public bool IsAttacking => isAttacking;
 
+	public bool isMovingOnGround => isOnGround && (Velocity.X != 0);
+	private float footstepTimer = 0f;
+    private const float FOOTSTEP_INTERVAL = 5f;
+
 
 	public Player(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)
@@ -59,6 +64,22 @@ public class Player : Movable
 				if (isOnGround) _animationManager.Play(_animations["Grenade_Idle"]);
 			}
 		}
+
+		Console.WriteLine(isMovingOnGround);
+		if (isMovingOnGround) 
+        {
+            footstepTimer += dt;
+			Console.WriteLine(footstepTimer);
+            if (footstepTimer >= FOOTSTEP_INTERVAL)
+            {
+                SFXManager.Instance.PlaySound("footsteps_walking");
+                footstepTimer = 0f; // Reset timer
+            } 
+        }
+        else
+        {
+            footstepTimer = 0f; // Reset timer when not moving
+        }
 
 		HandleInput();
 		ApplyGravity(dt);
@@ -217,6 +238,7 @@ public class Player : Movable
 			return;
 
 		currentHP -= amount;
+		SFXManager.Instance.PlaySound("playeroof");
 		if (currentHP < 0) currentHP = 0;
 
 		// เริ่มนับเวลาอมตะ
