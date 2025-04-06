@@ -32,6 +32,8 @@ namespace FinalProject.GameObject.Entity.Enemy
 
         public override void Update(GameTime gameTime, List<Rectangle> platforms)
         {
+            //Bounds = new Rectangle((int)Position.X, (int)Position.Y, 120, 160); // หรือขนาดตาม sprite จริง
+
             if (!IsSpawned || IsDefeated)
                 return;
                 
@@ -88,5 +90,6 @@ namespace FinalProject.GameObject.Entity.Enemy
             // Add any special defeat logic here
             base.Defeat();
         }
+
     }
 } 

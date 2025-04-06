@@ -92,6 +92,13 @@ public class Map
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
 			];
 		}
+		else if (name == "Boss")
+		{
+			enemies = [
+				new Boss(TileToWorldPosition(25, 5)) // ตำแหน่ง boss ปรากฏใน map boss
+			];
+		}
+
 		enemies ??= new List<Enemy>();
 		foreach (var enemy in enemies)
 		{
@@ -256,6 +263,19 @@ public class Map
 			foreach (var enemy in enemies)
 			{
 				enemy.Defeat();
+			}
+		}
+
+		else if (name == "Boss")
+		{
+			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3 && !allEnemiesSpawned)
+			{
+				foreach (var enemy in enemies)
+				{
+					if (!enemy.IsSpawned)
+						enemy.Spawn();
+				}
+				allEnemiesSpawned = true;
 			}
 		}
 	}
