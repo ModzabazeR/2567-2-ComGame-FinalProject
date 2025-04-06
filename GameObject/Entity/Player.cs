@@ -48,6 +48,8 @@ public class Player : Movable
 	public bool IsAttacking => isAttacking;
 	private float _animationTransitionTime = 0.1f; // Transition time in seconds
 
+	private float attackDuration = 0.3f;
+
 	public Player(Dictionary<string, Animation> animations, Vector2 position, MapManager mapManager)
 	: base(animations, position)
 	{
@@ -208,10 +210,43 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.V) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.V))
 		{
-			if (_currentWeapon != null && _currentWeapon is Shotgun)
+			if (_currentWeapon != null && _currentWeapon is Shotgun) 
 			{
-				isAttacking = true;
-				attackTimer = attackDuration;
+				Shotgun shotgun = (Shotgun) _currentWeapon;
+				
+				if(shotgun.GetCurrentAmmo() > 0){
+					isAttacking = true;
+					attackTimer = attackDuration;
+					Console.WriteLine(shotgun.GetCurrentAmmo());
+					shotgun.PerformAttack();
+					Console.WriteLine(shotgun.GetCurrentAmmo());
+				}
+			}
+			else
+			{
+				Console.WriteLine("You don't have a weapon to attack!");
+			}
+		}
+
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.K) &&
+    	Singleton.Instance.PreviousKey.IsKeyUp(Keys.K))
+		{
+			if (_currentWeapon != null && _currentWeapon is Pistol)
+			{
+				Pistol pistol = (Pistol) _currentWeapon;
+				if(pistol.GetCurrentAmmo() > 0){
+					Console.WriteLine("bullet shoot");
+					Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
+					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
+					Vector2 spawnPos = Position + spawnOffset;
+
+					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f);
+					bullets.Add(bullet);
+
+					Console.WriteLine(pistol.GetCurrentAmmo());
+					pistol.PerformAttack();
+					Console.WriteLine(pistol.GetCurrentAmmo());
+				}
 			}
 			else
 			{
@@ -333,6 +368,28 @@ public class Player : Movable
 			PickupGrenade();
 			return true;
 		}
+		if (weapon is PistolBulletItem){
+            if (PrimaryWeapon is Pistol){
+ 				((Pistol) PrimaryWeapon).Reload();
+			}
+            else if(SecondaryWeapon is Pistol){
+                ((Pistol) SecondaryWeapon).Reload();
+
+            }
+			return true;
+                                
+        }
+        if (weapon is ShotgunBulletItem){
+            if (PrimaryWeapon is Shotgun){
+                Shotgun pistol = (Shotgun) PrimaryWeapon;
+                pistol.Reload();
+            }
+            else if(SecondaryWeapon is Shotgun){
+                Shotgun pistol = (Shotgun) SecondaryWeapon;
+                pistol.Reload();
+			}
+			return true;
+        }
 
 		if (_secondaryWeapon == null)
 		{

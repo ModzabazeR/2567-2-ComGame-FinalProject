@@ -34,7 +34,7 @@ public abstract class Grenade : Weapon
 		}
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		if (!isThrown)
 		{

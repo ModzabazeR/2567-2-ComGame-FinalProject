@@ -17,7 +17,7 @@ public abstract class RangeWeapon : Weapon
 		spread = 0f; // Default spread in degrees
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		if (currentAmmo > 0)
 		{

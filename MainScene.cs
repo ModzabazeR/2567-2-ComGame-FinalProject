@@ -260,8 +260,6 @@ public class MainScene : Game
         hpTexture = new Texture2D(GraphicsDevice, 1, 1);
         hpTexture.SetData(new[] { Color.Red });
 
-        map2.OnMapCleared += () => ShowMap2ClearedCutscene();
-
         timerFont = Singleton.Instance.Font; // ใช้ font เดียวกัน
 
     }

@@ -20,7 +20,7 @@ namespace FinalProject.GameObject.Weapon
             Bounds = new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
         }
 
-        protected override void PerformAttack()
+        public override void PerformAttack()
         {
 
         }

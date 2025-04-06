@@ -13,7 +13,7 @@ public abstract class MeleeWeapon : Weapon
 		attackAngle = 45f; // Default angle in degrees
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		// Melee weapons will implement their specific attack logic here
 		// This could include creating hitboxes, playing animations, etc.

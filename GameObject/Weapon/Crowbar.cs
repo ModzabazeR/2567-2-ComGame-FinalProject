@@ -8,7 +8,7 @@ namespace FinalProject.GameObject.Weapon;
 
 public class Crowbar : MeleeWeapon
 {
-	public override Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
+	//public override Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
 
 	public Crowbar(Vector2 position) : base(position)
 	{
@@ -23,7 +23,7 @@ public class Crowbar : MeleeWeapon
 		base.Update(gameTime, platforms);
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		var player = Singleton.Instance.Player;
 

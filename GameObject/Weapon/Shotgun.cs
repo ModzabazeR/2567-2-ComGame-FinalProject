@@ -9,7 +9,7 @@ namespace FinalProject.GameObject.Weapon
     {
         private Texture2D _texture;
 
-        public override Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 40, 20);
+        //public override Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, 40, 20);
 
         public Shotgun(Vector2 position) : base(position)
         {
@@ -20,7 +20,7 @@ namespace FinalProject.GameObject.Weapon
             spread = 15f;
         }
 
-        protected override void PerformAttack()
+        public override void PerformAttack()
         {
             if (currentAmmo > 0 && Singleton.Instance.Player != null)
             {
@@ -50,6 +50,7 @@ namespace FinalProject.GameObject.Weapon
             {
                 _texture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
                 _texture.SetData(new[] { Color.DarkSlateGray });
+                texture = _texture;
             }
             spriteBatch.Draw(_texture, 
                 new Rectangle((int)Position.X, (int)Position.Y, 40, 20), 
