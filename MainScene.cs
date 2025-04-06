@@ -141,7 +141,6 @@ public class MainScene : Game
         Singleton.Instance.Animations["Player"] = new Dictionary<string, Animation> {
             { "Idle", new Animation(idleTexture, 32, 75, 3, 0.33f) },
             { "Walk", new Animation(runTexture, 48, 75, 8, 0.125f) },
-            { "Sprint", new Animation(sprintTexture, 72, 75, 9, 0.111f) },
             { "Jump", new Animation(jumpTexture, 75, 75, 12, 0.083f) },
 
             { "Crowbar_Idle", new Animation(crowbarIdle, 38, 75, 3, 0.33f) },
