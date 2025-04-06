@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Why are you gay, player.mp3</SourceFile>
-  <SourceTime>2025-04-06T20:15:38.9629692+07:00</SourceTime>
-  <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/Why are you gay, player.xnb</DestFile>
-  <DestTime>2025-04-06T22:24:49.1884722+07:00</DestTime>
+  <SourceFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Why are you gay, player.mp3</SourceFile>
+  <SourceTime>2025-04-06T23:14:28.5018082+07:00</SourceTime>
+  <DestFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/Why are you gay, player.xnb</DestFile>
+  <DestTime>2025-04-06T23:15:25.9623269+07:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/Why are you gay, player.ogg</string>
+    <string>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/Why are you gay, player.ogg</string>
   </BuildOutput>
 </PipelineBuildEvent>

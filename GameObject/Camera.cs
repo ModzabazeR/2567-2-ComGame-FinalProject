@@ -11,7 +11,7 @@ public class Camera
 	private readonly float _zoom; // Add zoom field
 	private Vector2 _desiredPosition;
 	private float _followSpeed = 15f; // Adjust this value to change smoothing speed
-	private const float DEBUG_ZOOM = 2f;
+	private const float DEBUG_ZOOM = 1.75f;
 	private const float REAL_ZOOM = 1.25f;
 
 	public Camera(float viewWidth, float viewHeight)

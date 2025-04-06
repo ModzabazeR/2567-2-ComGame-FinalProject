@@ -45,7 +45,7 @@ public class MainScene : Game
     private Texture2D _shotgunIcon;
     private Texture2D _grenadeIcon;
 
-    private float timeRemaining = 60f; // 60 วินาที
+    private float timeRemaining = 60f * 10f; // 60 วินาที
     private SpriteFont timerFont;
 
     public MainScene()
@@ -283,6 +283,12 @@ public class MainScene : Game
 
         timerFont = Singleton.Instance.Font; // ใช้ font เดียวกัน
 
+        // ตั้งปุ่ม Restart
+        restartButtonRect = new Rectangle(
+            Singleton.Instance.ScreenWidth / 2 - 100,
+            Singleton.Instance.ScreenHeight / 2,
+            200, 60
+        );
     }
 
     protected override void Update(GameTime gameTime)
@@ -304,7 +310,7 @@ public class MainScene : Game
             if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.Escape) &&
                 Singleton.Instance.PreviousKey.IsKeyUp(Keys.Escape))
             {
-                
+
                 BGMManager.Instance.PlayMainTheme2();
                 _currentSequence?.Skip();
                 return;
@@ -337,13 +343,6 @@ public class MainScene : Game
             if (timeRemaining <= 0f)
             {
                 Singleton.Instance.CurrentGameState = GameState.GameOver;
-
-                // ตั้งปุ่ม Restart
-                restartButtonRect = new Rectangle(
-                    Singleton.Instance.ScreenWidth / 2 - 100,
-                    Singleton.Instance.ScreenHeight / 2,
-                    200, 60
-                );
             }
             // Get camera bounds for visibility checking
             Rectangle cameraBounds = new Rectangle(
@@ -388,7 +387,7 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         if (!enemy.IsSpawned || enemy.IsDefeated) continue;
-                        
+
                         if (bullet.Bounds.Intersects(enemy.Bounds))
                         {
                             enemy.hit(2);
@@ -632,8 +631,8 @@ public class MainScene : Game
             _spriteBatch.Draw(hpTexture, hpFront, Color.Red);
 
             DrawInventory(_spriteBatch); // Draw inventory slots
-                        
-                        
+
+
             // Draw timer
             string timeText = $"Time: {Math.Ceiling(timeRemaining)}";
             Console.WriteLine(timeText);
@@ -649,7 +648,7 @@ public class MainScene : Game
 
             _spriteBatch.End(); // ===== End UI rendering =====
 
-            
+
         }
 
 
