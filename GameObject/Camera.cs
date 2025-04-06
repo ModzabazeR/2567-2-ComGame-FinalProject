@@ -11,7 +11,7 @@ public class Camera
 	private readonly float _zoom; // Add zoom field
 	private Vector2 _desiredPosition;
 	private float _followSpeed = 15f; // Adjust this value to change smoothing speed
-	private const float DEBUG_ZOOM = 1f;
+	private const float DEBUG_ZOOM = 2f;
 	private const float REAL_ZOOM = 1.25f;
 
 	public Camera(float viewWidth, float viewHeight)
@@ -24,7 +24,7 @@ public class Camera
 	public void Follow(Vector2 target, Rectangle roomBounds)
 	{
 		// Calculate desired camera position with target at center
-		_desiredPosition = target - new Vector2(_viewWidth / (2 * _zoom), (_viewHeight / (2 * _zoom)) + 100);
+		_desiredPosition = target - new Vector2(_viewWidth / (2 * _zoom), (_viewHeight / (2 * _zoom)));
 
 		// Clamp desired position to room bounds
 		_desiredPosition.X = MathHelper.Clamp(_desiredPosition.X, roomBounds.Left, roomBounds.Right - _viewWidth / _zoom);

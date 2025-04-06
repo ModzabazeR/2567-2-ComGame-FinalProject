@@ -64,12 +64,20 @@ namespace FinalProject.Utils.SFXManager
 
         public void PlayFootSteps()
         {
-            PlaySound("Footsteps_walking");
+            // Uncomment and use randomized footsteps for variation
+            string[] steps = {
+                "FootStepsConcrete1",
+                "FootStepsConcrete2",
+                "FootStepsConcrete3",
+                "FootStepsConcrete4"
+    };
+            Random rand = new Random();
+            PlaySound(steps[rand.Next(0, steps.Length)]);
         }
 
         public void RandomPlayBossHurt()
         {
-            string[] soundNames = ["itaiahh", "oh mommy queue i'm hurt",  "yametekudasai", "mama help me"]; 
+            string[] soundNames = ["itaiahh", "oh mommy queue i'm hurt", "yametekudasai", "mama help me"];
             Random random = new();
             int randomIndex = random.Next(0, 4); // Assuming you have 4 sound effects
             Console.WriteLine(soundNames[randomIndex]);
@@ -108,7 +116,7 @@ namespace FinalProject.Utils.SFXManager
             {
                 PlaySound("762x39 Spray MP3");
             }
-        }        
+        }
 
         public void playBossGrenade()
         {
@@ -117,7 +125,7 @@ namespace FinalProject.Utils.SFXManager
             {
                 PlaySound("762x39 Spray MP3");
             }
-        }       
+        }
 
         public void playBossGrenadeExplosion()
         {
@@ -128,77 +136,77 @@ namespace FinalProject.Utils.SFXManager
         {
             PlaySound("how good is my new arm");
         }
-        
-//         GraphicsDeviceManager graphics;
-//         SpriteBatch spriteBatch;
-//         List<SoundEffect> soundEffects;
-// 
-//         public Game1()
-//         {
-//             graphics = new GraphicsDeviceManager(this);
-//             Content.RootDirectory = "Content";
-//             soundEffects = new List<SoundEffect>();
-//         }
-// 
-//         protected override void Initialize()
-//         {
-//             base.Initialize();
-//         }
-// 
-//         protected override void LoadContent()
-//         {
-//             // Create a new SpriteBatch, which can be used to draw 
-//             textures.
-//             spriteBatch = new SpriteBatch(GraphicsDevice);
-// 
-//             soundEffects.Add(Content.Load<SoundEffect>("airlockclose"))
-//                              ;
-//             soundEffects.Add(Content.Load<SoundEffect>("ak47"));
-//             soundEffects.Add(Content.Load<SoundEffect>("icecream"));
-//             soundEffects.Add(Content.Load<SoundEffect>("sneeze"));
-// 
-//             // Fire and forget play
-//             soundEffects[0].Play();
-//             
-//             // Play that can be manipulated after the fact
-//             var instance = soundEffects[0].CreateInstance();
-//             instance.IsLooped = true;
-//             instance.Play();
-//         }
-// 
-// 
-//         protected override void Update(GameTime gameTime)
-//         {
-//             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == 
-//                 ButtonState.Pressed || Keyboard.GetState().IsKeyDown(
-//                 Keys.Escape))
-//                 Exit();
-// 
-//             if (Keyboard.GetState().IsKeyDown(Keys.D1))
-//                 soundEffects[0].CreateInstance().Play();
-//             if (Keyboard.GetState().IsKeyDown(Keys.D2))
-//                 soundEffects[1].CreateInstance().Play();
-//             if (Keyboard.GetState().IsKeyDown(Keys.D3))
-//                 soundEffects[2].CreateInstance().Play();
-//             if (Keyboard.GetState().IsKeyDown(Keys.D4))
-//                 soundEffects[3].CreateInstance().Play();
-// 
-// 
-//             if (Keyboard.GetState().IsKeyDown(Keys.Space))
-//             {
-//                 if (SoundEffect.MasterVolume == 0.0f)
-//                     SoundEffect.MasterVolume = 1.0f;
-//                 else
-//                     SoundEffect.MasterVolume = 0.0f;
-//             }
-//             base.Update(gameTime);
-//         }
-// 
-//         protected override void Draw(GameTime gameTime)
-//         {
-//             GraphicsDevice.Clear(Color.CornflowerBlue);
-// 
-//             base.Draw(gameTime);
-//         }
+
+        //         GraphicsDeviceManager graphics;
+        //         SpriteBatch spriteBatch;
+        //         List<SoundEffect> soundEffects;
+        // 
+        //         public Game1()
+        //         {
+        //             graphics = new GraphicsDeviceManager(this);
+        //             Content.RootDirectory = "Content";
+        //             soundEffects = new List<SoundEffect>();
+        //         }
+        // 
+        //         protected override void Initialize()
+        //         {
+        //             base.Initialize();
+        //         }
+        // 
+        //         protected override void LoadContent()
+        //         {
+        //             // Create a new SpriteBatch, which can be used to draw 
+        //             textures.
+        //             spriteBatch = new SpriteBatch(GraphicsDevice);
+        // 
+        //             soundEffects.Add(Content.Load<SoundEffect>("airlockclose"))
+        //                              ;
+        //             soundEffects.Add(Content.Load<SoundEffect>("ak47"));
+        //             soundEffects.Add(Content.Load<SoundEffect>("icecream"));
+        //             soundEffects.Add(Content.Load<SoundEffect>("sneeze"));
+        // 
+        //             // Fire and forget play
+        //             soundEffects[0].Play();
+        //             
+        //             // Play that can be manipulated after the fact
+        //             var instance = soundEffects[0].CreateInstance();
+        //             instance.IsLooped = true;
+        //             instance.Play();
+        //         }
+        // 
+        // 
+        //         protected override void Update(GameTime gameTime)
+        //         {
+        //             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == 
+        //                 ButtonState.Pressed || Keyboard.GetState().IsKeyDown(
+        //                 Keys.Escape))
+        //                 Exit();
+        // 
+        //             if (Keyboard.GetState().IsKeyDown(Keys.D1))
+        //                 soundEffects[0].CreateInstance().Play();
+        //             if (Keyboard.GetState().IsKeyDown(Keys.D2))
+        //                 soundEffects[1].CreateInstance().Play();
+        //             if (Keyboard.GetState().IsKeyDown(Keys.D3))
+        //                 soundEffects[2].CreateInstance().Play();
+        //             if (Keyboard.GetState().IsKeyDown(Keys.D4))
+        //                 soundEffects[3].CreateInstance().Play();
+        // 
+        // 
+        //             if (Keyboard.GetState().IsKeyDown(Keys.Space))
+        //             {
+        //                 if (SoundEffect.MasterVolume == 0.0f)
+        //                     SoundEffect.MasterVolume = 1.0f;
+        //                 else
+        //                     SoundEffect.MasterVolume = 0.0f;
+        //             }
+        //             base.Update(gameTime);
+        //         }
+        // 
+        //         protected override void Draw(GameTime gameTime)
+        //         {
+        //             GraphicsDevice.Clear(Color.CornflowerBlue);
+        // 
+        //             base.Draw(gameTime);
+        //         }
     }
 }

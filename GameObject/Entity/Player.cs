@@ -11,7 +11,7 @@ namespace FinalProject.GameObject.Entity;
 
 public class Player : Movable
 {
-	private const float moveSpeed = 300f;
+	private const float moveSpeed = 180f;
 	private const float gravity = 1000f;
 	private const float jumpForce = -600f;
 	private float attackDuration = 0.3f;
@@ -51,7 +51,7 @@ public class Player : Movable
 
 	public bool isMovingOnGround => isOnGround && (Velocity.X != 0);
 	private float footstepTimer = 0f;
-	private const float FOOTSTEP_INTERVAL = 5f;
+	private const float FOOTSTEP_INTERVAL = 2f;
 
 	public Player(Dictionary<string, Animation> animations, Vector2 position, MapManager mapManager)
 	: base(animations, position)
@@ -70,7 +70,7 @@ public class Player : Movable
 		else if (_currentWeapon is Grenade)
 			return "Grenade_Walk";
 		else
-			return "Sprint"; // Default unarmed sprint
+			return "Walk"; // Default unarmed sprint
 	}
 
 	private string GetIdleAnimation()
@@ -123,20 +123,19 @@ public class Player : Movable
 			return; // Lock other updates during attack
 		}
 
-		Console.WriteLine(isMovingOnGround);
+
+		// Remove the debug Console.WriteLine calls
 		if (isMovingOnGround)
 		{
-			footstepTimer += dt;
-			Console.WriteLine(footstepTimer);
+			Console.WriteLine("Player is moving on ground");
+			footstepTimer += 0.25f;
+			Console.WriteLine($"Footstep timer: {footstepTimer}");
 			if (footstepTimer >= FOOTSTEP_INTERVAL)
 			{
-				SFXManager.Instance.PlaySound("footsteps_walking");
-				footstepTimer = 0f; // Reset timer
+				Console.WriteLine("Playing footstep sound");
+				SFXManager.Instance.PlayFootSteps(); // Trigger footstep sound
+				footstepTimer = 0f;
 			}
-		}
-		else
-		{
-			footstepTimer = 0f; // Reset timer when not moving
 		}
 
 		HandleInput();
@@ -167,7 +166,6 @@ public class Player : Movable
 		{
 			Velocity.X = -moveSpeed;
 			_animationManager.Play(_animations[GetMovementAnimation()]);
-			SFXManager.Instance.PlayFootSteps();
 		}
 		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 		{
