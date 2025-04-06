@@ -56,12 +56,6 @@
 #begin Maps/level1_collision.txt
 /copy:Maps/level1_collision.txt
 
-#begin Maps/level2_cleared_collision.lcm
-/copy:Maps/level2_cleared_collision.lcm
-
-#begin Maps/level2_cleared_collision.txt
-/copy:Maps/level2_cleared_collision.txt
-
 #begin Maps/level2_collision.lcm
 /copy:Maps/level2_collision.lcm
 
@@ -380,6 +374,18 @@
 /processorParam:Quality=Best
 /build:Textures/mama help me.mp3
 
+#begin Textures/maps/level1_overlay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level1_overlay.png
+
 #begin Textures/maps/level1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -416,6 +422,18 @@
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level2.png
 
+#begin Textures/maps/level3_overlay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level3_overlay.png
+
 #begin Textures/maps/level3.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -427,6 +445,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level3.png
+
+#begin Textures/maps/level4_overlay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level4_overlay.png
 
 #begin Textures/maps/level4.png
 /importer:TextureImporter
@@ -451,6 +481,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level5.png
+
+#begin Textures/maps/level6_overlay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/maps/level6_overlay.png
 
 #begin Textures/maps/level6.png
 /importer:TextureImporter

@@ -2,12 +2,13 @@ using FinalProject.GameObject.Weapon;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using System.Linq;
 using FinalProject.GameObject.Entity;
 
 namespace FinalProject.Utils.MapManager;
 public class MapManager
 {
-	private List<Map> maps;
+	private Dictionary<string, Map> maps;
 	private Player player;
 	private float doorTransitionCooldown = 1.0f; // 1 second cooldown
 	private float currentCooldown = 0f;
@@ -18,7 +19,7 @@ public class MapManager
 
 	public MapManager()
 	{
-		maps = new List<Map>();
+		maps = new Dictionary<string, Map>();
 	}
 
 	public void SetPlayer(Player player)
@@ -31,7 +32,7 @@ public class MapManager
 	{
 		if (player == null) return;
 
-		foreach (var map in maps)
+		foreach (var map in maps.Values)
 		{
 			if (map.Bounds.Contains(player.Position))
 			{
@@ -48,18 +49,17 @@ public class MapManager
 
 	public void AddMap(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 	{
-		maps.Add(new Map(name, texture, position, collisionMapPath));
+		maps[name] = new Map(name, texture, position, collisionMapPath);
 	}
 
 	public void AddMap(string name, Texture2D texture, Vector2 position, string collisionMapPath, int mapWidth, int mapHeight)
 	{
-		maps.Add(new Map(name, texture, position, collisionMapPath, mapWidth, mapHeight));
+		maps[name] = new Map(name, texture, position, collisionMapPath, mapWidth, mapHeight);
 	}
 
 	public void SetMapSpawnPoint(string mapName, int tileX, int tileY)
 	{
-		var map = GetMap(mapName);
-		if (map != null)
+		if (maps.TryGetValue(mapName, out var map))
 		{
 			map.SetSpawnPoint(tileX, tileY);
 		}
@@ -68,10 +68,17 @@ public class MapManager
 	public void AddMapDoor(string sourceMapName, int sourceTileX, int sourceTileY,
 						 string targetMapName, int targetSpawnX, int targetSpawnY)
 	{
-		var sourceMap = GetMap(sourceMapName);
-		if (sourceMap != null)
+		if (maps.TryGetValue(sourceMapName, out var sourceMap))
 		{
 			sourceMap.AddDoor(sourceTileX, sourceTileY, targetMapName, targetSpawnX, targetSpawnY);
+		}
+	}
+
+	public void ReplaceMapDoor(string mapName, int doorIndex, string newTargetMapName)
+	{
+		if (maps.TryGetValue(mapName, out var map))
+		{
+			map.ReplaceDoor(doorIndex, newTargetMapName);
 		}
 	}
 
@@ -86,21 +93,17 @@ public class MapManager
 			return;
 		}
 
-		foreach (var map in maps)
+		foreach (var map in maps.Values)
 		{
 			var door = map.GetDoorAtPosition(player.Position);
-			if (door != null)
+			if (door != null && maps.TryGetValue(door.TargetMapName, out var targetMap))
 			{
-				var targetMap = GetMap(door.TargetMapName);
-				if (targetMap != null)
-				{
-					// Convert tile coordinates to world coordinates for the target map
-					Vector2 targetPosition = targetMap.TileToWorldPosition(door.TargetSpawnX, door.TargetSpawnY);
-					player.Position = targetPosition;
-					currentCooldown = doorTransitionCooldown;
-					UpdateCurrentMap(); // Update current map after teleporting
-					break;
-				}
+				// Convert tile coordinates to world coordinates for the target map
+				Vector2 targetPosition = targetMap.TileToWorldPosition(door.TargetSpawnX, door.TargetSpawnY);
+				player.Position = targetPosition;
+				currentCooldown = doorTransitionCooldown;
+				UpdateCurrentMap(); // Update current map after teleporting
+				break;
 			}
 		}
 	}
@@ -108,7 +111,7 @@ public class MapManager
 	public List<Rectangle> GetAllSolidTiles()
 	{
 		List<Rectangle> allSolidTiles = new List<Rectangle>();
-		foreach (var map in maps)
+		foreach (var map in maps.Values)
 		{
 			allSolidTiles.AddRange(map.SolidTiles);
 			if (IsDoorCooldownActive)
@@ -128,20 +131,44 @@ public class MapManager
 
 	public void Draw(SpriteBatch spriteBatch, Rectangle cameraView)
 	{
-		foreach (var map in maps)
+		foreach (var map in maps.Values)
 		{
 			map.Draw(spriteBatch, cameraView);
 		}
 	}
 
-	public List<Map> GetMaps()
+	public void DrawOverlays(SpriteBatch spriteBatch, Rectangle cameraView)
+	{
+		foreach (var map in maps.Values)
+		{
+			map.DrawOverlay(spriteBatch, cameraView);
+		}
+	}
+
+	public Dictionary<string, Map> GetMaps()
 	{
 		return maps;
 	}
 
 	public Map GetMap(string name)
 	{
-		return maps.Find(m => m.Name == name);
+		return maps.TryGetValue(name, out var map) ? map : null;
+	}
+
+	public void AddOverlay(string mapName, Texture2D overlayTexture)
+	{
+		if (maps.TryGetValue(mapName, out var map))
+		{
+			map.AddOverlay(overlayTexture);
+		}
+	}
+
+	public void AddMapDeadZone(string mapName, int startTileX, int startTileY, int width, int height)
+	{
+		if (maps.TryGetValue(mapName, out var map))
+		{
+			map.AddDeadZone(startTileX, startTileY, width, height);
+		}
 	}
 }
 

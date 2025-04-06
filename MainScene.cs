@@ -34,6 +34,8 @@ public class MainScene : Game
 
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
+    private bool isEnteredMap2Cleared;
+    Texture2D buttonTex;
 
     // Add with other texture fields at the top
     private Texture2D _inventorySlotEmpty;
@@ -45,8 +47,6 @@ public class MainScene : Game
 
     private float timeRemaining = 60f; // 60 วินาที
     private SpriteFont timerFont;
-
-
 
     public MainScene()
     {
@@ -190,6 +190,11 @@ public class MainScene : Game
         Texture2D map2ClearedTexture = Content.Load<Texture2D>("Textures/maps/level2_cleared");
         Texture2D map8Texture = Content.Load<Texture2D>("Textures/maps/level8");
 
+        Texture2D map1Overlay = Content.Load<Texture2D>("Textures/maps/level1_overlay");
+        Texture2D map3Overlay = Content.Load<Texture2D>("Textures/maps/level3_overlay");
+        Texture2D map4Overlay = Content.Load<Texture2D>("Textures/maps/level4_overlay");
+        Texture2D map6Overlay = Content.Load<Texture2D>("Textures/maps/level6_overlay");
+
         // Add maps with their collision data
         mapManager.AddMap("Map 1", map1Texture, new Vector2(0, 0), "Content/Maps/level1_collision.lcm");
         mapManager.AddMap("Map 2", map2Texture, new Vector2(2000, 0), "Content/Maps/level2_collision.lcm", 28, 50);
@@ -200,6 +205,12 @@ public class MainScene : Game
         mapManager.AddMap("Map 7", map7Texture, new Vector2(17000, 0), "Content/Maps/level7_collision.lcm");
         mapManager.AddMap("Map 2 Cleared", map2ClearedTexture, new Vector2(20000, 0), "Content/Maps/level2_cleared_collision.lcm", 28, 50);
         mapManager.AddMap("Boss", map8Texture, new Vector2(23000, 0), "Content/Maps/level8_collision.lcm");
+
+        // Add overlays for specific maps
+        mapManager.AddOverlay("Map 1", map1Overlay);
+        mapManager.AddOverlay("Map 3", map3Overlay);
+        mapManager.AddOverlay("Map 4", map4Overlay);
+        mapManager.AddOverlay("Map 6", map6Overlay);
 
         // Set spawn points for each map (relative to map position)
         mapManager.SetMapSpawnPoint("Map 1", 3, 10);
@@ -251,10 +262,20 @@ public class MainScene : Game
         mapManager.AddMapDoor("Map 2 Cleared", 0, 29, "Map 3", 35, 15);
         mapManager.AddMapDoor("Map 2 Cleared", 27, 13, "Boss", 2, 15);
 
+        mapManager.AddMapDeadZone("Map 2", 1, 38, 26, 11);
+        mapManager.AddMapDeadZone("Map 2 Cleared", 1, 38, 26, 11);
+        mapManager.AddMapDeadZone("Map 5", 14, 21, 3, 1);
+        mapManager.AddMapDeadZone("Map 5", 25, 21, 3, 1);
+        mapManager.AddMapDeadZone("Map 6", 29, 21, 9, 1);
+        mapManager.AddMapDeadZone("Map 7", 9, 21, 5, 1);
+        mapManager.AddMapDeadZone("Map 7", 32, 21, 6, 1);
+
         // Subscribe to Map 3's cleared event
         var map3 = mapManager.GetMap("Map 3");
         map3.OnMapCleared += () => ShowMap3ClearedCutscene();
 
+        var bossMap = mapManager.GetMap("Boss");
+        bossMap.OnMapCleared += () => StartOutroSequence();
 
         // สร้าง texture สีแดง 1x1 ใช้สำหรับวาด HP bar
         hpTexture = new Texture2D(GraphicsDevice, 1, 1);
@@ -360,7 +381,7 @@ public class MainScene : Game
 
                 bool hitEnemy = false;
 
-                foreach (var map in mapManager.GetMaps())
+                foreach (var map in mapManager.GetMaps().Values)
                 {
                     if (!map.IsVisible(cameraBounds)) continue; // ✅ แก้ตรงนี้
 
@@ -391,7 +412,14 @@ public class MainScene : Game
             mapManager.UpdateCurrentMap();
 
 
-            foreach (var map in mapManager.GetMaps())
+            if (!isEnteredMap2Cleared && mapManager.CurrentMap.Name == "Map 2 Cleared")
+            {
+                isEnteredMap2Cleared = true;
+                mapManager.ReplaceMapDoor("Map 1", 0, "Map 2 Cleared");
+                mapManager.ReplaceMapDoor("Map 3", 0, "Map 2 Cleared");
+            }
+
+            foreach (var map in mapManager.GetMaps().Values)
             {
                 map.Update(gameTime, player.Position);
                 if (map.IsVisible(cameraBounds))
@@ -551,7 +579,7 @@ public class MainScene : Game
             mapManager.Draw(_spriteBatch, cameraBounds);
 
             // Draw enemies from each map
-            foreach (var map in mapManager.GetMaps())
+            foreach (var map in mapManager.GetMaps().Values)
             {
                 if (map.IsVisible(cameraBounds))
                 {
@@ -585,6 +613,8 @@ public class MainScene : Game
                 );
             }
 
+            // Draw map overlays (if any)
+            mapManager.DrawOverlays(_spriteBatch, cameraBounds);
 
             _spriteBatch.End();
 
@@ -712,6 +742,59 @@ public class MainScene : Game
 
         _currentSequence = new SplashScreenSequence(introScreens);
         Singleton.Instance.CurrentGameState = GameState.Splash;
+    }
+
+    private void StartOutroSequence()
+    {
+        var outroScreens = new List<SplashScreenData>
+        {
+            // The escape
+            new SplashScreenData(
+                [
+                    "I've done it.",
+                    "",
+                    "The Queue's temple lies in ruins behind me.",
+                    "Its power is broken, its influence fading.",
+                    "",
+                    "The endless lines are dissolving into nothingness.",
+                    "People are finally free to move as they choose."
+                ], fadeSpeed: 0.4f, displayTime: 6f),
+
+            // The aftermath
+            new SplashScreenData(
+                [
+                    "But I know this isn't the end.",
+                    "",
+                    "Somewhere, another temple might be rising.",
+                    "Another force trying to control through waiting.",
+                    "",
+                    "As long as there are those who resist standing still,",
+                    "There will be those who try to make them."
+                ], fadeSpeed: 0.4f, displayTime: 6f),
+
+            // The resolution
+            new SplashScreenData(
+                [
+                    "I'll keep moving forward.",
+                    "Keep fighting against those who would trap us in lines.",
+                    "",
+                    "Because life isn't meant to be lived standing still.",
+                    "It's meant to be lived in motion.",
+                    "",
+                    "And I intend to live it fully."
+                ], fadeSpeed: 0.5f, displayTime: 7f),
+
+            // The final message
+            new SplashScreenData(
+                [
+                    "Thank you for playing",
+                    "",
+                    "Thesia"
+                ], fadeSpeed: 0.6f, displayTime: 4f)
+        };
+
+        _currentSequence = new SplashScreenSequence(outroScreens);
+        Singleton.Instance.CurrentGameState = GameState.Cutscene;
     }
 
 

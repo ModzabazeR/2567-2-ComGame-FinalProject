@@ -45,6 +45,29 @@ public class SimpleEnemy : Enemy
 			}
 		}
 
+		// Check if enemy is about to walk off the platform
+		Rectangle footSensor = new Rectangle(
+			(int)(Position.X + (movingRight ? Bounds.Width - 5 : 0)),
+			(int)(Position.Y + Bounds.Height + 2),
+			5,
+			5
+		);
+
+		bool hasGroundAhead = false;
+		foreach (Rectangle platform in platforms)
+		{
+			if (footSensor.Intersects(platform))
+			{
+				hasGroundAhead = true;
+				break;
+			}
+		}
+
+		if (!hasGroundAhead && isOnGround)
+		{
+			ChangeDirection();
+		}
+
 		// Vertical movement
 		Position.Y += Velocity.Y * dt;
 		UpdateBounds();

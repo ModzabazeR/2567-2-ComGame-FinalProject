@@ -46,6 +46,9 @@ public class Map
 	public event Action OnMapCleared;
 
 	private List<Weapon> mapWeapons;
+	private Texture2D mapOverlay;
+	private List<Rectangle> deadZones;
+	public List<Rectangle> DeadZones => deadZones;
 
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath)
 		: this(name, texture, position, collisionMapPath, Singleton.Instance.MAP_WIDTH, Singleton.Instance.MAP_HEIGHT)
@@ -55,6 +58,7 @@ public class Map
 	public Map(string name, Texture2D texture, Vector2 position, string collisionMapPath, int mapWidth, int mapHeight)
 	{
 		this.name = name;
+		deadZones = new List<Rectangle>();
 		Texture = texture;
 		Position = position;
 		SolidTiles = [];
@@ -89,7 +93,7 @@ public class Map
 			[
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(21, 6)),
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(3, 6))
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10))
 			];
 		}
 		enemies ??= new List<Enemy>();
@@ -97,6 +101,11 @@ public class Map
 		{
 			enemy.SetParentMap(this);
 		}
+	}
+
+	public void AddOverlay(Texture2D overlayTexture)
+	{
+		mapOverlay = overlayTexture;
 	}
 
 	private void LoadCollisionData(string path)
@@ -202,6 +211,9 @@ public class Map
 		// Draw the entire map texture scaled to fit the tile-based dimensions
 		spriteBatch.Draw(Texture, Bounds, Color.White);
 
+		// plain color
+		Texture2D debugTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+		debugTexture.SetData([Color.White]);
 		// Draw collision boxes in debug mode
 		if (Singleton.Instance.ShowDebugInfo)
 		{
@@ -210,7 +222,7 @@ public class Map
 				if (cameraView.Intersects(solidTile))
 				{
 					spriteBatch.Draw(
-						Texture,
+						debugTexture,
 						solidTile,
 						null,
 						Color.Red * 0.3f
@@ -228,7 +240,7 @@ public class Map
 				)))
 				{
 					spriteBatch.Draw(
-						Texture,
+						debugTexture,
 						new Rectangle(
 							(int)door.Position.X,
 							(int)door.Position.Y,
@@ -240,6 +252,27 @@ public class Map
 					);
 				}
 			}
+
+			foreach (var deadZone in deadZones)
+			{
+				if (cameraView.Intersects(deadZone))
+				{
+					spriteBatch.Draw(
+						debugTexture,
+						deadZone,
+						null,
+						Color.Green * 0.3f
+					);
+				}
+			}
+		}
+	}
+
+	public void DrawOverlay(SpriteBatch spriteBatch, Rectangle cameraView)
+	{
+		if (mapOverlay != null && IsVisible(cameraView))
+		{
+			spriteBatch.Draw(mapOverlay, Bounds, Color.White);
 		}
 	}
 
@@ -249,20 +282,29 @@ public class Map
 		CheckPlayerEntry(playerPosition);
 		SpawnEnemies();
 		CheckMapCleared();
+		CheckIntersectDeadZone(playerPosition);
 
 		// debug for map 3, remove this if you want to manually clear the map
-		if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
-		{
-			foreach (var enemy in enemies)
-			{
-				enemy.Defeat();
-			}
-		}
+		// if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
+		// {
+		// 	foreach (var enemy in enemies)
+		// 	{
+		// 		enemy.Defeat();
+		// 	}
+		// }
 	}
 
-	public bool HasPlayerEntered()
+	public void CheckIntersectDeadZone(Vector2 playerPosition)
 	{
-		return hasPlayerEntered;
+		foreach (var deadZone in deadZones)
+		{
+			if (deadZone.Contains(playerPosition))
+			{
+				// Handle player entering the dead zone
+				Console.WriteLine($"Player entered dead zone at {deadZone}");
+				Singleton.Instance.CurrentGameState = GameState.GameOver;
+			}
+		}
 	}
 
 	public TimeSpan? GetTimeSinceEntry()
@@ -283,7 +325,7 @@ public class Map
 
 	private void CheckMapCleared()
 	{
-		if (name == "Map 3" && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
+		if ((name == "Map 3" || name == "Boss") && hasPlayerEntered && allEnemiesSpawned && !isMapCleared)
 		{
 			bool allEnemiesDefeated = true;
 			foreach (var enemy in enemies)
@@ -385,6 +427,15 @@ public class Map
 		DoorTiles.Add(new DoorTile(doorPosition, targetMapName, targetSpawnX, targetSpawnY));
 	}
 
+	public void ReplaceDoor(int doorIndex, string newTargetMapName)
+	{
+		if (doorIndex >= 0 && doorIndex < DoorTiles.Count)
+		{
+			var door = DoorTiles[doorIndex];
+			DoorTiles[doorIndex] = new DoorTile(door.Position, newTargetMapName, door.TargetSpawnX, door.TargetSpawnY);
+		}
+	}
+
 	public DoorTile GetDoorAtPosition(Vector2 position)
 	{
 		foreach (var door in DoorTiles)
@@ -423,5 +474,17 @@ public class Map
 			));
 		}
 		return doorCollisionTiles;
+	}
+
+	public void AddDeadZone(int startTileX, int startTileY, int width, int height)
+	{
+		Vector2 startPosition = TileToWorldPosition(startTileX, startTileY);
+		Rectangle deadZone = new Rectangle(
+			(int)startPosition.X,
+			(int)startPosition.Y,
+			width * Singleton.Instance.TILE_WIDTH,
+			height * Singleton.Instance.TILE_HEIGHT
+		);
+		deadZones.Add(deadZone);
 	}
 }
