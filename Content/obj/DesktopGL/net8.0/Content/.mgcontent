@@ -4,61 +4,61 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/BGM/boss death sfx.wav</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Frightmare - Jimena Contreras.mp3</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/GameFont.spritefont</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_Death.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_GunATK.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_PickupGrenade.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_SwordATK.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_ThrowGrenade.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/inventory/Crowbar_Icon.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/inventory/Grenade_Icon.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_EMPTY.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_SELECTED.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/inventory/Pistol_Icon.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/inventory/Shotgun_Icon.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level2_cleared.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level2.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level3.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level4.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level5.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level6.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level7.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/maps/level8.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Sprint.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Walk.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Attack.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Walk.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Throw.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Walk.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade-2.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Glock - P80 [64x48].png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Ammo.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Empty.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Reload.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Shoot.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Walk.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Ammo.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Reload.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Shoot.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Walk.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Attack.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
-    <File>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/boss death sfx.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Deep Space Sector 9 - Ezra Lipp.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Frightmare - Jimena Contreras.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/GameFont.spritefont</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_Death.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_GunATK.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_PickupGrenade.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_SwordATK.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_ThrowGrenade.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Crowbar_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Grenade_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_EMPTY.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_SELECTED.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Pistol_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Shotgun_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level2_cleared.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level2.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level3.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level4.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level5.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level6.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level7.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level8.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Sprint.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Attack.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Throw.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade-2.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Glock - P80 [64x48].png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Ammo.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Empty.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Reload.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Shoot.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Ammo.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Reload.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Shoot.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Attack.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
   </SourceFiles>
   <DestFiles>
     <File>boss death sfx.wav</File>
