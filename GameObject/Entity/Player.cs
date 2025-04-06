@@ -113,7 +113,7 @@ public class Player : Movable
 			if (attackTimer <= 0)
 			{
 				isAttackLocked = false;
-				_animationManager.Play(_animations[GetIdleAnimation()]);
+				// _animationManager.Play(_animations[GetIdleAnimation()]);
 			}
 			return; // Lock other updates during attack
 		}
@@ -121,11 +121,6 @@ public class Player : Movable
 		HandleInput();
 		ApplyGravity(dt);
 		HandleMovement(dt, platforms, previousPosition);
-
-		foreach (var bullet in Singleton.Instance.Bullets)
-		{
-			base.Update(gameTime, platforms);
-		}
 
 		if (invincibilityTimer > 0)
 		{
@@ -138,6 +133,9 @@ public class Player : Movable
 			if (attackTimer <= 0)
 				isAttacking = false;
 		}
+
+		base.Update(gameTime, platforms);
+
 	}
 
 	private void HandleInput()
@@ -207,12 +205,6 @@ public class Player : Movable
 				_animationManager.Play(animation);
 				_currentWeapon.Attack();
 			}
-		}
-
-		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.K) &&
-		Singleton.Instance.PreviousKey.IsKeyUp(Keys.K))
-		{
-
 		}
 
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.X) &&
