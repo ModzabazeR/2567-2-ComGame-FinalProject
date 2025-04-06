@@ -41,7 +41,7 @@ namespace FinalProject.Utils.SFXManager
 
         public void PlaySound(string soundName)
         {
-            soundName = "Textures/" + soundName;
+            soundName = "SFX/" + soundName;
             SoundEffect soundEffect = content.Load<SoundEffect>(soundName);
             soundEffect.Play();
         }

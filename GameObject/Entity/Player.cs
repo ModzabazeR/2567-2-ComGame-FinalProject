@@ -51,7 +51,7 @@ public class Player : Movable
 
 	public bool isMovingOnGround => isOnGround && (Velocity.X != 0);
 	private float footstepTimer = 0f;
-    private const float FOOTSTEP_INTERVAL = 5f;
+	private const float FOOTSTEP_INTERVAL = 5f;
 
 	public Player(Dictionary<string, Animation> animations, Vector2 position, MapManager mapManager)
 	: base(animations, position)
@@ -124,20 +124,20 @@ public class Player : Movable
 		}
 
 		Console.WriteLine(isMovingOnGround);
-		if (isMovingOnGround) 
-        {
-            footstepTimer += dt;
+		if (isMovingOnGround)
+		{
+			footstepTimer += dt;
 			Console.WriteLine(footstepTimer);
-            if (footstepTimer >= FOOTSTEP_INTERVAL)
-            {
-                SFXManager.Instance.PlaySound("footsteps_walking");
-                footstepTimer = 0f; // Reset timer
-            } 
-        }
-        else
-        {
-            footstepTimer = 0f; // Reset timer when not moving
-        }
+			if (footstepTimer >= FOOTSTEP_INTERVAL)
+			{
+				SFXManager.Instance.PlaySound("footsteps_walking");
+				footstepTimer = 0f; // Reset timer
+			}
+		}
+		else
+		{
+			footstepTimer = 0f; // Reset timer when not moving
+		}
 
 		HandleInput();
 		ApplyGravity(dt);
@@ -167,6 +167,7 @@ public class Player : Movable
 		{
 			Velocity.X = -moveSpeed;
 			_animationManager.Play(_animations[GetMovementAnimation()]);
+			SFXManager.Instance.PlayFootSteps();
 		}
 		else if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.D))
 		{
@@ -217,8 +218,14 @@ public class Player : Movable
 		{
 			if (_currentWeapon != null && _currentWeapon is Crowbar)
 			{
+				string attackAnim = GetAttackAnimationName();
+				Animation anim = _animations[attackAnim];
+				attackDuration = anim.FrameCount * anim.FrameSpeed;
 				isAttacking = true;
+				isAttackLocked = true;
 				attackTimer = attackDuration;
+				_animationManager.Play(anim);
+				SFXManager.Instance.PlaySound("DesignedPunch1");
 			}
 			else
 			{
@@ -231,8 +238,14 @@ public class Player : Movable
 		{
 			if (_currentWeapon != null && _currentWeapon is Shotgun)
 			{
+				string attackAnim = GetAttackAnimationName();
+				Animation anim = _animations[attackAnim];
+				attackDuration = anim.FrameCount * anim.FrameSpeed;
 				isAttacking = true;
+				isAttackLocked = true;
 				attackTimer = attackDuration;
+				_animationManager.Play(anim);
+				SFXManager.Instance.PlaySound("20 Gauge Single");
 			}
 			else
 			{

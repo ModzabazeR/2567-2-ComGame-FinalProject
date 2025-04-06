@@ -13,41 +13,35 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../../../../Downloads/playeroof.mp3
+#begin BGM/[winning theme]Cosmic nightmare and praise.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
-/build:../../../../../../../Downloads/playeroof.mp3;Textures/playeroof.mp3
+/build:BGM/[winning theme]Cosmic nightmare and praise.mp3
 
-#begin BGM/boss death sfx.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
+#begin BGM/[winning theme]cosmicandpraise.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
 /processorParam:Quality=Best
-/build:BGM/boss death sfx.wav;boss death sfx.wav
+/build:BGM/[winning theme]cosmicandpraise.mp3
+
+#begin BGM/boss theme - Deep Space Sector 9 - Ezra Lipp.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:BGM/boss theme - Deep Space Sector 9 - Ezra Lipp.mp3
+
+#begin BGM/main theme 2 - Frightmare - Jimena Contreras.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:BGM/main theme 2 - Frightmare - Jimena Contreras.mp3
 
 #begin BGM/main theme1.wav
 /importer:WavImporter
 /processor:SongProcessor
 /processorParam:Quality=Best
-/build:BGM/main theme1.wav;main theme1.wav
-
-#begin bomb.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:bomb.mp3
-
-#begin Deep Space Sector 9 - Ezra Lipp.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Deep Space Sector 9 - Ezra Lipp.mp3;boss theme - Deep Space Sector 9 - Ezra Lipp.mp3
-
-#begin Frightmare - Jimena Contreras.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Frightmare - Jimena Contreras.mp3;main theme 2 - Frightmare - Jimena Contreras.mp3
+/build:BGM/main theme1.wav
 
 #begin GameFont.spritefont
 /importer:FontDescriptionImporter
@@ -107,23 +101,80 @@
 #begin Maps/level8_collision.lcm
 /copy:Maps/level8_collision.lcm
 
-#begin Textures/556 Single MP3.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Textures/556 Single MP3.mp3
+#begin Maps/level8_collision.txt
+/copy:Maps/level8_collision.txt
 
-#begin Textures/762x39 Spray MP3.mp3
+#begin SFX/20 Gauge Single.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Textures/762x39 Spray MP3.mp3
+/build:SFX/20 Gauge Single.mp3
 
-#begin Textures/AR Reload Full MP3.mp3
+#begin SFX/9mm Magazine Pack.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Textures/AR Reload Full MP3.mp3
+/build:SFX/9mm Magazine Pack.mp3
+
+#begin SFX/9mm Single.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/9mm Single.mp3
+
+#begin SFX/bomb_sfx.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/bomb_sfx.mp3
+
+#begin SFX/boss death sfx.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/boss death sfx.wav
+
+#begin SFX/DesignedPunch1.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/DesignedPunch1.mp3
+
+#begin SFX/DesignedPunch2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/DesignedPunch2.mp3
+
+#begin SFX/Footsteps_walking.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Footsteps_walking.wav
+
+#begin SFX/Single Shotgun Load.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Single Shotgun Load.mp3
+
+#begin SFX/Zombie_6.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Zombie_6.wav
+
+#begin SFX/Zombie_8.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Zombie_8.wav
+
+#begin SFX/Zombie.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Zombie.wav
 
 #begin Textures/boss/Boss_Death.png
 /importer:TextureImporter
@@ -221,27 +272,21 @@
 /processorParam:Quality=Best
 /build:Textures/Door_squeeky_2.wav
 
-#begin Textures/Footsteps_walking.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Textures/Footsteps_walking.wav
-
 #begin Textures/how good is my new arm.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/how good is my new arm.mp3
 
 #begin Textures/I am the queue's closest servant.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/I am the queue's closest servant.mp3
 
 #begin Textures/I need more bulletx2.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/I need more bulletx2.mp3
 
@@ -319,7 +364,7 @@
 
 #begin Textures/itaiahh.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/itaiahh.mp3
 
@@ -331,7 +376,7 @@
 
 #begin Textures/mama help me.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/mama help me.mp3
 
@@ -445,13 +490,13 @@
 
 #begin Textures/my boy is gonna blow.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/my boy is gonna blow.mp3
 
 #begin Textures/oh mommy queue i'm hurt.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/oh mommy queue i'm hurt.mp3
 
@@ -763,51 +808,33 @@
 
 #begin Textures/take my nut.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/take my nut.mp3
 
 #begin Textures/Why are you gay, player.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/Why are you gay, player.mp3
 
 #begin Textures/Why can't yout talk to me.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/Why can't yout talk to me.mp3
 
 #begin Textures/yametekudasai.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/yametekudasai.mp3
 
 #begin Textures/You are gay, player.mp3
 /importer:Mp3Importer
-/processor:SoundEffectProcessor
+/processor:SongProcessor
 /processorParam:Quality=Best
 /build:Textures/You are gay, player.mp3
-
-#begin Textures/Zombie_6.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Textures/Zombie_6.wav
-
-#begin Textures/Zombie_8.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Textures/Zombie_8.wav
-
-#begin Textures/Zombie.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Textures/Zombie.wav
 
 #begin Textures/zombie/Zombie_Attack.png
 /importer:TextureImporter

@@ -6,7 +6,7 @@ namespace FinalProject.GameObject.Entity;
 
 public class Bullet : Entity
 {
-	private float damage;
+	private float damage;	
 	private float speed;
 	private Vector2 direction;
 	private bool isActive;

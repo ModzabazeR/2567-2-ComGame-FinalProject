@@ -56,30 +56,30 @@ namespace FinalProject.Utils.BGMManager
 
         public void PlayMainTheme1(){
             StopSong();
-            LoadSong("main theme1");
-            PlaySong("main theme1", true);
+            LoadSong("BGM/main theme1");
+            PlaySong("BGM/main theme1", true);
             //Lake Jupiter - John Patitucci
             SetVolume(0.8f);
         }
 
         public void PlayMainTheme2(){
             StopSong();
-            LoadSong("main theme 2 - Frightmare - Jimena Contreras");
-            PlaySong("main theme 2 - Frightmare - Jimena Contreras", true);
+            LoadSong("BGM/main theme 2 - Frightmare - Jimena Contreras");
+            PlaySong("BGM/main theme 2 - Frightmare - Jimena Contreras", true);
             SetVolume(0.5f);
             
         }
 
         public void PlayBossTheme(){
-            LoadSong("boss theme - Deep Space Sector 9 - Ezra Lipp");
-            PlaySong("boss theme - Deep Space Sector 9 - Ezra Lipp", true);
+            LoadSong("BGM/boss theme - Deep Space Sector 9 - Ezra Lipp");
+            PlaySong("BGM/boss theme - Deep Space Sector 9 - Ezra Lipp", true);
             SetVolume(0.5f);
 
         }
 
         public void PlayWinningTheme(){
-            LoadSong("[winning theme]Cosmic nightmare and praise");
-            PlaySong("[winning theme]Cosmic nightmare and praise", true);
+            LoadSong("BGM/[winning theme]Cosmic nightmare and praise");
+            PlaySong("BGM/[winning theme]Cosmic nightmare and praise", true);
             SetVolume(0.5f);
         }
 //         I am the queue's chosen servant. I am not gay. Why are you gae, player? You are gae, Player. Why can't you talk to me?

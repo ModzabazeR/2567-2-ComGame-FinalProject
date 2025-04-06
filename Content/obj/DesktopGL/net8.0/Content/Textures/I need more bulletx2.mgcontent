@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/I need more bulletx2.mp3</SourceFile>
-  <SourceTime>2025-04-06T18:11:59.7732883+07:00</SourceTime>
+  <SourceTime>2025-04-06T18:26:21.260223+07:00</SourceTime>
   <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/I need more bulletx2.xnb</DestFile>
-  <DestTime>2025-04-06T18:13:13.8803873+07:00</DestTime>
+  <DestTime>2025-04-06T18:59:57.2078708+07:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
-  <Processor>SoundEffectProcessor</Processor>
+  <Processor>SongProcessor</Processor>
   <ProcessorTime>2024-08-17T00:05:56+07:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
@@ -14,5 +14,7 @@
   </Parameters>
   <Dependencies />
   <BuildAsset />
-  <BuildOutput />
+  <BuildOutput>
+    <string>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/I need more bulletx2.ogg</string>
+  </BuildOutput>
 </PipelineBuildEvent>
