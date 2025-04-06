@@ -58,7 +58,6 @@
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Piano_stinger_dissonent.wav</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
-    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Sprint.png</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Walk.png</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Attack.png</File>
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</File>
@@ -92,7 +91,6 @@
     <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
