@@ -104,17 +104,11 @@
 #begin Maps/level8_collision.txt
 /copy:Maps/level8_collision.txt
 
-#begin SFX/20 Gauge Single.mp3
+#begin SFX/9mm Pistol Reload 2.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:SFX/20 Gauge Single.mp3
-
-#begin SFX/9mm Magazine Pack.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SFX/9mm Magazine Pack.mp3
+/build:SFX/9mm Pistol Reload 2.mp3
 
 #begin SFX/9mm Single.mp3
 /importer:Mp3Importer
@@ -152,11 +146,17 @@
 /processorParam:Quality=Best
 /build:SFX/Footsteps_walking.wav
 
-#begin SFX/Single Shotgun Load.mp3
+#begin SFX/Shotgun_Pump.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:SFX/Single Shotgun Load.mp3
+/build:SFX/Shotgun_Pump.mp3
+
+#begin SFX/Shotgun_Shot-002.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Shotgun_Shot-002.mp3
 
 #begin SFX/Zombie_6.wav
 /importer:WavImporter

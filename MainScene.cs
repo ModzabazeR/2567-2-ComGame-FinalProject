@@ -178,12 +178,12 @@ public class MainScene : Game
         };
 
         Singleton.Instance.Animations["Boss"] = new Dictionary<string, Animation> {
-            { "Idle", new Animation(zombieIdle, 276, 270, 3, 0.33f) },
-            { "SwordAttack", new Animation(bossSwordAtk, 288, 270, 6, 0.168f) },
-            { "GunAttack", new Animation(bossGunAtk, 288, 270, 6, 0.168f) },
-            { "PickupGrenade", new Animation(bossPickupGrenade, 288, 270, 6, 0.168f) },
-            { "ThrowGrenade", new Animation(bossThrowGrenade, 288, 270, 4, 0.25f) },
-            { "Death", new Animation(bossDeath, 288, 270, 6, 0.168f) }
+            { "Idle", new Animation(zombieIdle, 552, 540, 3, 0.33f) },
+            { "SwordAttack", new Animation(bossSwordAtk, 576, 540, 6, 0.168f) },
+            { "GunAttack", new Animation(bossGunAtk, 576, 540, 6, 0.168f) },
+            { "PickupGrenade", new Animation(bossPickupGrenade, 576, 540, 6, 0.168f) },
+            { "ThrowGrenade", new Animation(bossThrowGrenade, 576, 540, 4, 0.25f) },
+            { "Death", new Animation(bossDeath, 576, 540, 6, 0.168f) }
         };
 
         // Load map textures
@@ -232,6 +232,8 @@ public class MainScene : Game
 
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
+
+        var spawnroom = mapManager.GetMap("Boss");
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");

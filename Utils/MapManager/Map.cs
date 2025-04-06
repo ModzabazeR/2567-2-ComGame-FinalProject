@@ -96,6 +96,13 @@ public class Map
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10))
 			];
 		}
+		else if (name == "Boss")
+		{
+			enemies = [
+				new Boss(TileToWorldPosition(25, 5)) // ตำแหน่ง boss ปรากฏใน map boss
+			];
+		}
+
 		enemies ??= new List<Enemy>();
 		foreach (var enemy in enemies)
 		{
@@ -285,13 +292,26 @@ public class Map
 		CheckIntersectDeadZone(playerPosition);
 
 		// debug for map 3, remove this if you want to manually clear the map
-		// if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
-		// {
-		// 	foreach (var enemy in enemies)
-		// 	{
-		// 		enemy.Defeat();
-		// 	}
-		// }
+		if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
+		{
+			foreach (var enemy in enemies)
+			{
+				enemy.Defeat();
+			}
+		}
+
+		else if (name == "Boss")
+		{
+			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3 && !allEnemiesSpawned)
+			{
+				foreach (var enemy in enemies)
+				{
+					if (!enemy.IsSpawned)
+						enemy.Spawn();
+				}
+				allEnemiesSpawned = true;
+			}
+		}
 	}
 
 	public void CheckIntersectDeadZone(Vector2 playerPosition)

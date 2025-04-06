@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject.GameObject.Weapon
 {
@@ -17,6 +18,7 @@ namespace FinalProject.GameObject.Weapon
         protected override void Explode()
         {
             // Implement explosion logic
+            SFXManager.Instance.PlaySound("bomb");
             base.Explode();
         }
 

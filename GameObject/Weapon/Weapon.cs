@@ -51,7 +51,7 @@ public abstract class Weapon : Entity.Entity
 		}
 	}
 
-	protected abstract void PerformAttack();
+	public abstract void PerformAttack();
 
 	public virtual void StopAttack()
 	{

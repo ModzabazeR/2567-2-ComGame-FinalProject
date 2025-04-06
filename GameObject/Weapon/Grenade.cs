@@ -35,7 +35,7 @@ public abstract class Grenade : Weapon
 		}
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		if (!isThrown)
 		{
@@ -46,8 +46,6 @@ public abstract class Grenade : Weapon
 
 	protected virtual void Explode()
 	{
-
-		SFXManager.Instance.PlaySound("bomb");
 		hasExploded = true;
 		// Implement explosion logic here
 	}

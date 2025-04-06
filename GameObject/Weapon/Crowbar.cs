@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using static FinalProject.GameObject.Entity.Bullet;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject.GameObject.Weapon;
 
@@ -22,7 +23,7 @@ public class Crowbar : MeleeWeapon
 		base.Update(gameTime, platforms);
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		var player = Singleton.Instance.Player;
 
@@ -35,6 +36,8 @@ public class Crowbar : MeleeWeapon
 			60,
 			80
 		);
+
+		SFXManager.Instance.PlaySound("DesignedPunch1");
 
 		// Check collisions with enemies
 		var currentMap = Singleton.Instance.MapManager?.CurrentMap;

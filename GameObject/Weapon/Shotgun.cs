@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using FinalProject.GameObject.Entity;
 using Microsoft.Xna.Framework.Graphics;
+using FinalProject.Utils.SFXManager;
 using System;
 
 namespace FinalProject.GameObject.Weapon
@@ -19,10 +20,11 @@ namespace FinalProject.GameObject.Weapon
             spread = 15f;
         }
 
-        protected override void PerformAttack()
+        public override void PerformAttack()
         {
             if (currentAmmo > 0 && Singleton.Instance.Player != null)
             {
+                SFXManager.Instance.PlaySound("Shotgun_Shot-002");
                 bool isFacingRight = Singleton.Instance.Player.IsFacingRight;
                 Vector2 baseDirection = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
                 Vector2 spawnPos = Singleton.Instance.Player.Position +

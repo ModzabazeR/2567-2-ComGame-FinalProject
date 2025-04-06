@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using FinalProject.GameObject.Entity;
 using Microsoft.Xna.Framework.Graphics;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject.GameObject.Weapon
 {
@@ -16,10 +17,12 @@ namespace FinalProject.GameObject.Weapon
             currentAmmo = maxAmmo;
         }
 
-        protected override void PerformAttack()
+        public override void PerformAttack()
         {
             if (currentAmmo > 0 && Singleton.Instance.Player != null)
             {
+                SFXManager.Instance.PlaySound("9mm Single");
+
                 // Get direction from player facing
                 bool isFacingRight = Singleton.Instance.Player.IsFacingRight;
                 Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;

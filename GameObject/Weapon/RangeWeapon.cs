@@ -18,11 +18,10 @@ public abstract class RangeWeapon : Weapon
 		spread = 0f; // Default spread in degrees
 	}
 
-	protected override void PerformAttack()
+	public override void PerformAttack()
 	{
 		if (currentAmmo > 0)
 		{
-			SFXManager.Instance.PlaySound("556 Single");
 			// Range weapons will implement their specific attack logic here
 			// This could include creating bullets, playing animations, etc.
 			currentAmmo--;
@@ -31,7 +30,6 @@ public abstract class RangeWeapon : Weapon
 
 	public virtual void Reload()
 	{
-		SFXManager.Instance.PlaySound("AR Reload Full MP3");
 		currentAmmo = maxAmmo;
 	}
 

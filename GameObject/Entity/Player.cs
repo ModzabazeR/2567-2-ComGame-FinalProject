@@ -14,7 +14,6 @@ public class Player : Movable
 	private const float moveSpeed = 180f;
 	private const float gravity = 1000f;
 	private const float jumpForce = -600f;
-	private float attackDuration = 0.3f;
 	private bool canJump = false;
 	public bool IsFacingRight => isFacingRight;
 
@@ -48,6 +47,8 @@ public class Player : Movable
 	private bool isAttackLocked = false;
 	public bool IsAttacking => isAttacking;
 	private float _animationTransitionTime = 0.1f; // Transition time in seconds
+
+	private float attackDuration = 0.3f;
 
 	public bool isMovingOnGround => isOnGround && (Velocity.X != 0);
 	private float footstepTimer = 0f;
@@ -223,7 +224,6 @@ public class Player : Movable
 				isAttackLocked = true;
 				attackTimer = attackDuration;
 				_animationManager.Play(anim);
-				SFXManager.Instance.PlaySound("DesignedPunch1");
 			}
 			else
 			{
@@ -234,16 +234,43 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.V) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.V))
 		{
-			if (_currentWeapon != null && _currentWeapon is Shotgun)
+			if (_currentWeapon != null && _currentWeapon is Shotgun) 
 			{
-				string attackAnim = GetAttackAnimationName();
-				Animation anim = _animations[attackAnim];
-				attackDuration = anim.FrameCount * anim.FrameSpeed;
-				isAttacking = true;
-				isAttackLocked = true;
-				attackTimer = attackDuration;
-				_animationManager.Play(anim);
-				SFXManager.Instance.PlaySound("20 Gauge Single");
+				Shotgun shotgun = (Shotgun) _currentWeapon;
+				
+				if(shotgun.GetCurrentAmmo() > 0){
+					isAttacking = true;
+					attackTimer = attackDuration;
+					Console.WriteLine(shotgun.GetCurrentAmmo());
+					shotgun.PerformAttack();
+					Console.WriteLine(shotgun.GetCurrentAmmo());
+				}
+			}
+			else
+			{
+				Console.WriteLine("You don't have a weapon to attack!");
+			}
+		}
+
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.K) &&
+    	Singleton.Instance.PreviousKey.IsKeyUp(Keys.K))
+		{
+			if (_currentWeapon != null && _currentWeapon is Pistol)
+			{
+				Pistol pistol = (Pistol) _currentWeapon;
+				if(pistol.GetCurrentAmmo() > 0){
+					Console.WriteLine("bullet shoot");
+					Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
+					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
+					Vector2 spawnPos = Position + spawnOffset;
+
+					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f);
+					bullets.Add(bullet);
+
+					Console.WriteLine(pistol.GetCurrentAmmo());
+					pistol.PerformAttack();
+					Console.WriteLine(pistol.GetCurrentAmmo());
+				}
 			}
 			else
 			{
@@ -372,6 +399,7 @@ public class Player : Movable
 			}
 		}
 	}
+
 	public bool PickupWeapon(Weapon.Weapon weapon)
 	{
 		if (weapon is Grenade)
@@ -379,6 +407,32 @@ public class Player : Movable
 			PickupGrenade();
 			return true;
 		}
+		if (weapon is PistolBulletItem){
+            if (PrimaryWeapon is Pistol){
+ 				((Pistol) PrimaryWeapon).Reload();
+				SFXManager.Instance.PlaySound("9mm Pistol Reload 2");
+			}
+            else if(SecondaryWeapon is Pistol){
+                ((Pistol) SecondaryWeapon).Reload();
+				SFXManager.Instance.PlaySound("9mm Pistol Reload 2");
+
+            }
+			return true;
+                                
+        }
+        if (weapon is ShotgunBulletItem){
+            if (PrimaryWeapon is Shotgun){
+                Shotgun shotgun = (Shotgun) PrimaryWeapon;
+                shotgun.Reload();
+				SFXManager.Instance.PlaySound("Shotgun_Pump");
+            }
+            else if(SecondaryWeapon is Shotgun){
+                Shotgun shotgun = (Shotgun) SecondaryWeapon;
+                shotgun.Reload();
+				SFXManager.Instance.PlaySound("Shotgun_Pump");
+			}
+			return true;
+        }
 
 		if (_secondaryWeapon == null)
 		{
