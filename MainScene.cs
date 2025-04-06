@@ -93,7 +93,6 @@ public class MainScene : Game
         //playerTexture.SetData(playerData);
         Texture2D idleTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Idle");
         Texture2D runTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Walk");
-        Texture2D sprintTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Sprint");
         Texture2D jumpTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Jump");
 
         Texture2D crowbarIdle = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar_Idle");
