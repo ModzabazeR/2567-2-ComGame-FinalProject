@@ -511,11 +511,6 @@ C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\n
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level7_collision.txt
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level8_collision.lcm
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\level4.xnb
-C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\boss death sfx.xnb
-C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\boss theme - Deep Space Sector 9 - Ezra Lipp.ogg
-C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\boss theme - Deep Space Sector 9 - Ezra Lipp.xnb
-C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme 2 - Frightmare - Jimena Contreras.ogg
-C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme 2 - Frightmare - Jimena Contreras.xnb
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme1.ogg
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\main theme1.xnb
 C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\boss\Boss_Death.xnb
@@ -670,3 +665,80 @@ C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalPr
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Why can't yout talk to me.ogg
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\yametekudasai.ogg
 C:\Users\ADMIN\Desktop\CS classes\ThirdYear\Term2\ComGame\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\You are gay, player.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Maps\level8_collision.txt
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\20 Gauge Single.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\9mm Magazine Pack.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\9mm Magazine Pack.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\9mm Pistol Reload 2.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\9mm Single.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\bomb_sfx.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete1.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete1.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete2.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete2.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete3.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete3.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete4.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\FootstepsConcrete4.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\playeroof.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\556 Single MP3.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\762x39 Spray MP3.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\AR Reload Full MP3.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\playeroof.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\boss theme - Deep Space Sector 9 - Ezra Lipp.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\boss theme - Deep Space Sector 9 - Ezra Lipp.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\main theme 2 - Frightmare - Jimena Contreras.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\main theme 2 - Frightmare - Jimena Contreras.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\main theme1.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\main theme1.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\[winning theme]Cosmic nightmare and praise.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\[winning theme]Cosmic nightmare and praise.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\[winning theme]cosmicandpraise.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\BGM\[winning theme]cosmicandpraise.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\9mm Pistol Reload 2.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\9mm Single.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\bomb_sfx.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\boss death sfx.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\DesignedPunch1.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\DesignedPunch2.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\Footsteps_walking.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\Shotgun_Pump.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\Shotgun_Shot-002.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\Zombie.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\Zombie_6.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\SFX\Zombie_8.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Car_door_shutting.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\dedi dedi amkaming ohhh.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\dedi dedi amkaming ohhh.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Door_handle_jiggle_checking if locked.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Door_squeeky_2.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\how good is my new arm.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\how good is my new arm.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\I am the queue's closest servant.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\I am the queue's closest servant.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\I need more bulletx2.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\I need more bulletx2.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\itaiahh.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\itaiahh.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Keys_pick up.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\mama help me.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\mama help me.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\maps\level1_overlay.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\maps\level3_overlay.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\maps\level4_overlay.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\maps\level6_overlay.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\my boy is gonna blow.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\my boy is gonna blow.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\oh mommy queue i'm hurt.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\oh mommy queue i'm hurt.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Piano_stinger_dissonent.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\take my nut.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\take my nut.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Why are you gay, player.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Why are you gay, player.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Why can't yout talk to me.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\Why can't yout talk to me.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\yametekudasai.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\yametekudasai.xnb
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\You are gay, player.ogg
+C:\Users\channo39mz\Desktop\ComgameFinal\2567-2-ComGame-FinalProject\bin\Debug\net8.0\Content\Textures\You are gay, player.xnb

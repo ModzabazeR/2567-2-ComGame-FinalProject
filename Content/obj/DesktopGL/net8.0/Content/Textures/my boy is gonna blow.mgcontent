@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/my boy is gonna blow.mp3</SourceFile>
   <SourceTime>2025-04-07T22:09:36.6867471+07:00</SourceTime>
   <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/my boy is gonna blow.xnb</DestFile>
   <DestTime>2025-04-07T22:11:01.8363536+07:00</DestTime>
+=======
+  <SourceFile>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/my boy is gonna blow.mp3</SourceFile>
+  <SourceTime>2025-04-07T19:00:30.8938524+07:00</SourceTime>
+  <DestFile>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/my boy is gonna blow.xnb</DestFile>
+  <DestTime>2025-04-07T19:04:05.732203+07:00</DestTime>
+>>>>>>> origin/chan
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +22,10 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
+<<<<<<< HEAD
     <string>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/my boy is gonna blow.ogg</string>
+=======
+    <string>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/my boy is gonna blow.ogg</string>
+>>>>>>> origin/chan
   </BuildOutput>
 </PipelineBuildEvent>

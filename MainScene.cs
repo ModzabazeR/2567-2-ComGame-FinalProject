@@ -320,9 +320,10 @@ public class MainScene : Game
             _isIntroSongPlay = false;
         }
 
+        var allEnemies = mapManager.GetAllEnemies();
         for (int i = explosionZones.Count - 1; i >= 0; i--)
         {
-            explosionZones[i].Update(gameTime, player);
+            explosionZones[i].Update(gameTime, player, allEnemies);
             if (explosionZones[i].IsFinished())
                 explosionZones.RemoveAt(i);
         }

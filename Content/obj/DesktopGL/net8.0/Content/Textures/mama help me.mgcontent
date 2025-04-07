@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/mama help me.mp3</SourceFile>
   <SourceTime>2025-04-07T22:09:36.684742+07:00</SourceTime>
   <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/mama help me.xnb</DestFile>
   <DestTime>2025-04-07T22:10:55.3887587+07:00</DestTime>
+=======
+  <SourceFile>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/mama help me.mp3</SourceFile>
+  <SourceTime>2025-04-07T19:00:30.8888333+07:00</SourceTime>
+  <DestFile>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/mama help me.xnb</DestFile>
+  <DestTime>2025-04-07T19:04:03.6712558+07:00</DestTime>
+>>>>>>> origin/chan
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +22,10 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
+<<<<<<< HEAD
     <string>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/mama help me.ogg</string>
+=======
+    <string>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/mama help me.ogg</string>
+>>>>>>> origin/chan
   </BuildOutput>
 </PipelineBuildEvent>

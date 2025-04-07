@@ -27,7 +27,7 @@ public class Player : Movable
 	public Weapon.Weapon SecondaryWeapon => _secondaryWeapon;
 	public int CurrentWeapon { get; private set; } // 0 = primary, 1 = secondary
 	public int GrenadeCount => _grenadeCount;
-	private int _grenadeCount = 0;
+	private int _grenadeCount = 1;
 
 	private int maxHP = 10;
 	private int currentHP = 10;
@@ -290,6 +290,28 @@ public class Player : Movable
 			}
 		}
 
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.L) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.L))
+		{
+			if (_grenadeCount > 0)
+			{
+				_grenadeCount--;
+
+				Vector2 spawnOffset = new Vector2(isFacingRight ? 80 : -80, -45); // ด้านหน้าผู้เล่น
+				Vector2 zonePos = Position + spawnOffset;
+				_animationManager.Play(_animations["Grenade_Throw"]);
+				var zone = new ExplosionZone(zonePos, 120, 120, fromPlayer: true);
+				MainScene.explosionZones.Add(zone);
+
+				Console.WriteLine("Player threw a grenade!");
+			}
+			else
+			{
+				Console.WriteLine("No grenades left!");
+			}
+		}
+
+
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.X) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.X))
 		{
@@ -301,20 +323,6 @@ public class Player : Movable
 	public void PickupGrenade()
 	{
 		_grenadeCount = Math.Min(_grenadeCount + 1, 3); // Max 3 grenades
-	}
-
-	private void HandleGrenadeThrow()
-	{
-		if (_grenadeCount > 0 && Singleton.Instance.CurrentKey.IsKeyDown(Keys.G) &&
-		Singleton.Instance.PreviousKey.IsKeyUp(Keys.G))
-		{
-			_grenadeCount--;
-			_animationManager.Play(_animations["Grenade_Throw"]);
-			var grenade = new FragGrenade(Position); // Use concrete class
-													 // Add to game world (modify based on your architecture)
-			var currentMap = _mapManager.CurrentMap;
-			currentMap?.AddWeapon(grenade);
-		}
 	}
 
 	public void DropCurrentWeapon()
