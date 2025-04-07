@@ -38,7 +38,7 @@ namespace FinalProject.GameObject.Weapon
                         new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) :
                         new Vector2((float)-Math.Cos(angle), (float)Math.Sin(angle));
 
-                    var bullet = new Bullet(spawnPos, direction, 800f, damage, 2.0f);
+                    var bullet = new Bullet(spawnPos, direction, 800f, damage, 2.0f , 12 , 12);
                     Singleton.Instance.Bullets.Add(bullet);
                 }
                 currentAmmo--;

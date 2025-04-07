@@ -30,8 +30,8 @@ namespace FinalProject.GameObject.Weapon
                 // Create bullet with offset from player center
                 Vector2 spawnPos = Singleton.Instance.Player.Position +
                                  new Vector2(isFacingRight ? 40 : -20, 20);
-
-                var bullet = new Bullet(spawnPos, direction, 800f, damage, 2.0f);
+                
+                var bullet = new Bullet(spawnPos, direction, 800f, damage, 2.0f , 12 , 12);
                 Singleton.Instance.Bullets.Add(bullet);
                 currentAmmo--;
             }

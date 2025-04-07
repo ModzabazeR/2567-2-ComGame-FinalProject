@@ -43,6 +43,10 @@ class Singleton
 	public int MAP_WIDTH { get; set; } = 39;
 	public int MAP_HEIGHT { get; set; } = 22;
 
+	public List<Bullet> EnemyBullets { get; set; } = new();
+
+	public List<ExplosionZone> ExplosionZones { get; set; } = new();
+
 	public SpriteFont Font { get; set; }
 
 	// Debug settings

@@ -264,7 +264,7 @@ public class Player : Movable
 					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
 					Vector2 spawnPos = Position + spawnOffset;
 
-					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f);
+					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f , widths: 12 , height: 12);
 					bullets.Add(bullet);
 
 					Console.WriteLine(pistol.GetCurrentAmmo());

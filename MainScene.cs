@@ -30,6 +30,7 @@ public class MainScene : Game
     private Texture2D hpTexture;
 
     private List<Bullet> bullets = new();
+    private List<Bullet> enemyBullets = new();
     private bool _isIntroSongPlay = false; // Flag to check if song is requested
 
     private Rectangle restartButtonRect;
@@ -47,6 +48,9 @@ public class MainScene : Game
 
     private float timeRemaining = 60f * 5f; // 60 วินาที * 5 นาที
     private SpriteFont timerFont;
+
+    public static List<ExplosionZone> explosionZones = new();
+
 
     public MainScene()
     {
@@ -78,6 +82,9 @@ public class MainScene : Game
 
         // Load the font first since splash screens need it
         Singleton.Instance.Font = Content.Load<SpriteFont>("GameFont");
+
+        // bossbullet
+        Singleton.Instance.EnemyBullets = enemyBullets;
 
         // Start the intro sequence
         StartIntroSequence();
@@ -237,11 +244,12 @@ public class MainScene : Game
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
-        player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint, mapManager);
+        player = new Player(Singleton.Instance.Animations["Player"], spawnroom.SpawnPoint, mapManager);
         map1.AddWeapon(new FragGrenade(new Vector2(500, 550)) { EntityTexture = grenadeTexture });
-        map1.AddWeapon(new Crowbar(new Vector2(220, 550 - 40)) { EntityTexture = crowbarTexture });
-        map1.AddWeapon(new Shotgun(new Vector2(300, 550 - 20)) { EntityTexture = shotgunTexture });
-        map1.AddWeapon(new Pistol(new Vector2(400, 550 - 20)) { EntityTexture = pistolTexture });
+        spawnroom.AddWeapon(new Crowbar(new Vector2(23400, 500)) { EntityTexture = crowbarTexture });
+        spawnroom.AddWeapon(new Shotgun(new Vector2(23300, 500)) { EntityTexture = shotgunTexture });
+        spawnroom.AddWeapon(new Pistol(new Vector2(23200, 500)) {EntityTexture = pistolTexture});
+        //spawnroom.AddWeapon(new Pistol(new Vector2(400, 550 - 20)) { EntityTexture = pistolTexture });
 
         Singleton.Instance.Player = player;
         Singleton.Instance.MapManager = mapManager;
@@ -304,6 +312,14 @@ public class MainScene : Game
             BGMManager.Instance.PlayMainTheme1();
             _isIntroSongPlay = false;
         }
+
+        for (int i = explosionZones.Count - 1; i >= 0; i--)
+        {
+            explosionZones[i].Update(gameTime, player);
+            if (explosionZones[i].IsFinished())
+                explosionZones.RemoveAt(i);
+        }
+
 
         // Handle splash screen and cutscene states
         if (Singleton.Instance.CurrentGameState == GameState.Splash ||
@@ -413,6 +429,27 @@ public class MainScene : Game
                 }
             }
 
+            for (int i = enemyBullets.Count - 1; i >= 0; i--)
+            {
+                var bullet = enemyBullets[i];
+                bullet.Update(gameTime, mapManager.GetAllSolidTiles());
+
+                // ตรวจ collision กับ player
+                if (bullet.Bounds.Intersects(player.Bounds))
+                {
+                    Vector2 knockback = Vector2.Normalize(player.Position - bullet.Position);
+                    player.TakeDamage(1, knockback);
+                    enemyBullets.RemoveAt(i);
+                    continue;
+                }
+
+                if (!bullet.IsActive())
+                {
+                    enemyBullets.RemoveAt(i);
+                }
+            }
+
+
 
             // Check for map transitions
             mapManager.CheckMapTransitions(gameTime);
@@ -447,7 +484,9 @@ public class MainScene : Game
                         if (player.IsAttacking && enemy.IsSpawned && !enemy.IsDefeated &&
                             enemy.Bounds.Intersects(player.GetAttackHitbox()))
                         {
-                            enemy.hit(1);
+                            if(!enemy.isInvincible){
+                                enemy.hit(1);
+                            }
                         }
                     }
 
@@ -595,6 +634,7 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         enemy.Draw(_spriteBatch);
+                        
                     }
                     foreach (var weapon in map.GetWeapons())
                     {
@@ -606,6 +646,17 @@ public class MainScene : Game
             {
                 bullet.Draw(_spriteBatch);
             }
+            foreach (var bullet in enemyBullets)
+            {
+                bullet.Draw(_spriteBatch);
+            }
+            // พื้นระเบิด
+            foreach (var zone in explosionZones)
+            {
+                zone.Draw(_spriteBatch);
+            }
+
+
             // Draw player
             player.Draw(_spriteBatch);
             if (player.IsAttacking)

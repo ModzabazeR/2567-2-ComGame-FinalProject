@@ -99,7 +99,7 @@ public class Map
 		else if (name == "Boss")
 		{
 			enemies = [
-				new Boss(TileToWorldPosition(25, 5)) // ตำแหน่ง boss ปรากฏใน map boss
+				new Boss(TileToWorldPosition(20, 3)) // ตำแหน่ง boss ปรากฏใน map boss
 			];
 		}
 

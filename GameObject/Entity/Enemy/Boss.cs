@@ -10,10 +10,13 @@ namespace FinalProject.GameObject.Entity.Enemy
     public class Boss : Enemy
     {
         private const float MOVE_SPEED = 100f;
-        private float attackCooldown = 2.0f;
+        private float attackCooldown = 5.0f;
         private float currentAttackCooldown = 0f;
         private Random random = new Random();
         private string currentAttackType = "Idle";
+
+        public List<Bullet> Bullets { get; set; } = new List<Bullet>();
+
         
         public Boss(Vector2 position) 
             : base(Singleton.Instance.Animations["Boss"], position)
@@ -22,6 +25,22 @@ namespace FinalProject.GameObject.Entity.Enemy
             enemyHP = 50; // Higher HP for the boss
             _currentAnimationKey = "Idle";
             _animationManager.Play(_animations["Idle"]);
+            Bounds = new Rectangle(
+				(int)(Position.X), // offset X เข้ากลาง
+				(int)(Position.Y), // offset Y ลงมาให้ถึงขา
+				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
+				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
+            );
+        }
+
+        protected override void UpdateBounds()
+        {
+            Bounds = new Rectangle(
+				(int)(Position.X), // offset X เข้ากลาง
+				(int)(Position.Y), // offset Y ลงมาให้ถึงขา
+				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
+				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
+            );
         }
 
         public override void TakeDamage(int amount)
@@ -32,7 +51,6 @@ namespace FinalProject.GameObject.Entity.Enemy
 
         public override void Update(GameTime gameTime, List<Rectangle> platforms)
         {
-            //Bounds = new Rectangle((int)Position.X, (int)Position.Y, 120, 160); // หรือขนาดตาม sprite จริง
 
             if (!IsSpawned || IsDefeated)
                 return;
@@ -62,20 +80,24 @@ namespace FinalProject.GameObject.Entity.Enemy
         private void ChooseRandomAttack()
         {
             // Randomly select an attack type
-            int attackChoice = random.Next(4);
+            int attackChoice = random.Next(3);
             switch (attackChoice)
             {
                 case 0:
                     currentAttackType = "SwordAttack";
+                    Console.WriteLine("swordattack");
+                    FireBulletLeftdown();
                     break;
                 case 1:
                     currentAttackType = "GunAttack";
+                    Console.WriteLine("gunatt");
+                    FireBulletLeftup();
                     break;
                 case 2:
                     currentAttackType = "PickupGrenade";
-                    break;
-                case 3:
                     currentAttackType = "ThrowGrenade";
+                    Console.WriteLine("boomatt");
+                    CreateExplosionZone();
                     break;
                 default:
                     currentAttackType = "Idle";
@@ -90,6 +112,69 @@ namespace FinalProject.GameObject.Entity.Enemy
             // Add any special defeat logic here
             base.Defeat();
         }
+
+        private void FireBulletLeftup()
+        {
+        float baseSpeed = 300f;
+        float baseDamage = 2f;
+        float lifetime = 3f;
+
+        int bulletWidth = 50;
+        int bulletHeight = 50;
+
+        // ตำแหน่งเริ่มกลางของปากปืน
+        float startX = Position.X + 20;
+        float startY = Position.Y + 380;
+
+        // ยิง 3 นัด เรียงในแนว X (ห่างกันแนวนอน)
+        for (int offsetX = -50; offsetX <= 50; offsetX += 50)
+        {
+            Vector2 spawn = new Vector2(startX + offsetX + 50, startY);
+            Vector2 dir = new Vector2(-1f, 0f); // ยิงซ้ายตรง
+
+            var bullet = new Bullet(
+                spawn,
+                dir,
+                speed: baseSpeed,
+                damage: baseDamage,
+                lifetime: lifetime,
+                widths: bulletWidth,
+                height: bulletHeight
+            );
+
+        Singleton.Instance.EnemyBullets.Add(bullet);
+        }
+
+        }
+
+        private void FireBulletLeftdown()
+        {
+            Vector2 spawnPos = new Vector2(Position.X, Position.Y + 400);
+            Vector2 dir = new Vector2(-1f, 0f); // ยิงไปทางซ้าย
+
+            var bullet = new Bullet(
+                spawnPos,
+                dir,
+                speed: 300f,
+                damage: 5f,
+                lifetime: 3f,
+                80,      // ✅ กำหนดขนาดที่ต้องการ
+                80
+            );
+
+            Singleton.Instance.EnemyBullets.Add(bullet);
+
+        }
+
+        private void CreateExplosionZone()
+        {
+            Vector2 pos = new Vector2(Position.X - 550, Position.Y + 475); // ตำแหน่งพื้น
+            var zone = new ExplosionZone(pos, 800, 50);
+            MainScene.explosionZones.Add(zone); // ✅ ใช้ list เดียวกับ MainScene
+        }
+
+
+
 
     }
 } 
