@@ -10,7 +10,7 @@ namespace FinalProject.GameObject
     {
         public Rectangle Area { get; private set; }
         private float warningDuration = 1f;
-        private float damageDuration = 1f;
+        private float damageDuration = 0.7f;
         private float timer = 0f;
         private bool isExploded = false;
         private bool isFinished = false;

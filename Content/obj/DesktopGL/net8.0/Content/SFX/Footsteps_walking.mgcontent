@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Footsteps_walking.wav</SourceFile>
-  <SourceTime>2025-04-07T17:32:20.1686014+07:00</SourceTime>
-  <DestFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/SFX/Footsteps_walking.xnb</DestFile>
-  <DestTime>2025-04-07T17:40:46.6150042+07:00</DestTime>
+  <SourceFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Footsteps_walking.wav</SourceFile>
+  <SourceTime>2025-04-06T22:23:52.0994581+07:00</SourceTime>
+  <DestFile>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/SFX/Footsteps_walking.xnb</DestFile>
+  <DestTime>2025-04-07T18:45:20.1953072+07:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

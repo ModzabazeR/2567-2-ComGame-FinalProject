@@ -10,15 +10,33 @@
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/main theme 2 - Frightmare - Jimena Contreras.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/GameFont.spritefont</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/762x39 Spray MP3.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/9mm Pistol Reload 2.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/9mm Single.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/bomb_sfx.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/boss death sfx.wav</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/dedi dedi amkaming ohhh.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/DesignedPunch1.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/DesignedPunch2.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Footsteps_walking.wav</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete1.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete2.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete3.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete4.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/how good is my new arm.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/I am the queue's closest servant.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/I need more bulletx2.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/itaiahh.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/mama help me.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/my boy is gonna blow.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/oh mommy queue i'm hurt.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/playeroof.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Shotgun_Pump.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Shotgun_Shot-002.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/take my nut.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Why are you gay, player.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Why can't yout talk to me.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/yametekudasai.mp3</File>
+    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/You are gay, player.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Zombie_6.wav</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Zombie_8.wav</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Zombie.wav</File>
@@ -29,21 +47,15 @@
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_SwordATK.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_ThrowGrenade.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Car_door_shutting.wav</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/dedi dedi amkaming ohhh.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Door_handle_jiggle_checking if locked.wav</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Door_squeeky_2.wav</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/how good is my new arm.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/I am the queue's closest servant.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/I need more bulletx2.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Crowbar_Icon.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Grenade_Icon.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_EMPTY.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_SELECTED.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Pistol_Icon.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Shotgun_Icon.png</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/itaiahh.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Keys_pick up.wav</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/mama help me.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level1_overlay.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level2_cleared.png</File>
@@ -57,8 +69,6 @@
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level6.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level7.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level8.png</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/my boy is gonna blow.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/oh mommy queue i'm hurt.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Piano_stinger_dissonent.wav</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
@@ -84,17 +94,17 @@
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Shoot.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Walk.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun.png</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/take my nut.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Why are you gay, player.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Why can't yout talk to me.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/yametekudasai.mp3</File>
-    <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/You are gay, player.mp3</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Attack.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
     <File>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

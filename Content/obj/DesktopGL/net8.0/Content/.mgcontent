@@ -4,97 +4,107 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/[winning theme]Cosmic nightmare and praise.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/[winning theme]cosmicandpraise.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/boss theme - Deep Space Sector 9 - Ezra Lipp.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/main theme 2 - Frightmare - Jimena Contreras.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/BGM/main theme1.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/GameFont.spritefont</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/9mm Pistol Reload 2.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/9mm Single.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/bomb_sfx.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/boss death sfx.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/DesignedPunch1.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/DesignedPunch2.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Footsteps_walking.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Shotgun_Pump.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Shotgun_Shot-002.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Zombie_6.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Zombie_8.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/SFX/Zombie.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/boss/Boss_Death.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/boss/Boss_GunATK.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/boss/Boss_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/boss/Boss_PickupGrenade.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/boss/Boss_SwordATK.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/boss/Boss_ThrowGrenade.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Car_door_shutting.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/dedi dedi amkaming ohhh.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Door_handle_jiggle_checking if locked.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Door_squeeky_2.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/how good is my new arm.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/I am the queue's closest servant.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/I need more bulletx2.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/inventory/Crowbar_Icon.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/inventory/Grenade_Icon.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/inventory/Inventory_Slot_EMPTY.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/inventory/Inventory_Slot_SELECTED.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/inventory/Pistol_Icon.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/inventory/Shotgun_Icon.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/itaiahh.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Keys_pick up.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/mama help me.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level1_overlay.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level1.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2_cleared.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level2.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level3_overlay.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level3.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level4_overlay.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level4.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level5.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level6_overlay.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level6.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level7.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/maps/level8.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/my boy is gonna blow.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/oh mommy queue i'm hurt.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Piano_stinger_dissonent.wav</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_movements/Player_Walk.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Attack.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Walk.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/crowbar/Crowbar.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/grenade/Grenade_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/grenade/Grenade_Throw.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/grenade/Grenade_Walk.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/grenade/Grenade-2.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Glock - P80 [64x48].png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Pistol_Ammo.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Pistol_Empty.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Pistol_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Pistol_Reload.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Pistol_Shoot.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/pistol/Pistol_Walk.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Ammo.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Reload.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Shoot.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Walk.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/player_weapons/shotgun/Shotgun.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/take my nut.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Why are you gay, player.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/Why can't yout talk to me.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/yametekudasai.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/You are gay, player.mp3</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/zombie/Zombie_Attack.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
-    <File>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/[winning theme]Cosmic nightmare and praise.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/[winning theme]cosmicandpraise.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/boss theme - Deep Space Sector 9 - Ezra Lipp.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/main theme 2 - Frightmare - Jimena Contreras.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/BGM/main theme1.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/GameFont.spritefont</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/762x39 Spray MP3.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/9mm Pistol Reload 2.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/9mm Single.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/bomb_sfx.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/boss death sfx.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/dedi dedi amkaming ohhh.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/DesignedPunch1.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Footsteps_walking.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete1.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete2.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete3.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/FootstepsConcrete4.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/how good is my new arm.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/I am the queue's closest servant.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/I need more bulletx2.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/itaiahh.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/mama help me.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/my boy is gonna blow.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/oh mommy queue i'm hurt.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/playeroof.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Shotgun_Pump.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Shotgun_Shot-002.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/take my nut.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Why are you gay, player.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Why can't yout talk to me.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/yametekudasai.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/You are gay, player.mp3</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Zombie_6.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Zombie_8.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Zombie.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_Death.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_GunATK.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_PickupGrenade.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_SwordATK.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/boss/Boss_ThrowGrenade.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Car_door_shutting.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Door_handle_jiggle_checking if locked.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Door_squeeky_2.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Crowbar_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Grenade_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_EMPTY.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Inventory_Slot_SELECTED.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Pistol_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/inventory/Shotgun_Icon.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Keys_pick up.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level1_overlay.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level1.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level2_cleared.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level2.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level3_overlay.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level3.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level4_overlay.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level4.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level5.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level6_overlay.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level6.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level7.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/maps/level8.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Piano_stinger_dissonent.wav</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Jump.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_movements/Player_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Attack.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Throw.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/grenade/Grenade-2.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Glock - P80 [64x48].png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Ammo.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Empty.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Reload.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Shoot.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Pistol_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Ammo.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Reload.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Shoot.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun_Walk.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/shotgun/Shotgun.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Attack.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Death.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Idle.png</File>
+    <File>C:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/zombie/Zombie_Walk.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

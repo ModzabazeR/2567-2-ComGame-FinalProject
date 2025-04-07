@@ -32,11 +32,9 @@ public class MainScene : Game
     private List<Bullet> bullets = new();
     private List<Bullet> enemyBullets = new();
     private bool _isIntroSongPlay = false; // Flag to check if song is requested
-
     private Rectangle restartButtonRect;
     private MouseState previousMouseState;
     private bool isEnteredMap2Cleared;
-    Texture2D buttonTex;
 
     // Add with other texture fields at the top
     private Texture2D _inventorySlotEmpty;
@@ -45,6 +43,11 @@ public class MainScene : Game
     private Texture2D _pistolIcon;
     private Texture2D _shotgunIcon;
     private Texture2D _grenadeIcon;
+
+    private Crowbar crowbar;
+    private Shotgun shotgun;
+    private Pistol pistol;
+    private Grenade grenade;
 
     private float timeRemaining = 60f * 10f; // 60 วินาที
     private SpriteFont timerFont;
@@ -238,7 +241,7 @@ public class MainScene : Game
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        var spawnroom = mapManager.GetMap("Map 1");
+        var spawnroom = mapManager.GetMap("Boss");
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
@@ -484,7 +487,27 @@ public class MainScene : Game
                         {
                             if (!enemy.isInvincible)
                             {
-                                enemy.hit(1);
+                                if (player.CurrentWeapon == 0) {
+                                    if (player.PrimaryWeapon is Crowbar)
+                                    {
+                                        enemy.hit(3);
+                                    }
+                                    else if (player.PrimaryWeapon is Shotgun)
+                                    {
+                                        enemy.hit(10);
+                                    }
+                                }
+                                else if (player.CurrentWeapon == 1)
+                                {
+                                    if (player.SecondaryWeapon is Crowbar)
+                                    {
+                                        enemy.hit(3);
+                                    }
+                                    else if (player.SecondaryWeapon is Shotgun)
+                                    {
+                                        enemy.hit(10);
+                                    }
+                                }
                             }
                         }
                     }
@@ -565,26 +588,45 @@ public class MainScene : Game
             }
 
             // Draw weapon icon
-            Texture2D icon = null;
-            if (i == 0 && player.PrimaryWeapon != null)
-                icon = GetWeaponIcon(player.PrimaryWeapon);
-            else if (i == 1 && player.SecondaryWeapon != null)
-                icon = GetWeaponIcon(player.SecondaryWeapon);
-
+            // Get weapon and icon
+            Weapon weapon = i == 0 ? player.PrimaryWeapon : player.SecondaryWeapon;
+            Texture2D icon = GetWeaponIcon(weapon);
             if (icon != null)
+            {
                 spriteBatch.Draw(icon, slotRect, Color.White);
-        }
 
-        // Grenade slot
-        Rectangle grenadeRect = new Rectangle(
-            (int)basePosition.X + (slotSize + padding) * 2 + 30,
-            (int)basePosition.Y,
-            slotSize,
-            slotSize
-        );
-        spriteBatch.Draw(_inventorySlotEmpty, grenadeRect, Color.White);
-        if (player.GrenadeCount > 0)
-            spriteBatch.Draw(_grenadeIcon, grenadeRect, Color.White);
+                // Draw ammo count for range weapons
+                if (weapon is RangeWeapon rangeWeapon)
+                {
+                    string ammoText = $"{rangeWeapon.GetCurrentAmmo()}";
+                    Vector2 textSize = Singleton.Instance.Font.MeasureString(ammoText);
+                    Vector2 textPosition = new Vector2(
+                        slotRect.Center.X - textSize.X / 2,
+                        slotRect.Bottom - textSize.Y - 5
+                    );
+
+                    // Draw black outline for better visibility
+                    spriteBatch.DrawString(Singleton.Instance.Font, ammoText, textPosition + new Vector2(-1, 0), Color.Black);
+                    spriteBatch.DrawString(Singleton.Instance.Font, ammoText, textPosition + new Vector2(1, 0), Color.Black);
+                    spriteBatch.DrawString(Singleton.Instance.Font, ammoText, textPosition + new Vector2(0, -1), Color.Black);
+                    spriteBatch.DrawString(Singleton.Instance.Font, ammoText, textPosition + new Vector2(0, 1), Color.Black);
+
+                    // Draw main text
+                    spriteBatch.DrawString(Singleton.Instance.Font, ammoText, textPosition, Color.White);
+                }
+            }
+
+            // Grenade slot
+            Rectangle grenadeRect = new Rectangle(
+                (int)basePosition.X + (slotSize + padding) * 2 + 30,
+                (int)basePosition.Y,
+                slotSize,
+                slotSize
+            );
+            spriteBatch.Draw(_inventorySlotEmpty, grenadeRect, Color.White);
+            if (player.GrenadeCount > 0)
+                spriteBatch.Draw(_grenadeIcon, grenadeRect, Color.White);
+        }
     }
 
     private Texture2D GetWeaponIcon(Weapon weapon)

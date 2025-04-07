@@ -14,8 +14,8 @@ public class Crowbar : MeleeWeapon
 	{
 		// Initialize melee weapon properties
 		attackRange = 60f;
-		damage = 20f;
-		cooldown = 0.5f;
+		damage = 3;
+		cooldown = 1f;
 	}
 
 	public override void Update(GameTime gameTime, List<Rectangle> platforms)
@@ -36,7 +36,7 @@ public class Crowbar : MeleeWeapon
 			60,
 			80
 		);
-
+		Console.WriteLine("Play attack sound");
 		SFXManager.Instance.PlaySound("DesignedPunch1");
 
 		// Check collisions with enemies

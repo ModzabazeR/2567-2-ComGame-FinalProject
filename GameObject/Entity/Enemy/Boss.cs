@@ -4,13 +4,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using FinalProject.Utils.MapManager;
 using FinalProject.GameObject.Weapon;
+using FinalProject.Utils.SFXManager;
 
 namespace FinalProject.GameObject.Entity.Enemy
 {
     public class Boss : Enemy
     {
         private const float MOVE_SPEED = 100f;
-        private float attackCooldown = 5.0f;
+        private float attackCooldown = 8.0f;
         private float currentAttackCooldown = 0f;
         private Random random = new Random();
         private string currentAttackType = "Idle";
@@ -47,6 +48,7 @@ namespace FinalProject.GameObject.Entity.Enemy
         public override void TakeDamage(int amount)
         {
             hit(amount);
+            SFXManager.Instance.RandomPlayBossHurt();
             // You could add special effects or sounds here
         }
 
@@ -82,7 +84,7 @@ namespace FinalProject.GameObject.Entity.Enemy
         private void ChooseRandomAttack()
         {
             // Randomly select an attack type
-            int attackChoice = random.Next(3);
+            int attackChoice = random.Next(4);
             switch (attackChoice)
             {
                 case 0:
@@ -108,6 +110,7 @@ namespace FinalProject.GameObject.Entity.Enemy
                     break;
                 default:
                     currentAttackType = "Idle";
+                    SFXManager.Instance.RandomPlayBossTakling();
                     break;
             }
         }
@@ -116,12 +119,14 @@ namespace FinalProject.GameObject.Entity.Enemy
         {
             _currentAnimationKey = "Death";
             _animationManager.Play(_animations["Death"]);
+            SFXManager.Instance.playBossDeath();
             // Add any special defeat logic here
             base.Defeat();
         }
 
         private void spawnMinions()
-        {
+        {   
+            SFXManager.Instance.playBossMelee();
             bossMap = Singleton.Instance.MapManager.GetMap("Boss");
             List<SimpleEnemy> newMinions = new List<SimpleEnemy>();
             for (int i = 0; i < 2; i++)
@@ -137,6 +142,8 @@ namespace FinalProject.GameObject.Entity.Enemy
 
         private void FireBulletLeftup()
         {
+            SFXManager.Instance.playBossGunfire();
+
             float baseSpeed = 300f;
             float baseDamage = 2f;
             float lifetime = 3f;
@@ -190,13 +197,11 @@ namespace FinalProject.GameObject.Entity.Enemy
 
         private void CreateExplosionZone()
         {
+            SFXManager.Instance.playBossGrenade();
             Vector2 pos = new Vector2(Position.X - 550, Position.Y + 475); // ตำแหน่งพื้น
             var zone = new ExplosionZone(pos, 800, 50);
             MainScene.explosionZones.Add(zone); // ✅ ใช้ list เดียวกับ MainScene
         }
-
-
-
 
     }
 }

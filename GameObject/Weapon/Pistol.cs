@@ -7,12 +7,10 @@ namespace FinalProject.GameObject.Weapon
 {
     public class Pistol : RangeWeapon
     {
-        private Texture2D _texture;
-
         public Pistol(Vector2 position) : base(position)
         {
             cooldown = 0.3f;
-            damage = 15f;
+            damage = 5;
             maxAmmo = 12;
             currentAmmo = maxAmmo;
         }

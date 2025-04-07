@@ -104,6 +104,12 @@
 #begin Maps/level8_collision.txt
 /copy:Maps/level8_collision.txt
 
+#begin SFX/762x39 Spray MP3.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/762x39 Spray MP3.mp3
+
 #begin SFX/9mm Pistol Reload 2.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
@@ -128,23 +134,95 @@
 /processorParam:Quality=Best
 /build:SFX/boss death sfx.wav
 
+#begin SFX/dedi dedi amkaming ohhh.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/dedi dedi amkaming ohhh.mp3
+
 #begin SFX/DesignedPunch1.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/DesignedPunch1.mp3
 
-#begin SFX/DesignedPunch2.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:SFX/DesignedPunch2.mp3
-
 #begin SFX/Footsteps_walking.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/Footsteps_walking.wav
+
+#begin SFX/FootstepsConcrete1.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/FootstepsConcrete1.mp3
+
+#begin SFX/FootstepsConcrete2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/FootstepsConcrete2.mp3
+
+#begin SFX/FootstepsConcrete3.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/FootstepsConcrete3.mp3
+
+#begin SFX/FootstepsConcrete4.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/FootstepsConcrete4.mp3
+
+#begin SFX/how good is my new arm.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/how good is my new arm.mp3
+
+#begin SFX/I am the queue's closest servant.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/I am the queue's closest servant.mp3
+
+#begin SFX/I need more bulletx2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/I need more bulletx2.mp3
+
+#begin SFX/itaiahh.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/itaiahh.mp3
+
+#begin SFX/mama help me.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mama help me.mp3
+
+#begin SFX/my boy is gonna blow.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/my boy is gonna blow.mp3
+
+#begin SFX/oh mommy queue i'm hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/oh mommy queue i'm hurt.mp3
+
+#begin SFX/playeroof.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/playeroof.mp3
 
 #begin SFX/Shotgun_Pump.mp3
 /importer:Mp3Importer
@@ -157,6 +235,36 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/Shotgun_Shot-002.mp3
+
+#begin SFX/take my nut.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/take my nut.mp3
+
+#begin SFX/Why are you gay, player.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Why are you gay, player.mp3
+
+#begin SFX/Why can't yout talk to me.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Why can't yout talk to me.mp3
+
+#begin SFX/yametekudasai.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/yametekudasai.mp3
+
+#begin SFX/You are gay, player.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/You are gay, player.mp3
 
 #begin SFX/Zombie_6.wav
 /importer:WavImporter
@@ -254,12 +362,6 @@
 /processorParam:Quality=Best
 /build:Textures/Car_door_shutting.wav
 
-#begin Textures/dedi dedi amkaming ohhh.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/dedi dedi amkaming ohhh.mp3
-
 #begin Textures/Door_handle_jiggle_checking if locked.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -271,24 +373,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Textures/Door_squeeky_2.wav
-
-#begin Textures/how good is my new arm.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/how good is my new arm.mp3
-
-#begin Textures/I am the queue's closest servant.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/I am the queue's closest servant.mp3
-
-#begin Textures/I need more bulletx2.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/I need more bulletx2.mp3
 
 #begin Textures/inventory/Crowbar_Icon.png
 /importer:TextureImporter
@@ -362,23 +446,11 @@
 /processorParam:TextureFormat=Color
 /build:Textures/inventory/Shotgun_Icon.png
 
-#begin Textures/itaiahh.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/itaiahh.mp3
-
 #begin Textures/Keys_pick up.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Textures/Keys_pick up.wav
-
-#begin Textures/mama help me.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/mama help me.mp3
 
 #begin Textures/maps/level1_overlay.png
 /importer:TextureImporter
@@ -535,18 +607,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/maps/level8.png
-
-#begin Textures/my boy is gonna blow.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/my boy is gonna blow.mp3
-
-#begin Textures/oh mommy queue i'm hurt.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/oh mommy queue i'm hurt.mp3
 
 #begin Textures/Piano_stinger_dissonent.wav
 /importer:WavImporter
@@ -841,36 +901,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/player_weapons/shotgun/Shotgun.png
-
-#begin Textures/take my nut.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/take my nut.mp3
-
-#begin Textures/Why are you gay, player.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/Why are you gay, player.mp3
-
-#begin Textures/Why can't yout talk to me.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/Why can't yout talk to me.mp3
-
-#begin Textures/yametekudasai.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/yametekudasai.mp3
-
-#begin Textures/You are gay, player.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Textures/You are gay, player.mp3
 
 #begin Textures/zombie/Zombie_Attack.png
 /importer:TextureImporter
