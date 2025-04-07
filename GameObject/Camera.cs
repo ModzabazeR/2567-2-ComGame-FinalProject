@@ -8,7 +8,7 @@ public class Camera
 	public Vector2 Position { get; private set; }
 	private readonly float _viewWidth;
 	private readonly float _viewHeight;
-	private readonly float _zoom; // Add zoom field
+	private float _zoom; // Add zoom field
 	private Vector2 _desiredPosition;
 	private float _followSpeed = 15f; // Adjust this value to change smoothing speed
 	private const float DEBUG_ZOOM = 1.75f;
@@ -37,5 +37,10 @@ public class Camera
 		Transform = Matrix.CreateTranslation(new Vector3(-Position, 0)) *
 				   Matrix.CreateScale(_zoom) *
 				   Matrix.CreateTranslation(new Vector3(Vector2.Zero, 0));
+	}
+
+	public void SetZoom(float zoom)
+	{
+		_zoom = zoom;
 	}
 }

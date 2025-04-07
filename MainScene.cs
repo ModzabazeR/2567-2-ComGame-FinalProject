@@ -50,6 +50,7 @@ public class MainScene : Game
     private SpriteFont timerFont;
 
     public static List<ExplosionZone> explosionZones = new();
+    public bool isCameraZoomChanged = false; // Flag to check if camera zoom has changed
 
 
     public MainScene()
@@ -237,7 +238,7 @@ public class MainScene : Game
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        var spawnroom = mapManager.GetMap("Map 1");
+        var spawnroom = mapManager.GetMap("Boss");
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
@@ -454,6 +455,12 @@ public class MainScene : Game
                 isEnteredMap2Cleared = true;
                 mapManager.ReplaceMapDoor("Map 1", 0, "Map 2 Cleared");
                 mapManager.ReplaceMapDoor("Map 3", 0, "Map 2 Cleared");
+            }
+
+            if (!isCameraZoomChanged && mapManager.CurrentMap.Name == "Boss")
+            {
+                camera.SetZoom(1f);
+                isCameraZoomChanged = true;
             }
 
             foreach (var map in mapManager.GetMaps().Values)
