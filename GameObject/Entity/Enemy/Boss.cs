@@ -18,7 +18,6 @@ namespace FinalProject.GameObject.Entity.Enemy
 
         public List<Bullet> Bullets { get; set; } = new List<Bullet>();
 
-
         public Boss(Vector2 position)
             : base(Singleton.Instance.Animations["Boss"], position)
         {
@@ -32,6 +31,7 @@ namespace FinalProject.GameObject.Entity.Enemy
                 Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
                 Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
             );
+
         }
 
         protected override void UpdateBounds()
@@ -162,7 +162,10 @@ namespace FinalProject.GameObject.Entity.Enemy
                     lifetime: lifetime,
                     widths: bulletWidth,
                     height: bulletHeight
-                );
+                )
+                {
+                    bulletTexture = Singleton.Instance.BossSmallBulletTexture // Assign texture here
+                };
 
                 Singleton.Instance.EnemyBullets.Add(bullet);
             }
@@ -182,7 +185,10 @@ namespace FinalProject.GameObject.Entity.Enemy
                 lifetime: 3f,
                 80,      // ✅ กำหนดขนาดที่ต้องการ
                 80
-            );
+            )
+            {
+                bulletTexture = Singleton.Instance.BossBigBulletTexture // Assign texture here
+            }; ;
 
             Singleton.Instance.EnemyBullets.Add(bullet);
 

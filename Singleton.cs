@@ -50,7 +50,7 @@ class Singleton
 	public SpriteFont Font { get; set; }
 
 	// Debug settings
-	public bool ShowDebugInfo { get; set; } = true; // Set to true by default for testing
+	public bool ShowDebugInfo { get; set; } = false; // Set to true by default for testing
 
 	// Add this property after other properties
 	public GameState CurrentGameState { get; set; } = GameState.Splash;
@@ -64,6 +64,8 @@ class Singleton
 	public Texture2D ShotgunTexture;
 	public Texture2D CrowbarTexture;
 	public Texture2D GrenadeTexture;
+	public Texture2D BossSmallBulletTexture;
+	public Texture2D BossBigBulletTexture;
 
 
 

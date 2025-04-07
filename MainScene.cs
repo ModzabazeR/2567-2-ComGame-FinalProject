@@ -140,6 +140,11 @@ public class MainScene : Game
         Texture2D bossPickupGrenade = Content.Load<Texture2D>("Textures/boss/Boss_PickupGrenade");
         Texture2D bossThrowGrenade = Content.Load<Texture2D>("Textures/boss/Boss_ThrowGrenade");
         Texture2D bossDeath = Content.Load<Texture2D>("Textures/boss/Boss_Death");
+        Texture2D bossSmallBullet = Content.Load<Texture2D>("Textures/boss/smallBullet");
+        Texture2D bossBigBullet = Content.Load<Texture2D>("Textures/boss/bigBullet");
+
+        Singleton.Instance.BossSmallBulletTexture = bossSmallBullet;
+        Singleton.Instance.BossBigBulletTexture = bossBigBullet;
 
         _inventorySlotEmpty = Content.Load<Texture2D>("Textures/inventory/Inventory_Slot_Empty");
         _inventorySlotSelected = Content.Load<Texture2D>("Textures/inventory/Inventory_Slot_Selected");
@@ -238,7 +243,7 @@ public class MainScene : Game
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        var spawnroom = mapManager.GetMap("Map 1");
+        var spawnroom = mapManager.GetMap("Boss");
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");

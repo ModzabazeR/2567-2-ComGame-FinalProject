@@ -6,7 +6,7 @@ namespace FinalProject.GameObject.Entity;
 
 public class Bullet : Entity
 {
-	private float damage;	
+	private float damage;
 	private float speed;
 	private Vector2 direction;
 	private bool isActive;
@@ -15,8 +15,9 @@ public class Bullet : Entity
 
 	private int bulletWidth;
 	private int bulletHeight;
+	public Texture2D bulletTexture { get; set; } // Add this property
 
-	public Bullet(Vector2 position, Vector2 direction, float speed, float damage, float lifetime , int widths, int height)
+	public Bullet(Vector2 position, Vector2 direction, float speed, float damage, float lifetime, int widths, int height)
 		: base(position)
 	{
 		this.direction = direction;
@@ -26,10 +27,10 @@ public class Bullet : Entity
 		this.currentLifetime = 0f;
 		this.isActive = true;
 		bulletWidth = widths;
-    	bulletHeight = height;
+		bulletHeight = height;
 
 		// initial bounds
-    	Bounds = new Rectangle((int)position.X, (int)position.Y, bulletWidth, bulletHeight);
+		Bounds = new Rectangle((int)position.X, (int)position.Y, bulletWidth, bulletHeight);
 
 	}
 
@@ -64,12 +65,16 @@ public class Bullet : Entity
 	}
 	public override void Draw(SpriteBatch spriteBatch)
 	{
-		base.Draw(spriteBatch); // วาด sprite/animation ปกติ
+		if (bulletTexture != null) // Only draw if texture exists
+		{
+			spriteBatch.Draw(
+				bulletTexture,
+				new Rectangle((int)Position.X, (int)Position.Y, bulletWidth, bulletHeight),
+				Color.White
+			);
+		}
 
-		// // วาด Hitbox ของ Boss
-		// Texture2D hitboxTex = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-		// hitboxTex.SetData(new[] { Color.Red });
-		// spriteBatch.Draw(hitboxTex, Bounds, Color.Red * 0.4f);
+		base.Draw(spriteBatch); // Keep debug bounding box drawing
 	}
 
 
