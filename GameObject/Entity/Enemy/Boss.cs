@@ -14,11 +14,12 @@ namespace FinalProject.GameObject.Entity.Enemy
         private float currentAttackCooldown = 0f;
         private Random random = new Random();
         private string currentAttackType = "Idle";
+        private Map bossMap;
 
         public List<Bullet> Bullets { get; set; } = new List<Bullet>();
 
-        
-        public Boss(Vector2 position) 
+
+        public Boss(Vector2 position)
             : base(Singleton.Instance.Animations["Boss"], position)
         {
             // Set boss properties
@@ -26,20 +27,20 @@ namespace FinalProject.GameObject.Entity.Enemy
             _currentAnimationKey = "Idle";
             _animationManager.Play(_animations["Idle"]);
             Bounds = new Rectangle(
-				(int)(Position.X), // offset X เข้ากลาง
-				(int)(Position.Y), // offset Y ลงมาให้ถึงขา
-				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
-				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
+                (int)(Position.X), // offset X เข้ากลาง
+                (int)(Position.Y), // offset Y ลงมาให้ถึงขา
+                Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
+                Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
             );
         }
 
         protected override void UpdateBounds()
         {
             Bounds = new Rectangle(
-				(int)(Position.X), // offset X เข้ากลาง
-				(int)(Position.Y), // offset Y ลงมาให้ถึงขา
-				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
-				Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
+                (int)(Position.X), // offset X เข้ากลาง
+                (int)(Position.Y), // offset Y ลงมาให้ถึงขา
+                Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
+                Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
             );
         }
 
@@ -54,9 +55,9 @@ namespace FinalProject.GameObject.Entity.Enemy
 
             if (!IsSpawned || IsDefeated)
                 return;
-                
+
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            
+
             // Handle attack cooldown
             if (currentAttackCooldown > 0)
             {
@@ -68,15 +69,16 @@ namespace FinalProject.GameObject.Entity.Enemy
                 ChooseRandomAttack();
                 currentAttackCooldown = attackCooldown;
             }
-            
+
             // Update animation based on current attack
             _currentAnimationKey = currentAttackType;
-            _animationManager.Play(_animations[currentAttackType]);
-            
+            Animation animationToPlay = _animations[currentAttackType];
+            _animationManager.Play(animationToPlay);
+
             // Call the base update which handles physics, etc.
             base.Update(gameTime, platforms);
         }
-        
+
         private void ChooseRandomAttack()
         {
             // Randomly select an attack type
@@ -99,12 +101,17 @@ namespace FinalProject.GameObject.Entity.Enemy
                     Console.WriteLine("boomatt");
                     CreateExplosionZone();
                     break;
+                case 3:
+                    currentAttackType = "SwordAttack";
+                    Console.WriteLine("spawnminion");
+                    spawnMinions();
+                    break;
                 default:
                     currentAttackType = "Idle";
                     break;
             }
         }
-        
+
         public override void Defeat()
         {
             _currentAnimationKey = "Death";
@@ -113,37 +120,52 @@ namespace FinalProject.GameObject.Entity.Enemy
             base.Defeat();
         }
 
+        private void spawnMinions()
+        {
+            bossMap = Singleton.Instance.MapManager.GetMap("Boss");
+            List<SimpleEnemy> newMinions = new List<SimpleEnemy>();
+            for (int i = 0; i < 2; i++)
+            {
+                int randomX = random.Next(10, 30);
+                int randomY = random.Next(2, 15);
+                var enemy = new SimpleEnemy(Singleton.Instance.Animations["Zombie"], bossMap.TileToWorldPosition(randomX, randomY));
+                enemy.SetParentMap(bossMap);
+                newMinions.Add(enemy);
+            }
+            bossMap.GetEnemies().AddRange(newMinions);
+        }
+
         private void FireBulletLeftup()
         {
-        float baseSpeed = 300f;
-        float baseDamage = 2f;
-        float lifetime = 3f;
+            float baseSpeed = 300f;
+            float baseDamage = 2f;
+            float lifetime = 3f;
 
-        int bulletWidth = 50;
-        int bulletHeight = 50;
+            int bulletWidth = 50;
+            int bulletHeight = 50;
 
-        // ตำแหน่งเริ่มกลางของปากปืน
-        float startX = Position.X + 20;
-        float startY = Position.Y + 380;
+            // ตำแหน่งเริ่มกลางของปากปืน
+            float startX = Position.X + 20;
+            float startY = Position.Y + 380;
 
-        // ยิง 3 นัด เรียงในแนว X (ห่างกันแนวนอน)
-        for (int offsetX = -50; offsetX <= 50; offsetX += 50)
-        {
-            Vector2 spawn = new Vector2(startX + offsetX + 50, startY);
-            Vector2 dir = new Vector2(-1f, 0f); // ยิงซ้ายตรง
+            // ยิง 3 นัด เรียงในแนว X (ห่างกันแนวนอน)
+            for (int offsetX = -50; offsetX <= 50; offsetX += 50)
+            {
+                Vector2 spawn = new Vector2(startX + offsetX + 50, startY);
+                Vector2 dir = new Vector2(-1f, 0f); // ยิงซ้ายตรง
 
-            var bullet = new Bullet(
-                spawn,
-                dir,
-                speed: baseSpeed,
-                damage: baseDamage,
-                lifetime: lifetime,
-                widths: bulletWidth,
-                height: bulletHeight
-            );
+                var bullet = new Bullet(
+                    spawn,
+                    dir,
+                    speed: baseSpeed,
+                    damage: baseDamage,
+                    lifetime: lifetime,
+                    widths: bulletWidth,
+                    height: bulletHeight
+                );
 
-        Singleton.Instance.EnemyBullets.Add(bullet);
-        }
+                Singleton.Instance.EnemyBullets.Add(bullet);
+            }
 
         }
 
@@ -177,4 +199,4 @@ namespace FinalProject.GameObject.Entity.Enemy
 
 
     }
-} 
+}

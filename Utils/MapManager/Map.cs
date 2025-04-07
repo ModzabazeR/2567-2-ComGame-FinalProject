@@ -141,6 +141,9 @@ public class Map
 			enemies = [
 				new Boss(TileToWorldPosition(20, 3)) // ตำแหน่ง boss ปรากฏใน map boss
 			];
+			weapons = [
+				new Pistol(TileToWorldPosition(5, 15)) { EntityTexture = Singleton.Instance.PistolTexture },
+			];
 		}
 
 		enemies ??= new List<Enemy>();
@@ -372,13 +375,21 @@ public class Map
 					enemy.Spawn();
 				}
 			}
-			allEnemiesSpawned = true;
+			if (name != "Boss")
+			{
+				allEnemiesSpawned = true;
+			}
 		}
 	}
 
 	public List<Enemy> GetEnemies()
 	{
 		return enemies ?? [];
+	}
+
+	public List<Enemy> GetEnemiesCopy()
+	{
+		return new List<Enemy>(enemies ?? []);
 	}
 
 	public void AddWeapon(Weapon weapon)
