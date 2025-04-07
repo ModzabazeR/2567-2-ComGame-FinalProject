@@ -37,7 +37,6 @@ public class Map
 	private string name;
 	public string Name => name;
 	private List<Enemy> enemies;
-	private List<Weapon> weapons;
 	private bool hasPlayerEntered;
 	private TimeSpan? firstEntryTime;
 	private TimeSpan currentGameTime;
@@ -46,7 +45,7 @@ public class Map
 
 	public event Action OnMapCleared;
 
-	private List<Weapon> mapWeapons;
+	private List<Weapon> weapons;
 	private Texture2D mapOverlay;
 	private List<Rectangle> deadZones;
 	public List<Rectangle> DeadZones => deadZones;
@@ -82,13 +81,14 @@ public class Map
 			Position.Y + (realMapHeight / 2)
 		);
 
-		mapWeapons = new List<Weapon>();
-
 		if (name == "Map 1")
 		{
 			enemies = [
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(17, 15)),
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
+			];
+			weapons = [
+				new Crowbar(TileToWorldPosition(7, 18)),
 			];
 		}
 		else if (name == "Map 3")
@@ -99,6 +99,9 @@ public class Map
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(15, 6)),
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10)),
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(2, 12)),
+			];
+			weapons = [
+				new Pistol(TileToWorldPosition(17, 18)),
 			];
 		}
 		else if (name == "Map 4")
@@ -129,8 +132,12 @@ public class Map
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(15, 15)),
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(28, 10)),
 			];
+			weapons = [
+				new Shotgun(TileToWorldPosition(30, 18)),
+			];
 		}
 		enemies ??= new List<Enemy>();
+		weapons ??= new List<Weapon>();
 		foreach (var enemy in enemies)
 		{
 			enemy.SetParentMap(this);
@@ -142,29 +149,6 @@ public class Map
 		mapOverlay = overlayTexture;
 	}
 
-	private void LoadCollisionData(string path)
-	{
-		string[] lines = File.ReadAllLines(path);
-
-		// Raise an error if line width and height doesn't match map width and height
-		if (lines.Length != mapHeight || lines[0].Length != mapWidth)
-		{
-			throw new Exception($"Error on {path}:\nMap dimensions don't match. Expected {mapWidth}x{mapHeight}, got {lines[0].Length}x{lines.Length}");
-		}
-
-		collisionData = new bool[mapHeight, mapWidth];
-
-		for (int y = 0; y < lines.Length && y < mapHeight; y++)
-		{
-			string line = lines[y].Trim();
-			for (int x = 0; x < line.Length && x < mapWidth; x++)
-			{
-				collisionData[y, x] = line[x] == '1';
-			}
-		}
-	}
-
-	// TODO: 
 	private void LoadLCM(string path)
 	{
 		using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
@@ -401,12 +385,12 @@ public class Map
 
 	public void AddWeapon(Weapon weapon)
 	{
-		mapWeapons.Add(weapon);
+		weapons.Add(weapon);
 	}
 
 	public List<Weapon> GetWeapons()
 	{
-		return mapWeapons ?? [];
+		return weapons ?? [];
 	}
 
 	public Vector2 TileToWorldPosition(int tileX, int tileY)

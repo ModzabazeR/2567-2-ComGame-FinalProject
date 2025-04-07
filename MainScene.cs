@@ -227,12 +227,8 @@ public class MainScene : Game
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
         // Initialize player at Map 1's spawn point
-        var map1 = mapManager.GetMap("Map 7");
+        var map1 = mapManager.GetMap("Map 1");
         player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint, mapManager);
-        map1.AddWeapon(new FragGrenade(new Vector2(500, 550))); // Position where grenade spawns
-        map1.AddWeapon(new Crowbar(new Vector2(220, 550 - 40)));    // Subtract crowbar height
-        map1.AddWeapon(new Shotgun(new Vector2(300, 550 - 20)));    // Subtract shotgun height
-        map1.AddWeapon(new Pistol(new Vector2(400, 550 - 20)));     // Subtract pistol height
 
         Singleton.Instance.Player = player;
         Singleton.Instance.MapManager = mapManager;
