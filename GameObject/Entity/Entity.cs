@@ -44,7 +44,7 @@ public abstract class Entity
 			EntityTexture.SetData(new[] { Color.White });
 		}
 
-		Color boundingBoxColor = Color.Red * 0.7f;
+		Color boundingBoxColor = Color.Red * 0.1f; // Invisible bounding box
 
 		spriteBatch.Draw(EntityTexture, new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, 1), boundingBoxColor);
 		spriteBatch.Draw(EntityTexture, new Rectangle(Bounds.X, Bounds.Y + Bounds.Height, Bounds.Width, 1), boundingBoxColor);

@@ -27,7 +27,7 @@ public class Player : Movable
 	public Weapon.Weapon SecondaryWeapon => _secondaryWeapon;
 	public int CurrentWeapon { get; private set; } // 0 = primary, 1 = secondary
 	public int GrenadeCount => _grenadeCount;
-	private int _grenadeCount = 1;
+	private int _grenadeCount = 0;
 
 	private int maxHP = 10;
 	private int currentHP = 10;
@@ -248,7 +248,10 @@ public class Player : Movable
 					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
 					Vector2 spawnPos = Position + spawnOffset;
 
-					var bullet = new Bullet(spawnPos, direction, speed: 500f, damage: 1f, lifetime: 0.2f, widths: 30, height: 30);
+					var bullet = new Bullet(spawnPos, direction, speed: 500f, damage: 1f, lifetime: 0.2f, widths: 30, height: 30)
+					{
+						bulletTexture = Singleton.Instance.BossSmallBulletTexture // Assign texture here
+					}; ;
 					bullets.Add(bullet);
 					// isAttacking = true;
 					// attackTimer = attackDuration;
@@ -276,7 +279,10 @@ public class Player : Movable
 					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
 					Vector2 spawnPos = Position + spawnOffset;
 
-					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f, widths: 12, height: 12);
+					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f, widths: 12, height: 12)
+					{
+						bulletTexture = Singleton.Instance.BossSmallBulletTexture // Assign texture here
+					}; ;
 					bullets.Add(bullet);
 
 					Console.WriteLine(pistol.GetCurrentAmmo());
@@ -301,6 +307,7 @@ public class Player : Movable
 				Vector2 zonePos = Position + spawnOffset;
 				_animationManager.Play(_animations["Grenade_Throw"]);
 				var zone = new ExplosionZone(zonePos, 120, 120, fromPlayer: true);
+				SFXManager.Instance.PlaySound("bomb_sfx");
 				MainScene.explosionZones.Add(zone);
 
 				Console.WriteLine("Player threw a grenade!");

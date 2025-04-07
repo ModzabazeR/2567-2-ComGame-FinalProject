@@ -89,7 +89,6 @@ public class Map
 			];
 			weapons = [
 				new Crowbar(TileToWorldPosition(7, 18)) { EntityTexture = Singleton.Instance.CrowbarTexture },
-				new Shotgun(TileToWorldPosition(10, 18)) { EntityTexture = Singleton.Instance.ShotgunTexture },
 			];
 		}
 		else if (name == "Map 3")
@@ -109,6 +108,9 @@ public class Map
 		{
 			enemies = [
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
+			];
+			weapons =[
+				new FragGrenade(TileToWorldPosition(10, 18)) { EntityTexture = Singleton.Instance.GrenadeTexture },
 			];
 		}
 		else if (name == "Map 5")
@@ -141,11 +143,6 @@ public class Map
 		{
 			enemies = [
 				new Boss(TileToWorldPosition(20, 3)) // ตำแหน่ง boss ปรากฏใน map boss
-			];
-			weapons = [
-				new Crowbar(TileToWorldPosition(3, 15)) { EntityTexture = Singleton.Instance.CrowbarTexture },
-				new Pistol(TileToWorldPosition(5, 15)) { EntityTexture = Singleton.Instance.PistolTexture },
-				new Shotgun(TileToWorldPosition(7, 15)) { EntityTexture = Singleton.Instance.ShotgunTexture },
 			];
 		}
 

@@ -60,7 +60,7 @@ namespace FinalProject.GameObject
                     if (Area.Intersects(player.Bounds))
                     {
                         Vector2 knockback = Vector2.Normalize(player.Position - new Vector2(Area.X, Area.Y));
-                        player.TakeDamage(1, knockback);
+                        player.TakeDamage(5, knockback);
                     }
                 }
             }

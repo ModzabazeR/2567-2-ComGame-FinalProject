@@ -44,11 +44,6 @@ public class MainScene : Game
     private Texture2D _shotgunIcon;
     private Texture2D _grenadeIcon;
 
-    private Crowbar crowbar;
-    private Shotgun shotgun;
-    private Pistol pistol;
-    private Grenade grenade;
-
     private float timeRemaining = 60f * 10f; // 60 วินาที
     private SpriteFont timerFont;
 
@@ -96,12 +91,6 @@ public class MainScene : Game
         // Initialize map manager
         mapManager = new MapManager();
 
-        // Create player texture
-        //Texture2D playerTexture = new Texture2D(GraphicsDevice, 32, 32);
-        //Color[] playerData = new Color[32 * 32];
-        //for (int i = 0; i < playerData.Length; i++)
-        //    playerData[i] = Color.Red;
-        //playerTexture.SetData(playerData);
         Texture2D idleTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Idle");
         Texture2D runTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Walk");
         Texture2D jumpTexture = Content.Load<Texture2D>("Textures/player_movements/Player_Jump");
@@ -246,11 +235,9 @@ public class MainScene : Game
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        var spawnroom = mapManager.GetMap("Boss");
-
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
-        player = new Player(Singleton.Instance.Animations["Player"], spawnroom.SpawnPoint, mapManager);
+        player = new Player(Singleton.Instance.Animations["Player"], map1.SpawnPoint, mapManager);
 
         Singleton.Instance.Player = player;
         Singleton.Instance.MapManager = mapManager;
@@ -496,22 +483,22 @@ public class MainScene : Game
                                 if (player.CurrentWeapon == 0) {
                                     if (player.PrimaryWeapon is Crowbar)
                                     {
-                                        enemy.hit(3);
+                                        enemy.hit(1);
                                     }
                                     else if (player.PrimaryWeapon is Shotgun)
                                     {
-                                        enemy.hit(10);
+                                        enemy.hit(7);
                                     }
                                 }
                                 else if (player.CurrentWeapon == 1)
                                 {
                                     if (player.SecondaryWeapon is Crowbar)
                                     {
-                                        enemy.hit(3);
+                                        enemy.hit(1);
                                     }
                                     else if (player.SecondaryWeapon is Shotgun)
                                     {
-                                        enemy.hit(10);
+                                        enemy.hit(7);
                                     }
                                 }
                             }
@@ -715,7 +702,7 @@ public class MainScene : Game
                 _spriteBatch.Draw(
                     redTexture,
                     attackBox,
-                    Color.Red * 0.5f // โปร่งใสหน่อย
+                    Color.Red * 0.0f // โปร่งใสหน่อย
                 );
             }
 

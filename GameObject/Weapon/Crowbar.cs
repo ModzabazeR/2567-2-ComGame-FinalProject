@@ -59,7 +59,6 @@ public class Crowbar : MeleeWeapon
 		if (EntityTexture == null)
 		{
 			EntityTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
-			EntityTexture.SetData(new[] { Color.OrangeRed });
 		}
 		spriteBatch.Draw(EntityTexture, new Rectangle((int)Position.X, (int)Position.Y, EntityTexture.Width, EntityTexture.Height), Color.White);
 	}
