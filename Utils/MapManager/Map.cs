@@ -109,7 +109,7 @@ public class Map
 			enemies = [
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
 			];
-			weapons =[
+			weapons = [
 				new FragGrenade(TileToWorldPosition(10, 18)) { EntityTexture = Singleton.Instance.GrenadeTexture },
 			];
 		}
@@ -361,6 +361,16 @@ public class Map
 				isMapCleared = true;
 				OnMapCleared?.Invoke();
 			}
+		}
+	}
+
+	// Force the map to be marked as cleared and trigger the OnMapCleared event
+	public void ForceMapCleared()
+	{
+		if (!isMapCleared)
+		{
+			isMapCleared = true;
+			OnMapCleared?.Invoke();
 		}
 	}
 

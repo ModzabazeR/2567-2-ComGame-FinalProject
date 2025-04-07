@@ -480,7 +480,8 @@ public class MainScene : Game
                         {
                             if (!enemy.isInvincible)
                             {
-                                if (player.CurrentWeapon == 0) {
+                                if (player.CurrentWeapon == 0)
+                                {
                                     if (player.PrimaryWeapon is Crowbar)
                                     {
                                         enemy.hit(1);
@@ -839,6 +840,9 @@ public class MainScene : Game
 
     private void StartOutroSequence()
     {
+        // Play winning theme
+        BGMManager.Instance.PlayWinningTheme();
+
         var outroScreens = new List<SplashScreenData>
         {
             // The escape

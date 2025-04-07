@@ -32,7 +32,6 @@ namespace FinalProject.GameObject.Entity.Enemy
                 Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameWidth,                     // กว้าง
                 Singleton.Instance.Animations["Boss"][_currentAnimationKey].FrameHeight                      // สูง
             );
-
         }
 
         protected override void UpdateBounds()
@@ -120,12 +119,26 @@ namespace FinalProject.GameObject.Entity.Enemy
             _currentAnimationKey = "Death";
             _animationManager.Play(_animations["Death"]);
             SFXManager.Instance.playBossDeath();
+
             // Add any special defeat logic here
             base.Defeat();
+
+            // Ensure the boss map is marked as cleared
+            if (bossMap == null)
+            {
+                bossMap = Singleton.Instance.MapManager.GetMap("Boss");
+            }
+
+            // Force check if the map is cleared after boss defeat
+            if (bossMap != null)
+            {
+                // Force trigger the map cleared event
+                bossMap.ForceMapCleared();
+            }
         }
 
         private void spawnMinions()
-        {   
+        {
             SFXManager.Instance.playBossMelee();
             bossMap = Singleton.Instance.MapManager.GetMap("Boss");
             List<SimpleEnemy> newMinions = new List<SimpleEnemy>();
