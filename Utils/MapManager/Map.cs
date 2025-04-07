@@ -45,7 +45,7 @@ public class Map
 
 	public event Action OnMapCleared;
 
-	private List<Weapon> mapWeapons;
+	private List<Weapon> weapons;
 	private Texture2D mapOverlay;
 	private List<Rectangle> deadZones;
 	public List<Rectangle> DeadZones => deadZones;
@@ -81,19 +81,59 @@ public class Map
 			Position.Y + (realMapHeight / 2)
 		);
 
-		mapWeapons = new List<Weapon>();
-
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(6, 6))];
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(17, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
+			];
+			weapons = [
+				new Crowbar(TileToWorldPosition(7, 18)) { EntityTexture = Singleton.Instance.CrowbarTexture },
+			];
 		}
 		else if (name == "Map 3")
 		{
 			enemies =
 			[
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(21, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10))
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(15, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(2, 12)),
+			];
+			weapons = [
+				new Pistol(TileToWorldPosition(17, 18)) { EntityTexture = Singleton.Instance.PistolTexture },
+			];
+		}
+		else if (name == "Map 4")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
+			];
+		}
+		else if (name == "Map 5")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(5, 15)),
+			];
+		}
+		else if (name == "Map 6")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(5, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(8, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(17, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(29, 5)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(20, 5)),
+			];
+		}
+		else if (name == "Map 7")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(15, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(28, 10)),
+			];
+			weapons = [
+				new Shotgun(TileToWorldPosition(30, 18)) { EntityTexture = Singleton.Instance.ShotgunTexture },
 			];
 		}
 		else if (name == "Boss")
@@ -104,6 +144,7 @@ public class Map
 		}
 
 		enemies ??= new List<Enemy>();
+		weapons ??= new List<Weapon>();
 		foreach (var enemy in enemies)
 		{
 			enemy.SetParentMap(this);
@@ -115,29 +156,6 @@ public class Map
 		mapOverlay = overlayTexture;
 	}
 
-	private void LoadCollisionData(string path)
-	{
-		string[] lines = File.ReadAllLines(path);
-
-		// Raise an error if line width and height doesn't match map width and height
-		if (lines.Length != mapHeight || lines[0].Length != mapWidth)
-		{
-			throw new Exception($"Error on {path}:\nMap dimensions don't match. Expected {mapWidth}x{mapHeight}, got {lines[0].Length}x{lines.Length}");
-		}
-
-		collisionData = new bool[mapHeight, mapWidth];
-
-		for (int y = 0; y < lines.Length && y < mapHeight; y++)
-		{
-			string line = lines[y].Trim();
-			for (int x = 0; x < line.Length && x < mapWidth; x++)
-			{
-				collisionData[y, x] = line[x] == '1';
-			}
-		}
-	}
-
-	// TODO: 
 	private void LoadLCM(string path)
 	{
 		using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
@@ -290,28 +308,6 @@ public class Map
 		SpawnEnemies();
 		CheckMapCleared();
 		CheckIntersectDeadZone(playerPosition);
-
-		// debug for map 3, remove this if you want to manually clear the map
-		if (name == "Map 3" && GetTimeSinceEntry()?.TotalSeconds >= 10)
-		{
-			foreach (var enemy in enemies)
-			{
-				enemy.Defeat();
-			}
-		}
-
-		else if (name == "Boss")
-		{
-			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3 && !allEnemiesSpawned)
-			{
-				foreach (var enemy in enemies)
-				{
-					if (!enemy.IsSpawned)
-						enemy.Spawn();
-				}
-				allEnemiesSpawned = true;
-			}
-		}
 	}
 
 	public void CheckIntersectDeadZone(Vector2 playerPosition)
@@ -367,43 +363,16 @@ public class Map
 
 	public void SpawnEnemies()
 	{
-		if (name == "Map 1")
+		if (hasPlayerEntered && !allEnemiesSpawned)
 		{
-			// Map 1 spawn logic
 			foreach (var enemy in enemies)
 			{
-				if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 2)
+				if (!enemy.IsSpawned)
 				{
-					if (!enemy.IsSpawned)
-					{
-						enemy.Spawn();
-					}
+					enemy.Spawn();
 				}
 			}
-		}
-		else if (name == "Map 3")
-		{
-			// Map 3 spawn logic - spawn enemies after 5 seconds of entering
-			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5 && !allEnemiesSpawned)
-			{
-				// Spawn all enemies
-				foreach (var enemy in enemies)
-				{
-					if (!enemy.IsSpawned)
-					{
-						enemy.Spawn();
-					}
-				}
-				allEnemiesSpawned = true;
-			}
-		}
-		else if (name == "Map 4")
-		{
-			// Map 4 spawn logic - spawn enemies after 3 seconds of entering
-			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3)
-			{
-				// Add your Map 4 specific spawn logic here
-			}
+			allEnemiesSpawned = true;
 		}
 	}
 
@@ -414,12 +383,12 @@ public class Map
 
 	public void AddWeapon(Weapon weapon)
 	{
-		mapWeapons.Add(weapon);
+		weapons.Add(weapon);
 	}
 
 	public List<Weapon> GetWeapons()
 	{
-		return mapWeapons ?? [];
+		return weapons ?? [];
 	}
 
 	public Vector2 TileToWorldPosition(int tileX, int tileY)

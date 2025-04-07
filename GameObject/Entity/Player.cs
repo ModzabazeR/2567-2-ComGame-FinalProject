@@ -112,8 +112,8 @@ public class Player : Movable
 			return; // Skip movement updates during transition
 		}
 
-		// Update attack state
-		if (isAttackLocked)
+		// Update attack state - only lock movement for non-crowbar weapons
+		if (isAttackLocked && _currentWeapon != null && !(_currentWeapon is Crowbar))
 		{
 			attackTimer -= dt;
 			if (attackTimer <= 0)
@@ -123,7 +123,6 @@ public class Player : Movable
 			}
 			return; // Lock other updates during attack
 		}
-
 
 		// Remove the debug Console.WriteLine calls
 		if (isMovingOnGround)
@@ -156,7 +155,6 @@ public class Player : Movable
 		}
 
 		base.Update(gameTime, platforms);
-
 	}
 
 	private void HandleInput()
@@ -221,9 +219,12 @@ public class Player : Movable
 				Animation anim = _animations[attackAnim];
 				attackDuration = anim.FrameCount * anim.FrameSpeed;
 				isAttacking = true;
-				isAttackLocked = true;
+				// Don't lock movement for crowbar attacks
+				// isAttackLocked = true;
 				attackTimer = attackDuration;
 				_animationManager.Play(anim);
+				// Set invincibility for just a brief moment during attack
+				invincibilityTimer = 0.2f; // 0.2 seconds of invincibility
 			}
 			else
 			{
@@ -234,11 +235,12 @@ public class Player : Movable
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.V) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.V))
 		{
-			if (_currentWeapon != null && _currentWeapon is Shotgun) 
+			if (_currentWeapon != null && _currentWeapon is Shotgun)
 			{
-				Shotgun shotgun = (Shotgun) _currentWeapon;
-				
-				if(shotgun.GetCurrentAmmo() > 0){
+				Shotgun shotgun = (Shotgun)_currentWeapon;
+
+				if (shotgun.GetCurrentAmmo() > 0)
+				{
 					isAttacking = true;
 					attackTimer = attackDuration;
 					Console.WriteLine(shotgun.GetCurrentAmmo());
@@ -253,18 +255,19 @@ public class Player : Movable
 		}
 
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.K) &&
-    	Singleton.Instance.PreviousKey.IsKeyUp(Keys.K))
+		Singleton.Instance.PreviousKey.IsKeyUp(Keys.K))
 		{
 			if (_currentWeapon != null && _currentWeapon is Pistol)
 			{
-				Pistol pistol = (Pistol) _currentWeapon;
-				if(pistol.GetCurrentAmmo() > 0){
+				Pistol pistol = (Pistol)_currentWeapon;
+				if (pistol.GetCurrentAmmo() > 0)
+				{
 					Console.WriteLine("bullet shoot");
 					Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
 					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
 					Vector2 spawnPos = Position + spawnOffset;
 
-					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f , widths: 12 , height: 12);
+					var bullet = new Bullet(spawnPos, direction, speed: 700f, damage: 1f, lifetime: 2f, widths: 12, height: 12);
 					bullets.Add(bullet);
 
 					Console.WriteLine(pistol.GetCurrentAmmo());
@@ -407,32 +410,38 @@ public class Player : Movable
 			PickupGrenade();
 			return true;
 		}
-		if (weapon is PistolBulletItem){
-            if (PrimaryWeapon is Pistol){
- 				((Pistol) PrimaryWeapon).Reload();
+		if (weapon is PistolBulletItem)
+		{
+			if (PrimaryWeapon is Pistol)
+			{
+				((Pistol)PrimaryWeapon).Reload();
 				SFXManager.Instance.PlaySound("9mm Pistol Reload 2");
 			}
-            else if(SecondaryWeapon is Pistol){
-                ((Pistol) SecondaryWeapon).Reload();
+			else if (SecondaryWeapon is Pistol)
+			{
+				((Pistol)SecondaryWeapon).Reload();
 				SFXManager.Instance.PlaySound("9mm Pistol Reload 2");
 
-            }
+			}
 			return true;
-                                
-        }
-        if (weapon is ShotgunBulletItem){
-            if (PrimaryWeapon is Shotgun){
-                Shotgun shotgun = (Shotgun) PrimaryWeapon;
-                shotgun.Reload();
+
+		}
+		if (weapon is ShotgunBulletItem)
+		{
+			if (PrimaryWeapon is Shotgun)
+			{
+				Shotgun shotgun = (Shotgun)PrimaryWeapon;
+				shotgun.Reload();
 				SFXManager.Instance.PlaySound("Shotgun_Pump");
-            }
-            else if(SecondaryWeapon is Shotgun){
-                Shotgun shotgun = (Shotgun) SecondaryWeapon;
-                shotgun.Reload();
+			}
+			else if (SecondaryWeapon is Shotgun)
+			{
+				Shotgun shotgun = (Shotgun)SecondaryWeapon;
+				shotgun.Reload();
 				SFXManager.Instance.PlaySound("Shotgun_Pump");
 			}
 			return true;
-        }
+		}
 
 		if (_secondaryWeapon == null)
 		{

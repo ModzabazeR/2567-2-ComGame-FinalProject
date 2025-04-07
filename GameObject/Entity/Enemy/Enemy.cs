@@ -28,7 +28,7 @@ public abstract class Enemy : Movable
 	private float screamTimer = 0f;
 
 	private const float FOOTSTEP_INTERVAL = 5f; // seconds
-	
+
 
 
 
@@ -75,7 +75,7 @@ public abstract class Enemy : Movable
 
 		if (_isDefeated)
 			return;
-		
+
 		// if (this is Boss)
 		// {
 		// 	Texture2D hitboxTex = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
@@ -142,7 +142,7 @@ public abstract class Enemy : Movable
 		_isDefeated = true;
 		Despawn();
 		Console.WriteLine("enemy Defeat ");
-			// ✅ Drop item
+		// ✅ Drop item
 		if (parentMap != null)
 		{
 			Random rng = new Random();
@@ -151,9 +151,9 @@ public abstract class Enemy : Movable
 
 			Weapon.Weapon drop;
 			if (dropType == 0)
-				drop = new PistolBulletItem(Position) {EntityTexture = Singleton.Instance.PistolAmmoTexture};
+				drop = new PistolBulletItem(Position) { EntityTexture = Singleton.Instance.PistolAmmoTexture };
 			else
-				drop = new ShotgunBulletItem(Position) {EntityTexture = Singleton.Instance.ShotgunAmmoTexture};
+				drop = new ShotgunBulletItem(Position) { EntityTexture = Singleton.Instance.ShotgunAmmoTexture };
 
 			parentMap.GetWeapons().Add(drop);
 		}
@@ -163,7 +163,8 @@ public abstract class Enemy : Movable
 	{
 		enemyHP = enemyHP - i;
 		Console.WriteLine("this is enemyHP : " + enemyHP);
-		if (enemyHP <= 0){
+		if (enemyHP <= 0)
+		{
 			Defeat();
 		}
 		invincibilityTimer = invincibilityTime;

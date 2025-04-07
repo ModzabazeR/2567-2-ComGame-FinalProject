@@ -60,6 +60,12 @@ class Singleton
 
 	public Texture2D PistolAmmoTexture;
 	public Texture2D ShotgunAmmoTexture;
+	public Texture2D PistolTexture;
+	public Texture2D ShotgunTexture;
+	public Texture2D CrowbarTexture;
+	public Texture2D GrenadeTexture;
+
+
 
 	private Singleton() { }
 

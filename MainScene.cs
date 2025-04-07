@@ -46,7 +46,7 @@ public class MainScene : Game
     private Texture2D _shotgunIcon;
     private Texture2D _grenadeIcon;
 
-    private float timeRemaining = 60f * 5f; // 60 วินาที * 5 นาที
+    private float timeRemaining = 60f * 10f; // 60 วินาที
     private SpriteFont timerFont;
 
     public static List<ExplosionZone> explosionZones = new();
@@ -121,12 +121,12 @@ public class MainScene : Game
         Texture2D grenadeWalk = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Walk");
         Texture2D grenadeThrow = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade_Throw");
 
-        Texture2D crowbarTexture = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar");
-        Texture2D pistolTexture = Content.Load<Texture2D>("Textures/player_weapons/pistol/Glock - P80 [64x48]");
-        Texture2D grenadeTexture = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade-2");
-        Texture2D shotgunTexture = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun");
-        Texture2D pistolAmmo = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Ammo");
-        Texture2D shotgunAmmo = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Ammo");
+        Singleton.Instance.CrowbarTexture = Content.Load<Texture2D>("Textures/player_weapons/crowbar/Crowbar");
+        Singleton.Instance.PistolTexture = Content.Load<Texture2D>("Textures/player_weapons/pistol/Glock - P80 [64x48]");
+        Singleton.Instance.GrenadeTexture = Content.Load<Texture2D>("Textures/player_weapons/grenade/Grenade-2");
+        Singleton.Instance.ShotgunTexture = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun");
+        Singleton.Instance.PistolAmmoTexture = Content.Load<Texture2D>("Textures/player_weapons/pistol/Pistol_Ammo");
+        Singleton.Instance.ShotgunAmmoTexture = Content.Load<Texture2D>("Textures/player_weapons/shotgun/Shotgun_Ammo");
 
         Texture2D zombieIdle = Content.Load<Texture2D>("Textures/zombie/Zombie_Idle");
         Texture2D zombieWalk = Content.Load<Texture2D>("Textures/zombie/Zombie_Walk");
@@ -172,9 +172,6 @@ public class MainScene : Game
             { "Grenade_Walk", new Animation(grenadeWalk, 48, 75, 8, 0.125f) },
             { "Grenade_Throw", new Animation(grenadeThrow, 48, 75, 8, 0.125f) }
         };
-
-        Singleton.Instance.PistolAmmoTexture = pistolAmmo;
-        Singleton.Instance.ShotgunAmmoTexture = shotgunAmmo;
 
         Singleton.Instance.Animations["Zombie"] = new Dictionary<string, Animation>
         {
@@ -240,16 +237,11 @@ public class MainScene : Game
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        var spawnroom = mapManager.GetMap("Boss");
+        var spawnroom = mapManager.GetMap("Map 1");
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
         player = new Player(Singleton.Instance.Animations["Player"], spawnroom.SpawnPoint, mapManager);
-        map1.AddWeapon(new FragGrenade(new Vector2(500, 550)) { EntityTexture = grenadeTexture });
-        spawnroom.AddWeapon(new Crowbar(new Vector2(23400, 500)) { EntityTexture = crowbarTexture });
-        spawnroom.AddWeapon(new Shotgun(new Vector2(23300, 500)) { EntityTexture = shotgunTexture });
-        spawnroom.AddWeapon(new Pistol(new Vector2(23200, 500)) {EntityTexture = pistolTexture});
-        //spawnroom.AddWeapon(new Pistol(new Vector2(400, 550 - 20)) { EntityTexture = pistolTexture });
 
         Singleton.Instance.Player = player;
         Singleton.Instance.MapManager = mapManager;
@@ -300,6 +292,12 @@ public class MainScene : Game
 
         timerFont = Singleton.Instance.Font; // ใช้ font เดียวกัน
 
+        // ตั้งปุ่ม Restart
+        restartButtonRect = new Rectangle(
+            Singleton.Instance.ScreenWidth / 2 - 100,
+            Singleton.Instance.ScreenHeight / 2,
+            200, 60
+        );
     }
 
     protected override void Update(GameTime gameTime)
@@ -362,13 +360,6 @@ public class MainScene : Game
             if (timeRemaining <= 0f)
             {
                 Singleton.Instance.CurrentGameState = GameState.GameOver;
-
-                // ตั้งปุ่ม Restart
-                restartButtonRect = new Rectangle(
-                    Singleton.Instance.ScreenWidth / 2 - 100,
-                    Singleton.Instance.ScreenHeight / 2,
-                    200, 60
-                );
             }
             // Get camera bounds for visibility checking
             Rectangle cameraBounds = new Rectangle(
@@ -484,7 +475,8 @@ public class MainScene : Game
                         if (player.IsAttacking && enemy.IsSpawned && !enemy.IsDefeated &&
                             enemy.Bounds.Intersects(player.GetAttackHitbox()))
                         {
-                            if(!enemy.isInvincible){
+                            if (!enemy.isInvincible)
+                            {
                                 enemy.hit(1);
                             }
                         }
@@ -591,11 +583,11 @@ public class MainScene : Game
     private Texture2D GetWeaponIcon(Weapon weapon)
     {
         // Use type checking with full namespace paths
-        if (weapon is FinalProject.GameObject.Weapon.Crowbar)
+        if (weapon is Crowbar)
             return _crowbarIcon;
-        if (weapon is FinalProject.GameObject.Weapon.Pistol)
+        if (weapon is Pistol)
             return _pistolIcon;
-        if (weapon is FinalProject.GameObject.Weapon.Shotgun)
+        if (weapon is Shotgun)
             return _shotgunIcon;
         return null;
     }
@@ -634,7 +626,7 @@ public class MainScene : Game
                     foreach (var enemy in map.GetEnemies())
                     {
                         enemy.Draw(_spriteBatch);
-                        
+
                     }
                     foreach (var weapon in map.GetWeapons())
                     {
