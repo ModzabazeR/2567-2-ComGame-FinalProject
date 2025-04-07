@@ -37,6 +37,7 @@ public class Map
 	private string name;
 	public string Name => name;
 	private List<Enemy> enemies;
+	private List<Weapon> weapons;
 	private bool hasPlayerEntered;
 	private TimeSpan? firstEntryTime;
 	private TimeSpan currentGameTime;
@@ -85,15 +86,48 @@ public class Map
 
 		if (name == "Map 1")
 		{
-			enemies = [new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(6, 6))];
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(17, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
+			];
 		}
 		else if (name == "Map 3")
 		{
 			enemies =
 			[
 				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(21, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(18, 6)),
-				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10))
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(15, 6)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(10, 10)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(2, 12)),
+			];
+		}
+		else if (name == "Map 4")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(35, 15)),
+			];
+		}
+		else if (name == "Map 5")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(5, 15)),
+			];
+		}
+		else if (name == "Map 6")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(5, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(8, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(17, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(29, 5)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(20, 5)),
+			];
+		}
+		else if (name == "Map 7")
+		{
+			enemies = [
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(15, 15)),
+				new SimpleEnemy(Singleton.Instance.Animations["Zombie"], TileToWorldPosition(28, 10)),
 			];
 		}
 		enemies ??= new List<Enemy>();
@@ -347,43 +381,16 @@ public class Map
 
 	public void SpawnEnemies()
 	{
-		if (name == "Map 1")
+		if (hasPlayerEntered && !allEnemiesSpawned)
 		{
-			// Map 1 spawn logic
 			foreach (var enemy in enemies)
 			{
-				if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 2)
+				if (!enemy.IsSpawned)
 				{
-					if (!enemy.IsSpawned)
-					{
-						enemy.Spawn();
-					}
+					enemy.Spawn();
 				}
 			}
-		}
-		else if (name == "Map 3")
-		{
-			// Map 3 spawn logic - spawn enemies after 5 seconds of entering
-			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 5 && !allEnemiesSpawned)
-			{
-				// Spawn all enemies
-				foreach (var enemy in enemies)
-				{
-					if (!enemy.IsSpawned)
-					{
-						enemy.Spawn();
-					}
-				}
-				allEnemiesSpawned = true;
-			}
-		}
-		else if (name == "Map 4")
-		{
-			// Map 4 spawn logic - spawn enemies after 3 seconds of entering
-			if (hasPlayerEntered && GetTimeSinceEntry()?.TotalSeconds >= 3)
-			{
-				// Add your Map 4 specific spawn logic here
-			}
+			allEnemiesSpawned = true;
 		}
 	}
 
