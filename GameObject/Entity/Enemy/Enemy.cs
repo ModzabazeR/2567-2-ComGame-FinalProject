@@ -16,7 +16,7 @@ public abstract class Enemy : Movable
 	private bool _isDefeated = false;
 	public bool IsDefeated => _isDefeated;
 
-	public int enemyHP = 5;
+	public int enemyHP = 10;
 
 	public float invincibilityTime = 1.0f;
 
@@ -28,9 +28,6 @@ public abstract class Enemy : Movable
 	private float screamTimer = 0f;
 
 	private const float FOOTSTEP_INTERVAL = 5f; // seconds
-
-
-
 
 	protected Enemy(Dictionary<string, Animation> animations, Vector2 position)
 		: base(animations, position)

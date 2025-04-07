@@ -3,7 +3,11 @@
   <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/crowbar/Crowbar_Idle.png</SourceFile>
   <SourceTime>2025-04-06T20:04:37.4284822+07:00</SourceTime>
   <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/player_weapons/crowbar/Crowbar_Idle.xnb</DestFile>
+<<<<<<< HEAD
   <DestTime>2025-04-07T22:43:39.6926581+07:00</DestTime>
+=======
+  <DestTime>2025-04-07T19:31:20.2141679+07:00</DestTime>
+>>>>>>> origin/Mor_sprite
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

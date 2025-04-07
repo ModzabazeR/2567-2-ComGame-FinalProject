@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD:Content/obj/DesktopGL/Textures/Why can't yout talk to me.mgcontent
+  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/Why can't yout talk to me.mp3</SourceFile>
+  <SourceTime>2025-04-07T22:09:36.6796122+07:00</SourceTime>
+  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/Why can't yout talk to me.xnb</DestFile>
+  <DestTime>2025-04-07T22:43:40.5170489+07:00</DestTime>
+=======
+  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/Why can't yout talk to me.mp3</SourceFile>
+  <SourceTime>2025-04-06T20:15:38.9649673+07:00</SourceTime>
+  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/SFX/Why can't yout talk to me.xnb</DestFile>
+  <DestTime>2025-04-07T19:38:33.7874641+07:00</DestTime>
+>>>>>>> origin/Mor_sprite:Content/obj/DesktopGL/SFX/Why can't yout talk to me.mgcontent
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2024-08-17T00:05:56+07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

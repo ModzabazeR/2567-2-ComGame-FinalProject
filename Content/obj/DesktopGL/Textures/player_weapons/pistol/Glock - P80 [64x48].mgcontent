@@ -3,7 +3,11 @@
   <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/player_weapons/pistol/Glock - P80 [64x48].png</SourceFile>
   <SourceTime>2025-04-07T18:37:44.4549345+07:00</SourceTime>
   <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/player_weapons/pistol/Glock - P80 [64x48].xnb</DestFile>
+<<<<<<< HEAD
   <DestTime>2025-04-07T22:43:39.7347342+07:00</DestTime>
+=======
+  <DestTime>2025-04-07T19:31:20.252166+07:00</DestTime>
+>>>>>>> origin/Mor_sprite
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

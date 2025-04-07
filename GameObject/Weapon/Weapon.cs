@@ -6,7 +6,7 @@ namespace FinalProject.GameObject.Weapon;
 
 public abstract class Weapon : Entity.Entity
 {
-	protected float damage;
+	protected int damage;
 	protected float cooldown;
 	protected float currentCooldown;
 	protected bool isAttacking;
@@ -58,7 +58,7 @@ public abstract class Weapon : Entity.Entity
 		isAttacking = false;
 	}
 
-	public float GetDamage()
+	public int GetDamage()
 	{
 		return damage;
 	}

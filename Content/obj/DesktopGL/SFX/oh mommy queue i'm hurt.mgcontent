@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD:Content/obj/DesktopGL/Textures/oh mommy queue i'm hurt.mgcontent
+  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/oh mommy queue i'm hurt.mp3</SourceFile>
+  <SourceTime>2025-04-07T22:09:36.6887478+07:00</SourceTime>
+  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/oh mommy queue i'm hurt.xnb</DestFile>
+  <DestTime>2025-04-07T22:43:39.5134165+07:00</DestTime>
+=======
+  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/oh mommy queue i'm hurt.mp3</SourceFile>
+  <SourceTime>2025-04-06T20:15:39.0003705+07:00</SourceTime>
+  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/SFX/oh mommy queue i'm hurt.xnb</DestFile>
+  <DestTime>2025-04-07T19:38:33.0595978+07:00</DestTime>
+>>>>>>> origin/Mor_sprite:Content/obj/DesktopGL/SFX/oh mommy queue i'm hurt.mgcontent
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2024-08-17T00:05:56+07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

@@ -127,12 +127,12 @@ public class Player : Movable
 		// Remove the debug Console.WriteLine calls
 		if (isMovingOnGround)
 		{
-			Console.WriteLine("Player is moving on ground");
+			// Console.WriteLine("Player is moving on ground");
 			footstepTimer += 0.25f;
-			Console.WriteLine($"Footstep timer: {footstepTimer}");
+			// Console.WriteLine($"Footstep timer: {footstepTimer}");
 			if (footstepTimer >= FOOTSTEP_INTERVAL)
 			{
-				Console.WriteLine("Playing footstep sound");
+				// Console.WriteLine("Playing footstep sound");
 				SFXManager.Instance.PlayFootSteps(); // Trigger footstep sound
 				footstepTimer = 0f;
 			}
@@ -215,6 +215,7 @@ public class Player : Movable
 		{
 			if (_currentWeapon != null && _currentWeapon is Crowbar)
 			{
+				Crowbar crowbar = (Crowbar)_currentWeapon;
 				string attackAnim = GetAttackAnimationName();
 				Animation anim = _animations[attackAnim];
 				attackDuration = anim.FrameCount * anim.FrameSpeed;
@@ -223,8 +224,9 @@ public class Player : Movable
 				// isAttackLocked = true;
 				attackTimer = attackDuration;
 				_animationManager.Play(anim);
+				crowbar.PerformAttack();
 				// Set invincibility for just a brief moment during attack
-				invincibilityTimer = 0.2f; // 0.2 seconds of invincibility
+				invincibilityTimer = 0.4f; // 0.4 seconds of invincibility
 			}
 			else
 			{
@@ -241,8 +243,15 @@ public class Player : Movable
 
 				if (shotgun.GetCurrentAmmo() > 0)
 				{
-					isAttacking = true;
-					attackTimer = attackDuration;
+					Console.WriteLine("shotgun shoot");
+					Vector2 direction = isFacingRight ? Vector2.UnitX : -Vector2.UnitX;
+					Vector2 spawnOffset = new Vector2(isFacingRight ? Bounds.Width : -12, 20);
+					Vector2 spawnPos = Position + spawnOffset;
+
+					var bullet = new Bullet(spawnPos, direction, speed: 500f, damage: 1f, lifetime: 0.2f, widths: 30, height: 30);
+					bullets.Add(bullet);
+					// isAttacking = true;
+					// attackTimer = attackDuration;
 					Console.WriteLine(shotgun.GetCurrentAmmo());
 					shotgun.PerformAttack();
 					Console.WriteLine(shotgun.GetCurrentAmmo());
@@ -412,6 +421,14 @@ public class Player : Movable
 		}
 		if (weapon is PistolBulletItem)
 		{
+			// Only allow pickup if player has a pistol in either slot
+			bool hasPistol = (_primaryWeapon is Pistol) || (_secondaryWeapon is Pistol);
+			if (!hasPistol)
+			{
+				Console.WriteLine("You don't have a pistol to use this ammo!");
+				return false;
+			}
+
 			if (PrimaryWeapon is Pistol)
 			{
 				((Pistol)PrimaryWeapon).Reload();
@@ -428,6 +445,14 @@ public class Player : Movable
 		}
 		if (weapon is ShotgunBulletItem)
 		{
+			// Only allow pickup if player has a shotgun in either slot
+			bool hasShotgun = (_primaryWeapon is Shotgun) || (_secondaryWeapon is Shotgun);
+			if (!hasShotgun)
+			{
+				Console.WriteLine("You don't have a shotgun to use this ammo!");
+				return false;
+			}
+
 			if (PrimaryWeapon is Shotgun)
 			{
 				Shotgun shotgun = (Shotgun)PrimaryWeapon;

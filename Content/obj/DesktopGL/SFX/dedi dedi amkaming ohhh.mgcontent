@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD:Content/obj/DesktopGL/Textures/dedi dedi amkaming ohhh.mgcontent
+  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/Textures/dedi dedi amkaming ohhh.mp3</SourceFile>
+  <SourceTime>2025-04-07T22:09:36.681609+07:00</SourceTime>
+  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Textures/dedi dedi amkaming ohhh.xnb</DestFile>
+  <DestTime>2025-04-07T22:43:34.6527701+07:00</DestTime>
+=======
+  <SourceFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/SFX/dedi dedi amkaming ohhh.mp3</SourceFile>
+  <SourceTime>2025-04-06T20:15:38.991335+07:00</SourceTime>
+  <DestFile>c:/Users/ADMIN/Desktop/CS classes/ThirdYear/Term2/ComGame/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/SFX/dedi dedi amkaming ohhh.xnb</DestFile>
+  <DestTime>2025-04-07T19:38:31.3969189+07:00</DestTime>
+>>>>>>> origin/Mor_sprite:Content/obj/DesktopGL/SFX/dedi dedi amkaming ohhh.mgcontent
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2024-08-17T00:05:56+07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
