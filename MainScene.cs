@@ -238,7 +238,7 @@ public class MainScene : Game
         // Initialize camera
         camera = new Camera(Singleton.Instance.ScreenWidth, Singleton.Instance.ScreenHeight);
 
-        var spawnroom = mapManager.GetMap("Boss");
+        var spawnroom = mapManager.GetMap("Map 1");
 
         // Initialize player at Map 1's spawn point
         var map1 = mapManager.GetMap("Map 1");
@@ -400,9 +400,9 @@ public class MainScene : Game
 
                 foreach (var map in mapManager.GetMaps().Values)
                 {
-                    if (!map.IsVisible(cameraBounds)) continue; // ✅ แก้ตรงนี้
+                    if (!map.IsVisible(cameraBounds)) continue;
 
-                    foreach (var enemy in map.GetEnemies())
+                    foreach (var enemy in map.GetEnemiesCopy())
                     {
                         if (!enemy.IsSpawned || enemy.IsDefeated) continue;
 
@@ -468,7 +468,7 @@ public class MainScene : Game
                 map.Update(gameTime, player.Position);
                 if (map.IsVisible(cameraBounds))
                 {
-                    foreach (var enemy in map.GetEnemies())
+                    foreach (var enemy in map.GetEnemiesCopy())
                     {
                         enemy.Update(gameTime, mapManager.GetAllSolidTiles());
 
@@ -630,10 +630,9 @@ public class MainScene : Game
             {
                 if (map.IsVisible(cameraBounds))
                 {
-                    foreach (var enemy in map.GetEnemies())
+                    foreach (var enemy in map.GetEnemiesCopy())
                     {
                         enemy.Draw(_spriteBatch);
-
                     }
                     foreach (var weapon in map.GetWeapons())
                     {
