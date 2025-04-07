@@ -27,7 +27,7 @@ public class Player : Movable
 	public Weapon.Weapon SecondaryWeapon => _secondaryWeapon;
 	public int CurrentWeapon { get; private set; } // 0 = primary, 1 = secondary
 	public int GrenadeCount => _grenadeCount;
-	private int _grenadeCount = 0;
+	private int _grenadeCount = 1;
 
 	private int maxHP = 10;
 	private int currentHP = 10;
@@ -280,6 +280,28 @@ public class Player : Movable
 				Console.WriteLine("You don't have a weapon to attack!");
 			}
 		}
+
+		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.L) &&
+			Singleton.Instance.PreviousKey.IsKeyUp(Keys.L))
+		{
+			if (_grenadeCount > 0)
+			{
+				_grenadeCount--;
+
+				Vector2 spawnOffset = new Vector2(isFacingRight ? 80 : -80, -45); // ด้านหน้าผู้เล่น
+				Vector2 zonePos = Position + spawnOffset;
+
+				var zone = new ExplosionZone(zonePos, 120, 120, fromPlayer: true);
+				MainScene.explosionZones.Add(zone);
+
+				Console.WriteLine("Player threw a grenade!");
+			}
+			else
+			{
+				Console.WriteLine("No grenades left!");
+			}
+		}
+
 
 		if (Singleton.Instance.CurrentKey.IsKeyDown(Keys.X) &&
 			Singleton.Instance.PreviousKey.IsKeyUp(Keys.X))

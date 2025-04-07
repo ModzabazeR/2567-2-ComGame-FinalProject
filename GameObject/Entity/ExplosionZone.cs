@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 using FinalProject.GameObject.Entity;
+using FinalProject.GameObject.Entity.Enemy;
+using System.Collections.Generic;
 
 namespace FinalProject.GameObject
 {
@@ -15,12 +17,17 @@ namespace FinalProject.GameObject
         private bool isExploded = false;
         private bool isFinished = false;
 
-        public ExplosionZone(Vector2 position, int width = 100, int height = 100)
+        private bool isFromPlayer;
+
+
+        public ExplosionZone(Vector2 position, int width, int height, bool fromPlayer = false)
         {
             Area = new Rectangle((int)position.X, (int)position.Y, width, height);
+            isFromPlayer = fromPlayer;
         }
 
-        public void Update(GameTime gameTime, Player player)
+
+        public void Update(GameTime gameTime, Player player, List<Enemy> enemies)
         {
             if (isFinished) return;
 
@@ -36,10 +43,25 @@ namespace FinalProject.GameObject
             // ถ้าระเบิดแล้วและยังอยู่ในช่วง damage
             if (isExploded && timer <= damageDuration)
             {
-                if (Area.Intersects(player.Bounds))
+                if (isFromPlayer)
                 {
-                    Vector2 knockback = Vector2.Normalize(player.Position - new Vector2(Area.X, Area.Y));
-                    player.TakeDamage(1, knockback);
+                    // ✅ ทำ damage ใส่ศัตรู
+                    foreach (var enemy in enemies)
+                    {
+                        if (!enemy.IsDefeated && enemy.IsSpawned && Area.Intersects(enemy.Bounds))
+                        {
+                            enemy.hit(10); // หรือใส่ damage ที่คุณต้องการ
+                        }
+                    }
+                }
+                else
+                {
+                    // ✅ ทำ damage ใส่ player
+                    if (Area.Intersects(player.Bounds))
+                    {
+                        Vector2 knockback = Vector2.Normalize(player.Position - new Vector2(Area.X, Area.Y));
+                        player.TakeDamage(1, knockback);
+                    }
                 }
             }
 

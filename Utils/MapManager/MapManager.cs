@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 using FinalProject.GameObject.Entity;
+using FinalProject.GameObject.Entity.Enemy;
 
 namespace FinalProject.Utils.MapManager;
 public class MapManager
@@ -170,5 +171,11 @@ public class MapManager
 			map.AddDeadZone(startTileX, startTileY, width, height);
 		}
 	}
+
+	public List<Enemy> GetAllEnemies()
+	{
+		return maps.Values.SelectMany(m => m.GetEnemies()).ToList();
+	}
+
 }
 

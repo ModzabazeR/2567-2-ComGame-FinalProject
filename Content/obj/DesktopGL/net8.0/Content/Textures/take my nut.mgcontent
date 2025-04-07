@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/Textures/take my nut.mp3</SourceFile>
-  <SourceTime>2025-04-07T17:32:20.5966252+07:00</SourceTime>
-  <DestFile>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/take my nut.xnb</DestFile>
-  <DestTime>2025-04-07T17:40:55.4242348+07:00</DestTime>
+  <SourceFile>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/Textures/take my nut.mp3</SourceFile>
+  <SourceTime>2025-04-07T19:00:30.9014645+07:00</SourceTime>
+  <DestFile>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/take my nut.xnb</DestFile>
+  <DestTime>2025-04-07T19:04:06.3957335+07:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-17T00:05:56+07:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/modda/OneDrive/Documents/KMITL/ปี 3/Computer Game Programming/FinalProject/Content/bin/DesktopGL/Content/Textures/take my nut.ogg</string>
+    <string>C:/Users/channo39mz/Desktop/ComgameFinal/2567-2-ComGame-FinalProject/Content/bin/DesktopGL/Content/Textures/take my nut.ogg</string>
   </BuildOutput>
 </PipelineBuildEvent>
